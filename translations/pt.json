@@ -2,5 +2,9 @@
     "title": "Bodia",
     "paragraph": "Eu não sei oq estou fazendo.",
     "hero-title": "Lorem Português Português Português Português Português ",
-    "services-title": "Serviços."
+    "services-title": "Serviços.",
+
+    "nav-services": "Serviços",
+    "nav-projects": "Projetos",
+    "nav-contact": "Contatos"
 }
