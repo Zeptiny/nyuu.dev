@@ -7,7 +7,7 @@
         @apply rounded-xl dark:bg-surfaceContainer p-3;
     }
     .title {
-        @apply text-center font-bold my-4 text-2xl;
+        @apply text-center font-bold text-2xl text-slate-200;
     }
     .nav-item {
         @apply p-2 rounded-md;
