@@ -6,4 +6,7 @@
     .default-container {
         @apply rounded-xl dark:bg-surfaceContainer p-3;
     }
+    .title {
+        @apply text-center font-bold my-4 text-2xl;
+    }
 }
