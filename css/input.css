@@ -9,4 +9,10 @@
     .title {
         @apply text-center font-bold my-4 text-2xl;
     }
+    .nav-item {
+        @apply p-2 rounded-md;
+    }
+    .default-hover{
+        @apply dark:hover:bg-surfaceContainer dark:hover:text-slate-100 hover:bg-slate-400 hover:text-slate-50;
+    }
 }

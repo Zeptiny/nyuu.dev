@@ -12,7 +12,7 @@
 <body class="dark:bg-surface dark:text-onSurface">
   <!-- Navbar -->
   <nav class="sticky top-0 z-50 backdrop-blur">
-    <div class="flex flex-row items-center mx-auto justify-between max-w-screen-lg">
+    <div class="flex flex-row items-center mx-auto justify-between max-w-screen-lg h-12">
       <div>
         <a>Nyuu.dev</a>
         <!-- Logo -->
@@ -20,13 +20,13 @@
       <div>
         <ul class="flex flex-row space-x-4">
           <li>
-            <a translate="nav-services"></a>
+            <a translate="nav-services" class="nav-item default-hover" href="#services"></a>
           </li>
           <li>
-            <a translate="nav-projects"></a>
+            <a translate="nav-projects" class="nav-item default-hover" href="#projects"></a>
           </li>
           <li>
-            <a translate="nav-contact"></a>
+            <a translate="nav-contact" class="nav-item default-hover" href="#contact"></a>
           </li>
         </ul>
       </div>
@@ -36,7 +36,7 @@
           <button
           id="lang-toggle"
           type="button"
-          class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-rounded-lg text-sm p-2.5"
+          class="default-hover text-sm p-2.5 rounded-lg"
         >
         <img id="lang-toggle-pt" class="w-5 h-5 hidden" src="img/brazil.svg">
         <img id="lang-toggle-en" class="w-5 h-5 hidden" src="img/united_states.svg">
@@ -48,7 +48,7 @@
           <button
             id="theme-toggle"
             type="button"
-            class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-rounded-lg text-sm p-2.5"
+            class="default-hover text-sm p-2.5 rounded-lg"
           >
           <svg
             id="theme-toggle-dark-icon"
