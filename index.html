@@ -20,13 +20,13 @@
       <div>
         <ul class="flex flex-row space-x-4">
           <li>
-            <a translate="nav-services" class="nav-item default-hover" href="#services"></a>
+            <a translate="services" class="nav-item default-hover" href="#services"></a>
           </li>
           <li>
-            <a translate="nav-projects" class="nav-item default-hover" href="#projects"></a>
+            <a translate="projects" class="nav-item default-hover" href="#projects"></a>
           </li>
           <li>
-            <a translate="nav-contact" class="nav-item default-hover" href="#contact"></a>
+            <a translate="contact" class="nav-item default-hover" href="#contact"></a>
           </li>
         </ul>
       </div>
@@ -86,15 +86,15 @@
     <div class="grid grid-cols-2 max-w-screen-lg mx-auto">
       <div class="">
         <h1 class="font-bold text-2xl mb-2 dark:text-slate-100">Howdy Hey!</h1>
-        <h1 class="ml-8 inline">Pode me chamar de</h1>
+        <h1 translate="hero-desc-1-1" class="ml-8 inline"></h1>
           <p data-tooltip-target="tooltip-name" class="inline">Nyuu, </p>
           <div id="tooltip-name" class="invisible dark:bg-surface rounded-lg p-2">
               Grentenville <br>
               Artur Benedetti
           </div>
-        <h1 class="inline">sou um louco que ama mexer em TI e administração de sistemas.</h1>
-        <h1 class="indent-8 mt-2">No momento estou cursando Ciência da Computação, na Universidade de Passo Fundo, buscando melhorar a cada dia.</h1>
-        <h1 class="indent-8 mt-2">Estou aberto para comissões para lhe ajudar em seu projeto ou empresa, sempre buscando novos desafios.</h1>
+        <h1 translate="hero-desc-1-2" class="inline"></h1>
+        <h1 translate="hero-desc-2" class="indent-8 mt-2"></h1>
+        <h1 translate="hero-desc-3" class="indent-8 mt-2"></h1>
       </div>
       <div>
         <!-- Adicionar imagem aqui -->
@@ -105,22 +105,22 @@
   
     <!-- Services -->
     <div class="mx-auto max-w-screen-lg">
-      <h1 translate="services-title" class="title mt-4"></h1>
-      <p class="text-center text-sm dark:text-slate-300">Alguns serviços que eu ofereceço</p>
+      <h1 translate="services" class="title mt-4"></h1>
+      <p translate="services-desc" class="text-center text-sm dark:text-slate-300"></p>
       <div class="grid grid-cols-8 mx-auto my-8">
         <div class="col-start-1 col-span-5 default-container grid grid-cols-3">
           <img src="img/dummy-200x200.png">
           <div class="col-span-2 mx-2">
-            <h1 class="font-bold text-lg dark:text-slate-200">Hospedagem de jogos</h1>
-            <p>Totalmente gerenciada e personalizada justamente para o seu projeto. Ideal para projetos que necessitam da maior performance e estabilidade possível. Qualquer hardware, em qualquer local a qualquer momento.</p>
+            <h1 translate="services-game-title" class="font-bold text-lg dark:text-slate-200"></h1>
+            <p translate="services-game-desc"></p>
           </div>
         </div>
       </div>
       <div class="grid grid-cols-8 mx-auto my-8">
         <div class="col-start-4 col-span-5 default-container grid grid-cols-3">
           <div class="col-span-2 mx-2">
-            <h1 class="font-bold text-lg dark:text-slate-200">Hospedagem de aplicações</h1>
-            <p>Seja para o seu website, aplicações de qualquer linguagem, bots do discord, ou armazenamento, como NextCloud, SeaFile ou MinIO totalmente redundante e acessível a todo o momento.</p>
+            <h1 translate="services-app-title" class="font-bold text-lg dark:text-slate-200"></h1>
+            <p translate="services-app-desc"></p>
           </div>
           <img src="img/dummy-200x200.png">
         </div>
@@ -129,16 +129,16 @@
         <div class="col-start-1 col-span-5 default-container grid grid-cols-3">
           <img src="img/dummy-200x200.png">
           <div class="col-span-2 mx-2">
-            <h1 class="font-bold text-lg dark:text-slate-200">Instalação de painel</h1>
-            <p>Instalação e configurações de paineis, seja para gerencimento, monitoramento, e financeiro. Com conhecimento em Pterodactyl, WHMCS, Proxmox, Virtualizor, Zabbix você não precisará se preocupar.</p>
+            <h1 translate="services-panel-title" class="font-bold text-lg dark:text-slate-200"></h1>
+            <p translate="services-panel-desc"></p>
           </div>
         </div>
       </div>
       <div class="grid grid-cols-8 mx-auto my-8">
         <div class="col-start-4 col-span-5 default-container grid grid-cols-3">
           <div class="col-span-2 mx-2">
-            <h1 class="font-bold text-lg dark:text-slate-200">Segurança & Backups</h1>
-            <p>Seja para o seu website, aplicações de qualquer linguagem, bots do discord, ou armazenamento, como NextCloud, SeaFile ou MinIO totalmente redundante e acessível a todo o momento.</p>
+            <h1 translate="services-backups-title" class="font-bold text-lg dark:text-slate-200"></h1>
+            <p translate="services-backups-desc"></p>
           </div>
           <img src="img/dummy-200x200.png">
         </div>
@@ -147,12 +147,12 @@
     <!-- End Services -->
   
     <!-- Projects -->
-    <h1 class="title">Projetos</h1>
-    <p class="text-center text-sm dark:text-slate-300">Um pequeno portfólio</p>
+    <h1 translate="projects" class="title"></h1>
+    <p translate="projects-desc" class="text-center text-sm dark:text-slate-300"></p>
     <div class="grid grid-cols-3 space-x-4 mx-auto max-w-screen-lg text-balance text-center my-8">
       <div class="default-container">
-        <h1 class="text-center font-bold text-lg dark:text-slate-200 mb-2">Miners' Refuge</h1>
-        <p>Comunidade de Minecraft, criada para dar suporte a donos de servidores e fornecer ferramentas gratuitas para facilitar o desenvilmento, como sugestões de correções de bugs e otimizações automáticas.</p>
+        <h1 translate="miners-title" class="text-center font-bold text-lg dark:text-slate-200 mb-2"></h1>
+        <p translate="miners-desc"></p>
         <div>
           <ul class="grid grid-cols-2 mt-2">
             <li>
@@ -165,8 +165,8 @@
         </div>
       </div>
       <div class="default-container">
-        <h1 class="text-center font-bold text-lg dark:text-slate-200 mb-2">Documentação de Minecraft</h1>
-        <p>Documentação pública, criada para e pela e comunidade de MInecraft, com guias e tutoriais mais variados, tudo disponível pelo Github com contribuições abertas.</p>
+        <h1 translate="docs-title" class="text-center font-bold text-lg dark:text-slate-200 mb-2"></h1>
+        <p translate="docs-desc"></p>
         <div>
           <ul class="grid grid-cols-2 mt-2">
             <li>
@@ -179,15 +179,15 @@
         </div>
       </div>
       <div class="default-container">
-        <h1 class="text-center font-bold text-lg dark:text-slate-200 mb-2">Tryxia Host <span class="text-slate-400 text-sm">(Descontinuado)</span></h1>
-        <p>Hospedagem de graça para Minecraft, e, posteriormente, de arquivos. Criada para adquirir mais conhecimento sobre a área, maneiras de reagir a atuar à diversas situações. Foi cancelada devido a falta de fundos.</p>
+        <h1 translate="tryxia-title" class="text-center font-bold text-lg dark:text-slate-200 inline"></h1><h1 translate="discontinued" class="text-slate-400 text-sm inline"></h1>
+        <p translate="tryxia-desc" class="mt-2"></p>
       </div>
     </div>
     <!-- End Projects -->
   
     <!-- Contato -->
     <div class="mx-auto max-w-screen-lg my-8">
-      <h1 class="title">Está interessado? Entre em contato comigo!</h1>
+      <h1 translate="cta-title" class="title"></h1>
       <div class="flex flex-wrap justify-center items-center mx-auto space-x-8 mt-2">
         <div class="flex">
         <a class="w-12" href="mailto:me@artbenedetti.com">
@@ -215,26 +215,22 @@
   <footer class="dark:bg-surfaceContainer bg-slate-100 py-4 border-t-[1px] dark:border-slate-700 border-slate-300">
     <div class="grid grid-cols-3 max-w-screen-lg mx-auto">
       <div class="self-center">
-        <p>
-          Apenas um doido que fica fazendo coisas aqui e ali
-        </p>
+        <p translate="footer-desc"></p>
       </div>
       <div class="flex flex-col">
-        <h1>Redes sociais</h1>
+        <h1 translate="footer-socials-title"></h1>
         <a class="dark:hover:text-slate-100 hover:text-slate-300 w-fit">Discord</a>
         <a class="dark:hover:text-slate-100 hover:text-slate-300 w-fit">Github</a>
         <a class="dark:hover:text-slate-100 hover:text-slate-300 w-fit">LinkedIn</a>
       </div>
       <div class="flex flex-col">
-        <h1>Projetos</h1>
-        <a class="dark:hover:text-slate-100 hover:text-slate-300 w-fit">Miner's Refuge</a>
-        <a class="dark:hover:text-slate-100 hover:text-slate-300 w-fit">Documentação</a>
-        <a class="dark:hover:text-slate-100 hover:text-slate-300 w-fit">Quill Bot</a>
+        <h1 translate="projects"></h1>
+        <a translate="footer-projects-1" class="dark:hover:text-slate-100 hover:text-slate-300 w-fit"></a>
+        <a translate="footer-projects-2" class="dark:hover:text-slate-100 hover:text-slate-300 w-fit"></a>
+        <a translate="footer-projects-3" class="dark:hover:text-slate-100 hover:text-slate-300 w-fit"></a>
       </div>
     </div>
-    <p class="text-center text-sm mt-2">
-      © 2024 - Nyuu. Alguns Direitos Reservados
-    </p>
+    <p translate="footer-copyright" class="text-center text-sm mt-2"></p>
   </footer>
   <!-- End Footer -->
 

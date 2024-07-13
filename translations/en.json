@@ -1,10 +1,41 @@
 {
-    "title": "Howdy hey",
-    "paragraph": "Help.",
-    "hero-title": "Lorem Inglês Inglês Inglês Inglês Inglês Inglês ",
-    "services-title": "Services.",
+    "services": "Services",
+    "projects": "Project",
+    "contact": "Contact",
+    "discontinued": "(Discontinued)",
 
-    "nav-services": "Services",
-    "nav-projects": "Projects",
-    "nav-contact": "Contact"
+    "hero-desc-1-1": "You can call me",
+    "hero-desc-1-2": "I'm a crazy person who loves tinkering with IT and systems administration.",
+    "hero-desc-2": "I'm currently studying Computer Science at the University of Passo Fundo (Brazil), trying to improve every day.",
+    "hero-desc-3": "I am open to commissions to help you with your project or company at any time, always looking for new challenges.",
+
+    "services-desc": "Some services that I offer",
+    "services-game-title": "Game hosting",
+    "services-game-desc": "Fully managed and customized precisely for your project. Ideal if you require require the highest possible performance and stability. Any hardware, anywhere at any time.",
+    "services-app-title": "Application hosting",
+    "services-app-desc": "Whether for your website, applications of any language, discord bots, or storage, such as NextCloud, SeaFile or MinIO, fully redundant and accessible at all times.",
+    "services-panel-title": "Panel setup",
+    "services-panel-desc": "Panel installation and configuration, whether for management, monitoring, or finance. With knowledge in Pterodactyl, WHMCS, Proxmox, Virtualizor, Zabbix you won't need to worry.",
+    "services-backups-title": "Security & Backups",
+    "services-backups-desc": "I will protect you against attacks and intrusions, in addition to configuring systems for disaster recovery and backups.",
+
+    "projects-desc": "A small portfolio",
+    "miners-title": "Miners' Refuge",
+    "miners-desc": "Minecraft community, created to support server owners and provide free tools to facilitate development, such as suggested bug fixes and automatic optimizations.",
+    "docs-title": "Minecraft Documentation",
+    "docs-desc": "Public documentation, created for and by the Minecraft community, with a wide range of guides and tutorials, all available on Github with open contributions.",
+    "tryxia-title": "Tryxia Host ",
+    "tryxia-desc": "Free hosting for Minecraft, previously for files. Created to acquire more knowledge about the area, ways to react and act in different situations. It was canceled due to lack of funds.",
+
+    "cta-title": "Are you interested? Contact me!",
+
+    "footer-desc": "Just a crazy person who does things here and there",
+    "footer-socials-title": "Socials",
+
+    
+    "footer-projects-1": "Miner's Refuge",
+    "footer-projects-2": "Documentation",
+    "footer-projects-3": "Quill Bot",
+
+    "footer-copyright": "© 2024 - Nyuu. Some Rights Reserved"
 }
