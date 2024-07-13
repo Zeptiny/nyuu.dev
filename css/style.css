@@ -772,6 +772,10 @@ video {
   align-items: center;
 }
 
+.justify-end {
+  justify-content: flex-end;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -800,6 +804,10 @@ video {
 
 .self-center {
   align-self: center;
+}
+
+.justify-self-end {
+  justify-self: end;
 }
 
 .text-balance {
@@ -884,6 +892,10 @@ video {
   text-align: center;
 }
 
+.text-right {
+  text-align: right;
+}
+
 .indent-8 {
   text-indent: 2rem;
 }
@@ -947,12 +959,25 @@ video {
 }
 
 @media (min-width: 640px) {
+  .sm\:right-0 {
+    right: 0px;
+  }
+
+  .sm\:right-auto {
+    right: auto;
+  }
+
   .sm\:col-span-2 {
     grid-column: span 2 / span 2;
   }
 
   .sm\:block {
     display: block;
+  }
+
+  .sm\:object-right-bottom {
+    -o-object-position: right bottom;
+       object-position: right bottom;
   }
 }
 
