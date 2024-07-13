@@ -4,7 +4,7 @@
 
 @layer base{
     .default-container {
-        @apply rounded-xl dark:bg-surfaceContainer bg-slate-100 p-3;
+        @apply rounded-xl dark:bg-surfaceContainer bg-slate-100 p-3 border-[1px] dark:border-slate-700 border-slate-300;
     }
     .title {
         @apply text-center font-bold text-2xl dark:text-slate-200;
