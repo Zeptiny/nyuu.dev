@@ -669,6 +669,10 @@ video {
   margin-top: 1rem;
 }
 
+.ml-8 {
+  margin-left: 2rem;
+}
+
 .inline-block {
   display: inline-block;
 }
@@ -840,6 +844,10 @@ video {
 
 .text-center {
   text-align: center;
+}
+
+.indent-8 {
+  text-indent: 2rem;
 }
 
 .text-2xl {
