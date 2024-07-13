@@ -15,4 +15,11 @@
     .default-hover{
         @apply dark:hover:bg-surfaceContainer dark:hover:text-slate-100 hover:bg-slate-400 hover:text-slate-50;
     }
+
+    h1 {
+        @apply sm:text-xl
+    }
+    p {
+        @apply sm:text-lg
+    }
 }
