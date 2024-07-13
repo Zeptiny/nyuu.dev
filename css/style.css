@@ -962,6 +962,10 @@ video {
     margin-bottom: 2rem;
   }
 
+  .md\:block {
+    display: block;
+  }
+
   .md\:grid-cols-8 {
     grid-template-columns: repeat(8, minmax(0, 1fr));
   }
