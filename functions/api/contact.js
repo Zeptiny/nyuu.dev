@@ -52,12 +52,12 @@ async function validateToken(ip, token) {
 
 async function forwardMessage(name, email, message) {
   const SENDER_EMAIL = "mail@nyuu.dev";
-  const RECIPIENT_EMAIL = email; 
+  const RECIPIENT_EMAIL = "me@artbenedetti.com"; 
 
   const msg = createMimeMessage();
   msg.setSender({ name: name, addr: SENDER_EMAIL });
   msg.setRecipient(RECIPIENT_EMAIL);
-  msg.setSubject(`Message from ${name}`);
+  msg.setSubject(`Message from ${name} | ${email}`);
   msg.addMessage({
     contentType: 'text/plain',
     data: message,
@@ -70,10 +70,8 @@ async function forwardMessage(name, email, message) {
   );
 
   try {
-    await context.env.SEB.send(emailMessage);
-    console.log("Email sent successfully");
+    await env.SEB.send(message);
   } catch (e) {
-    console.error("Error sending email:", e);
-    throw new Error("Failed to send email");
+    return new Response(e.message);
   }
 }
