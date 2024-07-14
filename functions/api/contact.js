@@ -1,10 +1,5 @@
 import { Resend } from 'resend';
 
-async function fetch(request, env, ctx) {
-    const resend = new Resend(env.RESEND_API_KEY);
-  }
-
-
 export async function onRequestPost(context) {
     try {
       return await handleRequest(context);
@@ -55,6 +50,7 @@ export async function onRequestPost(context) {
   }
   
   async function forwardMessage(name, email, message) {
+    const resend = new Resend(RESEND_API_KEY);
 
     const { data, error } = await resend.emails.send({
         from: 'test@no-reply.nyuu.dev',
