@@ -42,7 +42,7 @@ async function validateToken(ip, token) {
   return outcome.success;
 }
 
-async function forwardMessage(name, email, message) {
+async function forwardMessage(name, email, message, context) {
   const SENDGRID_API_KEY_VAR = context.env.SENDGRID_API_KEY
   const SENDGRID_EMAIL_RECIPIENT_VAR = context.env.SENDGRID_EMAIL_RECIPIENT
   const SENDGRID_EMAIL_SENDER_VAR = context.env.SENDGRID_EMAIL_SENDER
