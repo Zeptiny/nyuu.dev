@@ -49,8 +49,8 @@ export async function onRequestPost(context) {
     return outcome.success;
   }
   
-  async function forwardMessage(name, email, message, context, env) {
-    const resend = new Resend(context.env.RESEND_API_KEY);
+  async function forwardMessage(name, email, message) {
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     const { data, error } = await resend.emails.send({
         from: 'test@no-reply.nyuu.dev',
