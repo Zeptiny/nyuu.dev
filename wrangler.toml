@@ -1,0 +1,4 @@
+name = "nyuu-dev"
+
+[env.production.vars]
+RESEND_API_KEY = "dasasasasasasas"
