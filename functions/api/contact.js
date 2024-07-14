@@ -51,12 +51,9 @@ async function validateToken(ip, token) {
 }
 
 async function forwardMessage(name, email, message) {
-  const SENDER_EMAIL = "mail@nyuu.dev";
-  const RECIPIENT_EMAIL = "me@artbenedetti.com"; 
-
   const msg = createMimeMessage();
-  msg.setSender({ name: name, addr: SENDER_EMAIL });
-  msg.setRecipient(RECIPIENT_EMAIL);
+  msg.setSender({ name: "GPT-4", addr: "mail@nyuu.dev" });
+  msg.setRecipient("me@artbenedetti.com");
   msg.setSubject(`Message from ${name} | ${email}`);
   msg.addMessage({
     contentType: 'text/plain',
