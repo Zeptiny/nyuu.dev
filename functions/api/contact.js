@@ -43,9 +43,9 @@ async function validateToken(ip, token) {
 }
 
 async function forwardMessage(name, email, message) {
-  const SENDGRID_API_KEY = context.env.SENDGRID_API_KEY
-  const SENDGRID_EMAIL_RECIPIENT = context.env.SENDGRID_EMAIL_RECIPIENT
-  const SENDGRID_EMAIL_SENDER = context.env.SENDGRID_EMAIL_SENDER
+  const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY
+  const SENDGRID_EMAIL_RECIPIENT = process.env.SENDGRID_EMAIL_RECIPIENT
+  const SENDGRID_EMAIL_SENDER = process.env.SENDGRID_EMAIL_SENDER
   const msg = {
     personalizations: [{
       to: [{ email: SENDGRID_EMAIL_RECIPIENT }]
