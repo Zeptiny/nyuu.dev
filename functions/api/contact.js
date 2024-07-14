@@ -63,19 +63,3 @@ export async function onRequestPost(context) {
       headers: { 'Content-Type': 'application/json' },
     });
   }
-  
-  addEventListener("fetch", event => {
-    event.respondWith(handleRequest(event.request, event));
-  });
-  
-  async function handleRequest(request, event) {
-    const env = event.env;
-  
-    // Parse request body
-    const { name, email, message } = await request.json();
-  
-    // Call forwardMessage with the appropriate parameters
-    const response = await forwardMessage(name, email, message, env);
-    return response;
-  }
-  
