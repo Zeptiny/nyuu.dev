@@ -234,8 +234,32 @@
 
     <button type="submit">Submit</button>
   </form>
+  <div id="status"></div>
     <!-- End Form Testing -->
   </main>
+  <script>
+    // Function to get query parameter by name
+    function getQueryParam(name) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+    }
+
+    // Update the status message based on the query parameter
+    window.addEventListener('load', () => {
+      const statusDiv = document.getElementById('status');
+      const status = getQueryParam('status');
+
+      if (statusDiv && status) {
+        if (status === 'success') {
+          statusDiv.innerHTML = 'Your message has been sent successfully!';
+          statusDiv.style.color = 'green';
+        } else if (status === 'failure') {
+          statusDiv.innerHTML = 'There was an error sending your message. Please try again.';
+          statusDiv.style.color = 'red';
+        }
+      }
+    });
+  </script>
 
   <!-- Footer -->
   <footer class="dark:bg-surfaceContainer bg-slate-100 py-4 border-t-[1px] dark:border-slate-700 border-slate-300">

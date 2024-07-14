@@ -27,7 +27,12 @@ async function handleRequest(context) {
 
   await forwardMessage(name, email, message, env);
 
-  return new Response("OK", { status: 200 });
+  const status = success ? "success" : "failure";
+  const redirectUrl = new URL(request.url);
+  redirectUrl.pathname = '/';
+  redirectUrl.searchParams.set('status', status);
+
+  return Response.redirect(redirectUrl.toString(), 303);
 }
 
 async function validateToken(ip, token, env) {
@@ -57,4 +62,6 @@ async function forwardMessage(name, email, message, env) {
     subject: 'New contact: ' + name + ' ' + email,
     html: message,
   });
+
+  return { success: !error };
 }
