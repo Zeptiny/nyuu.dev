@@ -1,6 +1,0 @@
-name = "nyuu-dev"
-pages_build_output_dir = "./"
-
-
-[vars]
-RESEND_API_KEY = "Something"
