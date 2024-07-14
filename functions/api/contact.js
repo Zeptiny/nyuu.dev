@@ -1,7 +1,6 @@
 import { Resend } from 'resend';
 
 export async function onRequestPost(context) {
-    resendApiKey = context.env.RESEND_API_KEY;
     try {
       return await handleRequest(context);
     } catch (e) {
@@ -50,7 +49,8 @@ export async function onRequestPost(context) {
     return outcome.success;
   }
   
-  async function forwardMessage(name, email, message, env) {
+  async function forwardMessage(name, email, message, context) {
+    const resendApiKey = context.env.RESEND_API_KEY
     const resend = new Resend(resendApiKey);
 
     const { data, error } = await resend.emails.send({
