@@ -43,14 +43,14 @@ async function validateToken(ip, token) {
 }
 
 async function forwardMessage(name, email, message) {
-  const SENDGRID_API_KEY = process.env.SENDGRID_API_KEY
-  const SENDGRID_EMAIL_RECIPIENT = process.env.SENDGRID_EMAIL_RECIPIENT
-  const SENDGRID_EMAIL_SENDER = process.env.SENDGRID_EMAIL_SENDER
+  const SENDGRID_API_KEY_VAR = process.env.SENDGRID_API_KEY
+  const SENDGRID_EMAIL_RECIPIENT_VAR = process.env.SENDGRID_EMAIL_RECIPIENT
+  const SENDGRID_EMAIL_SENDER_VAR = process.env.SENDGRID_EMAIL_SENDER
   const msg = {
     personalizations: [{
-      to: [{ email: SENDGRID_EMAIL_RECIPIENT }]
+      to: [{ email: SENDGRID_EMAIL_RECIPIENT_VAR }]
     }],
-    from: { email: SENDGRID_EMAIL_SENDER },
+    from: { email: SENDGRID_EMAIL_SENDER_VAR },
     subject: `Message from ${name} | ${email}`,
     content: [{
       type: 'text/plain',
@@ -65,7 +65,7 @@ async function forwardMessage(name, email, message) {
     const response = await fetch('https://api.sendgrid.com/v3/mail/send', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${SENDGRID_API_KEY}`,
+        'Authorization': `Bearer ${SENDGRID_API_KEY_VAR}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(msg)
