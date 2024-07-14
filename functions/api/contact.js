@@ -49,7 +49,7 @@ export async function onRequestPost(context) {
     return outcome.success;
   }
   
-  async function forwardMessage(name, email, message, context) {
+  async function forwardMessage(name, email, message, context, env) {
     const resend = new Resend(context.env.RESEND_API_KEY);
 
     const { data, error } = await resend.emails.send({
