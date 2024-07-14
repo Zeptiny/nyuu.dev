@@ -1,6 +1,6 @@
 import sendgrid from "@sendgrid/mail";
 
-sendgrid.setApiKey("YOUR_SENDGRID_API_KEY");
+sendgrid.setApiKey(YOUR_SENDGRID_API_KEY);
 
 export async function onRequestPost(context) {
   try {
