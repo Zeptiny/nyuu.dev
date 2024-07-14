@@ -7,7 +7,7 @@
         @apply rounded-xl dark:bg-surfaceContainer bg-slate-100 p-3 border-[1px] dark:border-slate-700 border-slate-300;
     }
     .title {
-        @apply text-center font-bold text-2xl dark:text-slate-200;
+        @apply text-center font-bold text-3xl dark:text-slate-200;
     }
     .nav-item {
         @apply p-2 rounded-md;
