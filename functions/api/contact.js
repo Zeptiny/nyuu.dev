@@ -28,7 +28,7 @@ async function handleRequest(context) {
     return Response.redirect(redirectUrl.toString(), 303);
   }
 
-  await forwardMessage(name, email, message, env);
+  const { success } = await forwardMessage(name, email, message, env);
 
   const status = success ? "success" : "failure";
   const redirectUrl = new URL(request.url);
