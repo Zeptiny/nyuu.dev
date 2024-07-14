@@ -19,7 +19,7 @@ async function handleRequest(context) {
   const message = formData.get("message");
   const token = formData.get("cf-turnstile-response");
 
-  const tokenValidated = await validateToken(ip, token);
+  const tokenValidated = await validateToken(ip, token, env);
 
   if (!tokenValidated) {
     return new Response("Token validation failed", { status: 403 });
