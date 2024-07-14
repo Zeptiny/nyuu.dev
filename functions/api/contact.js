@@ -49,16 +49,33 @@ export async function onRequestPost(context) {
     return outcome.success;
   }
   
-  async function forwardMessage(name, email, message, process, env) {
-    const resend = new Resend(process.env.RESEND_API_KEY);
-
+  async function forwardMessage(name, email, message, env) {
+    const resend = new Resend(env.RESEND_API_KEY);
+  
     const { data, error } = await resend.emails.send({
-        from: 'test@no-reply.nyuu.dev',
-        to: 'me@artbenedetti.com',
-        subject: 'New contact' + name + email,
-        html: message,
+      from: 'test@no-reply.nyuu.dev',
+      to: 'me@artbenedetti.com',
+      subject: 'New contact: ' + name + ' ' + email,
+      html: message,
     });
-
-    return Response.json({ data, error });
+  
+    return new Response(JSON.stringify({ data, error }), {
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
+  
+  addEventListener("fetch", event => {
+    event.respondWith(handleRequest(event.request, event));
+  });
+  
+  async function handleRequest(request, event) {
+    const env = event.env;
+  
+    // Parse request body
+    const { name, email, message } = await request.json();
+  
+    // Call forwardMessage with the appropriate parameters
+    const response = await forwardMessage(name, email, message, env);
+    return response;
   }
   
