@@ -1,7 +1,3 @@
-import sendgrid from "@sendgrid/mail";
-
-sendgrid.setApiKey(YOUR_SENDGRID_API_KEY);
-
 export async function onRequestPost(context) {
   try {
     return await handleRequest(context);
@@ -26,7 +22,7 @@ async function handleRequest({ request }) {
     return new Response("Token validation failed", { status: 403 });
   }
 
-  await forwardMessage(name, email, message);
+  await composeRequest(name, email, message);
 
   return new Response("OK", { status: 200 });
 }
@@ -51,19 +47,61 @@ async function validateToken(ip, token) {
   return outcome.success;
 }
 
-async function forwardMessage(name, email, message) {
-  const msg = {
-    to: "me@artbenedetti.com", // Change to your recipient
-    from: "no-reply@nyuu.dev", // Change to your verified sender
-    subject: `Message from ${name} | ${email}`,
-    text: message,
-    html: `<p>${message}</p>`,
+async function composeRequest(name, email, message) {
+  return {
+    from: {
+      email: SENDGRID_EMAIL_SENDER,
+      name: "Nyuu.dev",
+    },
+    replyTo: {
+      email: `${email}`,
+      name: `${name}`,
+    },
+    subject: "Nova mensagem",
+    content: [
+      {
+        type: "text/plain",
+        value: `New message from ${name} (${email}): "${message}"`,
+      },
+    ],
+    personalizations: [
+      {
+        from: {
+          email: SENDGRID_EMAIL_SENDER,
+          name: "nyuu.dev",
+        },
+        to: [
+          {
+            email: SENDGRID_EMAIL_RECIPIENT,
+            name: "Recipient",
+          },
+        ],
+      },
+    ],
   };
+}
 
+async function sendEmail(messageBody, env) {
   try {
-    await sendgrid.send(msg);
-    console.log("Email sent successfully");
+    const email = await fetch("https://api.sendgrid.com/v3/mail/send", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${SENDGRID_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(messageBody),
+    });
+    return email;
   } catch (error) {
-    console.error("Error sending email:", error);
+    return { status: 500, statusText: error };
   }
 }
+
+let emailResponse = await sendEmail(requestBody, env);
+
+if (emailResponse.status > 299) {
+  return Response.redirect(
+    `${returnUrl}?success=false&reason=SendGrid%20API%20returned%20${emailResponse.statusText}%20(statusCode: ${emailResponse.status}))`
+  );
+}
+return Response.redirect(`${returnUrl}?success=true`);
