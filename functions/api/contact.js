@@ -1,5 +1,6 @@
-import { EmailMessage } from "cloudflare:email";
-import { createMimeMessage } from "mimetext";
+import sendgrid from "@sendgrid/mail";
+
+sendgrid.setApiKey("YOUR_SENDGRID_API_KEY");
 
 export async function onRequestPost(context) {
   try {
@@ -51,24 +52,18 @@ async function validateToken(ip, token) {
 }
 
 async function forwardMessage(name, email, message) {
-  const msg = createMimeMessage();
-  msg.setSender({ name: "GPT-4", addr: "mail@nyuu.dev" });
-  msg.setRecipient("me@artbenedetti.com");
-  msg.setSubject(`Message from ${name} | ${email}`);
-  msg.addMessage({
-    contentType: 'text/plain',
-    data: message,
-  });
-
-  const emailMessage = new EmailMessage(
-    SENDER_EMAIL,
-    RECIPIENT_EMAIL,
-    msg.asRaw()
-  );
+  const msg = {
+    to: "me@artbenedetti.com", // Change to your recipient
+    from: "no-reply@nyuu.dev", // Change to your verified sender
+    subject: `Message from ${name} | ${email}`,
+    text: message,
+    html: `<p>${message}</p>`,
+  };
 
   try {
-    await env.SEB.send(message);
-  } catch (e) {
-    return new Response(e.message);
+    await sendgrid.send(msg);
+    console.log("Email sent successfully");
+  } catch (error) {
+    console.error("Error sending email:", error);
   }
 }
