@@ -1,10 +1,5 @@
 export async function onRequestPost(context) {
-  try {
     return await handleRequest(context);
-  } catch (e) {
-    console.error("Error in onRequestPost:", e);
-    return new Response("Error sending message", { status: 500 });
-  }
 }
 
 async function handleRequest({ request }) {
