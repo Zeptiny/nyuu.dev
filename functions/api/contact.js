@@ -22,7 +22,10 @@ async function handleRequest(context) {
   const tokenValidated = await validateToken(ip, token, env);
 
   if (!tokenValidated) {
-    return new Response("Token validation failed", { status: 403 });
+    const redirectUrl = new URL(request.url);
+    redirectUrl.pathname = '/';
+    redirectUrl.searchParams.set('status', 'failure');
+    return Response.redirect(redirectUrl.toString(), 303);
   }
 
   await forwardMessage(name, email, message, env);
