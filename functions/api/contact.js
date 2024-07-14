@@ -1,7 +1,7 @@
-var resendApiKey = context.env.RESEND_API_KEY
 import { Resend } from 'resend';
 
 export async function onRequestPost(context) {
+    resendApiKey = context.env.RESEND_API_KEY;
     try {
       return await handleRequest(context);
     } catch (e) {
