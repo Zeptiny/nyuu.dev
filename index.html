@@ -213,18 +213,25 @@
 
 
     <!-- Form Testing -->
-    <form data-static-form-name="contact">
-      <div>
-        <label>Name<input type="text" name="name" /></label>
-      </div>
-      <div>
-        <label>Email<input type="email" name="email" /></label>
-      </div>
-      <div>
-        <label>Message<textarea name="message"></textarea></label>
-      </div>
-      <button type="submit">Send!</button>
-    </form>
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" name="name" type="text" />
+    </div>
+
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" name="email" type="email" />
+    </div>
+
+    <div>
+      <label for="message">Message:</label>
+      <textarea id="message" name="message"></textarea>
+    </div>
+
+    <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA"></div>
+
+    <button type="submit">Submit</button>
+  </form>
     <!-- End Form Testing -->
   </main>
 
