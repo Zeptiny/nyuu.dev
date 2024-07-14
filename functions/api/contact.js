@@ -45,9 +45,9 @@ async function validateToken(ip, token) {
 async function forwardMessage(name, email, message) {
   const msg = {
     personalizations: [{
-      to: [{ email: SENDGRID_RECIPIENT_EMAIL }]
+      to: [{ email: SENDGRID_EMAIL_RECIPIENT }]
     }],
-    from: { email: SENDGRID_SENDER_EMAIL },
+    from: { email: SENDGRID_EMAIL_SENDERL },
     subject: `Message from ${name} | ${email}`,
     content: [{
       type: 'text/plain',
