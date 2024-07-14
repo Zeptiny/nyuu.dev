@@ -57,8 +57,4 @@ async function forwardMessage(name, email, message, env) {
     subject: 'New contact: ' + name + ' ' + email,
     html: message,
   });
-
-  return new Response(JSON.stringify({ data, error }), {
-    headers: { 'Content-Type': 'application/json' },
-  });
 }
