@@ -30,11 +30,9 @@ async function handleRequest(context) {
   return new Response("OK", { status: 200 });
 }
 
-async function validateToken(ip, token) {
-  const TURNSTILE_SECRET_KEY = "1x0000000000000000000000000000000AA";
-
+async function validateToken(ip, token, env) {
   const formData = new FormData();
-  formData.append("secret", TURNSTILE_SECRET_KEY);
+  formData.append("secret", env.TURNSTILE_SECRET_KEY);
   formData.append("response", token);
   formData.append("remoteip", ip);
 
