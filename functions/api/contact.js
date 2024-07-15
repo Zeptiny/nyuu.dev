@@ -24,6 +24,7 @@ async function handleRequest(context) {
   if (!tokenValidated) {
     const redirectUrl = new URL(request.url);
     redirectUrl.pathname = '/';
+    redirectUrl.hash = '#status';
     redirectUrl.searchParams.set('status', 'failure');
     return Response.redirect(redirectUrl.toString(), 303);
   }
@@ -33,6 +34,7 @@ async function handleRequest(context) {
   const status = success ? "success" : "failure";
   const redirectUrl = new URL(request.url);
   redirectUrl.pathname = '/';
+  redirectUrl.hash = '#status';
   redirectUrl.searchParams.set('status', status);
 
   return Response.redirect(redirectUrl.toString(), 303);
