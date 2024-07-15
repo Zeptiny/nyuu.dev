@@ -33,6 +33,9 @@
     "email": "Email:",
     "message": "Mensagem:",
 
+    "form-status-success": "Sua mensagem foi enviada com sucesso!!",
+    "form-status-error": "Teve um erro ao tentar enviar sua mensagem. Tente novamente ou entre em contato manualmente comigo.",
+
     "footer-socials-title": "Redes sociais",
 
     

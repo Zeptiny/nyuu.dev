@@ -11,11 +11,11 @@ window.addEventListener('load', () => {
 
   if (statusDiv && status) {
     if (status === 'success') {
-      statusDiv.innerHTML = 'Your message has been sent successfully!';
-      statusDiv.style.color = 'green';
+        statusDiv.setAttribute('translate','form-status-success')
+        statusDiv.style.color = 'green';
     } else if (status === 'failure') {
-      statusDiv.innerHTML = 'There was an error sending your message. Please try again.';
-      statusDiv.style.color = 'red';
+        statusDiv.setAttribute('translate','form-status-error')
+        statusDiv.style.color = 'red';
     }
   }
 });
