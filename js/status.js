@@ -12,10 +12,10 @@ window.addEventListener('load', () => {
   if (statusDiv && status) {
     if (status === 'success') {
         statusDiv.setAttribute('translate','form-status-success')
-        statusDiv.style.color = 'green';
+        statusDiv.classList.add("bg-green-200", "dark:bg-green-300", "text-green-900", "p-2", "rounded-lg", "my-4", "max-w-fit", "mx-auto");
     } else if (status === 'failure') {
         statusDiv.setAttribute('translate','form-status-error')
-        statusDiv.style.color = 'red';
+        statusDiv.classList.add("bg-red-200", "dark:bg-red-300", "text-red-900", "p-2", "rounded-lg", "my-4", "max-w-fit", "mx-auto");
     }
   }
 });
