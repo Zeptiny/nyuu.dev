@@ -90,8 +90,8 @@
       <div class="my-auto">
         <h1 class="font-bold text-2xl mb-2 dark:text-slate-100">Howdy Hey!</h1>
         <p translate="hero-desc-1-1" class="ml-8" style="display:inline"></p>
-          <p data-tooltip-target="tooltip-name" style="display:inline">Nyuu, </p>
-          <div id="tooltip-name" class="invisible dark:bg-surface rounded-lg p-2">
+          <p data-ripple-light="true" data-tooltip-target="tooltip" style="display:inline">Nyuu, </p>
+          <div data-tooltip="tooltip" class="absolute rounded-lg dark:bg-surface p-2">
               Grentenville <br>
               Artur Benedetti
           </div>
@@ -104,9 +104,8 @@
       </div>
     </div>
   </div>
-    <!-- End Hero -->
-  
-    <!-- Services -->
+  <!-- End Hero -->
+  <!-- Services -->
     <div id="services" class="mx-auto max-w-screen-lg">
       <h1 translate="services" class="title mt-4"></h1>
       <p translate="services-desc" class="text-center text-sm dark:text-slate-300"></p>
@@ -276,5 +275,6 @@
 
     <script src="js/lang.js"></script>
     <script src="js/status.js"></script>
+    <script type="module" src="js/tooltip.js"></script>
 </body>
 </html>
