@@ -831,12 +831,20 @@ label {
   justify-self: end;
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .text-balance {
   text-wrap: balance;
 }
 
 .rounded-lg {
   border-radius: 0.5rem;
+}
+
+.rounded {
+  border-radius: 0.25rem;
 }
 
 .border-t-\[1px\] {
@@ -1057,6 +1065,10 @@ label {
   }
 }
 
+.dark\:hidden:where(.dark, .dark *) {
+  display: none;
+}
+
 .dark\:border-slate-700:where(.dark, .dark *) {
   --tw-border-opacity: 1;
   border-color: rgb(51 65 85 / var(--tw-border-opacity));
@@ -1128,4 +1140,10 @@ label {
 .dark\:hover\:text-slate-800:hover:where(.dark, .dark *) {
   --tw-text-opacity: 1;
   color: rgb(30 41 59 / var(--tw-text-opacity));
+}
+
+@media (min-width: 640px) {
+  .dark\:sm\:block:where(.dark, .dark *) {
+    display: block;
+  }
 }
