@@ -21,7 +21,13 @@ function getDefaultLanguage() {
     }
     // If there is no saved language, use the browser's default language
     const language = navigator.language || navigator.userLanguage;
-    return language.startsWith('pt') ? 'pt' : 'en';
+    if (language.startsWith('pt')){
+        langTogglePT.classList.toggle('hidden')
+        return 'pt'
+    } else{
+        langToggleEN.classList.toggle('hidden')
+        return 'en'
+    }
 }
 
 function setLanguage(language) {
