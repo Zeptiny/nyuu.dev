@@ -1,6 +1,6 @@
 // npm install -D tailwindcss
 //npx tailwindcss init
-//npx tailwindcss -i ./css/input.css -o ./css/style.css --watch --minify
+//npx tailwindcss -i ./css/input.css -o ./css/style.css --watch
 /** @type {import('tailwindcss').Config} */
 const defaultTheme = require('tailwindcss/defaultTheme')
 
