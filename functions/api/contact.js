@@ -62,8 +62,8 @@ async function forwardMessage(name, email, message, env) {
   const resend = new Resend(env.RESEND_API_KEY);
 
   const { data, error } = await resend.emails.send({
-    from: 'test@no-reply.nyuu.dev',
-    to: 'me@artbenedetti.com',
+    from: env.RESEND_FROM_EMAIL,
+    to: env.RESEND_TO_EMAIL,
     subject: 'New contact: ' + name + ' ' + email,
     html: message,
   });
