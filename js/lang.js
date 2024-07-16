@@ -38,6 +38,8 @@ function setLanguage(language) {
         });
         // Save the selected language to localStorage
         localStorage.setItem('selectedLanguage', language);
+        // Change the meta description
+        document.querySelector('meta[name="description"]').setAttribute('content', translations['meta-description'])
     })
 }
 
