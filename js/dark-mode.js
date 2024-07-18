@@ -50,5 +50,6 @@ if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.match
               turnstileWidget.setAttribute('data-theme', 'dark');
           }
       }
+      turnstile.render(turnstileWidget)
       
   });
