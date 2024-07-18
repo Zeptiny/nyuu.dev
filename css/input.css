@@ -23,7 +23,7 @@
         @apply sm:text-lg
     }
     input, textarea{
-        @apply dark:bg-slate-500 text-slate-50 resize-none rounded w-[300px] focus:outline-none focus:border-2 focus:border-slate-200
+        @apply dark:bg-slate-500 dark:text-slate-50 resize-none rounded w-[300px] focus:outline-none focus:border-2 focus:border-slate-200
     }
     label {
         @apply font-bold text-lg
