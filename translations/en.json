@@ -1,11 +1,12 @@
 {
     "services": "Services",
-    "projects": "Project",
+    "projects": "Projects",
     "contact": "Contact",
     "discontinued": "(Discontinued)",
 
     "hero-desc-1-1": "You can call me",
-    "hero-desc-1-2": "I'm a crazy person who loves tinkering with IT and systems administration.",
+    "tooltip": "Also known as:",
+    "hero-desc-1-2": "I'm passionate with IT and I love tinkering systems administration.",
     "hero-desc-2": "I'm currently studying Computer Science at the University of Passo Fundo (Brazil), trying to improve every day.",
     "hero-desc-3": "I am open to commissions to help you with your project or company at any time, always looking for new challenges.",
 
@@ -17,17 +18,17 @@
     "services-panel-title": "Panel setup",
     "services-panel-desc": "Panel installation and configuration, whether for management, monitoring, or finance. With knowledge in Pterodactyl, WHMCS, Proxmox, Virtualizor, Zabbix you won't need to worry.",
     "services-backups-title": "Security & Backups",
-    "services-backups-desc": "I will protect you against attacks and intrusions, in addition to configuring systems for disaster recovery and backups.",
+    "services-backups-desc": "I will protect you against attacks and intrusions, in addition to configuring systems for disaster recovery and automated backups.",
 
     "projects-desc": "A small portfolio",
     "miners-title": "Miners' Refuge",
-    "miners-desc": "Minecraft community, created to support server owners and provide free tools to facilitate development, such as suggested bug fixes and automatic optimizations.",
+    "miners-desc": "Minecraft community, created to support server owners and administrators providing free tools to facilitate development.",
     "docs-title": "Minecraft Documentation",
     "docs-desc": "Public documentation, created for and by the Minecraft community, with a wide range of guides and tutorials, all available on Github with open contributions.",
     "tryxia-title": "Tryxia Host ",
     "tryxia-desc": "Free hosting for Minecraft, previously for files. Created to acquire more knowledge about the area, ways to react and act in different situations. It was canceled due to lack of funds.",
 
-    "cta-title": "Are you interested? Contact me!",
+    "cta-title": "Get in touch!",
 
     "name": "Name:",
     "email": "Email:",

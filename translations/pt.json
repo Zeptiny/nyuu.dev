@@ -5,7 +5,8 @@
     "discontinued": "(Descontinuado)",
 
     "hero-desc-1-1": "Pode me chamar de",
-    "hero-desc-1-2": "sou um louco que ama mexer em TI e administração de sistemas.",
+    "tooltip": "Ou de:",
+    "hero-desc-1-2": "sou apaixonado por TI e amo mexer com administração de sistemas.",
     "hero-desc-2": "No momento estou cursando Ciência da Computação, na Universidade de Passo Fundo, buscando melhorar a cada dia.",
     "hero-desc-3": "Estou aberto para comissões para lhe ajudar em seu projeto ou empresa a qualquer momento, sempre buscando novos desafios.",
 
@@ -13,21 +14,21 @@
     "services-game-title": "Hospedagem de jogos",
     "services-game-desc": "Totalmente gerenciada e personalizada justamente para o seu projeto. Ideal para projetos que necessitam da maior performance e estabilidade possível. Qualquer hardware, em qualquer local a qualquer momento.",
     "services-app-title": "Hospedagem de aplicações",
-    "services-app-desc": "Seja para o seu website, aplicações de qualquer linguagem, bots do discord, ou armazenamento, como NextCloud, SeaFile ou MinIO totalmente redundante e acessível a todo o momento.",
+    "services-app-desc": "Seja para o seu website, aplicações de qualquer linguagem, bots do discord, ou armazenamento, como NextCloud, SeaFile e MinIO totalmente redundante e acessível a todo o momento.",
     "services-panel-title": "Instalação de painel",
     "services-panel-desc": "Instalação e configurações de paineis, seja para gerencimento, monitoramento, e financeiro. Com conhecimento em Pterodactyl, WHMCS, Proxmox, Virtualizor, Zabbix você não precisará se preocupar.",
     "services-backups-title": "Segurança & Backups",
-    "services-backups-desc": "Irei lhe proteger contra ataques e invasões, além da configuração de sistemas para recuperação de desastres e backups.",
+    "services-backups-desc": "Irei lhe proteger contra ataques e invasões, além da configuração de sistemas para recuperação de desastres e backups automáticos.",
 
     "projects-desc": "Um pequeno portfólio",
     "miners-title": "Miners' Refuge",
-    "miners-desc": "Comunidade de Minecraft, criada para dar suporte a donos de servidores e fornecer ferramentas gratuitas para facilitar o desenvilmento, como sugestões de correções de bugs e otimizações automáticas.",
+    "miners-desc": "Comunidade de Minecraft, criada para dar suporte a donos de servidores e fornecer ferramentas gratuitas para facilitar o desenvolvimento.",
     "docs-title": "Documentação de Minecraft",
     "docs-desc": "Documentação pública, criada para e pela e comunidade de MInecraft, com guias e tutoriais mais variados, tudo disponível pelo Github com contribuições abertas.",
     "tryxia-title": "Tryxia Host ",
-    "tryxia-desc": "Hospedagem de graça para Minecraft, e, posteriormente, de arquivos. Criada para adquirir mais conhecimento sobre a área, maneiras de reagir a atuar à diversas situações. Foi cancelada devido a falta de fundos.",
+    "tryxia-desc": "Hospedagem de graça para Minecraft, e, posteriormente, de arquivos. Criada para adquirir mais conhecimento sobre a área, maneiras de reagir a atuar à diversas situações.",
 
-    "cta-title": "Está interessado? Entre em contato comigo!",
+    "cta-title": "Entre em contato!",
 
     "name": "Nome:",
     "email": "Email:",
