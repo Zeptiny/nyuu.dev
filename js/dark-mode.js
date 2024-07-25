@@ -6,11 +6,11 @@ var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
 if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
     document.documentElement.classList.add('dark');
     themeToggleDarkIcon.classList.remove('hidden');
-    turnstileWidget.setAttribute('data-theme', 'light');
+    turnstileWidget.setAttribute('data-theme', 'dark');
   } else {
     document.documentElement.classList.remove('dark');
     themeToggleLightIcon.classList.remove('hidden');
-    turnstileWidget.setAttribute('data-theme', 'dark');
+    turnstileWidget.setAttribute('data-theme', 'light');
   }
   
   var themeToggleBtn = document.getElementById('theme-toggle');
@@ -46,5 +46,6 @@ if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.match
           }
       }
       turnstile.render(turnstileWidget)
+      turnstile.remove(turnstileWidget)
       
   });
