@@ -1029,6 +1029,10 @@ label {
   fill: #0f172a;
 }
 
+.hover\:fill-tertiary:hover {
+  fill: #5a4a71;
+}
+
 .hover\:text-slate-300:hover {
   --tw-text-opacity: 1;
   color: rgb(203 213 225 / var(--tw-text-opacity));
