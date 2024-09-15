@@ -10,15 +10,21 @@
     "hero-desc-2": "No momento estou cursando Ciência da Computação, na Universidade de Passo Fundo, buscando melhorar a cada dia.",
     "hero-desc-3": "Estou aberto para comissões para lhe ajudar em seu projeto ou empresa a qualquer momento, sempre buscando novos desafios.",
 
+    "starting-from": "A partir de ",
+
     "services-desc": "Alguns serviços que eu ofereceço",
     "services-game-title": "Hospedagem de jogos",
-    "services-game-desc": "Totalmente gerenciada e personalizada justamente para o seu projeto. Ideal para projetos que necessitam da maior performance e estabilidade possível. Qualquer hardware, em qualquer local a qualquer momento.",
+    "services-game-desc": "Gerenciada e personalizada para o seu projeto. Ideal para quem necessita da maior performance e estabilidade possível. Qualquer hardware, em qualquer local a qualquer momento.",
+    "services-game-pricing": "R$20",
     "services-app-title": "Hospedagem de aplicações",
     "services-app-desc": "Seja para o seu website, aplicações de qualquer linguagem, bots do discord, ou armazenamento, como NextCloud, SeaFile e MinIO totalmente redundante e acessível a todo o momento.",
+    "services-app-pricing": "R$40",
     "services-panel-title": "Instalação de painel",
     "services-panel-desc": "Instalação e configurações de paineis, seja para gerencimento, monitoramento, e financeiro. Com conhecimento em Pterodactyl, WHMCS, Proxmox, Virtualizor, Zabbix você não precisará se preocupar.",
+    "services-panel-pricing": "R$40",
     "services-backups-title": "Segurança & Backups",
     "services-backups-desc": "Irei lhe proteger contra ataques e invasões, além da configuração de sistemas para recuperação de desastres e backups automáticos.",
+    "services-backups-pricing": "R$50",
 
     "projects-desc": "Um pequeno portfólio",
     "miners-title": "Miners' Refuge",

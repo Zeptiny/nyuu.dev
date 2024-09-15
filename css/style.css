@@ -507,6 +507,13 @@ video {
   color: rgb(241 245 249 / var(--tw-text-opacity));
 }
 
+.services-pricing {
+  display: inline;
+  font-weight: 700;
+  --tw-text-opacity: 1;
+  color: rgb(90 74 113 / var(--tw-text-opacity));
+}
+
 @media (min-width: 640px) {
   h1 {
     font-size: 1.25rem;
@@ -1033,11 +1040,6 @@ label {
   fill: #5a4a71;
 }
 
-.hover\:text-slate-300:hover {
-  --tw-text-opacity: 1;
-  color: rgb(203 213 225 / var(--tw-text-opacity));
-}
-
 .hover\:text-slate-950:hover {
   --tw-text-opacity: 1;
   color: rgb(2 6 23 / var(--tw-text-opacity));
@@ -1050,10 +1052,6 @@ label {
 
 .focus\:border-2:focus {
   border-width: 2px;
-}
-
-.focus\:border-4:focus {
-  border-width: 4px;
 }
 
 .focus\:border-tertiary:focus {
