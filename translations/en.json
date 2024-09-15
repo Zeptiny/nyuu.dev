@@ -25,6 +25,9 @@
     "services-backups-title": "Security & Backups",
     "services-backups-desc": "I will protect you against attacks and intrusions, in addition to configuring systems for disaster recovery and automated backups.",
     "services-backups-pricing": "$10",
+    "services-custom-title": "Need something else?",
+    "services-custom-desc": "We can negotiate any installation, configuration, maintenance or development of something you need, just get in touch!",
+    "services-custom-pricing": "$5/Hour",
 
     "projects-desc": "A small portfolio",
     "miners-title": "Miners' Refuge",
