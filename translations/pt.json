@@ -29,6 +29,9 @@
     "miners-desc": "Comunidade de Minecraft, criada para dar suporte a donos de servidores e fornecer ferramentas gratuitas para facilitar o desenvolvimento.",
     "docs-title": "Documentação de Minecraft",
     "docs-desc": "Documentação pública, criada para e pela e comunidade de MInecraft, com guias e tutoriais mais variados, tudo disponível pelo Github com contribuições abertas.",
+    "syncr-title": "Syncr",
+    "syncr-desc": "Aplicação web em desenvolvimento para replicar, mover e sincronizar controles remotos (S3 e SFTP), feito com Django e Rclone.",
+    
     "tryxia-title": "Tryxia Host ",
     "tryxia-desc": "Hospedagem de graça para Minecraft, e, posteriormente, de arquivos. Criada para adquirir mais conhecimento sobre a área, maneiras de reagir a atuar à diversas situações.",
 
