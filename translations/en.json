@@ -29,6 +29,27 @@
     "monitoring-logging": "Monitoring & Logging",
     "frontend": "Frontend",
 
+    "courses-certificates": "My courses & certificates",
+    "courses-certificates-desc": "Some I have already accomplished, others I am actively pursuing.",
+
+    "courses": "Courses",
+    "completed-on": "Completed on:",
+    "download-certificate": "Download Certificate",
+
+    "kab-title": "Kubernetes for the Absolute Beginners",
+    "kab-desc": "Basic understanding of Kubenetes Fundamentals, Configuration and Deployment.",
+
+    "fbe-title": "Fundamentals of Backend Enginerring",
+    "fbe-desc": "Understanding of backend communication patterns, protocols, execution and proxying.",
+
+    "djm-title": "Django Masterclass",
+    "djm-desc": "Fundamentals of Django, REST framework, customization and design patterns.",
+
+    "certificates": "Certificates",
+
+    "cka-title": "Certified Kubernetes Administrator",
+    "cka-desc": "Demonstrated the ability to do basic installation as well as configuring and managing production-grade Kubernetes clusters.",
+
     "services-desc": "Some services that I offer",
     "services-game-title": "Game hosting",
     "services-game-desc": "Fully managed and customized precisely for your project. Ideal if you require require the highest possible performance and stability. Any hardware, anywhere at any time.",
