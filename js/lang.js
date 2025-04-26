@@ -1,6 +1,13 @@
+// Save the tanslations in a cache to not refetch every time the user change the language in the same session
+const translationsCache = {};
 async function loadTranslations(language) {
+    if (translationsCache[language]) {
+        return translationsCache[language];
+    }
     const response = await fetch(`translations/${language}.json`);
-    return await response.json();
+    const data = await response.json();
+    translationsCache[language] = data;
+    return data;
 }
 
 var langTogglePT = document.getElementById('lang-toggle-pt');
@@ -8,27 +15,23 @@ var langToggleEN = document.getElementById('lang-toggle-en');
 
 var langToggleBtn = document.getElementById('lang-toggle');
 
+function updateToggleIcons(language) {
+    langTogglePT.classList.toggle('hidden', language !== 'en');
+    langToggleEN.classList.toggle('hidden', language !== 'pt');
+}
+
 function getDefaultLanguage() {
-    // Get the saved language from localStorage
     const savedLanguage = localStorage.getItem('selectedLanguage');
     if (savedLanguage) {
-        if (savedLanguage == 'pt'){
-            langTogglePT.classList.toggle('hidden')
-        } else{
-            langToggleEN.classList.toggle('hidden')
-        }
+        updateToggleIcons(savedLanguage);
         return savedLanguage;
     }
-    // If there is no saved language, use the browser's default language
+
     const language = navigator.language || navigator.userLanguage;
-    if (language.startsWith('pt')){
-        langToggleEN.classList.toggle('hidden')
-        return 'pt'
-    } else{
-        langTogglePT.classList.toggle('hidden')
-        return 'en'
-    }
+    updateToggleIcons(language.startsWith('pt') ? 'pt' : 'en');
+    return language.startsWith('pt') ? 'pt' : 'en';
 }
+
 
 function setLanguage(language) {
     loadTranslations(language).then(translations => {
@@ -42,20 +45,12 @@ function setLanguage(language) {
 }
 
 langToggleBtn.addEventListener('click', function() {
-  
-    // toggle icons inside button
-    langTogglePT.classList.toggle('hidden')
-    langToggleEN.classList.toggle('hidden')
-
-    if (localStorage.getItem('selectedLanguage')){
-        if (localStorage.getItem('selectedLanguage') == 'pt'){
-            setLanguage('en')
-        } else{
-            setLanguage('pt')
-        }
-    }
-    
+    const currentLanguage = localStorage.getItem('selectedLanguage') || getDefaultLanguage();
+    const newLanguage = currentLanguage === 'pt' ? 'en' : 'pt';
+    updateToggleIcons(newLanguage);
+    setLanguage(newLanguage);
 });
+
 
 // Set the default language when the page loads
 document.addEventListener('DOMContentLoaded', () => {
