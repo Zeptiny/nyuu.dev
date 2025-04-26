@@ -13,19 +13,19 @@ function getDefaultLanguage() {
     const savedLanguage = localStorage.getItem('selectedLanguage');
     if (savedLanguage) {
         if (savedLanguage == 'pt'){
-            langToggleEN.classList.toggle('hidden')
-        } else{
             langTogglePT.classList.toggle('hidden')
+        } else{
+            langToggleEN.classList.toggle('hidden')
         }
         return savedLanguage;
     }
     // If there is no saved language, use the browser's default language
     const language = navigator.language || navigator.userLanguage;
     if (language.startsWith('pt')){
-        langTogglePT.classList.toggle('hidden')
+        langToggleEN.classList.toggle('hidden')
         return 'pt'
     } else{
-        langToggleEN.classList.toggle('hidden')
+        langTogglePT.classList.toggle('hidden')
         return 'en'
     }
 }
