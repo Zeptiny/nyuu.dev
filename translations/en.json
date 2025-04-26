@@ -6,11 +6,48 @@
 
     "hero-desc-1-1": "You can call me",
     "tooltip": "Also known as:",
-    "hero-desc-1-2": "I'm passionate about IT and love working with systems administration.",
-    "hero-desc-2": "I'm currently studying Computer Science at the University of Passo Fundo (Brazil), trying to improve every day.",
-    "hero-desc-3": "I'm open to commissions to help you with your project or company at any time, always looking for new challenges.",
+    "hero-desc-1-2": "I'm fueled by a passion for IT, seeking to specialize in systems administration and DevOps, building resilient, automated infrastructures.",
+    "hero-desc-2": "As a Computer Science student at the University of Passo Fundo (Brazil), I'm committed to continuous learning and daily growth.",
+    "hero-desc-3": "I'm available for freelance projects and collaborations, let's tackle your next challenge together!",
+    
+    "projects-desc": "A small portfolio",
+    "miners-title": "Miners' Refuge",
+    "miners-desc": "Minecraft community, created to support server owners and administrators providing free tools to facilitate development.",
+    "docs-title": "Minecraft Documentation",
+    "docs-desc": "Public documentation, created for and by the Minecraft community, with a wide range of guides and tutorials, all available on Github with open contributions.",
+    "syncr-title": "Syncr ",
+    "syncr-desc": "In development web application to replicate, move and sync remotes (S3 and SFTP), made with Django and Rclone.",
+    
+    "stack": "Stack",
+    "stack-desc": "Languages and tools that I worked with, in order of knowledge by category.",
+    "languages": "Languages",
+    "cloud-platforms": "Cloud Platforms",
+    "containerization": "Containerization",
+    "databases": "Databases",
+    "monitoring-logging": "Monitoring & Logging",
+    "frontend": "Frontend",
 
-    "starting-from": "Starting from ",
+    "courses-certificates": "Courses & Certificates",
+    "courses-certificates-desc": "Some I have already accomplished, others I am actively pursuing.",
+
+    "ongoing": "Ongoing",
+    "courses": "Courses",
+    "completed-on": "Completed on:",
+    "download-certificate": "Download Certificate",
+
+    "kab-title": "Kubernetes for the Absolute Beginners",
+    "kab-desc": "Basic understanding of Kubenetes Fundamentals, Configuration and Deployment.",
+
+    "fbe-title": "Fundamentals of Backend Enginerring",
+    "fbe-desc": "Understanding of backend communication patterns, protocols, execution and proxying.",
+
+    "djm-title": "Django Masterclass",
+    "djm-desc": "Fundamentals of Django, REST framework, customization and design patterns.",
+
+    "certificates": "Certificates",
+
+    "cka-title": "Certified Kubernetes Administrator",
+    "cka-desc": "Demonstrated the ability to do basic installation as well as configuring and managing production-grade Kubernetes clusters.",
 
     "services-desc": "Some services that I offer",
     "services-game-title": "Game hosting",
@@ -24,14 +61,6 @@
     "services-custom-title": "Need something else?",
     "services-custom-desc": "We can negotiate any installation, configuration, maintenance or development of something you need, just get in touch!",
 
-    "projects-desc": "A small portfolio",
-    "miners-title": "Miners' Refuge",
-    "miners-desc": "Minecraft community, created to support server owners and administrators providing free tools to facilitate development.",
-    "docs-title": "Minecraft Documentation",
-    "docs-desc": "Public documentation, created for and by the Minecraft community, with a wide range of guides and tutorials, all available on Github with open contributions.",
-    "syncr-title": "Syncr ",
-    "syncr-desc": "In development web application to replicate, move and sync remotes (S3 and SFTP), made with Django and Rclone.",
-    
     "tryxia-title": "Tryxia Host ",
     "tryxia-desc": "Free hosting for Minecraft, previously for files. Created to acquire more knowledge about the area, ways to react and act in different situations. It was canceled due to lack of funds.",
 
@@ -42,6 +71,8 @@
     "email": "Email:",
     "message": "Message:",
     "submit": "Submit",
+
+    "psa-design": "I apologize for the website design, I work with backend, not frontend",
 
     "form-inside-title": "Leave me a message and I will respond as soon as possible!",
     "form-socials": "You can also get in touch through my networks:",
@@ -54,6 +85,7 @@
     
     "footer-projects-1": "Miner's Refuge",
     "footer-projects-2": "Documentation",
+    "footer-projects-3": "Syncr",
 
     "footer-copyright": "© 2024 - Nyuu. Some Rights Reserved"
 }

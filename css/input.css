@@ -1,6 +1,25 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+    --color-surface: #0F172A; /*Background - slate-900*/
+    --color-surfaceInverted: #2e2e2e; /*Background Inverted*/
+    --color-onSurface: #D1D1D1; /*Text on Background*/
+    --color-surfaceContainer: #1E293B; /*Container on background - slate-800*/
+    --color-primary: #ffe3f4; /*Primary Color*/
+    --color-secondary: #fff0f5; /*Yada Yada...*/
+    --color-tertiary: #5a4a71; 
+
+
+    /*TO-DO CHANGE DEFAULT FONT*/
+    /* OLD:
+          fontFamily: {
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+      },
+    */
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 
 @layer base{
     .default-container {
@@ -13,7 +32,7 @@
         @apply p-2 rounded-md;
     }
     .default-hover{
-        @apply dark:hover:bg-surfaceContainer dark:hover:text-slate-100 hover:bg-slate-400 hover:text-slate-50;
+        @apply dark:hover:bg-surfaceContainer hover:bg-slate-400 hover:text-tertiary;
     }
     .services-pricing {
         @apply text-tertiary font-bold inline;
