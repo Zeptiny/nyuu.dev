@@ -5,8 +5,8 @@ const themeToggleBtn = document.getElementById('theme-toggle');
 
 function updateTheme(darkMode) {
     document.documentElement.classList.toggle('dark', darkMode);
-    themeToggleDarkIcon.classList.toggle('hidden', !darkMode);
-    themeToggleLightIcon.classList.toggle('hidden', darkMode);
+    themeToggleDarkIcon.classList.toggle('hidden', darkMode);
+    themeToggleLightIcon.classList.toggle('hidden', !darkMode);
     turnstileWidget.setAttribute('data-theme', darkMode ? 'dark' : 'light');
     
     // Update localStorage
