@@ -1,51 +1,32 @@
-var turnstileWidget = document.getElementById('cf-turnstile');
-var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+const turnstileWidget = document.getElementById('cf-turnstile');
+const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+const themeToggleBtn = document.getElementById('theme-toggle');
 
-// On page load or when changing themes, best to add inline in `head` to avoid FOUC
-if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark');
-    themeToggleDarkIcon.classList.remove('hidden');
-    turnstileWidget.setAttribute('data-theme', 'dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-    themeToggleLightIcon.classList.remove('hidden');
-    turnstileWidget.setAttribute('data-theme', 'light');
-  }
-  
-  var themeToggleBtn = document.getElementById('theme-toggle');
-  
-  themeToggleBtn.addEventListener('click', function() {
-  
-      // toggle icons inside button
-      themeToggleDarkIcon.classList.toggle('hidden');
-      themeToggleLightIcon.classList.toggle('hidden');
-  
-      // if set via local storage previously
-      if (localStorage.getItem('theme')) {
-          if (localStorage.getItem('theme') === 'light') {
-              document.documentElement.classList.add('dark');
-              localStorage.setItem('theme', 'dark');
-              turnstileWidget.setAttribute('data-theme', 'dark');
-          } else {
-              document.documentElement.classList.remove('dark');
-              localStorage.setItem('theme', 'light');
-              turnstileWidget.setAttribute('data-theme', 'light');
-          }
-  
-      // if NOT set via local storage previously
-      } else {
-          if (document.documentElement.classList.contains('dark')) {
-              document.documentElement.classList.remove('dark');
-              localStorage.setItem('theme', 'light');
-              turnstileWidget.setAttribute('data-theme', 'light');
-          } else {
-              document.documentElement.classList.add('dark');
-              localStorage.setItem('theme', 'dark');
-              turnstileWidget.setAttribute('data-theme', 'dark');
-          }
-      }
-      turnstile.render(turnstileWidget)
-      turnstile.remove(turnstileWidget)
-      
-  });
+function updateTheme(darkMode) {
+    document.documentElement.classList.toggle('dark', darkMode);
+    themeToggleDarkIcon.classList.toggle('hidden', !darkMode);
+    themeToggleLightIcon.classList.toggle('hidden', darkMode);
+    turnstileWidget.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+    
+    // Update localStorage
+    localStorage.setItem('theme', darkMode ? 'dark' : 'light');
+
+    // Reset turnstile
+    turnstile.remove(turnstileWidget);
+    turnstile.render(turnstileWidget);
+}
+
+// Set theme on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const userPref = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const darkMode = userPref === 'dark' || (!userPref && systemPrefersDark);
+    updateTheme(darkMode);
+});
+
+// Handle button click
+themeToggleBtn.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.contains('dark');
+    updateTheme(!isDark);
+});
