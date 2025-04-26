@@ -17,27 +17,18 @@
   <!-- Navbar -->
   <nav class="sticky top-0 z-50 backdrop-blur px-4 lg:px-0">
     <div class="flex flex-row items-center mx-auto justify-between max-w-screen-lg h-12">
-      <div class="hidden md:block">
+      <div>
         <a class="hover:text-tertiary" href="#top">Nyuu.dev</a>
         <!-- Logo -->
       </div>
-      <div>
+      <!-- Default navbar items -->
+      <div class="hidden md:block">
         <ul class="flex flex-row space-x-2 sm:space-x-4">
-          <li>
-            <a translate="projects" class="nav-item default-hover" href="#projects"></a>
-          </li>
-          <li>
-            <a translate="stack" class="nav-item default-hover" href="#stack"></a>
-          </li>
-          <li>
-            <a translate="courses-certificates" class="nav-item default-hover" href="#courses-certificates"></a>
-          </li>
-          <li>
-            <a translate="services" class="nav-item default-hover" href="#services"></a>
-          </li>
-          <li>
-            <a translate="contact" class="nav-item default-hover" href="#contact"></a>
-          </li>
+          <li><a translate="projects" class="nav-item default-hover" href="#projects"></a></li>
+          <li><a translate="stack" class="nav-item default-hover" href="#stack"></a></li>
+          <li><a translate="courses-certificates" class="nav-item default-hover" href="#courses-certificates"></a></li>
+          <li><a translate="services" class="nav-item default-hover" href="#services"></a></li>
+          <li><a translate="contact" class="nav-item default-hover" href="#contact"></a></li>
         </ul>
       </div>
       <div class="flex flex-row">
@@ -85,10 +76,41 @@
           </button>
         </div>
         <!-- End Theme toggle -->
+
+        <!-- Hamburger toggle (mobile only) -->
+        <div class="md:hidden default-hover rounded-xl ml-4">
+          <button id="menu-toggle" class="p-2">
+            <!-- simple 3-line icon -->
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu"
+            class="hidden fixed inset-x-0 top-12 bg-white dark:bg-surfaceContainer shadow-md z-40 md:hidden">
+          <ul class="flex flex-col p-4 space-y-2">
+            <li><a translate="projects" class="default-hover" href="#projects"></a></li>
+            <li><a translate="stack" class="default-hover" href="#stack"></a></li>
+            <li><a translate="courses-certificates" class="default-hover" href="#courses-certificates"></a></li>
+            <li><a translate="services" class="default-hover" href="#services"></a></li>
+            <li><a translate="contact" class="default-hover" href="#contact"></a></li>
+          </ul>
+        </div>
+
       </div>
     </div>
   </nav>
   <!-- End Navbar -->
+  <script>
+    const btn  = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+  
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>  
 
   <main class="relative">
   <!-- Hero -->
