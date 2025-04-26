@@ -11,6 +11,23 @@
     "hero-desc-3": "Estou aberto para comissões para lhe ajudar em seu projeto ou empresa a qualquer momento, sempre buscando novos desafios.",
 
     "starting-from": "A partir de ",
+    
+    "projects-desc": "Um pequeno portfólio",
+    "miners-title": "Miners' Refuge",
+    "miners-desc": "Comunidade de Minecraft, criada para dar suporte a donos de servidores e fornecer ferramentas gratuitas para facilitar o desenvolvimento.",
+    "docs-title": "Documentação de Minecraft",
+    "docs-desc": "Documentação pública, criada para e pela e comunidade de MInecraft, com guias e tutoriais mais variados, tudo disponível pelo Github com contribuições abertas.",
+    "syncr-title": "Syncr",
+    "syncr-desc": "Aplicação web em desenvolvimento para replicar, mover e sincronizar controles remotos (S3 e SFTP), feito com Django e Rclone.",
+
+    "stack": "Meu stack",
+    "stack-desc": "Linguagens e ferramentas no qual já trabalhei, em ordem de conhecimento por categoria.",
+    "languages": "Linguagens",
+    "cloud-platforms": "Plataformas Cloud",
+    "containerization": "Containers",
+    "databases": "Banco de dados",
+    "monitoring-logging": "Monitoramento & Logs",
+    "frontend": "Frontend",
 
     "services-desc": "Alguns serviços que eu ofereceço",
     "services-game-title": "Hospedagem de jogos",
@@ -24,14 +41,6 @@
     "services-custom-title": "Precisa de algo a mais?",
     "services-custom-desc": "Poderemos negociar alguma instalação, configuração, manutenção ou em desenvolvimento de algo que você necessita, apenas entre em contato!",
 
-    "projects-desc": "Um pequeno portfólio",
-    "miners-title": "Miners' Refuge",
-    "miners-desc": "Comunidade de Minecraft, criada para dar suporte a donos de servidores e fornecer ferramentas gratuitas para facilitar o desenvolvimento.",
-    "docs-title": "Documentação de Minecraft",
-    "docs-desc": "Documentação pública, criada para e pela e comunidade de MInecraft, com guias e tutoriais mais variados, tudo disponível pelo Github com contribuições abertas.",
-    "syncr-title": "Syncr",
-    "syncr-desc": "Aplicação web em desenvolvimento para replicar, mover e sincronizar controles remotos (S3 e SFTP), feito com Django e Rclone.",
-    
     "tryxia-title": "Tryxia Host ",
     "tryxia-desc": "Hospedagem de graça para Minecraft, e, posteriormente, de arquivos. Criada para adquirir mais conhecimento sobre a área, maneiras de reagir a atuar à diversas situações.",
 

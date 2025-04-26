@@ -11,6 +11,23 @@
     "hero-desc-3": "I'm open to commissions to help you with your project or company at any time, always looking for new challenges.",
 
     "starting-from": "Starting from ",
+    
+    "projects-desc": "A small portfolio",
+    "miners-title": "Miners' Refuge",
+    "miners-desc": "Minecraft community, created to support server owners and administrators providing free tools to facilitate development.",
+    "docs-title": "Minecraft Documentation",
+    "docs-desc": "Public documentation, created for and by the Minecraft community, with a wide range of guides and tutorials, all available on Github with open contributions.",
+    "syncr-title": "Syncr ",
+    "syncr-desc": "In development web application to replicate, move and sync remotes (S3 and SFTP), made with Django and Rclone.",
+    
+    "stack": "My Stack",
+    "stack-desc": "Languages and tools that I worked with, in order of knowledge by category.",
+    "languages": "Languages",
+    "cloud-platforms": "Cloud Platforms",
+    "containerization": "Containerization",
+    "databases": "Databases",
+    "monitoring-logging": "Monitoring & Logging",
+    "frontend": "Frontend",
 
     "services-desc": "Some services that I offer",
     "services-game-title": "Game hosting",
@@ -24,14 +41,6 @@
     "services-custom-title": "Need something else?",
     "services-custom-desc": "We can negotiate any installation, configuration, maintenance or development of something you need, just get in touch!",
 
-    "projects-desc": "A small portfolio",
-    "miners-title": "Miners' Refuge",
-    "miners-desc": "Minecraft community, created to support server owners and administrators providing free tools to facilitate development.",
-    "docs-title": "Minecraft Documentation",
-    "docs-desc": "Public documentation, created for and by the Minecraft community, with a wide range of guides and tutorials, all available on Github with open contributions.",
-    "syncr-title": "Syncr ",
-    "syncr-desc": "In development web application to replicate, move and sync remotes (S3 and SFTP), made with Django and Rclone.",
-    
     "tryxia-title": "Tryxia Host ",
     "tryxia-desc": "Free hosting for Minecraft, previously for files. Created to acquire more knowledge about the area, ways to react and act in different situations. It was canceled due to lack of funds.",
 
