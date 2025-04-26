@@ -32,7 +32,7 @@
         @apply p-2 rounded-md;
     }
     .default-hover{
-        @apply dark:hover:bg-surfaceContainer dark:hover:text-slate-100 hover:bg-slate-400 hover:text-slate-50;
+        @apply dark:hover:bg-surfaceContainer hover:bg-slate-400 hover:text-tertiary;
     }
     .services-pricing {
         @apply text-tertiary font-bold inline;
