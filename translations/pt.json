@@ -20,7 +20,7 @@
     "syncr-title": "Syncr",
     "syncr-desc": "Aplicação web em desenvolvimento para replicar, mover e sincronizar controles remotos (S3 e SFTP), feito com Django e Rclone.",
 
-    "stack": "Meu stack",
+    "stack": "Stack",
     "stack-desc": "Linguagens e ferramentas no qual já trabalhei, em ordem de conhecimento por categoria.",
     "languages": "Linguagens",
     "cloud-platforms": "Plataformas Cloud",
@@ -29,7 +29,7 @@
     "monitoring-logging": "Monitoramento & Logs",
     "frontend": "Frontend",
 
-    "courses-certificates": "Meus cursos & certificados",
+    "courses-certificates": "Cursos & certificados",
     "courses-certificates-desc": "Alguns que já realizei, outros que estou ativamente indo atrás",
 
     "courses": "Cursos",

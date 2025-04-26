@@ -20,7 +20,7 @@
     "syncr-title": "Syncr ",
     "syncr-desc": "In development web application to replicate, move and sync remotes (S3 and SFTP), made with Django and Rclone.",
     
-    "stack": "My Stack",
+    "stack": "Stack",
     "stack-desc": "Languages and tools that I worked with, in order of knowledge by category.",
     "languages": "Languages",
     "cloud-platforms": "Cloud Platforms",
@@ -29,7 +29,7 @@
     "monitoring-logging": "Monitoring & Logging",
     "frontend": "Frontend",
 
-    "courses-certificates": "My courses & certificates",
+    "courses-certificates": "Courses & certificates",
     "courses-certificates-desc": "Some I have already accomplished, others I am actively pursuing.",
 
     "courses": "Courses",
