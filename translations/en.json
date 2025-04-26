@@ -27,9 +27,10 @@
     "monitoring-logging": "Monitoring & Logging",
     "frontend": "Frontend",
 
-    "courses-certificates": "Courses & certificates",
+    "courses-certificates": "Courses & Certificates",
     "courses-certificates-desc": "Some I have already accomplished, others I am actively pursuing.",
 
+    "ongoing": "Ongoing",
     "courses": "Courses",
     "completed-on": "Completed on:",
     "download-certificate": "Download Certificate",
