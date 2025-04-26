@@ -551,6 +551,20 @@
     --tw-duration: 300ms;
     transition-duration: 300ms;
   }
+  .hover\:cursor-default {
+    &:hover {
+      @media (hover: hover) {
+        cursor: default;
+      }
+    }
+  }
+  .hover\:cursor-none {
+    &:hover {
+      @media (hover: hover) {
+        cursor: none;
+      }
+    }
+  }
   .hover\:cursor-not-allowed {
     &:hover {
       @media (hover: hover) {
