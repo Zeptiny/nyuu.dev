@@ -35,6 +35,9 @@
     "completed-on": "Completed on:",
     "download-certificate": "Download Certificate",
 
+    "ckac-title": "Certified Kubernetes Administrator",
+    "ckac-desc": "Praparation and content for the CKA Certification, with Kubernetes cluster administration, design, testing, building and networking.",
+
     "kab-title": "Kubernetes for the Absolute Beginners",
     "kab-desc": "Basic understanding of Kubenetes Fundamentals, Configuration and Deployment.",
 
