@@ -27,13 +27,18 @@
     "monitoring-logging": "Monitoramento & Logs",
     "frontend": "Frontend",
 
-    "courses-certificates": "Cursos & Certificados",
-    "courses-certificates-desc": "Alguns que já realizei, outros que estou ativamente indo atrás",
+    "education": "Educação",
+    "education-desc": "Avançando meu conhecimento por meio de estudos, cursos e certificações.",
 
     "ongoing": "Em andamento",
     "courses": "Cursos",
     "completed-on": "Concluído em:",
     "download-certificate": "Baixar Certificado",
+
+    "formal-education": "Educação Formal",
+    "upf-title": "Ciência da Computação | Universidade of Passo Fundo",
+    "upf-desc": "Explorando a arquitetura e os princípios da computação, aplicando rigor acadêmico aos meus projetos e ao mundo real.",
+    "upf-grad": "Gradução Esperada: 2027",
 
     "ckac-title": "Administrador Certificado do Kubernetes",
     "ckac-desc": "Preparação e conteúdo para a Certificação CKA, com administração de cluster Kubernetes, design, testes, construção e rede.",

@@ -26,7 +26,7 @@
         <ul class="flex flex-row space-x-2 sm:space-x-4">
           <li><a translate="projects" class="nav-item default-hover" href="#projects"></a></li>
           <li><a translate="stack" class="nav-item default-hover" href="#stack"></a></li>
-          <li><a translate="courses-certificates" class="nav-item default-hover" href="#courses-certificates"></a></li>
+          <li><a translate="education" class="nav-item default-hover" href="#education"></a></li>
           <li><a translate="services" class="nav-item default-hover" href="#services"></a></li>
           <li><a translate="contact" class="nav-item default-hover" href="#contact"></a></li>
         </ul>
@@ -93,7 +93,7 @@
           <ul class="flex flex-col p-4 space-y-2">
             <li><a translate="projects" class="default-hover p-2 rounded-xl" href="#projects"></a></li>
             <li><a translate="stack" class="default-hover p-2 rounded-xl" href="#stack"></a></li>
-            <li><a translate="courses-certificates" class="default-hover p-2 rounded-xl" href="#courses-certificates"></a></li>
+            <li><a translate="education" class="default-hover p-2 rounded-xl" href="#education"></a></li>
             <li><a translate="services" class="default-hover p-2 rounded-xl" href="#services"></a></li>
             <li><a translate="contact" class="default-hover p-2 rounded-xl" href="#contact"></a></li>
           </ul>
@@ -136,7 +136,7 @@
               <a translate="stack" class="hover:border-tertiary border border-transparent transition dark:bg-slate-900 bg-slate-300 dark:hover:text-slate-100 dark:hover:bg-slate-950 hover:bg-slate-200 hover:text-slate-950 p-2 rounded-lg" href="#contact"></a>
             </li>
             <li>
-              <a translate="courses-certificates" class="hover:border-tertiary border border-transparent transition dark:bg-slate-900 bg-slate-300 dark:hover:text-slate-100 dark:hover:bg-slate-950 hover:bg-slate-200 hover:text-slate-950 p-2 rounded-lg" href="#courses-certificates"></a>
+              <a translate="education" class="hover:border-tertiary border border-transparent transition dark:bg-slate-900 bg-slate-300 dark:hover:text-slate-100 dark:hover:bg-slate-950 hover:bg-slate-200 hover:text-slate-950 p-2 rounded-lg" href="#education"></a>
             </li>
             <li>
               <a translate="services" class="hover:border-tertiary border border-transparent transition dark:bg-slate-900 bg-slate-300 dark:hover:text-slate-100 dark:hover:bg-slate-950 hover:bg-slate-200 hover:text-slate-950 p-2 rounded-lg" href="#services"></a>
@@ -357,73 +357,92 @@
   </div>
   <!-- End Stack -->
 
-  <!-- Courses & Certificates -->
-  <h1 id="courses-certificates" translate="courses-certificates" class="title mt-8"></h1>
-  <p translate="courses-certificates-desc" class="text-center text-sm dark:text-slate-300"></p>
+  <!-- Education -->
+  <h1 id="education" translate="education" class="title mt-8"></h1>
+  <p translate="education-desc" class="text-center text-sm dark:text-slate-300"></p>
   <div class="mx-auto max-w-screen-lg px-4 lg:px-0 space-y-2">
+
+    <!-- Formal Education -->
+    <div>
+      <h1 translate="formal-education" class="text-2xl bold my-4"></h1>
+
+      <div class="space-y-4">
+        <!-- UPF -->
+        <div class="default-container text-center">
+          <div class="flex flex-wrap justify-between">
+            <h1 translate="upf-title" class="font-bold text-xl"></h1>
+            <p class="text-start"><span translate="upf-grad"></span></p>
+          </div>
+          <p class="text-md mt-2 text-center" translate="upf-desc"></p>
+        </div>
+      </div>
+
+    </div>
     
+    <!-- Courses -->
     <div>
       <h1 translate="courses" class="text-2xl bold my-4"></h1>
       <div class="space-y-4">
         <!-- Certified Kubernetes Administrator -->
-        <div class="default-container text-center">
+        <div class="default-container">
           <div class="grid grid-cols-2 md:grid-cols-6">
             <h1 translate="ckac-title" class="col-span-3 font-bold text-xl"></h1>
             <p class="col-span-2 text-start"><span translate="completed-on"></span> <span translate="ongoing"></span></p>
             <p class="hover:text-tertiary hover:cursor-not-allowed text-base" translate="download-certificate"></p>
           </div>
-          <p class="text-md mt-2" translate="ckac-desc"></p>
+          <p class="text-md mt-2 text-center" translate="ckac-desc"></p>
         </div>
 
         <!-- Kubernetes for The Absolute Beginners -->
-        <div class="default-container text-center">
+        <div class="default-container">
           <div class="grid grid-cols-2 md:grid-cols-6">
             <h1 translate="kab-title" class="col-span-3 font-bold text-xl"></h1>
             <p class="col-span-2 text-start"><span translate="completed-on"></span> 26/04/2025</p>
             <a href="/files/courses/kab.pdf" class="hover:text-tertiary text-base" translate="download-certificate"></a>
           </div>
-          <p class="text-md mt-2" translate="kab-desc"></p>
+          <p class="text-md mt-2 text-center" translate="kab-desc"></p>
         </div>
 
         <!-- Fundamentals of Backend Enginerring -->
-        <div class="default-container text-center">
+        <div class="default-container">
           <div class="grid grid-cols-2 md:grid-cols-6">
             <h1 translate="fbe-title" class="col-span-3 font-bold text-xl"></h1>
             <p class="col-span-2 text-start"><span translate="completed-on"></span> 17/04/2025</p>
             <a href="/files/courses/fbe.pdf" class="hover:text-tertiary text-base" translate="download-certificate"></a>
           </div>
-          <p class="text-md mt-2" translate="fbe-desc"></p>
+          <p class="text-md mt-2 text-center" translate="fbe-desc"></p>
         </div>
 
         <!-- Django Masterclass -->
-        <div class="default-container text-center">
+        <div class="default-container">
           <div class="grid grid-cols-2 md:grid-cols-6">
             <h1 translate="djm-title" class="col-span-3 font-bold text-xl"></h1>
             <p class="col-span-2 text-start"><span translate="completed-on"></span> 17/01/2025</p>
             <a href="/files/courses/djm.pdf" class="hover:text-tertiary text-base" translate="download-certificate"></a>
           </div>
-          <p class="text-md mt-2" translate="djm-desc"></p>
+          <p class="text-md mt-2 text-center" translate="djm-desc"></p>
         </div>
 
 
       </div>
     </div>
 
+     <!-- Certificates -->
     <div>
       <h1 translate="certificates" class="text-2xl bold my-4"></h1>
 
-      <div class="default-container text-center">
+      <div class="default-container">
         <div class="grid grid-cols-2 md:grid-cols-6">
           <h1 translate="cka-title" class="col-span-3 font-bold text-xl"></h1>
           <p class="col-span-2 text-start"><span translate="completed-on"></span> <span translate="ongoing"></span></p>
           <p class="hover:text-tertiary hover:cursor-not-allowed text-base" translate="download-certificate"></p>
         </div>
-        <p class="text-md mt-2" translate="cka-desc"></p>
+        <p class="text-md mt-2 text-center" translate="cka-desc"></p>
       </div>
 
     </div>
   </div>
-  <!-- End Courses & Certificates-->
+  <!-- End Education-->
   
   <!-- Services -->
   <div id="services" class="mx-auto max-w-screen-lg">

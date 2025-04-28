@@ -27,13 +27,18 @@
     "monitoring-logging": "Monitoring & Logging",
     "frontend": "Frontend",
 
-    "courses-certificates": "Courses & Certificates",
-    "courses-certificates-desc": "Some I have already accomplished, others I am actively pursuing.",
+    "education": "Education",
+    "education-desc": "Advancing my knowledge through studies, courses and certifications.",
 
     "ongoing": "Ongoing",
     "courses": "Courses",
     "completed-on": "Completed on:",
     "download-certificate": "Download Certificate",
+
+    "formal-education": "Formal Education",
+    "upf-title": "Computer Science | University of Passo Fundo",
+    "upf-desc": "Exploring the computing achitecture and principles, applying academic rigor to my projects and the real-world.",
+    "upf-grad": "Expected Graduation: 2027",
 
     "ckac-title": "Certified Kubernetes Administrator",
     "ckac-desc": "Preparation and content for the CKA Certification, with Kubernetes cluster administration, design, testing, building and networking.",
