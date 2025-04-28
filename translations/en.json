@@ -39,7 +39,7 @@
     "ckac-desc": "Praparation and content for the CKA Certification, with Kubernetes cluster administration, design, testing, building and networking.",
 
     "kab-title": "Kubernetes for the Absolute Beginners",
-    "kab-desc": "Basic understanding of Kubenetes Fundamentals, Configuration and Deployment.",
+    "kab-desc": "Basic understanding of Kubernetes Fundamentals, Configuration and Deployment.",
 
     "fbe-title": "Fundamentals of Backend Enginerring",
     "fbe-desc": "Understanding of backend communication patterns, protocols, execution and proxying.",
