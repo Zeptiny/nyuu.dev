@@ -24,10 +24,10 @@
       <!-- Default navbar items -->
       <div class="hidden md:block">
         <ul class="flex flex-row space-x-2 sm:space-x-4">
+          <li><a translate="services" class="nav-item default-hover" href="#services"></a></li>
           <li><a translate="projects" class="nav-item default-hover" href="#projects"></a></li>
           <li><a translate="stack" class="nav-item default-hover" href="#stack"></a></li>
           <li><a translate="education" class="nav-item default-hover" href="#education"></a></li>
-          <li><a translate="services" class="nav-item default-hover" href="#services"></a></li>
           <li><a translate="contact" class="nav-item default-hover" href="#contact"></a></li>
         </ul>
       </div>
@@ -93,10 +93,10 @@
         <div id="mobile-menu"
             class="hidden fixed inset-x-0 top-12 bg-white dark:bg-surfaceContainer shadow-md z-40 md:hidden">
           <ul class="flex flex-col p-4 space-y-2">
+            <li><a translate="services" class="default-hover p-2 rounded-xl" href="#services"></a></li>
             <li><a translate="projects" class="default-hover p-2 rounded-xl" href="#projects"></a></li>
             <li><a translate="stack" class="default-hover p-2 rounded-xl" href="#stack"></a></li>
             <li><a translate="education" class="default-hover p-2 rounded-xl" href="#education"></a></li>
-            <li><a translate="services" class="default-hover p-2 rounded-xl" href="#services"></a></li>
             <li><a translate="contact" class="default-hover p-2 rounded-xl" href="#contact"></a></li>
           </ul>
         </div>
@@ -134,6 +134,9 @@
         <div>
           <ul class="flex flex-wrap gap-4 justify-center mt-4">
             <li>
+              <a translate="services" class="hover:border-tertiary border border-transparent transition dark:bg-slate-900 bg-slate-300 dark:hover:text-slate-100 dark:hover:bg-slate-950 hover:bg-slate-200 hover:text-slate-950 p-2 rounded-lg" href="#services"></a>
+            </li>
+            <li>
               <a translate="projects" class="hover:border-tertiary border border-transparent transition dark:bg-slate-900 bg-slate-300 dark:hover:text-slate-100 dark:hover:bg-slate-950 hover:bg-slate-200 hover:text-slate-950 p-2 rounded-lg" href="#projects"></a>
             </li>
             <li>
@@ -141,9 +144,6 @@
             </li>
             <li>
               <a translate="education" class="hover:border-tertiary border border-transparent transition dark:bg-slate-900 bg-slate-300 dark:hover:text-slate-100 dark:hover:bg-slate-950 hover:bg-slate-200 hover:text-slate-950 p-2 rounded-lg" href="#education"></a>
-            </li>
-            <li>
-              <a translate="services" class="hover:border-tertiary border border-transparent transition dark:bg-slate-900 bg-slate-300 dark:hover:text-slate-100 dark:hover:bg-slate-950 hover:bg-slate-200 hover:text-slate-950 p-2 rounded-lg" href="#services"></a>
             </li>
             <li>
               <a translate="contact" class="hover:border-tertiary border border-transparent transition dark:bg-slate-900 bg-slate-300 dark:hover:text-slate-100 dark:hover:bg-slate-950 hover:bg-slate-200 hover:text-slate-950 p-2 rounded-lg" href="#contact"></a>
@@ -157,6 +157,62 @@
     </div>
   </div>
   <!-- End Hero -->
+
+  <!-- Services -->
+  <div id="services" class="mx-auto max-w-screen-lg mt-16">
+    <h1 translate="services" class="title mt-4"></h1>
+    <p translate="services-desc" class="text-center text-sm dark:text-slate-300"></p>
+    <div class="grid md:grid-cols-8 mx-auto my-4 md:my-8 px-4 lg:px-0">
+      <div class="col-start-1 col-span-6 lg:col-span-5 default-container grid grid-cols-3">
+        <img src="img/pterodactyl.webp" class="hidden sm:block rounded-lg my-auto" loading="lazy" alt="Pterodatyl Panel Image">
+        <div class="pl-2 col-span-3 sm:col-span-2 mx-2">
+          <h1 translate="services-game-title" class="font-bold text-lg dark:text-slate-200"></h1>
+          <p translate="services-game-desc"></p>
+        </div>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-8 mx-auto my-4 md:my-8 px-4 lg:px-0">
+      <div class="col-start-3 lg:col-start-4 col-span-6 lg:col-span-5 default-container grid grid-cols-3">
+        <div class="pr-2 col-span-3 sm:col-span-2 mx-2">
+          <h1 translate="services-app-title" class="font-bold text-lg dark:text-slate-200"></h1>
+          <p translate="services-app-desc"></p>
+        </div>
+        <img src="img/nextcloud-light.webp" class="hidden sm:block dark:hidden rounded-lg my-auto" loading="lazy" alt="Nextcloud panel light theme image">
+        <img src="img/nextcloud-dark.webp" class="hidden dark:sm:block rounded-lg my-auto" loading="lazy" alt="Nextcloud panel dark theme image">
+      </div>
+    </div>
+    <div class="grid md:grid-cols-8 mx-auto my-4 md:my-8 px-4 lg:px-0">
+      <div class="col-start-1 col-span-6 lg:col-span-5 default-container grid grid-cols-3">
+        <img src="img/proxmox-light.webp" class="hidden sm:block dark:hidden rounded-lg my-auto" loading="lazy" alt="Proxmox Panel light theme image">
+        <img src="img/proxmox-dark.webp" class="hidden dark:sm:block rounded-lg my-auto" loading="lazy" alt="Proxmox Panel dark theme image">
+        <div class="pl-2 col-span-3 sm:col-span-2 mx-2">
+          <h1 translate="services-panel-title" class="font-bold text-lg dark:text-slate-200"></h1>
+          <p translate="services-panel-desc"></p>
+        </div>
+      </div>
+    </div>
+    <div class="grid md:grid-cols-8 mx-auto my-4 md:my-8 px-4 lg:px-0">
+      <div class="col-start-3 lg:col-start-4 col-span-6 lg:col-span-5 default-container grid grid-cols-3">
+        <div class="pr-2 col-span-3 sm:col-span-2 mx-2">
+          <h1 translate="services-backups-title" class="font-bold text-lg dark:text-slate-200"></h1>
+          <p translate="services-backups-desc"></p>
+        </div>
+        <img src="img/borgbase-light.webp" class="hidden sm:block dark:hidden rounded-lg" my-auto loading="lazy" alt="Borgbase panel light theme image">
+        <img src="img/borgbase-dark.webp" class="hidden dark:sm:block rounded-lg my-auto" loading="lazy" alt="Borgbase panel dark theme image">
+      </div>
+    </div>
+    <div class="grid md:grid-cols-8 mx-auto my-4 md:my-8 px-4 lg:px-0">
+      <div class="col-start-1 col-span-6 lg:col-span-5 default-container grid grid-cols-3">
+        <img src="img/terminal-light.webp" class="hidden sm:block dark:hidden rounded-lg my-auto" loading="lazy" alt="Terminal with commands light theme image">
+        <img src="img/terminal-dark.webp" class="hidden dark:sm:block rounded-lg my-auto" loading="lazy" alt="Terminal with commands dark theme image">
+        <div class="pl-2 col-span-3 sm:col-span-2 mx-2">
+          <h1 translate="services-custom-title" class="font-bold text-lg dark:text-slate-200"></h1>
+          <p translate="services-custom-desc"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Services -->
 
   <!-- Projects -->
   <h1 id="projects" translate="projects" class="title mt-8"></h1>
@@ -422,62 +478,6 @@
     </div>
   </div>
   <!-- End Education-->
-  
-  <!-- Services -->
-  <div id="services" class="mx-auto max-w-screen-lg mt-16">
-    <h1 translate="services" class="title mt-4"></h1>
-    <p translate="services-desc" class="text-center text-sm dark:text-slate-300"></p>
-    <div class="grid md:grid-cols-8 mx-auto my-4 md:my-8 px-4 lg:px-0">
-      <div class="col-start-1 col-span-6 lg:col-span-5 default-container grid grid-cols-3">
-        <img src="img/pterodactyl.webp" class="hidden sm:block rounded-lg my-auto" loading="lazy" alt="Pterodatyl Panel Image">
-        <div class="pl-2 col-span-3 sm:col-span-2 mx-2">
-          <h1 translate="services-game-title" class="font-bold text-lg dark:text-slate-200"></h1>
-          <p translate="services-game-desc"></p>
-        </div>
-      </div>
-    </div>
-    <div class="grid md:grid-cols-8 mx-auto my-4 md:my-8 px-4 lg:px-0">
-      <div class="col-start-3 lg:col-start-4 col-span-6 lg:col-span-5 default-container grid grid-cols-3">
-        <div class="pr-2 col-span-3 sm:col-span-2 mx-2">
-          <h1 translate="services-app-title" class="font-bold text-lg dark:text-slate-200"></h1>
-          <p translate="services-app-desc"></p>
-        </div>
-        <img src="img/nextcloud-light.webp" class="hidden sm:block dark:hidden rounded-lg my-auto" loading="lazy" alt="Nextcloud panel light theme image">
-        <img src="img/nextcloud-dark.webp" class="hidden dark:sm:block rounded-lg my-auto" loading="lazy" alt="Nextcloud panel dark theme image">
-      </div>
-    </div>
-    <div class="grid md:grid-cols-8 mx-auto my-4 md:my-8 px-4 lg:px-0">
-      <div class="col-start-1 col-span-6 lg:col-span-5 default-container grid grid-cols-3">
-        <img src="img/proxmox-light.webp" class="hidden sm:block dark:hidden rounded-lg my-auto" loading="lazy" alt="Proxmox Panel light theme image">
-        <img src="img/proxmox-dark.webp" class="hidden dark:sm:block rounded-lg my-auto" loading="lazy" alt="Proxmox Panel dark theme image">
-        <div class="pl-2 col-span-3 sm:col-span-2 mx-2">
-          <h1 translate="services-panel-title" class="font-bold text-lg dark:text-slate-200"></h1>
-          <p translate="services-panel-desc"></p>
-        </div>
-      </div>
-    </div>
-    <div class="grid md:grid-cols-8 mx-auto my-4 md:my-8 px-4 lg:px-0">
-      <div class="col-start-3 lg:col-start-4 col-span-6 lg:col-span-5 default-container grid grid-cols-3">
-        <div class="pr-2 col-span-3 sm:col-span-2 mx-2">
-          <h1 translate="services-backups-title" class="font-bold text-lg dark:text-slate-200"></h1>
-          <p translate="services-backups-desc"></p>
-        </div>
-        <img src="img/borgbase-light.webp" class="hidden sm:block dark:hidden rounded-lg" my-auto loading="lazy" alt="Borgbase panel light theme image">
-        <img src="img/borgbase-dark.webp" class="hidden dark:sm:block rounded-lg my-auto" loading="lazy" alt="Borgbase panel dark theme image">
-      </div>
-    </div>
-    <div class="grid md:grid-cols-8 mx-auto my-4 md:my-8 px-4 lg:px-0">
-      <div class="col-start-1 col-span-6 lg:col-span-5 default-container grid grid-cols-3">
-        <img src="img/terminal-light.webp" class="hidden sm:block dark:hidden rounded-lg my-auto" loading="lazy" alt="Terminal with commands light theme image">
-        <img src="img/terminal-dark.webp" class="hidden dark:sm:block rounded-lg my-auto" loading="lazy" alt="Terminal with commands dark theme image">
-        <div class="pl-2 col-span-3 sm:col-span-2 mx-2">
-          <h1 translate="services-custom-title" class="font-bold text-lg dark:text-slate-200"></h1>
-          <p translate="services-custom-desc"></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Services -->
   
   <!-- Contact CTA -->
   <div id="contact" class="mx-auto max-w-screen-lg my-8">
