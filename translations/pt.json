@@ -43,6 +43,9 @@
     "ckac-title": "Administrador Certificado do Kubernetes",
     "ckac-desc": "Preparação e conteúdo para a Certificação CKA, com administração de cluster Kubernetes, design, testes, construção e rede.",
 
+    "zab-title": "Zabbix - Monitoramento de redes e Aplicações",
+    "zab-desc": "Entendimento básico de monitoramento de máquinas linux, windows e aplicações com Zabbix.",
+
     "kab-title": "Fundamentos de Kubernetes",
     "kab-desc": "Entendimento básico dos Fundamentos, Configuração e Implantação do Kubernetes.",
 
