@@ -7,7 +7,7 @@
     "hero-desc-1-1": "You can call me",
     "tooltip": "Also known as:",
     "hero-desc-1-2": "I'm fueled by a passion for IT, seeking to specialize in systems administration and DevOps, building resilient, automated infrastructures.",
-    "hero-desc-2": "As a Computer Science student at the University of Passo Fundo (Brazil), I'm committed to continuous learning and daily growth.",
+    "hero-desc-2": "As a Computer Science student I'm committed to continuous learning and daily growth.",
     "hero-desc-3": "I'm available for freelance projects and collaborations, let's tackle your next challenge together!",
     
     "projects-desc": "A small portfolio",
@@ -64,14 +64,13 @@
     "services-game-title": "Managed Game hosting",
     "services-game-desc": "Whether it's for your game server, hosting company, or whatever you need. Perfectly tailored to your requirements, any hardware, any location, whenever you want.",
     "services-app-title": "Managed Application hosting",
-    "services-app-desc": "Host your applications, websites, bots or even existing solutions like storage with NextCloud or MinIO. There are no limits! Fully redundant and accessible at all times.",
+    "services-app-desc": "Your applications need a place to be online! I will create hosting solutions that meet all your needs, keeping them always available and running in the best possible way.",
     "services-panel-title": "Panel Intallation and Setup",
-    "services-panel-desc": "For all categories and needs, from monitoring with Zabbix or Prometheus and Grafana, managing virtual machines with Proxmox, Virtufusion or Virtualizor, to finance with WHMCS.",
+    "services-panel-desc": "For all categories and needs, from extensive monitoring with Grafana and Prometheus or Zabbix, hypervisors for virtual machines like Proxmox, Virtfusion and Virtualizor to finance like WHMCS.",
     "services-backups-title": "Backups & Disaster Recovery",
     "services-backups-desc": "Backups are worthless if they are not tested or follow the 3-2-1 rule! I will set up backup and disaster recovery, across multiple providers and locations, any way you want!",
     "services-custom-title": "Need something else?",
-    "services-custom-desc": "We can negotiate any installation, configuration, maintenance or development of something you need, just get in touch!",
-
+    "services-custom-desc": "We can negotiate any installation, configuration, maintenance or managed service that meets your requirements! Just get in touch!",
     "tryxia-title": "Tryxia Host ",
     "tryxia-desc": "Free hosting for Minecraft, previously for files. Created to acquire more knowledge about the area, ways to react and act in different situations. It was canceled due to lack of funds.",
 
