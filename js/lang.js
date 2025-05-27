@@ -56,7 +56,7 @@ langToggleBtn.addEventListener('click', function() {
 document.addEventListener('DOMContentLoaded', async () => {
     const defaultLanguage = getDefaultLanguage();
     await setLanguage(defaultLanguage);
-    document.body.classList.remove('hidden');
+    document.main.classList.remove('hidden');
 });
 
 
