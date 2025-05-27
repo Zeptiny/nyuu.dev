@@ -8,12 +8,14 @@
     "hero-desc-2": "Estou disponível para projetos freelance e colaborações. Vamos encarar seu próximo desafio juntos!",
 
     "projects-desc": "Um pequeno portfólio",
+    "projects-technologies": "Tecnologias usadas nesse projeto:",
     "syncr-title": "Syncr",
-    "syncr-desc": "Aplicação web em desenvolvimento para replicar, mover e sincronizar controles remotos (S3 e SFTP), feito com Django e Rclone.",
+    "syncr-desc": "Aplicação web de código aberto (em desenvolvimento) projetado para sincronizar, mover e copiar arquivos entre serviços de armazenamento remoto. Compatível com Amazon S3 e SFTP. Os recursos incluem tarefas agendadas, notificações, suporte multiusuário e auto-hospedagem completa via Docker.",
     "miners-title": "Miners' Refuge",
-    "miners-desc": "Comunidade de Minecraft, criada para dar suporte a donos de servidores e fornecer ferramentas gratuitas para facilitar o desenvolvimento.",
-    "tryxia-title": "Tryxia Host ",
-    "tryxia-desc": "Hospedagem de graça para Minecraft, e, posteriormente, de arquivos. Criada para adquirir mais conhecimento sobre a área, maneiras de reagir a atuar à diversas situações.",
+    "miners-desc": "Um projeto da comunidade Minecraft com a maior documentação brasileira de código aberto para administradores de servidores. Oferece guias de solução de problemas, dicas e práticas recomendadas para o gerenciamento de servidores Minecraft.",
+    "tryxia-title": "Tryxia Host",
+    "tryxia-desc": "Um serviço descontinuado gratuito de hospedagem Minecraft, criado como um projeto de aprendizado. Criado para adquirir experiência prática com hospedagem, administração e solução de problemas de servidores em cenários do mundo real.",
+
 
     "stack": "Stack",
     "stack-desc": "Linguagens e ferramentas no qual já trabalhei, em ordem de conhecimento por categoria.",

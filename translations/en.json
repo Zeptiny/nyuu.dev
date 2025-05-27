@@ -10,11 +10,11 @@
     "projects-desc": "A small portfolio",
     "projects-technologies": "Technologies used in this project:",
     "syncr-title": "Syncr",
-    "syncr-desc": "Open source, in-development, web application to sincronize, move and copy files from remote storage, compatible with Amazon's S3 API and SFTP storage. Supports schedules for automatic jobs, notification sending and multi-user, able to be fully self hosted with Docker.",
+    "syncr-desc": "Open-source web application (in development) designed to synchronize, move, and copy files across remote storage services. Compatible with Amazon S3 and SFTP. Features include scheduled jobs, notifications, multi-user support, and full self-hosting via Docker.",
     "miners-title": "Miners' Refuge",
-    "miners-desc": "Minecraft Community, with the biggest brazilian open source documentation to help server administrators on solving problems, as well as general suggestions and tips.",
+    "miners-desc": "A Minecraft community project featuring the largest open-source Brazilian documentation for server administrators. Offers problem-solving guides, tips, and best practices for managing Minecraft servers.",
     "tryxia-title": "Tryxia Host",
-    "tryxia-desc": "A discontinued free hosting for Minecraft, was created to acquire more knowledge about hosting and administration, ways to react in different situations and have a hands-on experience.",
+    "tryxia-desc": "A discontinued free Minecraft hosting service created as a learning project. Provided hands-on experience with server hosting, administration, and troubleshooting in real-world scenarios.",
 
 
     "stack": "Stack",
