@@ -8,11 +8,15 @@
     "hero-desc-2": "I'm available for freelance projects and collaborations, let's tackle your next challenge together!",
     
     "projects-desc": "A small portfolio",
+    "projects-technologies": "Technologies used in this project:",
+    "syncr-title": "Syncr",
+    "syncr-desc": "Open source, in-development, web application to sincronize, move and copy files from remote storage, compatible with Amazon's S3 API and SFTP storage. Supports schedules for automatic jobs, notification sending and multi-user, able to be fully self hosted with Docker.",
     "miners-title": "Miners' Refuge",
-    "miners-desc": "Minecraft community, created to support server owners and administrators providing free tools to facilitate development.",
-    "syncr-title": "Syncr ",
-    "syncr-desc": "In development web application to replicate, move and sync remotes (S3 and SFTP), made with Django and Rclone.",
-    
+    "miners-desc": "Minecraft Community, with the biggest brazilian open source documentation to help server administrators on solving problems, as well as general suggestions and tips.",
+    "tryxia-title": "Tryxia Host",
+    "tryxia-desc": "A discontinued free hosting for Minecraft, was created to acquire more knowledge about hosting and administration, ways to react in different situations and have a hands-on experience.",
+
+
     "stack": "Stack",
     "stack-desc": "Languages and tools that I worked with, in order of knowledge by category.",
     "languages": "Languages",
@@ -66,8 +70,6 @@
     "services-backups-desc": "Backups are worthless if they are not tested or follow the 3-2-1 rule! I will set up backup and disaster recovery, across multiple providers and locations, any way you want!",
     "services-custom-title": "Need something else?",
     "services-custom-desc": "We can negotiate any installation, configuration, maintenance or managed service that meets your requirements! Just get in touch!",
-    "tryxia-title": "Tryxia Host ",
-    "tryxia-desc": "Free hosting for Minecraft, previously for files. Created to acquire more knowledge about the area, ways to react and act in different situations. It was canceled due to lack of funds.",
 
     "cta-title": "Get in touch!",
     "cta-desc": "I'm always availiable on Discord and via email!",

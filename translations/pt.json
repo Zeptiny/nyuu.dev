@@ -8,10 +8,12 @@
     "hero-desc-2": "Estou disponível para projetos freelance e colaborações. Vamos encarar seu próximo desafio juntos!",
 
     "projects-desc": "Um pequeno portfólio",
-    "miners-title": "Miners' Refuge",
-    "miners-desc": "Comunidade de Minecraft, criada para dar suporte a donos de servidores e fornecer ferramentas gratuitas para facilitar o desenvolvimento.",
     "syncr-title": "Syncr",
     "syncr-desc": "Aplicação web em desenvolvimento para replicar, mover e sincronizar controles remotos (S3 e SFTP), feito com Django e Rclone.",
+    "miners-title": "Miners' Refuge",
+    "miners-desc": "Comunidade de Minecraft, criada para dar suporte a donos de servidores e fornecer ferramentas gratuitas para facilitar o desenvolvimento.",
+    "tryxia-title": "Tryxia Host ",
+    "tryxia-desc": "Hospedagem de graça para Minecraft, e, posteriormente, de arquivos. Criada para adquirir mais conhecimento sobre a área, maneiras de reagir a atuar à diversas situações.",
 
     "stack": "Stack",
     "stack-desc": "Linguagens e ferramentas no qual já trabalhei, em ordem de conhecimento por categoria.",
@@ -66,9 +68,6 @@
     "services-backups-desc": "Backups não valem nada se não forem testados ou seguirem a regra 3-2-1! Configurarei meios de backup e recuperação de desastre, em múltiplos provedores e localizações, da maneira que desejar!",
     "services-custom-title": "Precisa de algo a mais?",
     "services-custom-desc": "Poderemos negociar alguma instalação, configuração, manutenção ou serviço gerenciado que atenda aos seus requisitos! Apenas entre em contato.!",
-
-    "tryxia-title": "Tryxia Host ",
-    "tryxia-desc": "Hospedagem de graça para Minecraft, e, posteriormente, de arquivos. Criada para adquirir mais conhecimento sobre a área, maneiras de reagir a atuar à diversas situações.",
 
     "cta-title": "Entre em contato!",
     "cta-desc": "Sempre estou disponível no Discord e email!",
