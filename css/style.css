@@ -525,6 +525,9 @@
   .indent-8 {
     text-indent: calc(var(--spacing) * 8);
   }
+  .align-middle {
+    vertical-align: middle;
+  }
   .text-2xl {
     font-size: var(--text-2xl);
     line-height: var(--tw-leading, var(--text-2xl--line-height));
