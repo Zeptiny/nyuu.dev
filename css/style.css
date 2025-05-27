@@ -9,6 +9,7 @@
       "Courier New", monospace;
     --color-red-200: oklch(88.5% 0.062 18.334);
     --color-red-300: oklch(80.8% 0.114 19.571);
+    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-red-900: oklch(39.6% 0.141 25.723);
     --color-green-200: oklch(92.5% 0.084 155.995);
     --color-green-300: oklch(87.1% 0.15 154.449);
@@ -526,11 +527,20 @@
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
   }
+  .text-\[\#4a3c5f\] {
+    color: #4a3c5f;
+  }
+  .text-\[\#5a4a71\] {
+    color: #5a4a71;
+  }
   .text-green-900 {
     color: var(--color-green-900);
   }
   .text-primary {
     color: var(--color-primary);
+  }
+  .text-red-500 {
+    color: var(--color-red-500);
   }
   .text-red-900 {
     color: var(--color-red-900);
@@ -650,6 +660,13 @@
       }
     }
   }
+  .hover\:text-red-500 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-red-500);
+      }
+    }
+  }
   .hover\:text-slate-950 {
     &:hover {
       @media (hover: hover) {
@@ -685,6 +702,52 @@
     &:focus {
       --tw-outline-style: none;
       outline-style: none;
+    }
+  }
+  .aria-selected\:font-bold {
+    &[aria-selected="true"] {
+      --tw-font-weight: var(--font-weight-bold);
+      font-weight: var(--font-weight-bold);
+    }
+  }
+  .aria-selected\:text-\[\#1a181d\] {
+    &[aria-selected="true"] {
+      color: #1a181d;
+    }
+  }
+  .aria-selected\:text-\[\#2a2433\] {
+    &[aria-selected="true"] {
+      color: #2a2433;
+    }
+  }
+  .aria-selected\:text-\[\#5a4a71\] {
+    &[aria-selected="true"] {
+      color: #5a4a71;
+    }
+  }
+  .aria-selected\:text-\[\#52426a\] {
+    &[aria-selected="true"] {
+      color: #52426a;
+    }
+  }
+  .aria-selected\:text-primary {
+    &[aria-selected="true"] {
+      color: var(--color-primary);
+    }
+  }
+  .aria-selected\:text-red-500 {
+    &[aria-selected="true"] {
+      color: var(--color-red-500);
+    }
+  }
+  .aria-selected\:text-slate-400 {
+    &[aria-selected="true"] {
+      color: var(--color-slate-400);
+    }
+  }
+  .aria-selected\:text-tertiary {
+    &[aria-selected="true"] {
+      color: var(--color-tertiary);
     }
   }
   .sm\:col-span-2 {
@@ -869,6 +932,13 @@
         @media (hover: hover) {
           color: var(--color-slate-100);
         }
+      }
+    }
+  }
+  .dark\:aria-selected\:text-\[\#52426a\] {
+    &:where(.dark, .dark *) {
+      &[aria-selected="true"] {
+        color: #52426a;
       }
     }
   }
