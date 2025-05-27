@@ -7,6 +7,23 @@
     <meta name="keywords" content="IT services, Sysadmin services, system administration, server management, IT projects, IT expertise, system admin support, tech services, IT professional, IT help, freelancer">
     <title>Nyuu.dev</title>
 
+
+    <!-- Try to prevent "white flash" when the user selected/default theme is dark -->
+    <script>
+      (function () {
+        try {
+          const theme = localStorage.getItem('theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const darkMode = theme === 'dark' || (!theme && prefersDark);
+          document.documentElement.classList.toggle('dark', darkMode);
+        } catch (e) {
+          // Fallback
+          document.documentElement.classList.add('light');
+        }
+      })();
+    </script>
+
+
     <link rel="stylesheet" href="css/style.css" async>
     <link rel="stylesheet" href="font-files/inter.css" async>
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
