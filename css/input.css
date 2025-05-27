@@ -22,7 +22,7 @@
 
 @layer base{
     .default-container {
-        @apply hover:border-tertiary hover:scale-[1.025] transition rounded-xl dark:bg-surfaceContainer bg-slate-100 p-3 border-[1px] dark:border-slate-700 border-slate-300;
+        @apply hover:border-tertiary hover:scale-[1.025] transition rounded-xl dark:bg-surfaceContainer bg-slate-100 p-3 border-[1px] dark:border-secondary border-slate-300;
     }
     .title {
         @apply text-center font-bold text-4xl dark:text-slate-200;
@@ -32,6 +32,9 @@
     }
     .default-hover{
         @apply dark:hover:bg-surfaceContainer hover:bg-slate-400 hover:text-tertiary;
+    }
+    .ease-animation {
+        @apply opacity-0 translate-y-24 transition-all duration-500 ease-out delay-25;
     }
 
     h1 {
