@@ -34,9 +34,6 @@
     .default-hover{
         @apply dark:hover:bg-surfaceContainer hover:bg-slate-400 hover:text-tertiary;
     }
-    .services-pricing {
-        @apply text-tertiary font-bold inline;
-    }
 
     h1 {
         @apply sm:text-xl
