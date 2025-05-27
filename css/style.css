@@ -13,6 +13,7 @@
     --color-green-200: oklch(92.5% 0.084 155.995);
     --color-green-300: oklch(87.1% 0.15 154.449);
     --color-green-900: oklch(39.3% 0.095 152.535);
+    --color-blue-400: oklch(70.7% 0.165 254.624);
     --color-slate-50: oklch(98.4% 0.003 247.858);
     --color-slate-100: oklch(96.8% 0.007 247.896);
     --color-slate-200: oklch(92.9% 0.013 255.508);
@@ -58,6 +59,7 @@
     --color-surface: #0F172A;
     --color-onSurface: #D1D1D1;
     --color-surfaceContainer: #1E293B;
+    --color-secondary: #fff0f5;
     --color-tertiary: #5a4a71;
   }
 }
@@ -561,6 +563,9 @@
   .text-wrap {
     text-wrap: wrap;
   }
+  .text-blue-400 {
+    color: var(--color-blue-400);
+  }
   .text-gray-500 {
     color: var(--color-gray-500);
   }
@@ -573,8 +578,14 @@
   .text-red-900 {
     color: var(--color-red-900);
   }
+  .text-secondary {
+    color: var(--color-secondary);
+  }
   .text-slate-400 {
     color: var(--color-slate-400);
+  }
+  .text-tertiary {
+    color: var(--color-tertiary);
   }
   .underline {
     text-decoration-line: underline;
@@ -808,6 +819,11 @@
   .dark\:bg-green-300 {
     &:where(.dark, .dark *) {
       background-color: var(--color-green-300);
+    }
+  }
+  .dark\:bg-onSurface {
+    &:where(.dark, .dark *) {
+      background-color: var(--color-onSurface);
     }
   }
   .dark\:bg-red-300 {

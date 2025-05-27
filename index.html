@@ -228,90 +228,32 @@
 
   <!-- TO-DO -->
 
-  <div class="mx-auto max-w-screen-lg mb-4 border-b border-gray-200 dark:border-gray-700">
-      <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
+  <div class="mx-auto max-w-screen-lg mb-4 border-b dark:border-slate-700 border-slate-300">
+      <ul class="flex flex-wrap justify-center -mb-px text-sm font-medium text-center" id="default-tab" data-tabs-toggle="#default-tab-content" role="tablist">
           <li class="me-2" role="presentation">
-              <button class="hover:cursor-pointer inline-block p-4 border-b-2 rounded-t-lg" id="profile-tab" data-tabs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Syncr</button>
+              <button class="hover:cursor-pointer inline-block p-4 border-b-2 rounded-t-lg text-tertiary" id="syncr-tab" data-tabs-target="#syncr" type="button" role="tab" aria-controls="syncr" aria-selected="false">Syncr</button>
           </li>
           <li class="me-2" role="presentation">
-              <button class="hover:cursor-pointer inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab" aria-controls="dashboard" aria-selected="false">Miner's Refuge</button>
+              <button class="hover:cursor-pointer inline-block p-4 border-b-2 rounded-t-lg text-tertiary hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="miners-tab" data-tabs-target="#miners" type="button" role="tab" aria-controls="miners" aria-selected="false">Miners' Refuge</button>
           </li>
           <li class="me-2" role="presentation">
-              <button class="hover:cursor-pointer inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="settings-tab" data-tabs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Tryxia Host</button>
+              <button class="hover:cursor-pointer inline-block p-4 border-b-2 rounded-t-lg text-tertiary hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" id="tryxia-tab" data-tabs-target="#tryxia" type="button" role="tab" aria-controls="tryxia" aria-selected="false">Tryxia Host</button>
           </li>
       </ul>
   </div>
   <div id="default-tab-content">
-      <div class="mx-auto max-w-screen-lg hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-          <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Profile tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-      </div>
-      <div class="mx-auto max-w-screen-lg hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
-          <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Dashboard tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-      </div>
-      <div class="mx-auto max-w-screen-lg hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="settings" role="tabpanel" aria-labelledby="settings-tab">
-          <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Settings tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-      </div>
-      <div class="mx-auto max-w-screen-lg hidden p-4 rounded-lg bg-gray-50 dark:bg-gray-800" id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
-          <p class="text-sm text-gray-500 dark:text-gray-400">This is some placeholder content the <strong class="font-medium text-gray-800 dark:text-white">Contacts tab's associated content</strong>. Clicking another tab will toggle the visibility of this one for the next. The tab JavaScript swaps classes to control the content visibility and styling.</p>
-      </div>
-  </div>
-
-
-  <div class="grid md:grid-cols-2 gap-4 mx-auto max-w-screen-lg text-balance text-center my-8 px-4 lg:px-0">
-
-    <div class="default-container flex flex-col h-full">
-      <div>
-        <h1 translate="miners-title" class="text-center font-bold text-lg dark:text-slate-200 mb-2"></h1>
-        <p translate="miners-desc"></p>
-      </div>
-      <div class="mt-auto pt-4">
-        <ul class="grid grid-cols-2 mt-2">
-          <li>
-            <a href="https://github.com/MinersRefuge" class="hover:text-tertiary rounded-lg p-1">Github</a>
-          </li>
-          <li>
-            <a href="https://minersrefuge.com.br/" class="hover:text-tertiary rounded-lg p-1">Website</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="default-container flex flex-col h-full">
-      <div>
-        <h1 translate="docs-title" class="text-center font-bold text-lg dark:text-slate-200 mb-2"></h1>
-        <p translate="docs-desc"></p>
-      </div>
-      <div class="mt-auto pt-4">
-        <ul class="grid grid-cols-2 mt-2">
-          <li>
-            <a href="https://github.com/MinersRefuge/docs" class="hover:text-tertiary rounded-lg p-1">Github</a>
-          </li>
-          <li>
-            <a href="https://docs.minersrefuge.com.br/" class="hover:text-tertiary rounded-lg p-1">Website</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="default-container flex flex-col h-full">
-      <div>
+      <div class="mx-auto max-w-screen-lg hidden p-4 rounded-lg dark:bg-surfaceContainer bg-slate-100" id="syncr" role="tabpanel" aria-labelledby="syncr-tab">
         <h1 translate="syncr-title" class="text-center font-bold text-lg dark:text-slate-200 mb-2"></h1>
         <p translate="syncr-desc"></p>
       </div>
-      <div class="mt-auto pt-4">
-        <ul class="grid grid-cols-1">
-          <li>
-            <a href="https://github.com/Zeptiny/Syncr" class="hover:text-tertiary rounded-lg p-1">Github</a>
-          </li>
-        </ul>
+      <div class="mx-auto max-w-screen-lg hidden p-4 rounded-lg dark:bg-surfaceContainer bg-slate-100" id="miners" role="tabpanel" aria-labelledby="miners-tab">
+        <h1 translate="miners-title" class="text-center font-bold text-lg dark:text-slate-200 mb-2"></h1>
+         <p translate="miners-desc"></p>
       </div>
-    </div>
-
-    <div class="default-container">
-      <h1 translate="tryxia-title" class="text-center font-bold text-lg dark:text-slate-200 inline"></h1><h1 translate="discontinued" class="text-slate-400 text-sm inline"></h1>
-      <p translate="tryxia-desc" class="mt-2"></p>
-    </div>
-
+      <div class="mx-auto max-w-screen-lg hidden p-4 rounded-lg dark:bg-surfaceContainer bg-slate-100" id="tryxia" role="tabpanel" aria-labelledby="tryxia-tab">
+        <h1 translate="tryxia-title" class="text-center font-bold text-lg dark:text-slate-200 inline"></h1><h1 translate="discontinued" class="text-slate-400 text-sm inline"></h1>
+        <p translate="tryxia-desc" class="mt-2"></p>
+      </div>
   </div>
   <!-- End Projects -->
 

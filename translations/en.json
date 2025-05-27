@@ -10,8 +10,6 @@
     "projects-desc": "A small portfolio",
     "miners-title": "Miners' Refuge",
     "miners-desc": "Minecraft community, created to support server owners and administrators providing free tools to facilitate development.",
-    "docs-title": "Minecraft Documentation",
-    "docs-desc": "Public documentation, created for and by the Minecraft community, with a wide range of guides and tutorials, all available on Github with open contributions.",
     "syncr-title": "Syncr ",
     "syncr-desc": "In development web application to replicate, move and sync remotes (S3 and SFTP), made with Django and Rclone.",
     
