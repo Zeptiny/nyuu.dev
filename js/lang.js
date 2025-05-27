@@ -53,9 +53,10 @@ langToggleBtn.addEventListener('click', function() {
 
 
 // Set the default language when the page loads
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const defaultLanguage = getDefaultLanguage();
-    setLanguage(defaultLanguage);
+    await setLanguage(defaultLanguage);
+    document.body.classList.remove('hidden');
 });
 
 
