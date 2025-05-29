@@ -37,7 +37,7 @@
         @apply opacity-0 translate-y-24 transition-all duration-500 ease-out delay-25;
     }
     .links-hover {
-        @apply text-tertiary hover:text-secondary
+        @apply text-secondary hover:text-primary dark:text-tertiary 
     }
 
     h1 {
