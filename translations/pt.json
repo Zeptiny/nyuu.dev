@@ -7,8 +7,8 @@
     "website": "Website",
     "github": "Github",
 
-    "hero-desc-1": "Sou Nyuu, estudante de Ciência da Computação, focado em aprender mais sobre DevOps e Administração de Sistemas.",
-    "hero-desc-2": "Vamos encarar seu próximo desafio juntos! Estou disponível para projetos freelance e colaborações.",
+    "hero-desc-1": "Sou Nyuu, estudante de Ciência da Computação com especialização em DevOps e Administração de Sistemas.",
+    "hero-desc-2": "Vamos encarar seu próximo desafio juntos. Estou disponível para projetos freelance e aberto a colaborações.",
 
     "projects-desc": "Um pequeno portfólio",
     "projects-technologies": "Tecnologias usadas nesse projeto:",
@@ -63,18 +63,18 @@
     "cka-title": "Administrador Certificado do Kubernetes",
     "cka-desc": "Demonstrou capacidade de realizar instalações básicas, bem como configurar e gerenciar clusters Kubernetes de nível de produção.",
 
-    "services-desc": "Serviços Gerenciados, Instalação e Administração",
-    "services-game-title": "Hospedagem de jogos Gerenaciada",
-    "services-game-desc": "Seja para o seu servidor de jogos, empresa de hospedagem, ou o que precisar. Feito perfeitamente para os seus requisitos, qualquer hardware, qualquer local e quando quiser.",
-    "services-app-title": "Hospedagem de aplicações Gerenciada",
-    "services-app-desc": "Suas aplicações precisam de um lugar para estarem online! Criarei soluções de hospedagens que atendam todas as suas necessidades, mantendo elas sempre disponíveis e rodando da melhor forma possível.",
-    "services-panel-title": "Instalação e Configuração de painel",
-    "services-panel-desc": "Para todas as categorias e necessidades, desde monitoramento extensivo com Grafana e Prometheus ou Zabbix, hypervisors para máquinas virtuais como Proxmox, Virtfusion e Virtualizor até finanças como WHMCS.",
-    "services-backups-title": "Backups & Recuperação de Desastre",
-    "services-backups-desc": "Backups não valem nada se não forem testados ou seguirem a regra 3-2-1! Configurarei meios de backup e recuperação de desastre, em múltiplos provedores e localizações, da maneira que desejar!",
-    "services-custom-title": "Precisa de algo a mais?",
-    "services-custom-desc": "Poderemos negociar alguma instalação, configuração, manutenção ou serviço gerenciado que atenda aos seus requisitos! Apenas entre em contato.!",
-
+    "services-desc": "Serviços Gerenciados, Instalações e Administração",
+    "services-game-title": "Hospedagem Gerenciada de Jogos",
+    "services-game-desc": "Seja para um servidor de jogos pessoal ou para uma empresa de hospedagem, ofereço soluções personalizadas. Qualquer hardware, qualquer local, a qualquer hora.",
+    "services-app-title": "Hospedagem Gerenciada de Aplicativos",
+    "services-app-desc": "Seus aplicativos precisam de um local confiável online! Eu crio soluções de hospedagem que os mantêm funcionando perfeitamente e sempre disponíveis.",
+    "services-panel-title": "Instalação e Configuração de Painéis",
+    "services-panel-desc": "Desde monitoramento avançado com Grafana, Prometheus ou Zabbix, até virtualização com Proxmox, VirtFusion ou Virtualizor, e até sistemas de faturamento como WHMCS. Eu configuro painéis para atender a qualquer necessidade.",
+    "services-backups-title": "Backups e Recuperação de Desastres",
+    "services-backups-desc": "Backups só são úteis se forem testados e seguirem a regra 3-2-1. Implementarei planos confiáveis ​​de backup e recuperação de desastres em vários provedores e locais, personalizados de acordo com suas preferências.",
+    "services-custom-title": "Precisa de algo mais?",
+    "services-custom-desc": "Precisa de algo diferente? Vamos discutir qualquer instalação, configuração, manutenção ou serviço gerenciado que você tenha em mente. Entre em contato!",
+        
     "cta-title": "Entre em contato!",
     "cta-desc": "Sempre estou disponível no Discord e email!",
 
