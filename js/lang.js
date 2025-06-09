@@ -39,7 +39,7 @@ async function setLanguage(language) {
         const translations = await loadTranslations(language);
         document.querySelectorAll('[translate]').forEach(element => {
             const key = element.getAttribute('translate');
-            if (translations[key]) {
+            if (translations.hasOwnProperty(key)) {
                 element.textContent = translations[key];
             }
         });
