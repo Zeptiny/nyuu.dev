@@ -33,22 +33,28 @@ function getDefaultLanguage() {
 }
 
 
-function setLanguage(language) {
-    loadTranslations(language).then(translations => {
+
+async function setLanguage(language) {
+    try {
+        const translations = await loadTranslations(language);
         document.querySelectorAll('[translate]').forEach(element => {
             const key = element.getAttribute('translate');
-            element.textContent = translations[key];
+            if (translations[key]) {
+                element.textContent = translations[key];
+            }
         });
         // Save the selected language to localStorage
         localStorage.setItem('selectedLanguage', language);
-    })
+    } catch (error) {
+        console.error('Failed to load translations:', error);
+    }
 }
 
-langToggleBtn.addEventListener('click', function() {
+langToggleBtn.addEventListener('click', async function() {
     const currentLanguage = localStorage.getItem('selectedLanguage') || getDefaultLanguage();
     const newLanguage = currentLanguage === 'pt' ? 'en' : 'pt';
     updateToggleIcons(newLanguage);
-    setLanguage(newLanguage);
+    await setLanguage(newLanguage);
 });
 
 
