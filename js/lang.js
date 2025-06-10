@@ -91,8 +91,12 @@ async function setLanguage(language) {
                 element.textContent = translations[key];
             }
         });
+        
         // Save the selected language to localStorage
         localStorage.setItem('selectedLanguage', language);
+        
+        // Dispatch custom event when translations are complete
+        document.dispatchEvent(new CustomEvent('translationsComplete'));
     } catch (error) {
         console.error('Failed to load translations:', error);
     }

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("translationsComplete", () => {
   const elements = document.querySelectorAll('.ease-animation');
   
   const observer = new IntersectionObserver(entries => {
