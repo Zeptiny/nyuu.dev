@@ -50,18 +50,36 @@
         </ul>
       </div>
       <div class="flex flex-row">
-        <!-- Lang Toggle -->
-        <div>
+      <!-- Lang Dropdown -->
+      <div class="relative">
           <button
-          id="lang-toggle"
-          type="button"
-          class="default-hover hover:cursor-pointer text-sm p-2.5 rounded-lg"
-        >
-        <img id="lang-toggle-pt" class="w-5 h-5 hidden" src="img/brazil.svg" alt="BR">
-        <img id="lang-toggle-en" class="w-5 h-5 hidden" src="img/united_states.svg" alt="EN">
-        </button>
-        </div>
-        <!-- End Lang Toggle -->
+              id="lang-dropdown-toggle"
+              type="button"
+              class="default-hover hover:cursor-pointer text-sm p-2.5 rounded-lg flex items-center"
+          >
+              <img id="current-lang-flag" class="w-5 h-5 mr-1" src="img/united_states.svg" alt="EN">
+              <span id="current-lang-code" class="text-xs">EN</span>
+              <svg class="w-3 h-3 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+          </button>
+          
+          <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-32 bg-white dark:bg-surfaceContainer rounded-lg shadow-lg border dark:border-secondary z-50">
+              <button class="lang-option flex items-center w-full px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-slate-700 rounded-t-lg" data-lang="en">
+                  <img class="w-4 h-4 mr-2" src="img/united_states.svg" alt="EN">
+                  English
+              </button>
+              <button class="lang-option flex items-center w-full px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-slate-700" data-lang="pt">
+                  <img class="w-4 h-4 mr-2" src="img/brazil.svg" alt="PT">
+                  Português
+              </button>
+              <button class="lang-option flex items-center w-full px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-slate-700" data-lang="ca">
+                  <img class="w-4 h-4 mr-2" src="img/catalonia.svg" alt="CA">
+                  Catalan
+              </button>
+          </div>
+      </div>
+      <!-- End Lang Dropdown -->
         <!-- Theme toggle -->
         <div>
           <button
