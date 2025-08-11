@@ -40,7 +40,7 @@
 
     "formal-education": "Formal Education",
     "upf-title": "Computer Science | University of Passo Fundo",
-    "upf-desc": "Exploring the computing achitecture and principles, applying academic rigor to my projects and the real-world.",
+    "upf-desc": "Exploring the computing architecture and principles, applying academic rigor to my projects and the real-world.",
     "upf-grad": "Expected Graduation: 2027",
 
     "ckac-title": "Certified Kubernetes Administrator",
@@ -58,7 +58,7 @@
     "kab-title": "Kubernetes Fundamentals",
     "kab-desc": "Basic understanding of Kubernetes Fundamentals, Configuration and Deployment.",
 
-    "fbe-title": "Fundamentals of Backend Enginerring",
+    "fbe-title": "Fundamentals of Backend Engineering",
     "fbe-desc": "Understanding of backend communication patterns, protocols, execution and proxying.",
 
     "djm-title": "Django Masterclass",
@@ -74,7 +74,7 @@
     "services-game-desc": "Whether it's for a personal game server or a hosting company, I deliver tailored solutions. Any hardware, any location, any time.",
     "services-app-title": "Managed Application hosting",
     "services-app-desc": "Your applications need a reliable home online! I'll design hosting solutions that keep them running smoothly and always available.",
-    "services-panel-title": "Panel Intallation and Setup",
+    "services-panel-title": "Panel Installation and Setup",
     "services-panel-desc": "From advanced monitoring with Grafana, Prometheus, or Zabbix, to virtualization with Proxmox, VirtFusion, or Virtualizor, and even billing systems like WHMCS. I set up panels to match any need.",
     "services-backups-title": "Backups & Disaster Recovery",
     "services-backups-desc": "Backups are only useful if they're tested and follow the 3-2-1 rule. I'll implement reliable backup and disaster recovery plans across multiple providers and locations, customized to your preferences.",
@@ -82,7 +82,7 @@
     "services-custom-desc": "Need something different? Let's discuss any installation, configuration, maintenance, or managed service you have in mind. Just reach out!",
 
     "cta-title": "Get in touch!",
-    "cta-desc": "I'm always availiable on Discord and via email!",
+    "cta-desc": "I'm always available on Discord and via email!",
 
     "name": "Name:",
     "email": "Email:",
