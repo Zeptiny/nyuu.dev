@@ -46,6 +46,9 @@
     "ckac-title": "Administrador Certificado do Kubernetes",
     "ckac-desc": "Preparação e conteúdo para a Certificação CKA, com administração de cluster Kubernetes, design, testes, construção e rede.",
 
+    "msa-title": "Arquitetura de Microsserviços",
+    "msa-desc": "Entendimento básico de arquitetura de microsserviços, padrões, comunicação e implementação.",
+
     "zab-title": "Zabbix - Monitoramento de redes e Aplicações",
     "zab-desc": "Entendimento básico de monitoramento de máquinas linux, windows e aplicações com Zabbix.",
 
