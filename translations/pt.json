@@ -46,6 +46,9 @@
     "ckac-title": "Administrador Certificado do Kubernetes",
     "ckac-desc": "Preparação e conteúdo para a Certificação CKA, com administração de cluster Kubernetes, design, testes, construção e rede.",
 
+    "ltc-title": "Curso de Treinamento em Linux",
+    "ltc-desc": "Curso abrangente de treinamento em Linux, cobrindo desde os fundamentos até tópicos avançados, incluindo administração do sistema, segurança e automação.",
+
     "msa-title": "Arquitetura de Microsserviços",
     "msa-desc": "Entendimento básico de arquitetura de microsserviços, padrões, comunicação e implementação.",
 
