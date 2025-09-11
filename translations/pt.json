@@ -49,6 +49,9 @@
     "ltc-title": "Curso de Treinamento em Linux",
     "ltc-desc": "Curso abrangente de treinamento em Linux, cobrindo desde os fundamentos até tópicos avançados, incluindo administração do sistema, segurança e automação.",
 
+    "drf-title": "Django REST Framework",
+    "drf-desc": "Serialização, Desenvolvimento Orientado a Testes, Permissões, Autenticações, Throttling e Design de API.",
+
     "msa-title": "Arquitetura de Microsserviços",
     "msa-desc": "Entendimento básico de arquitetura de microsserviços, padrões, comunicação e implementação.",
 

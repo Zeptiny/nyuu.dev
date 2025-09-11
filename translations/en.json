@@ -49,6 +49,9 @@
     "ltc-title": "Linux Training Course",
     "ltc-desc": "Comprehensive Linux training course, covering everything from fundamentals to advanced topics, including system administration, security, and automation.",
 
+    "drf-title": "Django REST Framework",
+    "drf-desc": "Serialization, Test Driven Development, Permissions, Authentications, Throttling and API design.",
+
     "msa-title": "Microservices Architecture",
     "msa-desc": "Basic understanding of microservices architecture, patterns, communication and implementation.",
 

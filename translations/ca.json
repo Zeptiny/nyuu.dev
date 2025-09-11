@@ -48,6 +48,9 @@
     "ltc-title": "Curs de formació en Linux",
     "ltc-desc": "Curs complet de formació en Linux, que cobreix des dels fonaments fins a temes avançats, incloent administració del sistema, seguretat i automatització.",
 
+    "drf-title": "Django REST Framework",
+    "drf-desc": "Serialització, desenvolupament dirigit per proves, permisos, autenticacions, Throttling i disseny d'API.",
+
     "msa-title": "Arquitectura de microserveis",
     "msa-desc": "Coneixement bàsic de l'arquitectura de microserveis, patrons, comunicació i implementació.",
 
