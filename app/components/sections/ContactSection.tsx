@@ -94,6 +94,7 @@ export default function ContactSection() {
                   alt="Professional Profile"
                   width={300}
                   height={300}
+                  unoptimized
                 />
               </div>
             </div>
