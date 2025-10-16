@@ -11,7 +11,7 @@ export default function Footer() {
       <aside>
         <p className="font-semibold text-lg">nyuu.dev</p>
         <p className="text-base-content/70">
-          {t.footer}
+          Made with Next.js and DaisyUI
         </p>
         <p className="text-sm text-base-content/60">
           © {currentYear} nyuu.dev - All rights reserved

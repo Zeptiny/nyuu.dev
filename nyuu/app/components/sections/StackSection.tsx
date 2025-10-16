@@ -2,9 +2,14 @@
 
 import { useLanguage } from '@/app/context/LanguageContext';
 
+interface Technology {
+  name: string;
+  icon?: string; // DevIcon class name (e.g., 'devicon-react-original')
+}
+
 interface TechCategory {
   category: string;
-  technologies: string[];
+  technologies: Technology[];
 }
 
 export default function StackSection() {
@@ -13,28 +18,52 @@ export default function StackSection() {
   // Placeholder tech stack - replace with actual data
   const techStack: TechCategory[] = [
     {
-      category: 'Frontend',
-      technologies: ['React', 'Next.js', 'Vue.js', 'TypeScript', 'Tailwind CSS', 'DaisyUI'],
+      category: 'Languages',
+      technologies: [
+        { name: 'Python', icon: 'devicon-python-plain' },
+        { name: 'C++', icon: 'devicon-cplusplus-plain' },
+        { name: 'C', icon: 'devicon-c-plain' },
+        { name: 'Java', icon: 'devicon-java-plain' },
+        { name: 'Bash', icon: 'devicon-bash-plain' },
+        { name: 'Dart', icon: 'devicon-dart-plain' },
+        { name: 'JavaScript', icon: 'devicon-javascript-plain' },
+        { name: 'Assembly', icon: 'devicon-wasm-original' },
+      ],
     },
     {
-      category: 'Backend',
-      technologies: ['Node.js', 'Express', 'Python', 'FastAPI', 'Django'],
+      category: 'Cloud Platforms',
+      technologies: [
+        { name: 'Hetzner' },
+        { name: 'Oracle', icon: 'devicon-oracle-original' },
+        { name: 'Digital Ocean', icon: 'devicon-digitalocean-original' },
+        { name: 'AWS', icon: 'devicon-amazonwebservices-plain-wordmark' },
+        { name: 'GCP', icon: 'devicon-googlecloud-plain' },
+        { name: 'Azure', icon: 'devicon-azure-plain' },
+      ],
     },
     {
-      category: 'Database',
-      technologies: ['PostgreSQL', 'MongoDB', 'Redis', 'MySQL', 'Firebase'],
+      category: 'Containerization',
+      technologies: [
+        { name: 'Docker', icon: 'devicon-docker-plain' },
+        { name: 'Kubernetes', icon: 'devicon-kubernetes-plain' },
+      ],
     },
     {
-      category: 'DevOps & Tools',
-      technologies: ['Git', 'Docker', 'AWS', 'Vercel', 'GitHub Actions'],
+      category: 'Databases',
+      technologies: [
+        { name: 'PostgreSQL', icon: 'devicon-postgresql-plain' },
+        { name: 'MariaDB', icon: 'devicon-mariadb-original' },
+        { name: 'MySQL', icon: 'devicon-mysql-original' },
+        { name: 'Oracle', icon: 'devicon-oracle-original' },
+      ],
     },
     {
-      category: 'Mobile',
-      technologies: ['React Native', 'Flutter', 'Expo'],
-    },
-    {
-      category: 'Other',
-      technologies: ['GraphQL', 'REST APIs', 'WebSockets', 'Jest', 'Playwright'],
+      category: 'Monitoring & Logging',
+      technologies: [
+        { name: 'Zabbix' },
+        { name: 'Prometheus', icon: 'devicon-prometheus-original' },
+        { name: 'Grafana', icon: 'devicon-grafana-plain' },
+      ],
     },
   ];
 
@@ -48,18 +77,24 @@ export default function StackSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="max-w-6xl mx-auto space-y-8">
           {techStack.map((category, index) => (
-            <div key={index} className="card bg-base-100 shadow-xl">
-              <div className="card-body">
-                <h3 className="card-title text-2xl mb-4 text-primary">{category.category}</h3>
-                <div className="flex flex-wrap gap-2">
-                  {category.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="badge badge-lg badge-outline">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+            <div key={index}>
+              <h3 className="text-2xl font-bold mb-4">{category.category}</h3>
+              <div className="flex flex-wrap gap-2">
+                {category.technologies.map((tech, techIndex) => (
+                  <div
+                    key={techIndex}
+                    className="card card-compact bg-base-100 shadow hover:shadow-lg transition-shadow"
+                  >
+                    <div className="card-body">
+                      <p className="flex items-center gap-2 whitespace-nowrap">
+                        {tech.icon && <i className={`${tech.icon} text-xl`}></i>}
+                        {tech.name}
+                      </p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           ))}

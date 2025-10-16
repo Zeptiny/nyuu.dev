@@ -56,9 +56,6 @@ interface Translations {
   email: string;
   discord: string;
   github: string;
-  
-  // Footer
-  footer: string;
 }
 
 const translations: Record<Language, Translations> = {
@@ -114,9 +111,6 @@ const translations: Record<Language, Translations> = {
     email: 'Email',
     discord: 'Discord',
     github: 'GitHub',
-    
-    // Footer
-    footer: 'Made with ❤️ using Next.js and DaisyUI',
   },
   pt: {
     // Navigation
@@ -170,9 +164,6 @@ const translations: Record<Language, Translations> = {
     email: 'E-mail',
     discord: 'Discord',
     github: 'GitHub',
-    
-    // Footer
-    footer: 'Feito com ❤️ usando Next.js e DaisyUI',
   },
   ca: {
     // Navigation
@@ -226,9 +217,6 @@ const translations: Record<Language, Translations> = {
     email: 'Correu electrònic',
     discord: 'Discord',
     github: 'GitHub',
-    
-    // Footer
-    footer: 'Fet amb ❤️ utilitzant Next.js i DaisyUI',
   },
 };
 

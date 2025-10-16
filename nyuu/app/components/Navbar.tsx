@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react';
 import { useLanguage, type Language } from '../context/LanguageContext';
 
 const languages = [
-  { code: 'en', name: 'English', flag: '🇬🇧' },
-  { code: 'pt', name: 'Português', flag: '�🇷' },
-  { code: 'ca', name: 'Català', flag: '�' },
+  { code: 'en', name: 'English', flag: 'EN' },
+  { code: 'pt', name: 'Português', flag: 'PT' },
+  { code: 'ca', name: 'Català', flag: 'CA' },
 ] as const;
 
 export default function Navbar() {
@@ -133,8 +133,8 @@ export default function Navbar() {
 
         {/* Language Dropdown */}
         <div className="dropdown dropdown-end">
-          <div tabIndex={0} role="button" className="btn btn-ghost btn-circle" aria-label="Change language">
-            <span className="text-xl">{currentLang?.flag}</span>
+          <div tabIndex={0} role="button" className="btn btn-ghost" aria-label="Change language">
+            <span className="font-semibold">{currentLang?.flag}</span>
           </div>
           <ul
             tabIndex={0}
@@ -146,7 +146,7 @@ export default function Navbar() {
                   onClick={() => changeLanguage(lang.code as Language)}
                   className={language === lang.code ? 'active' : ''}
                 >
-                  <span className="text-xl">{lang.flag}</span>
+                  <span className="font-semibold">{lang.flag}</span>
                   {lang.name}
                 </button>
               </li>
