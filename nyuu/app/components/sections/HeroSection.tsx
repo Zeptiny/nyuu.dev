@@ -41,7 +41,7 @@ export default function HeroSection() {
           <div className="flex justify-center">
             <button 
               onClick={() => scrollToSection('services')}
-              className="btn btn-ghost btn-circle animate-bounce"
+              className="btn btn-ghost btn-circle animate-bounce hover:text-primary"
               aria-label={t.scrollDown}
             >
               <svg
