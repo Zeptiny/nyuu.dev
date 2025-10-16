@@ -166,7 +166,7 @@ export default function ContactSection() {
         </div>
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4'>
           {contactMethods.map((method) => (
-            <div key={method.id} className="card bg-base-100 shadow-lg hover:shadow-xl transition-all hover:scale-105">
+            <div key={method.id} className="card bg-base-100 shadow-lg hover:shadow-xl transition-all hover:scale-105 will-change-transform">
               <div className="card-body">
                 <div className="flex items-center gap-4">
                   <div className="flex-shrink-0">{renderIcon(method)}</div>

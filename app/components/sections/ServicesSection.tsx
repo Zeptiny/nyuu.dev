@@ -103,7 +103,7 @@ export default function ServicesSection() {
             const borderColor = borderColors[index % borderColors.length];
             
             return (
-              <div key={service.id} className={`card bg-base-100 shadow-xl hover:shadow-2xl transition-all hover:border-t-4 ${borderColor} hover:mt-[-4px]`}>
+              <div key={service.id} className={`card bg-base-100 shadow-xl hover:shadow-2xl transition-all hover:border-t-4 ${borderColor} hover:mt-[-4px] will-change-transform`}>
                 {currentImage && (
                   <figure className="px-8 pt-8">
                     <div className="w-full h-48 relative">

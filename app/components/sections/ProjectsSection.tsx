@@ -45,7 +45,7 @@ export default function ProjectsSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {projects.map((project) => (
-            <div key={project.id} className="card bg-base-200 shadow-xl hover:shadow-2xl transition-all hover:border-l-4 border-primary">
+            <div key={project.id} className="card bg-base-200 shadow-xl hover:shadow-2xl transition-all hover:border-l-4 border-primary will-change-transform">
               {project.image && (
                 <figure className="px-4 pt-4">
                   <div className="w-full h-48 bg-base-300 rounded-xl"></div>
