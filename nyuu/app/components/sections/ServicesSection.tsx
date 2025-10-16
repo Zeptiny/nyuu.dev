@@ -90,17 +90,20 @@ export default function ServicesSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.servicesTitle}</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-4"></div>
           <p className="text-lg text-base-content/70 max-w-2xl mx-auto">
             {t.servicesSubtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {services.map((service) => {
+          {services.map((service, index) => {
             const currentImage = theme === 'dark' ? service.imageDark : service.imageLight;
+            const borderColors = ['border-primary', 'border-secondary', 'border-accent', 'border-info'];
+            const borderColor = borderColors[index % borderColors.length];
             
             return (
-              <div key={service.id} className="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
+              <div key={service.id} className={`card bg-base-100 shadow-xl hover:shadow-2xl transition-all hover:border-t-4 ${borderColor} hover:mt-[-4px]`}>
                 {currentImage && (
                   <figure className="px-8 pt-8">
                     <div className="w-full h-48 relative">

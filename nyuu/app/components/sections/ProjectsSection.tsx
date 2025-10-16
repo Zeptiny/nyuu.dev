@@ -37,6 +37,7 @@ export default function ProjectsSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.projectsTitle}</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-secondary to-accent mx-auto mb-4"></div>
           <p className="text-lg text-base-content/70 max-w-2xl mx-auto">
             {t.projectsSubtitle}
           </p>
@@ -44,7 +45,7 @@ export default function ProjectsSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {projects.map((project) => (
-            <div key={project.id} className="card bg-base-200 shadow-xl hover:shadow-2xl transition-all">
+            <div key={project.id} className="card bg-base-200 shadow-xl hover:shadow-2xl transition-all hover:border-l-4 border-primary">
               {project.image && (
                 <figure className="px-4 pt-4">
                   <div className="w-full h-48 bg-base-300 rounded-xl"></div>

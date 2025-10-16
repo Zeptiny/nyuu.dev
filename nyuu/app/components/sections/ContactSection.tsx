@@ -30,7 +30,7 @@ export default function ContactSection() {
       icon: 'devicon-github-original',
       value: 'github.com/Zeptiny',
       url: 'https://github.com/Zeptiny',
-      color: 'btn-neutral',
+      color: 'btn-secondary',
     },
     {
       id: 'discord',
@@ -38,7 +38,7 @@ export default function ContactSection() {
       icon: 'chat',
       value: 'Nyuuzin',
       url: 'https://dc.nyuu.dev',
-      color: 'btn-secondary',
+      color: 'btn-accent',
     },
   ];
 
@@ -72,6 +72,7 @@ export default function ContactSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.contactTitle}</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-secondary to-primary mx-auto mb-4"></div>
           <p className="text-lg text-base-content/70 max-w-2xl mx-auto mb-2">
             {t.contactSubtitle}
           </p>
@@ -82,7 +83,7 @@ export default function ContactSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {contactMethods.map((method) => (
-            <div key={method.id} className="card bg-base-100 shadow-xl hover:shadow-2xl transition-shadow">
+            <div key={method.id} className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
               <div className="card-body items-center text-center">
                 <div className="mb-4">{renderIcon(method)}</div>
                 <h3 className="card-title text-xl mb-2">{method.name}</h3>

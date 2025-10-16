@@ -106,6 +106,7 @@ export default function EducationSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.educationTitle}</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-primary via-secondary to-accent mx-auto mb-4"></div>
           <p className="text-lg text-base-content/70 max-w-2xl mx-auto">
             {t.educationSubtitle}
           </p>
@@ -117,7 +118,7 @@ export default function EducationSection() {
             {categories.map((category) => (
               <button
                 key={category}
-                className={`tab ${selectedCategory === category ? 'tab-active' : ''}`}
+                className={`tab ${selectedCategory === category ? 'tab-active text-accent' : ''}`}
                 onClick={() => setSelectedCategory(category)}
               >
                 {category === 'all' ? t.filterAll : t[category as keyof typeof t]}

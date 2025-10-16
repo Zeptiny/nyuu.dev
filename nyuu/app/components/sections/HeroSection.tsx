@@ -30,8 +30,8 @@ export default function HeroSection() {
           </p>
           
           <div className="flex gap-4 justify-center flex-wrap mb-12">
-            <button onClick={() => scrollToSection('projects')} className="btn btn-primary btn-lg">
-              {t.projects}
+            <button onClick={() => scrollToSection('services')} className="btn btn-primary btn-lg">
+              {t.services}
             </button>
             <button onClick={() => scrollToSection('contact')} className="btn btn-outline btn-lg">
               {t.contact}

@@ -72,15 +72,20 @@ export default function StackSection() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.stackTitle}</h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-accent to-primary mx-auto mb-4"></div>
           <p className="text-lg text-base-content/70 max-w-2xl mx-auto">
             {t.stackSubtitle}
           </p>
         </div>
 
         <div className="max-w-6xl mx-auto space-y-8">
-          {techStack.map((category, index) => (
-            <div key={index}>
-              <h3 className="text-2xl font-bold mb-4">{t[category.categoryKey as keyof typeof t]}</h3>
+          {techStack.map((category, index) => {
+            const accentColors = ['text-primary', 'text-secondary', 'text-accent', 'text-info', 'text-success'];
+            const accentColor = accentColors[index % accentColors.length];
+            
+            return (
+              <div key={index} className="border-l-4 border-base-300 pl-6 hover:border-opacity-100 transition-all" style={{ borderColor: `var(--color-${accentColors[index % accentColors.length].replace('text-', '')})` }}>
+                <h3 className={`text-2xl font-bold mb-4 ${accentColor}`}>{t[category.categoryKey as keyof typeof t]}</h3>
               <div className="flex flex-wrap gap-2">
                 {category.technologies.map((tech, techIndex) => (
                   <div
@@ -97,7 +102,8 @@ export default function StackSection() {
                 ))}
               </div>
             </div>
-          ))}
+          );
+        })}
         </div>
       </div>
     </section>
