@@ -17,7 +17,7 @@ export default function HeroSection() {
       <div className="hero-content text-center">
         <div className="max-w-3xl">
           <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-6">
-            nyuu.dev
+            Howdy Hey!
           </h1>
           <h2 className="text-2xl md:text-4xl font-semibold mb-4">
             {t.heroTitle}
