@@ -22,7 +22,7 @@ export default function ProjectsSection() {
       titleKey: 'projectOne',
       descriptionKey: 'projectOneDesc',
       technologies: ['Python', 'Django', 'Docker', 'Linux', 'AWS S3'],
-      githubUrl: 'github.com/Zeptiny/Syncr',
+      githubUrl: 'https://github.com/Zeptiny/Syncr',
     },
     {
       id: '2',
