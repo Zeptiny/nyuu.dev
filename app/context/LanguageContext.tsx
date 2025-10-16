@@ -82,6 +82,8 @@ interface Translations {
   courseKubernetesDesc: string;
   courseBackendEngineering: string;
   courseBackendEngineeringDesc: string;
+  courseAnsibleFundamentals: string;
+  courseAnsibleFundamentalsDesc: string;
   
   // Tech Stack & Education Categories
   categoryLanguages: string;
@@ -92,6 +94,7 @@ interface Translations {
   categoryUniversity: string;
   categoryDevOps: string;
   categoryDatabase: string;
+  categoryAutomation: string;
   
   // Services
   serviceManagedHosting: string;
@@ -182,15 +185,16 @@ const translations: Record<Language, Translations> = {
     categoryUniversity: 'University',
     categoryDevOps: 'DevOps',
     categoryDatabase: 'Database',
-    
+    categoryAutomation: 'Automation',
+
     // Education Courses
     courseCS: 'Computer Science Degree',
     courseCSDes: 'Bachelor\'s degree in Computer Science focusing on software engineering and algorithms.',
     courseCKA: 'Certified Kubernetes Administrator (CKA)',
     courseCKADesc: 'Certification program for Kubernetes administrators.',
-    courseLTC: 'Linux Training Course (LTC)',
+    courseLTC: 'Linux Training Course',
     courseLTCDesc: 'Comprehensive training on Linux administration and scripting.',
-    courseMSA: 'Microservices Architecture (MSA)',
+    courseMSA: 'Microservices Architecture',
     courseMSADesc: 'In-depth course on designing and building microservices.',
     courseZabbix: 'Zabbix - Network and Application Monitoring',
     courseZabbixDesc: 'Training on Zabbix for monitoring and managing IT infrastructure.',
@@ -198,6 +202,8 @@ const translations: Record<Language, Translations> = {
     courseKubernetesDesc: 'Introduction to Kubernetes for container orchestration.',
     courseBackendEngineering: 'Fundamentals of Backend Engineering',
     courseBackendEngineeringDesc: 'Overview of backend development concepts and practices.',
+    courseAnsibleFundamentals: 'Ansible Fundamentals',
+    courseAnsibleFundamentalsDesc: 'Introduction to Ansible for automation and configuration management.',
 
     // Tech Stack Categories
     categoryLanguages: 'Languages',
@@ -293,6 +299,7 @@ const translations: Record<Language, Translations> = {
     categoryUniversity: 'Universidade',
     categoryDevOps: 'DevOps',
     categoryDatabase: 'Banco de Dados',
+    categoryAutomation: 'Automação',
     
     // Education Courses
     courseCS: 'Graduação em Ciência da Computação',
@@ -309,7 +316,9 @@ const translations: Record<Language, Translations> = {
     courseKubernetesDesc: 'Introdução ao Kubernetes para orquestração de contêineres.',
     courseBackendEngineering: 'Fundamentos de Engenharia Backend',
     courseBackendEngineeringDesc: 'Visão geral dos conceitos e práticas de desenvolvimento backend.',
-
+    courseAnsibleFundamentals: 'Fundamentos do Ansible',
+    courseAnsibleFundamentalsDesc: 'Introdução ao Ansible para automação e gerenciamento de configuração.',
+    
     // Tech Stack Categories
     categoryLanguages: 'Linguagens',
     categoryCloudPlatforms: 'Plataformas em Nuvem',
@@ -404,7 +413,8 @@ const translations: Record<Language, Translations> = {
     categoryUniversity: 'Universitat',
     categoryDevOps: 'DevOps',
     categoryDatabase: 'Base de Dades',
-    
+    categoryAutomation: 'Automatització',
+
     // Education Courses
     courseCS: 'Grau en Ciències de la Computació',
     courseCSDes: 'Grau en Ciències de la Computació centrat en enginyeria de programari i algoritmes.',
@@ -420,6 +430,8 @@ const translations: Record<Language, Translations> = {
     courseKubernetesDesc: 'Introducció a Kubernetes per a l\'orquestració de contenidors.',
     courseBackendEngineering: 'Enginyeria Backend',
     courseBackendEngineeringDesc: 'Fundaments de l\'enginyeria backend i desenvolupament d\'APIs.',
+    courseAnsibleFundamentals: 'Fonaments d\'Ansible',
+    courseAnsibleFundamentalsDesc: 'Introducció a Ansible per a l\'automatització i gestió de configuracions.',
     
     // Tech Stack Categories
     categoryLanguages: 'Llenguatges',

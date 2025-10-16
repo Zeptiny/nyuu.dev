@@ -85,6 +85,16 @@ export default function EducationSection() {
       status: 'completed',
       certificateUrl: '#',
     },
+    {
+      // Ansible for beginners
+      id: '8',
+      titleKey: 'courseAnsibleFundamentals',
+      descriptionKey: 'courseAnsibleFundamentalsDesc',
+      categoryKey: 'categoryAutomation',
+      date: '2025',
+      status: 'completed',
+      certificateUrl: '#',
+    },
   ];
 
   const categories = ['all', ...Array.from(new Set(courses.map(course => course.categoryKey)))];
