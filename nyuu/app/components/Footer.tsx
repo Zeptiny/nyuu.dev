@@ -9,12 +9,8 @@ export default function Footer() {
   return (
     <footer className="footer footer-center bg-base-300 text-base-content p-10">
       <aside>
-        <p className="font-semibold text-lg">nyuu.dev</p>
-        <p className="text-base-content/70">
-          Made with Next.js and DaisyUI
-        </p>
         <p className="text-sm text-base-content/60">
-          © {currentYear} nyuu.dev - All rights reserved
+          © {currentYear} nyuu.dev - Some rights reserved
         </p>
       </aside>
     </footer>
