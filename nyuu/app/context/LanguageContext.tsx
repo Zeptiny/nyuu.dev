@@ -2,87 +2,233 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-export type Language = 'en' | 'es' | 'fr' | 'de' | 'ja';
+export type Language = 'en' | 'pt' | 'ca';
 
 interface Translations {
+  // Navigation
   home: string;
   theme: string;
   language: string;
   light: string;
   dark: string;
-  welcome: string;
-  getStarted: string;
-  editPage: string;
-  saveChanges: string;
-  deployNow: string;
-  readDocs: string;
+  
+  // Sections
+  hero: string;
+  services: string;
+  projects: string;
+  stack: string;
+  education: string;
+  contact: string;
+  
+  // Hero Section
+  heroTitle: string;
+  heroSubtitle: string;
+  heroDescription: string;
+  scrollDown: string;
+  
+  // Services Section
+  servicesTitle: string;
+  servicesSubtitle: string;
+  
+  // Projects Section
+  projectsTitle: string;
+  projectsSubtitle: string;
+  viewProject: string;
+  viewGithub: string;
+  technologies: string;
+  
+  // Stack Section
+  stackTitle: string;
+  stackSubtitle: string;
+  
+  // Education Section
+  educationTitle: string;
+  educationSubtitle: string;
+  ongoing: string;
+  completed: string;
+  downloadCertificate: string;
+  filterAll: string;
+  
+  // Contact Section
+  contactTitle: string;
+  contactSubtitle: string;
+  contactDescription: string;
+  email: string;
+  discord: string;
+  github: string;
+  
+  // Footer
+  footer: string;
 }
 
 const translations: Record<Language, Translations> = {
   en: {
+    // Navigation
     home: 'Home',
     theme: 'Theme',
     language: 'Language',
     light: 'Light',
     dark: 'Dark',
-    welcome: 'Welcome',
-    getStarted: 'Get started by editing',
-    editPage: 'app/page.tsx',
-    saveChanges: 'Save and see your changes instantly.',
-    deployNow: 'Deploy now',
-    readDocs: 'Read our docs',
+    
+    // Sections
+    hero: 'Home',
+    services: 'Services',
+    projects: 'Projects',
+    stack: 'Tech Stack',
+    education: 'Education',
+    contact: 'Contact',
+    
+    // Hero Section
+    heroTitle: 'Computer Science Student',
+    heroSubtitle: 'Full Stack Developer & Technology Enthusiast',
+    heroDescription: 'Building innovative solutions and learning new technologies every day.',
+    scrollDown: 'Scroll down to explore',
+    
+    // Services Section
+    servicesTitle: 'Services',
+    servicesSubtitle: 'What I can do for you',
+    
+    // Projects Section
+    projectsTitle: 'Projects',
+    projectsSubtitle: 'Some of my recent work',
+    viewProject: 'View Project',
+    viewGithub: 'View on GitHub',
+    technologies: 'Technologies',
+    
+    // Stack Section
+    stackTitle: 'Tech Stack',
+    stackSubtitle: 'Technologies and tools I work with',
+    
+    // Education Section
+    educationTitle: 'Education & Courses',
+    educationSubtitle: 'My learning journey',
+    ongoing: 'Ongoing',
+    completed: 'Completed',
+    downloadCertificate: 'Download Certificate',
+    filterAll: 'All',
+    
+    // Contact Section
+    contactTitle: 'Get In Touch',
+    contactSubtitle: "Let's connect",
+    contactDescription: 'Feel free to reach out through any of these platforms',
+    email: 'Email',
+    discord: 'Discord',
+    github: 'GitHub',
+    
+    // Footer
+    footer: 'Made with ❤️ using Next.js and DaisyUI',
   },
-  es: {
-    home: 'Inicio',
+  pt: {
+    // Navigation
+    home: 'Início',
     theme: 'Tema',
     language: 'Idioma',
     light: 'Claro',
-    dark: 'Oscuro',
-    welcome: 'Bienvenido',
-    getStarted: 'Comienza editando',
-    editPage: 'app/page.tsx',
-    saveChanges: 'Guarda y ve tus cambios al instante.',
-    deployNow: 'Desplegar ahora',
-    readDocs: 'Lee la documentación',
+    dark: 'Escuro',
+    
+    // Sections
+    hero: 'Início',
+    services: 'Serviços',
+    projects: 'Projetos',
+    stack: 'Tecnologias',
+    education: 'Educação',
+    contact: 'Contato',
+    
+    // Hero Section
+    heroTitle: 'Estudante de Ciência da Computação',
+    heroSubtitle: 'Desenvolvedor Full Stack & Entusiasta de Tecnologia',
+    heroDescription: 'Construindo soluções inovadoras e aprendendo novas tecnologias todos os dias.',
+    scrollDown: 'Role para explorar',
+    
+    // Services Section
+    servicesTitle: 'Serviços',
+    servicesSubtitle: 'O que posso fazer por você',
+    
+    // Projects Section
+    projectsTitle: 'Projetos',
+    projectsSubtitle: 'Alguns dos meus trabalhos recentes',
+    viewProject: 'Ver Projeto',
+    viewGithub: 'Ver no GitHub',
+    technologies: 'Tecnologias',
+    
+    // Stack Section
+    stackTitle: 'Stack Tecnológico',
+    stackSubtitle: 'Tecnologias e ferramentas com as quais trabalho',
+    
+    // Education Section
+    educationTitle: 'Educação & Cursos',
+    educationSubtitle: 'Minha jornada de aprendizado',
+    ongoing: 'Em andamento',
+    completed: 'Concluído',
+    downloadCertificate: 'Baixar Certificado',
+    filterAll: 'Todos',
+    
+    // Contact Section
+    contactTitle: 'Entre em Contato',
+    contactSubtitle: 'Vamos nos conectar',
+    contactDescription: 'Sinta-se à vontade para entrar em contato através de qualquer uma dessas plataformas',
+    email: 'E-mail',
+    discord: 'Discord',
+    github: 'GitHub',
+    
+    // Footer
+    footer: 'Feito com ❤️ usando Next.js e DaisyUI',
   },
-  fr: {
-    home: 'Accueil',
-    theme: 'Thème',
-    language: 'Langue',
-    light: 'Clair',
-    dark: 'Sombre',
-    welcome: 'Bienvenue',
-    getStarted: 'Commencez par éditer',
-    editPage: 'app/page.tsx',
-    saveChanges: 'Enregistrez et voyez vos changements instantanément.',
-    deployNow: 'Déployer maintenant',
-    readDocs: 'Lire la documentation',
-  },
-  de: {
-    home: 'Startseite',
-    theme: 'Thema',
-    language: 'Sprache',
-    light: 'Hell',
-    dark: 'Dunkel',
-    welcome: 'Willkommen',
-    getStarted: 'Beginnen Sie mit der Bearbeitung',
-    editPage: 'app/page.tsx',
-    saveChanges: 'Speichern und sehen Sie Ihre Änderungen sofort.',
-    deployNow: 'Jetzt bereitstellen',
-    readDocs: 'Dokumentation lesen',
-  },
-  ja: {
-    home: 'ホーム',
-    theme: 'テーマ',
-    language: '言語',
-    light: 'ライト',
-    dark: 'ダーク',
-    welcome: 'ようこそ',
-    getStarted: '編集を始める',
-    editPage: 'app/page.tsx',
-    saveChanges: '保存して変更を即座に確認できます。',
-    deployNow: '今すぐデプロイ',
-    readDocs: 'ドキュメントを読む',
+  ca: {
+    // Navigation
+    home: 'Inici',
+    theme: 'Tema',
+    language: 'Idioma',
+    light: 'Clar',
+    dark: 'Fosc',
+    
+    // Sections
+    hero: 'Inici',
+    services: 'Serveis',
+    projects: 'Projectes',
+    stack: 'Tecnologies',
+    education: 'Educació',
+    contact: 'Contacte',
+    
+    // Hero Section
+    heroTitle: 'Estudiant de Ciències de la Computació',
+    heroSubtitle: 'Desenvolupador Full Stack & Entusiasta de la Tecnologia',
+    heroDescription: 'Construint solucions innovadores i aprenent noves tecnologies cada dia.',
+    scrollDown: 'Desplaça cap avall per explorar',
+    
+    // Services Section
+    servicesTitle: 'Serveis',
+    servicesSubtitle: 'Què puc fer per tu',
+    
+    // Projects Section
+    projectsTitle: 'Projectes',
+    projectsSubtitle: 'Alguns dels meus treballs recents',
+    viewProject: 'Veure Projecte',
+    viewGithub: 'Veure a GitHub',
+    technologies: 'Tecnologies',
+    
+    // Stack Section
+    stackTitle: 'Stack Tecnològic',
+    stackSubtitle: 'Tecnologies i eines amb les quals treballo',
+    
+    // Education Section
+    educationTitle: 'Educació i Cursos',
+    educationSubtitle: 'El meu camí d\'aprenentatge',
+    ongoing: 'En curs',
+    completed: 'Completat',
+    downloadCertificate: 'Descarregar Certificat',
+    filterAll: 'Tots',
+    
+    // Contact Section
+    contactTitle: 'Contacta',
+    contactSubtitle: 'Connectem',
+    contactDescription: 'No dubtis a contactar-me a través de qualsevol d\'aquestes plataformes',
+    email: 'Correu electrònic',
+    discord: 'Discord',
+    github: 'GitHub',
+    
+    // Footer
+    footer: 'Fet amb ❤️ utilitzant Next.js i DaisyUI',
   },
 };
 

@@ -5,10 +5,8 @@ import { useLanguage, type Language } from '../context/LanguageContext';
 
 const languages = [
   { code: 'en', name: 'English', flag: '🇬🇧' },
-  { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷' },
-  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-  { code: 'ja', name: '日本語', flag: '🇯🇵' },
+  { code: 'pt', name: 'Português', flag: '�🇷' },
+  { code: 'ca', name: 'Català', flag: '�' },
 ] as const;
 
 export default function Navbar() {
@@ -49,8 +47,15 @@ export default function Navbar() {
 
   const currentLang = languages.find(l => l.code === language);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
-    <div className="navbar bg-base-200">
+    <div className="navbar bg-base-200 sticky top-0 z-50 shadow-md">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -73,19 +78,25 @@ export default function Navbar() {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
           >
-            <li>
-              <button>{t.home}</button>
-            </li>
+            <li><button onClick={() => scrollToSection('hero')}>{t.hero}</button></li>
+            <li><button onClick={() => scrollToSection('services')}>{t.services}</button></li>
+            <li><button onClick={() => scrollToSection('projects')}>{t.projects}</button></li>
+            <li><button onClick={() => scrollToSection('stack')}>{t.stack}</button></li>
+            <li><button onClick={() => scrollToSection('education')}>{t.education}</button></li>
+            <li><button onClick={() => scrollToSection('contact')}>{t.contact}</button></li>
           </ul>
         </div>
-        <button className="btn btn-ghost text-xl">nyuu.dev</button>
+        <button className="btn btn-ghost text-xl" onClick={() => scrollToSection('hero')}>nyuu.dev</button>
       </div>
 
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li>
-            <button>{t.home}</button>
-          </li>
+          <li><button onClick={() => scrollToSection('hero')}>{t.hero}</button></li>
+          <li><button onClick={() => scrollToSection('services')}>{t.services}</button></li>
+          <li><button onClick={() => scrollToSection('projects')}>{t.projects}</button></li>
+          <li><button onClick={() => scrollToSection('stack')}>{t.stack}</button></li>
+          <li><button onClick={() => scrollToSection('education')}>{t.education}</button></li>
+          <li><button onClick={() => scrollToSection('contact')}>{t.contact}</button></li>
         </ul>
       </div>
 

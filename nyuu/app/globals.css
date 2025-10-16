@@ -3,3 +3,12 @@
   themes: light --default, dark --prefersdark;
   logs: false;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Offset for sticky navbar when scrolling to sections */
+section {
+  scroll-margin-top: 4rem;
+}
