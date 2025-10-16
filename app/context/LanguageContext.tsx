@@ -53,9 +53,19 @@ interface Translations {
   contactTitle: string;
   contactSubtitle: string;
   contactDescription: string;
+  contactMethods: string;
+  contactMethodsDescription: string;
   email: string;
   discord: string;
   github: string;
+  sendEmail: string;
+  open: string;
+  getInTouch: string;
+  namePlaceholder: string;
+  emailPlaceholder: string;
+  subjectPlaceholder: string;
+  messagePlaceholder: string;
+  sendMessage: string;
   
   // Education Courses
   courseCS: string;
@@ -154,9 +164,19 @@ const translations: Record<Language, Translations> = {
     contactTitle: 'Get In Touch',
     contactSubtitle: "Let's connect",
     contactDescription: 'Feel free to reach out through any of these platforms',
+    contactMethods: 'Contact Methods',
+    contactMethodsDescription: 'Choose your preferred way to reach out',
     email: 'Email',
     discord: 'Discord',
     github: 'GitHub',
+    sendEmail: 'Send',
+    open: 'Open',
+    getInTouch: 'Get in Touch',
+    namePlaceholder: 'Your Name',
+    emailPlaceholder: 'your.email@example.com',
+    subjectPlaceholder: 'Subject',
+    messagePlaceholder: 'Your message here...',
+    sendMessage: 'Send Message',
     
     // Education Categories
     categoryUniversity: 'University',
@@ -255,9 +275,19 @@ const translations: Record<Language, Translations> = {
     contactTitle: 'Entre em Contato',
     contactSubtitle: 'Vamos nos conectar',
     contactDescription: 'Sinta-se à vontade para entrar em contato através de qualquer uma dessas plataformas',
+    contactMethods: 'Métodos de Contato',
+    contactMethodsDescription: 'Escolha sua forma preferida de entrar em contato',
     email: 'E-mail',
     discord: 'Discord',
     github: 'GitHub',
+    sendEmail: 'Enviar',
+    open: 'Abrir',
+    getInTouch: 'Entre em Contato',
+    namePlaceholder: 'Seu Nome',
+    emailPlaceholder: 'seu.email@exemplo.com',
+    subjectPlaceholder: 'Assunto',
+    messagePlaceholder: 'Sua mensagem aqui...',
+    sendMessage: 'Enviar Mensagem',
     
     // Education Categories
     categoryUniversity: 'Universidade',
@@ -356,9 +386,19 @@ const translations: Record<Language, Translations> = {
     contactTitle: 'Contacta',
     contactSubtitle: 'Connectem',
     contactDescription: 'No dubtis a contactar-me a través de qualsevol d\'aquestes plataformes',
+    contactMethods: 'Mètodes de Contacte',
+    contactMethodsDescription: 'Tria la teva forma preferida de contactar',
     email: 'Correu electrònic',
     discord: 'Discord',
     github: 'GitHub',
+    sendEmail: 'Enviar',
+    open: 'Obrir',
+    getInTouch: 'Posa\'t en Contacte',
+    namePlaceholder: 'El Teu Nom',
+    emailPlaceholder: 'el.teu.correu@exemple.com',
+    subjectPlaceholder: 'Assumpte',
+    messagePlaceholder: 'El teu missatge aquí...',
+    sendMessage: 'Enviar Missatge',
     
     // Education Categories
     categoryUniversity: 'Universitat',

@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useLanguage } from '@/app/context/LanguageContext';
 
 export default function HeroSection() {
@@ -14,8 +15,24 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="hero min-h-screen bg-base-100">
-      <div className="hero-content text-center">
-        <div className="max-w-3xl">
+      <div className="hero-content flex-col lg:flex-row-reverse gap-12">
+        {/* Persona Image */}
+        <div className="hidden lg:block flex-shrink-0">
+          <div className="avatar">
+            <div>
+              <Image
+                src="https://placehold.co/400x400/png"
+                alt="Persona Image"
+                width={400}
+                height={400}
+                priority
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Text Content */}
+        <div className="max-w-2xl text-center lg:text-left">
           <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-6">
             Howdy Hey!
           </h1>
@@ -25,7 +42,7 @@ export default function HeroSection() {
           <p className="text-xl md:text-2xl text-base-content/70 mb-6">
             {t.heroSubtitle}
           </p>
-          <p className="text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-lg mb-8">
             {t.heroDescription}
           </p>
           

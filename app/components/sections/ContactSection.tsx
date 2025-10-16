@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useLanguage } from '@/app/context/LanguageContext';
 
 interface ContactMethod {
@@ -28,7 +29,7 @@ export default function ContactSection() {
       id: 'github',
       name: t.github,
       icon: 'devicon-github-original',
-      value: 'github.com/Zeptiny',
+      value: 'Zeptiny',
       url: 'https://github.com/Zeptiny',
       color: 'btn-secondary',
     },
@@ -81,22 +82,107 @@ export default function ContactSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+
+          {/* Persona Image - Professional Profile */}
+          <div className="hidden lg:flex justify-center mb-12">
+            <div className="avatar">
+              <div>
+                <Image
+                  src="https://placehold.co/300x300/png"
+                  alt="Professional Profile"
+                  width={300}
+                  height={300}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Contact Form */}
+          <div className="card bg-base-100 shadow-xl">
+            <div className="card-body">
+              <h3 className="card-title text-2xl mb-6">{t.getInTouch}</h3>
+              <form className="space-y-4">
+                {/* Name Field */}
+                <label className="input input-bordered flex items-center gap-2 w-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                  </svg>
+                  <input 
+                    type="text" 
+                    className="grow" 
+                    placeholder={t.namePlaceholder} 
+                    required 
+                  />
+                </label>
+
+                {/* Email Field */}
+                <label className="input input-bordered flex items-center gap-2 w-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <input 
+                    type="email" 
+                    className="grow" 
+                    placeholder={t.emailPlaceholder} 
+                    required 
+                  />
+                </label>
+
+                {/* Subject Field */}
+                <label className="input input-bordered flex items-center gap-2 w-full">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                  </svg>
+                  <input 
+                    type="text" 
+                    className="grow w-full" 
+                    placeholder={t.subjectPlaceholder} 
+                    required 
+                  />
+                </label>
+
+                {/* Message Field */}
+                <label className="form-control">
+                  <textarea 
+                    className="textarea textarea-bordered h-32 w-full" 
+                    placeholder={t.messagePlaceholder}
+                    required
+                  ></textarea>
+                </label>
+
+                {/* Submit Button */}
+                <button type="submit" className="btn btn-primary btn-block mt-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                  </svg>
+                  {t.sendMessage}
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4'>
           {contactMethods.map((method) => (
-            <div key={method.id} className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all hover:scale-105">
-              <div className="card-body items-center text-center">
-                <div className="mb-4">{renderIcon(method)}</div>
-                <h3 className="card-title text-xl mb-2">{method.name}</h3>
-                <p className="text-sm text-base-content/70 mb-4 break-all">{method.value}</p>
-                <div className="card-actions">
-                  <a
-                    href={method.url}
-                    target={method.id !== 'email' ? '_blank' : undefined}
-                    rel={method.id !== 'email' ? 'noopener noreferrer' : undefined}
-                    className={`btn ${method.color}`}
-                  >
-                    {method.id === 'email' ? 'Send Email' : `Open ${method.name}`}
-                  </a>
+            <div key={method.id} className="card bg-base-100 shadow-lg hover:shadow-xl transition-all hover:scale-105">
+              <div className="card-body">
+                <div className="flex items-center gap-4">
+                  <div className="flex-shrink-0">{renderIcon(method)}</div>
+                  <div className="flex-1">
+                    <h4 className="font-bold text-lg mb-1">{method.name}</h4>
+                    <p className="text-sm text-base-content/70 break-all">{method.value}</p>
+                  </div>
+                  <div className="flex-shrink-0">
+                    <a
+                      href={method.url}
+                      target={method.id !== 'email' ? '_blank' : undefined}
+                      rel={method.id !== 'email' ? 'noopener noreferrer' : undefined}
+                      className={`btn btn-sm ${method.color}`}
+                    >
+                      {method.id === 'email' ? t.sendEmail : t.open}
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
