@@ -188,17 +188,17 @@ const translations: Record<Language, Translations> = {
     
     // Services
     serviceManagedHosting: "Managed Hosting",
-    serviceManagedHostingDesc: "string",
-    serviceManagedHostingDetailed: "string",
-    serviceInstallation: "string",
-    serviceInstallationDesc: "string",
-    serviceInstallationDetailed: "string",
-    serviceBackups: "string",
-    serviceBackupsDesc: "string",
-    serviceBackupsDetailed: "string",
-    serviceCustom: "string",
-    serviceCustomDesc: "string",
-    serviceCustomDetailed: "string",
+    serviceManagedHostingDesc: "Reliable, hassle-free hosting where everything is taken care of for you.",
+    serviceManagedHostingDetailed: "Enjoy smooth, worry-free hosting with full management included. I handle server setup, updates, security, and monitoring so your apps and websites run at their best, whether it’s on bare metal, virtualized environments, or cloud platforms. You’ll have the performance and stability you need without the stress of maintenance.",
+    serviceInstallation: "Installation & Setup",
+    serviceInstallationDesc: "Get your infrastructure up and running the right way, from the start.",
+    serviceInstallationDetailed: "From Linux servers to Docker stacks and Kubernetes clusters, I make sure everything is properly installed, configured, and ready to go. Whether you’re setting up a new environment or migrating an existing one, I ensure each component works together seamlessly, secure, stable, and optimized for your needs.",
+    serviceBackups: "Backups & Recovery",
+    serviceBackupsDesc: "Keep your data safe with reliable backup and recovery solutions.",
+    serviceBackupsDetailed: "I design and deploy backup strategies that protect your data from loss, downtime, or disasters. Using automated tools and best practices, I ensure your files, databases, and configurations are securely stored and can be restored quickly when needed, giving you peace of mind and business continuity.",
+    serviceCustom: "Custom Solutions",
+    serviceCustomDesc: "Tailored solutions built around your specific goals and infrastructure.",
+    serviceCustomDetailed: "Every project is unique, and sometimes off-the-shelf tools aren’t enough. I create customized setups and automations to fit your workflow, from Dockerized apps and cloud integrations to monitoring dashboards or storage backends. Whatever your challenge, I’ll help you design a solution that’s efficient, scalable, and easy to manage.",
 
     // Projects
     projectOne: 'Syncr',
