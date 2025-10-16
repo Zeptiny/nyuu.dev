@@ -28,46 +28,60 @@ export default function EducationSection() {
       status: 'ongoing',
     },
     {
+      // Certified Kubernetes Administrator (CKA)
       id: '2',
-      titleKey: 'courseFullStack',
-      descriptionKey: 'courseFullStackDesc',
-      categoryKey: 'categoryWebDevelopment',
-      date: '2023',
-      status: 'completed',
-      certificateUrl: '#',
-    },
-    {
-      id: '3',
-      titleKey: 'courseReact',
-      descriptionKey: 'courseReactDesc',
-      categoryKey: 'categoryFrontend',
-      date: '2023',
-      status: 'completed',
-      certificateUrl: '#',
-    },
-    {
-      id: '4',
-      titleKey: 'courseDocker',
-      descriptionKey: 'courseDockerDesc',
+      titleKey: 'courseCKA',
+      descriptionKey: 'courseCKADesc',
       categoryKey: 'categoryDevOps',
-      date: '2024',
+      date: '2025',
       status: 'ongoing',
     },
     {
-      id: '5',
-      titleKey: 'courseDatabase',
-      descriptionKey: 'courseDatabaseDesc',
-      categoryKey: 'categoryDatabase',
-      date: '2023',
+      // Linux Training Course (LTC)
+      id: '3',
+      titleKey: 'courseLTC',
+      descriptionKey: 'courseLTCDesc',
+      categoryKey: 'categoryDevOps',
+      date: '2025',
+      status: 'ongoing',
+    },
+    {
+      // Microservices architecture
+      id: '4',
+      titleKey: 'courseMSA',
+      descriptionKey: 'courseMSADesc',
+      categoryKey: 'categoryDevOps',
+      date: '2025',
       status: 'completed',
       certificateUrl: '#',
     },
     {
+      // Zabbix - Network and Application Monitoring
+      id: '5',
+      titleKey: 'courseZabbix',
+      descriptionKey: 'courseZabbixDesc',
+      categoryKey: 'categoryMonitoring',
+      date: '2025',
+      status: 'completed',
+      certificateUrl: '#',
+    },
+    {
+      // Kubernetes Fundamentals
       id: '6',
-      titleKey: 'coursePython',
-      descriptionKey: 'coursePythonDesc',
-      categoryKey: 'categoryDataScience',
-      date: '2023',
+      titleKey: 'courseKubernetes',
+      descriptionKey: 'courseKubernetesDesc',
+      categoryKey: 'categoryDevOps',
+      date: '2025',
+      status: 'completed',
+      certificateUrl: '#',
+    },
+    {
+      // Fundamentals of Backend Engineering
+      id: '7',
+      titleKey: 'courseBackendEngineering',
+      descriptionKey: 'courseBackendEngineeringDesc',
+      categoryKey: 'categoryDevOps',
+      date: '2025',
       status: 'completed',
       certificateUrl: '#',
     },
@@ -78,6 +92,14 @@ export default function EducationSection() {
   const filteredCourses = selectedCategory === 'all' 
     ? courses 
     : courses.filter(course => course.categoryKey === selectedCategory);
+
+  // Sort courses by ongoing first, if it's ongoing sort by date ascending, if its completed sort by date descending
+  filteredCourses.sort((a, b) => {
+    if (a.status === b.status) {
+      return a.status === 'ongoing' ? a.date.localeCompare(b.date) : b.date.localeCompare(a.date);
+    }
+    return a.status === 'ongoing' ? -1 : 1; // Ongoing first
+  });
 
   return (
     <section id="education" className="py-20 bg-base-100">

@@ -21,25 +21,15 @@ export default function ProjectsSection() {
       id: '1',
       titleKey: 'projectOne',
       descriptionKey: 'projectOneDesc',
-      technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
-      websiteUrl: '#',
-      githubUrl: '#',
+      technologies: ['Python', 'Django', 'Docker', 'Linux', 'AWS S3'],
+      githubUrl: 'github.com/Zeptiny/Syncr',
     },
     {
       id: '2',
       titleKey: 'projectTwo',
       descriptionKey: 'projectTwoDesc',
-      technologies: ['React Native', 'Firebase', 'Node.js'],
-      githubUrl: '#',
-    },
-    {
-      id: '3',
-      titleKey: 'projectThree',
-      descriptionKey: 'projectThreeDesc',
-      technologies: ['Vue.js', 'Express', 'MongoDB', 'Docker'],
-      websiteUrl: '#',
-      githubUrl: '#',
-    },
+      technologies: ['Bash', 'Docker', 'Linux'],
+    }
   ];
 
   return (
@@ -52,7 +42,7 @@ export default function ProjectsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {projects.map((project) => (
             <div key={project.id} className="card bg-base-200 shadow-xl hover:shadow-2xl transition-all">
               {project.image && (
