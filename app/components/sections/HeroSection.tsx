@@ -37,9 +37,9 @@ export default function HeroSection() {
           <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-6">
             Howdy Hey!
           </h1>
-          <h2 className="text-2xl md:text-4xl font-semibold mb-4">
+          {/* <h2 className="text-2xl md:text-4xl font-semibold mb-4">
             {t.heroTitle}
-          </h2>
+          </h2> */}
           <p className="text-xl md:text-2xl text-base-content/70 mb-6">
             {t.heroSubtitle}
           </p>
