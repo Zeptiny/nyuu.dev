@@ -80,12 +80,28 @@ export default function StackSection() {
 
         <div className="max-w-6xl mx-auto space-y-8">
           {techStack.map((category, index) => {
-            const accentColors = ['text-primary', 'text-secondary', 'text-accent', 'text-info', 'text-success'];
-            const accentColor = accentColors[index % accentColors.length];
+            // Calculate position in gradient (0 to 1) based on index
+            const totalCategories = techStack.length;
+            const position = index / (totalCategories - 1); // 0, 0.25, 0.5, 0.75, 1
+            
+            // Create color stops: primary (0%) -> secondary (33%) -> accent (66%) -> accent (100%)
+            // This creates a smooth gradient from primary to accent through secondary
+            let gradientColor;
+            if (position <= 0.33) {
+              // Between primary and secondary
+              gradientColor = `color-mix(in oklch, var(--color-primary) ${(1 - position / 0.33) * 100}%, var(--color-secondary) ${(position / 0.33) * 100}%)`;
+            } else if (position <= 0.66) {
+              // Between secondary and accent
+              const localPos = (position - 0.33) / 0.33;
+              gradientColor = `color-mix(in oklch, var(--color-secondary) ${(1 - localPos) * 100}%, var(--color-accent) ${localPos * 100}%)`;
+            } else {
+              // Between accent and accent (stays accent)
+              gradientColor = `var(--color-accent)`;
+            }
             
             return (
-              <div key={index} className="border-l-4 border-base-300 pl-6 hover:border-opacity-100 transition-all" style={{ borderColor: `var(--color-${accentColors[index % accentColors.length].replace('text-', '')})` }}>
-                <h3 className={`text-2xl font-bold mb-4 ${accentColor}`}>{t[category.categoryKey as keyof typeof t]}</h3>
+              <div key={index} className="border-l-4 pl-6 hover:border-opacity-100 transition-all" style={{ borderColor: gradientColor }}>
+                <h3 className="text-2xl font-bold mb-4" style={{ color: gradientColor }}>{t[category.categoryKey as keyof typeof t]}</h3>
               <div className="flex flex-wrap gap-2">
                 {category.technologies.map((tech, techIndex) => (
                   <div
