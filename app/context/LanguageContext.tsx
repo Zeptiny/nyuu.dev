@@ -21,7 +21,7 @@ interface Translations {
   contact: string;
   
   // Hero Section
-  heroTitle: string;
+  // heroTitle: string;
   heroSubtitle: string;
   heroDescription: string;
   scrollDown: string;
@@ -135,9 +135,9 @@ const translations: Record<Language, Translations> = {
     contact: 'Contact',
     
     // Hero Section
-    heroTitle: 'Computer Science Student',
-    heroSubtitle: 'Full Stack Developer & Technology Enthusiast',
-    heroDescription: 'Building innovative solutions and learning new technologies every day.',
+    // heroTitle: 'Computer Science Student',
+    heroSubtitle: 'Site Reliability Engineer & Technology Enthusiast',
+    heroDescription: 'I\'m Nyuu, a Computer Science Student passionate about learning new things every day.',
     scrollDown: 'Scroll down to explore',
     
     // Services Section
@@ -249,9 +249,9 @@ const translations: Record<Language, Translations> = {
     contact: 'Contato',
     
     // Hero Section
-    heroTitle: 'Estudante de Ciência da Computação',
-    heroSubtitle: 'Desenvolvedor Full Stack & Entusiasta de Tecnologia',
-    heroDescription: 'Construindo soluções inovadoras e aprendendo novas tecnologias todos os dias.',
+    // heroTitle: 'Estudante de Ciência da Computação',
+    heroSubtitle: 'Engenheiro de Confiabilidade de Site & Entusiasta de Tecnologia',
+    heroDescription: 'Sou Nyuu, um Estudante de Ciência da Computação apaixonado por aprender coisas novas todos os dias.',
     scrollDown: 'Role para explorar',
     
     // Services Section
@@ -363,9 +363,9 @@ const translations: Record<Language, Translations> = {
     contact: 'Contacte',
     
     // Hero Section
-    heroTitle: 'Estudiant de Ciències de la Computació',
-    heroSubtitle: 'Desenvolupador Full Stack & Entusiasta de la Tecnologia',
-    heroDescription: 'Construint solucions innovadores i aprenent noves tecnologies cada dia.',
+    // heroTitle: 'Estudiant de Ciències de la Computació',
+    heroSubtitle: 'Enginyer de Confiabilitat de Site & Entusiasta de la Tecnologia',
+    heroDescription: 'Sóc Nyuu, un Estudiant de Ciències de la Computació, un ser apassionat per aprendre coses noves cada dia.',
     scrollDown: 'Desplaça cap avall per explorar',
     
     // Services Section
