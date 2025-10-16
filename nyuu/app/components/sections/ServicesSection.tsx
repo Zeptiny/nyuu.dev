@@ -6,9 +6,9 @@ import Image from 'next/image';
 
 interface Service {
   id: string;
-  title: string;
-  description: string;
-  detailedDescription?: string;
+  titleKey: string; // Translation key for title
+  descriptionKey: string; // Translation key for description
+  detailedDescriptionKey?: string; // Translation key for detailed description
   imageLight?: string; // Image for light theme
   imageDark?: string;  // Image for dark theme
 }
@@ -49,33 +49,33 @@ export default function ServicesSection() {
   const services: Service[] = [
     {
       id: '1',
-      title: 'Web Development',
-      description: 'Full-stack web development using modern technologies and best practices.',
-      detailedDescription: 'I build responsive, performant web applications using cutting-edge frameworks like React, Next.js, and Vue.js. From simple landing pages to complex web platforms, I deliver scalable solutions that meet your business needs. My expertise includes both frontend and backend development, ensuring a seamless end-to-end experience.',
+      titleKey: 'serviceWebDev',
+      descriptionKey: 'serviceWebDevDesc',
+      detailedDescriptionKey: 'serviceWebDevDetailed',
       imageLight: '/services/web-dev-light.svg',
       imageDark: '/services/web-dev-dark.svg',
     },
     {
       id: '2',
-      title: 'Mobile Development',
-      description: 'Cross-platform mobile applications with responsive design.',
-      detailedDescription: 'Creating native and cross-platform mobile applications for iOS and Android. Using technologies like React Native and Flutter, I develop apps that provide excellent user experience while maintaining code efficiency across platforms. Focus on performance, accessibility, and intuitive user interfaces.',
+      titleKey: 'serviceMobileDev',
+      descriptionKey: 'serviceMobileDevDesc',
+      detailedDescriptionKey: 'serviceMobileDevDetailed',
       imageLight: '/services/mobile-dev-light.svg',
       imageDark: '/services/mobile-dev-dark.svg',
     },
     {
       id: '3',
-      title: 'UI/UX Design',
-      description: 'User-centered design creating intuitive and beautiful interfaces.',
-      detailedDescription: 'Designing user interfaces that are both aesthetically pleasing and highly functional. I conduct user research, create wireframes and prototypes, and perform usability testing to ensure the final product meets user needs. My design process focuses on accessibility, consistency, and creating delightful user experiences.',
+      titleKey: 'serviceUIUX',
+      descriptionKey: 'serviceUIUXDesc',
+      detailedDescriptionKey: 'serviceUIUXDetailed',
       imageLight: '/services/ui-ux-light.svg',
       imageDark: '/services/ui-ux-dark.svg',
     },
     {
       id: '4',
-      title: 'API Development',
-      description: 'RESTful and GraphQL APIs with secure authentication.',
-      detailedDescription: 'Building robust, scalable APIs that power modern applications. I develop RESTful and GraphQL APIs with proper authentication, rate limiting, and comprehensive documentation. Focus on security best practices, performance optimization, and creating APIs that are easy to integrate and maintain.',
+      titleKey: 'serviceAPI',
+      descriptionKey: 'serviceAPIDesc',
+      detailedDescriptionKey: 'serviceAPIDetailed',
       imageLight: '/services/api-dev-light.svg',
       imageDark: '/services/api-dev-dark.svg',
     },
@@ -106,7 +106,7 @@ export default function ServicesSection() {
                     <div className="w-full h-48 relative">
                       <Image
                         src={currentImage}
-                        alt={service.title}
+                        alt={t[service.titleKey as keyof typeof t] as string}
                         fill
                         className="object-contain"
                       />
@@ -114,11 +114,11 @@ export default function ServicesSection() {
                   </figure>
                 )}
                 <div className="card-body">
-                  <h3 className="card-title text-2xl mb-2">{service.title}</h3>
-                  <p className="text-base-content/80 font-medium mb-3">{service.description}</p>
-                  {service.detailedDescription && (
+                  <h3 className="card-title text-2xl mb-2">{t[service.titleKey as keyof typeof t]}</h3>
+                  <p className="text-base-content/80 font-medium mb-3">{t[service.descriptionKey as keyof typeof t]}</p>
+                  {service.detailedDescriptionKey && (
                     <p className="text-base-content/60 text-sm leading-relaxed">
-                      {service.detailedDescription}
+                      {t[service.detailedDescriptionKey as keyof typeof t]}
                     </p>
                   )}
                 </div>

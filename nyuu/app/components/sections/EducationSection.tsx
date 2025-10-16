@@ -5,9 +5,9 @@ import { useState } from 'react';
 
 interface Course {
   id: string;
-  title: string;
-  description: string;
-  category: string;
+  titleKey: string; // Translation key for title
+  descriptionKey: string; // Translation key for description
+  categoryKey: string; // Translation key for category
   date: string;
   status: 'ongoing' | 'completed';
   certificateUrl?: string;
@@ -21,63 +21,63 @@ export default function EducationSection() {
   const courses: Course[] = [
     {
       id: '1',
-      title: 'Computer Science Degree',
-      description: 'Bachelor\'s degree in Computer Science focusing on software engineering and algorithms.',
-      category: 'University',
+      titleKey: 'courseCS',
+      descriptionKey: 'courseCSDes',
+      categoryKey: 'categoryUniversity',
       date: '2024',
       status: 'ongoing',
     },
     {
       id: '2',
-      title: 'Full Stack Web Development',
-      description: 'Complete course covering frontend and backend development.',
-      category: 'Web Development',
+      titleKey: 'courseFullStack',
+      descriptionKey: 'courseFullStackDesc',
+      categoryKey: 'categoryWebDevelopment',
       date: '2023',
       status: 'completed',
       certificateUrl: '#',
     },
     {
       id: '3',
-      title: 'Advanced React & Next.js',
-      description: 'Modern React patterns and Next.js framework.',
-      category: 'Frontend',
+      titleKey: 'courseReact',
+      descriptionKey: 'courseReactDesc',
+      categoryKey: 'categoryFrontend',
       date: '2023',
       status: 'completed',
       certificateUrl: '#',
     },
     {
       id: '4',
-      title: 'Docker & Kubernetes',
-      description: 'Container orchestration and deployment strategies.',
-      category: 'DevOps',
+      titleKey: 'courseDocker',
+      descriptionKey: 'courseDockerDesc',
+      categoryKey: 'categoryDevOps',
       date: '2024',
       status: 'ongoing',
     },
     {
       id: '5',
-      title: 'Database Design & SQL',
-      description: 'Relational database design and advanced SQL queries.',
-      category: 'Database',
+      titleKey: 'courseDatabase',
+      descriptionKey: 'courseDatabaseDesc',
+      categoryKey: 'categoryDatabase',
       date: '2023',
       status: 'completed',
       certificateUrl: '#',
     },
     {
       id: '6',
-      title: 'Python for Data Science',
-      description: 'Data analysis, visualization, and machine learning basics.',
-      category: 'Data Science',
+      titleKey: 'coursePython',
+      descriptionKey: 'coursePythonDesc',
+      categoryKey: 'categoryDataScience',
       date: '2023',
       status: 'completed',
       certificateUrl: '#',
     },
   ];
 
-  const categories = ['all', ...Array.from(new Set(courses.map(course => course.category)))];
+  const categories = ['all', ...Array.from(new Set(courses.map(course => course.categoryKey)))];
   
   const filteredCourses = selectedCategory === 'all' 
     ? courses 
-    : courses.filter(course => course.category === selectedCategory);
+    : courses.filter(course => course.categoryKey === selectedCategory);
 
   return (
     <section id="education" className="py-20 bg-base-100">
@@ -98,7 +98,7 @@ export default function EducationSection() {
                 className={`tab ${selectedCategory === category ? 'tab-active' : ''}`}
                 onClick={() => setSelectedCategory(category)}
               >
-                {category === 'all' ? t.filterAll : category}
+                {category === 'all' ? t.filterAll : t[category as keyof typeof t]}
               </button>
             ))}
           </div>
@@ -112,14 +112,14 @@ export default function EducationSection() {
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                   <div className="flex-1">
                     <div className="flex flex-wrap items-center gap-2 mb-2">
-                      <h3 className="card-title text-2xl">{course.title}</h3>
+                      <h3 className="card-title text-2xl">{t[course.titleKey as keyof typeof t]}</h3>
                       <span className={`badge ${course.status === 'ongoing' ? 'badge-primary' : 'badge-success'}`}>
                         {course.status === 'ongoing' ? t.ongoing : t.completed}
                       </span>
                     </div>
-                    <p className="text-base-content/70 mb-2">{course.description}</p>
+                    <p className="text-base-content/70 mb-2">{t[course.descriptionKey as keyof typeof t]}</p>
                     <div className="flex flex-wrap gap-2 items-center">
-                      <span className="badge badge-outline">{course.category}</span>
+                      <span className="badge badge-outline">{t[course.categoryKey as keyof typeof t]}</span>
                       <span className="text-sm text-base-content/60">{course.date}</span>
                     </div>
                   </div>

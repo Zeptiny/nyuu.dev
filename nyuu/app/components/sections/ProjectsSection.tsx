@@ -4,8 +4,8 @@ import { useLanguage } from '@/app/context/LanguageContext';
 
 interface Project {
   id: string;
-  title: string;
-  description: string;
+  titleKey: string; // Translation key for title
+  descriptionKey: string; // Translation key for description
   technologies: string[];
   image?: string;
   websiteUrl?: string;
@@ -19,23 +19,23 @@ export default function ProjectsSection() {
   const projects: Project[] = [
     {
       id: '1',
-      title: 'Project One',
-      description: 'A comprehensive web application built with modern technologies.',
+      titleKey: 'projectOne',
+      descriptionKey: 'projectOneDesc',
       technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS'],
       websiteUrl: '#',
       githubUrl: '#',
     },
     {
       id: '2',
-      title: 'Project Two',
-      description: 'Mobile-first application with real-time features.',
+      titleKey: 'projectTwo',
+      descriptionKey: 'projectTwoDesc',
       technologies: ['React Native', 'Firebase', 'Node.js'],
       githubUrl: '#',
     },
     {
       id: '3',
-      title: 'Project Three',
-      description: 'Full-stack application with authentication and database.',
+      titleKey: 'projectThree',
+      descriptionKey: 'projectThreeDesc',
       technologies: ['Vue.js', 'Express', 'MongoDB', 'Docker'],
       websiteUrl: '#',
       githubUrl: '#',
@@ -61,8 +61,8 @@ export default function ProjectsSection() {
                 </figure>
               )}
               <div className="card-body">
-                <h3 className="card-title text-2xl">{project.title}</h3>
-                <p className="text-base-content/70 mb-4">{project.description}</p>
+                <h3 className="card-title text-2xl">{t[project.titleKey as keyof typeof t]}</h3>
+                <p className="text-base-content/70 mb-4">{t[project.descriptionKey as keyof typeof t]}</p>
                 
                 <div className="mb-4">
                   <h4 className="font-semibold mb-2">{t.technologies}:</h4>

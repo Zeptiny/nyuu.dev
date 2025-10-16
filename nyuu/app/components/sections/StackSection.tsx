@@ -8,7 +8,7 @@ interface Technology {
 }
 
 interface TechCategory {
-  category: string;
+  categoryKey: string; // Translation key for category name
   technologies: Technology[];
 }
 
@@ -18,7 +18,7 @@ export default function StackSection() {
   // Placeholder tech stack - replace with actual data
   const techStack: TechCategory[] = [
     {
-      category: 'Languages',
+      categoryKey: 'categoryLanguages',
       technologies: [
         { name: 'Python', icon: 'devicon-python-plain' },
         { name: 'C++', icon: 'devicon-cplusplus-plain' },
@@ -31,7 +31,7 @@ export default function StackSection() {
       ],
     },
     {
-      category: 'Cloud Platforms',
+      categoryKey: 'categoryCloudPlatforms',
       technologies: [
         { name: 'Hetzner' },
         { name: 'Oracle', icon: 'devicon-oracle-original' },
@@ -42,14 +42,14 @@ export default function StackSection() {
       ],
     },
     {
-      category: 'Containerization',
+      categoryKey: 'categoryContainerization',
       technologies: [
         { name: 'Docker', icon: 'devicon-docker-plain' },
         { name: 'Kubernetes', icon: 'devicon-kubernetes-plain' },
       ],
     },
     {
-      category: 'Databases',
+      categoryKey: 'categoryDatabases',
       technologies: [
         { name: 'PostgreSQL', icon: 'devicon-postgresql-plain' },
         { name: 'MariaDB', icon: 'devicon-mariadb-original' },
@@ -58,7 +58,7 @@ export default function StackSection() {
       ],
     },
     {
-      category: 'Monitoring & Logging',
+      categoryKey: 'categoryMonitoring',
       technologies: [
         { name: 'Zabbix' },
         { name: 'Prometheus', icon: 'devicon-prometheus-original' },
@@ -80,7 +80,7 @@ export default function StackSection() {
         <div className="max-w-6xl mx-auto space-y-8">
           {techStack.map((category, index) => (
             <div key={index}>
-              <h3 className="text-2xl font-bold mb-4">{category.category}</h3>
+              <h3 className="text-2xl font-bold mb-4">{t[category.categoryKey as keyof typeof t]}</h3>
               <div className="flex flex-wrap gap-2">
                 {category.technologies.map((tech, techIndex) => (
                   <div
