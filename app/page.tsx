@@ -10,7 +10,7 @@ import Footer from './components/Footer';
 
 export default function Home() {
   return (
-    <main>
+    <main className='cursor-default'>
       <HeroSection />
       <ServicesSection />
       <ProjectsSection />
