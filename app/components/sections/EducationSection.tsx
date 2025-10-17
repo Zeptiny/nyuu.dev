@@ -140,7 +140,7 @@ export default function EducationSection() {
         {/* Courses List */}
         <div className="space-y-6 max-w-4xl mx-auto">
           {filteredCourses.map((course) => (
-            <div key={course.id} className="card bg-base-200 shadow-xl">
+            <div key={course.id} className="card bg-base-200 shadow-xl hover:scale-105 transition-transform">
               <div className="card-body">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                   <div className="flex-1">
