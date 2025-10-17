@@ -52,32 +52,32 @@ export default function ServicesSection() {
       titleKey: 'serviceManagedHosting',
       descriptionKey: 'serviceManagedHostingDesc',
       detailedDescriptionKey: 'serviceManagedHostingDetailed',
-      imageLight: '/services/web-dev-light.svg',
-      imageDark: '/services/web-dev-dark.svg',
+      imageLight: 'https://placehold.co/2200x800',
+      imageDark: 'https://placehold.co/2200x800',
     },
     {
       id: '2',
       titleKey: 'serviceInstallation',
       descriptionKey: 'serviceInstallationDesc',
       detailedDescriptionKey: 'serviceInstallationDetailed',
-      imageLight: '/services/mobile-dev-light.svg',
-      imageDark: '/services/mobile-dev-dark.svg',
+      imageLight: 'https://placehold.co/2200x800',
+      imageDark: 'https://placehold.co/2200x800',
     },
     {
       id: '3',
       titleKey: 'serviceBackups',
       descriptionKey: 'serviceBackupsDesc',
       detailedDescriptionKey: 'serviceBackupsDetailed',
-      imageLight: '/services/ui-ux-light.svg',
-      imageDark: '/services/ui-ux-dark.svg',
+      imageLight: 'https://placehold.co/2200x800',
+      imageDark: 'https://placehold.co/2200x800',
     },
     {
       id: '4',
       titleKey: 'serviceCustom',
       descriptionKey: 'serviceCustomDesc',
       detailedDescriptionKey: 'serviceCustomDetailed',
-      imageLight: '/services/api-dev-light.svg',
-      imageDark: '/services/api-dev-dark.svg',
+      imageLight: 'https://placehold.co/2200x800',
+      imageDark: 'https://placehold.co/2200x800',
     },
   ];
 
@@ -130,13 +130,14 @@ export default function ServicesSection() {
                 }}
               >
                 {currentImage && (
-                  <figure className="px-8 pt-8">
+                  <figure className="p-2">
                     <div className="w-full h-48 relative">
                       <Image
                         src={currentImage}
                         alt={t[service.titleKey as keyof typeof t] as string}
                         fill
-                        className="object-contain"
+                        className="object-cover"
+                        unoptimized
                       />
                     </div>
                   </figure>
