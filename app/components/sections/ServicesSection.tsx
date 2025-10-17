@@ -99,11 +99,19 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {services.map((service, index) => {
             const currentImage = theme === 'dark' ? service.imageDark : service.imageLight;
-            const borderColors = ['border-primary', 'border-secondary', 'border-accent', 'border-info'];
-            const borderColor = borderColors[index % borderColors.length];
+            const borderClasses = [
+              'hover:border-t-primary',
+              'hover:border-t-secondary',
+              'hover:border-t-accent',
+              'hover:border-t-info',
+            ];
+            const borderClass = borderClasses[index % borderClasses.length];
             
             return (
-              <div key={service.id} className={`card bg-base-100 shadow-xl hover:shadow-2xl transition-all hover:border-t-4 ${borderColor} hover:mt-[-4px] will-change-transform`}>
+              <div 
+                key={service.id} 
+                className={`card bg-base-100 shadow-xl border-t-4 border-transparent transition-colors will-change-transform ${borderClass}`}
+              >
                 {currentImage && (
                   <figure className="px-8 pt-8">
                     <div className="w-full h-48 relative">
