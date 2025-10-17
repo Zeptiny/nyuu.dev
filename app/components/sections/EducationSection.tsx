@@ -144,7 +144,7 @@ export default function EducationSection() {
               <div className="card-body">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                   <div className="flex-1">
-                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                       <h3 className="card-title text-2xl">{t[course.titleKey as keyof typeof t]}</h3>
                       <span className={`badge ${course.status === 'ongoing' ? 'badge-primary' : 'badge-success'}`}>
                         {course.status === 'ongoing' ? t.ongoing : t.completed}
