@@ -64,7 +64,7 @@ export default function ProjectsSection() {
             }
 
             return (
-            <div key={project.id} className="card bg-base-200 shadow-xl transition-all border-l-4 border-transparent will-change-transform hover:shadow-2xl"
+            <div key={project.id} className="card bg-base-200 shadow-xl transition-all border-l-4 border-transparent will-change-transform hover:scale-105"
               onMouseEnter={(e) => {
                 (e.currentTarget as HTMLElement).style.borderLeftColor = borderColor;
               }}

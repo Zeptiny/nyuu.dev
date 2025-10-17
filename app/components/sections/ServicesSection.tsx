@@ -121,7 +121,7 @@ export default function ServicesSection() {
             return (
               <div 
                 key={service.id} 
-                className="card bg-base-100 shadow-xl border-t-4 border-transparent transition-all will-change-transform"
+                className="card bg-base-100 shadow-xl border-t-4 border-transparent transition-all will-change-transform hover:scale-105"
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.borderTopColor = borderColor;
                 }}
