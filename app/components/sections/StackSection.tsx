@@ -102,14 +102,25 @@ export default function StackSection() {
                 {category.technologies.map((tech, techIndex) => (
                   <div
                     key={techIndex}
-                    className="card card-compact bg-base-100 shadow hover:shadow-lg transition-shadow"
+                    className="card card-compact bg-base-100 shadow hover:shadow-lg transition-all group"
                   >
                     <div className="card-body">
-                      <p className="flex items-center gap-2 whitespace-nowrap">
+                      <p 
+                        className="flex items-center gap-2 whitespace-nowrap text-base-content transition-colors"
+                        style={{
+                          // @ts-ignore - CSS custom property for hover
+                          '--hover-color': gradientColor,
+                        } as React.CSSProperties}
+                      >
                         {tech.icon && <i className={`${tech.icon} text-xl`}></i>}
                         {tech.name}
                       </p>
                     </div>
+                    <style jsx>{`
+                      .group:hover p {
+                        color: ${gradientColor};
+                      }
+                    `}</style>
                   </div>
                 ))}
               </div>
