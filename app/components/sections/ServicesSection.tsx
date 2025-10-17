@@ -99,18 +99,35 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {services.map((service, index) => {
             const currentImage = theme === 'dark' ? service.imageDark : service.imageLight;
-            const borderClasses = [
-              'hover:border-t-primary',
-              'hover:border-t-secondary',
-              'hover:border-t-accent',
-              'hover:border-t-info',
-            ];
-            const borderClass = borderClasses[index % borderClasses.length];
+            
+            // Calculate position in gradient (0 to 1) based on index
+            const totalServices = services.length;
+            const position = index / (totalServices - 1); // 0, 0.33, 0.66, 1
+            
+            // Create color stops: primary -> secondary -> accent -> info
+            let borderColor;
+            if (position <= 0.33) {
+              // Between primary and secondary
+              borderColor = `color-mix(in oklch, var(--color-primary) ${(1 - position / 0.33) * 100}%, var(--color-secondary) ${(position / 0.33) * 100}%)`;
+            } else if (position <= 0.66) {
+              // Between secondary and accent
+              const localPos = (position - 0.33) / 0.33;
+              borderColor = `color-mix(in oklch, var(--color-secondary) ${(1 - localPos) * 100}%, var(--color-accent) ${localPos * 100}%)`;
+            } else {
+              // Between accent and accent (stays accent)
+              borderColor = `var(--color-accent)`;
+            }
             
             return (
               <div 
                 key={service.id} 
-                className={`card bg-base-100 shadow-xl border-t-4 border-transparent transition-colors will-change-transform ${borderClass}`}
+                className="card bg-base-100 shadow-xl border-t-4 border-transparent transition-all will-change-transform"
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.borderTopColor = borderColor;
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.borderTopColor = 'transparent';
+                }}
               >
                 {currentImage && (
                   <figure className="px-8 pt-8">
