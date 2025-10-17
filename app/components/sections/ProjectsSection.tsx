@@ -44,8 +44,34 @@ export default function ProjectsSection() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {projects.map((project) => (
-            <div key={project.id} className="card bg-base-200 shadow-xl hover:shadow-2xl transition-all hover:border-l-4 border-primary will-change-transform">
+          {projects.map((project, index) => {
+            // Calculate position in gradient (0 to 1) based on index
+            const totalProjects = projects.length;
+            const position = totalProjects > 1 ? index / (totalProjects - 1) : 0;
+            
+            // Create color stops: primary -> secondary -> accent -> info
+            let borderColor;
+            if (position <= 0.33) {
+              // Between primary and secondary
+              borderColor = `color-mix(in oklch, var(--color-primary) ${(1 - position / 0.33) * 100}%, var(--color-secondary) ${(position / 0.33) * 100}%)`;
+            } else if (position <= 0.66) {
+              // Between secondary and accent
+              const localPos = (position - 0.33) / 0.33;
+              borderColor = `color-mix(in oklch, var(--color-secondary) ${(1 - localPos) * 100}%, var(--color-accent) ${localPos * 100}%)`;
+            } else {
+              // Between accent and accent (stays accent)
+              borderColor = `var(--color-accent)`;
+            }
+
+            return (
+            <div key={project.id} className="card bg-base-200 shadow-xl transition-all border-l-4 border-transparent will-change-transform hover:shadow-2xl"
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.borderLeftColor = borderColor;
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.borderLeftColor = 'transparent';
+              }}
+            >
               {project.image && (
                 <figure className="px-4 pt-4">
                   <div className="w-full h-48 bg-base-300 rounded-xl"></div>
@@ -90,7 +116,8 @@ export default function ProjectsSection() {
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
