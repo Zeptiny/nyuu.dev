@@ -102,7 +102,7 @@ export default function StackSection() {
                 {category.technologies.map((tech, techIndex) => (
                   <div
                     key={techIndex}
-                    className="card card-compact bg-base-100 shadow hover:shadow-lg transition-all group"
+                    className="card card-compact bg-base-100 shadow hover:shadow-lg transition-all group hover:scale-105"
                   >
                     <div className="card-body">
                       <p 
