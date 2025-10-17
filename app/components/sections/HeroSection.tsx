@@ -34,7 +34,7 @@ export default function HeroSection() {
 
         {/* Text Content */}
         <div className="max-w-2xl text-center lg:text-left">
-          <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-6">
+          <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-6 pb-2">
             Howdy Hey!
           </h1>
           {/* <h2 className="text-2xl md:text-4xl font-semibold mb-4">
