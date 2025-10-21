@@ -128,7 +128,7 @@ export default function EducationSection() {
             {categories.map((category) => (
               <button
                 key={category}
-                className={`tab ${selectedCategory === category ? 'tab-active text-accent' : ''}`}
+                className={`tab text-lg ${selectedCategory === category ? 'tab-active text-accent' : ''}`}
                 onClick={() => setSelectedCategory(category)}
               >
                 {category === 'all' ? t.filterAll : t[category as keyof typeof t]}
