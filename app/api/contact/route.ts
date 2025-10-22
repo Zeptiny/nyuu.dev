@@ -9,7 +9,30 @@ interface ContactFormData {
   subject: string;
   message: string;
   token?: string;
+  language?: 'en' | 'pt' | 'ca';
 }
+
+// Email translations
+const emailTranslations = {
+  en: {
+    userSubject: 'We received your message',
+    userGreeting: 'Thank you for reaching out! I have received your message and will get back to you as soon as possible.',
+    userYourMessage: 'Your message:',
+    userSignoff: 'Best regards,',
+  },
+  pt: {
+    userSubject: 'Recebemos sua mensagem',
+    userGreeting: 'Obrigado por entrar em contato! Recebi sua mensagem e voltarei para você assim que possível.',
+    userYourMessage: 'Sua mensagem:',
+    userSignoff: 'Melhores cumprimentos,',
+  },
+  ca: {
+    userSubject: 'Hem rebut el teu missatge',
+    userGreeting: 'Gràcies per posar-te en contacte! He rebut el teu missatge i et respondré tan aviat com sigui possible.',
+    userYourMessage: 'El teu missatge:',
+    userSignoff: 'Cordials salutacions,',
+  },
+};
 
 // Validate email format
 function isValidEmail(email: string): boolean {
@@ -37,7 +60,8 @@ function validateContactData(data: unknown): data is ContactFormData {
     typeof obj.message === 'string' &&
     obj.message.trim().length > 0 &&
     obj.message.length <= 5000 &&
-    (typeof obj.token === 'string' || obj.token === undefined)
+    (typeof obj.token === 'string' || obj.token === undefined) &&
+    (typeof obj.language === 'string' || obj.language === undefined)
   );
 }
 
@@ -102,7 +126,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { name, email, subject, message, token } = body;
+    const { name, email, subject, message, token, language = 'en' } = body;
 
     // CAPTCHA is REQUIRED - verify token
     if (!token) {
@@ -138,12 +162,16 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Validate language
+    const validLanguage = language && ['en', 'pt', 'ca'].includes(language) ? (language as 'en' | 'pt' | 'ca') : 'en';
+    const trans = emailTranslations[validLanguage];
+
     // Send email to site owner
     const ownerEmailResult = await resend.emails.send({
       from: 'contact@nyuu.dev',
       to: process.env.CONTACT_EMAIL_TO || 'me@nyuu.dev',
       subject: `New Contact Form Submission: ${subject}`,
-      html: generateEmailHtml('owner', { name, email, subject, message }),
+      html: generateEmailHtml('owner', { name, email, subject, message }, validLanguage),
       replyTo: email,
     });
 
@@ -159,8 +187,8 @@ export async function POST(request: NextRequest) {
     const userEmailResult = await resend.emails.send({
       from: 'contact@nyuu.dev',
       to: email,
-      subject: 'We received your message',
-      html: generateEmailHtml('user', { name, email, subject, message }),
+      subject: trans.userSubject,
+      html: generateEmailHtml('user', { name, email, subject, message }, validLanguage),
     });
 
     if (userEmailResult.error) {
@@ -187,8 +215,11 @@ export async function POST(request: NextRequest) {
 // Email template generator
 function generateEmailHtml(
   type: 'owner' | 'user',
-  data: ContactFormData
+  data: ContactFormData,
+  language: 'en' | 'pt' | 'ca' = 'en'
 ): string {
+  const trans = emailTranslations[language];
+
   if (type === 'owner') {
     return `
       <!DOCTYPE html>
@@ -207,7 +238,7 @@ function generateEmailHtml(
               padding: 20px;
             }
             .header {
-              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              background-color: #667eea;
               color: white;
               padding: 30px;
               border-radius: 8px 8px 0 0;
@@ -297,7 +328,7 @@ function generateEmailHtml(
               padding: 20px;
             }
             .header {
-              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              background-color: #667eea;
               color: white;
               padding: 30px;
               border-radius: 8px 8px 0 0;
@@ -325,17 +356,17 @@ function generateEmailHtml(
         <body>
           <div class="container">
             <div class="header">
-              <h2>Thank You for Your Message</h2>
+              <h2>${trans.userSubject}</h2>
             </div>
             <div class="content">
               <div class="message">
                 <p>Hi ${escapeHtml(data.name)},</p>
-                <p>Thank you for reaching out! I have received your message and will get back to you as soon as possible.</p>
-                <p style="margin-top: 20px;">Your message:</p>
+                <p>${trans.userGreeting}</p>
+                <p style="margin-top: 20px;">${trans.userYourMessage}</p>
                 <p><strong>${escapeHtml(data.subject)}</strong></p>
               </div>
               <div class="footer">
-                <p>Best regards,<br />nyuu.dev</p>
+                <p>${trans.userSignoff}<br />nyuu.dev</p>
               </div>
             </div>
           </div>

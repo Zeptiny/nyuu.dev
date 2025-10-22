@@ -15,7 +15,7 @@ interface ContactMethod {
 }
 
 export default function ContactSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [turnstileToken, setTurnstileToken] = useState<string>('');
   const [formData, setFormData] = useState({
     name: '',
@@ -106,6 +106,7 @@ export default function ContactSection() {
         body: JSON.stringify({
           ...formData,
           token: turnstileToken,
+          language,
         }),
       });
 
