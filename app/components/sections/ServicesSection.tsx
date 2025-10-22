@@ -52,8 +52,8 @@ export default function ServicesSection() {
       titleKey: 'serviceManagedHosting',
       descriptionKey: 'serviceManagedHostingDesc',
       detailedDescriptionKey: 'serviceManagedHostingDetailed',
-      imageLight: 'https://placehold.co/2200x800',
-      imageDark: 'https://placehold.co/2200x800',
+      imageLight: '/services/proxmox-light.png',
+      imageDark: '/services/proxmox-dark.png',
     },
     {
       id: '2',
@@ -68,16 +68,16 @@ export default function ServicesSection() {
       titleKey: 'serviceBackups',
       descriptionKey: 'serviceBackupsDesc',
       detailedDescriptionKey: 'serviceBackupsDetailed',
-      imageLight: 'https://placehold.co/2200x800',
-      imageDark: 'https://placehold.co/2200x800',
+      imageLight: '/services/borgbase-light.png',
+      imageDark: '/services/borgbase-dark.png',
     },
     {
       id: '4',
       titleKey: 'serviceCustom',
       descriptionKey: 'serviceCustomDesc',
       detailedDescriptionKey: 'serviceCustomDetailed',
-      imageLight: 'https://placehold.co/2200x800',
-      imageDark: 'https://placehold.co/2200x800',
+      imageLight: '/services/terminal-light.png',
+      imageDark: '/services/terminal-dark.png',
     },
   ];
 
@@ -131,7 +131,7 @@ export default function ServicesSection() {
               >
                 {currentImage && (
                   <figure className="p-2">
-                    <div className="w-full h-48 relative">
+                    <div className="w-full h-64 relative">
                       <Image
                         src={currentImage}
                         alt={t[service.titleKey as keyof typeof t] as string}
