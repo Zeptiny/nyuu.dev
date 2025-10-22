@@ -1,0 +1,299 @@
+import { Resend } from 'resend';
+import { NextRequest, NextResponse } from 'next/server';
+
+const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
+
+interface ContactFormData {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+// Validate email format
+function isValidEmail(email: string): boolean {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// Validate form data
+function validateContactData(data: unknown): data is ContactFormData {
+  if (typeof data !== 'object' || data === null) {
+    return false;
+  }
+
+  const obj = data as Record<string, unknown>;
+
+  return (
+    typeof obj.name === 'string' &&
+    obj.name.trim().length > 0 &&
+    obj.name.length <= 100 &&
+    typeof obj.email === 'string' &&
+    isValidEmail(obj.email) &&
+    typeof obj.subject === 'string' &&
+    obj.subject.trim().length > 0 &&
+    obj.subject.length <= 200 &&
+    typeof obj.message === 'string' &&
+    obj.message.trim().length > 0 &&
+    obj.message.length <= 5000
+  );
+}
+
+export async function POST(request: NextRequest) {
+  try {
+    // Only accept POST requests
+    if (request.method !== 'POST') {
+      return NextResponse.json(
+        { error: 'Method not allowed' },
+        { status: 405 }
+      );
+    }
+
+    // Parse request body
+    let body: unknown;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json(
+        { error: 'Invalid JSON in request body' },
+        { status: 400 }
+      );
+    }
+
+    // Validate form data
+    if (!validateContactData(body)) {
+      return NextResponse.json(
+        { error: 'Invalid or missing form data' },
+        { status: 400 }
+      );
+    }
+
+    const { name, email, subject, message } = body;
+
+    // Check if API key is configured
+    if (!process.env.RESEND_API_KEY || !resend) {
+      console.error('RESEND_API_KEY is not configured');
+      return NextResponse.json(
+        { error: 'Email service is not configured' },
+        { status: 500 }
+      );
+    }
+
+    // Send email to site owner
+    const ownerEmailResult = await resend.emails.send({
+      from: 'contact@nyuu.dev',
+      to: process.env.CONTACT_EMAIL_TO || 'me@nyuu.dev',
+      subject: `New Contact Form Submission: ${subject}`,
+      html: generateEmailHtml('owner', { name, email, subject, message }),
+      replyTo: email,
+    });
+
+    if (ownerEmailResult.error) {
+      console.error('Error sending owner email:', ownerEmailResult.error);
+      return NextResponse.json(
+        { error: 'Failed to send email' },
+        { status: 500 }
+      );
+    }
+
+    // Send confirmation email to user
+    const userEmailResult = await resend.emails.send({
+      from: 'contact@nyuu.dev',
+      to: email,
+      subject: 'We received your message',
+      html: generateEmailHtml('user', { name, email, subject, message }),
+    });
+
+    if (userEmailResult.error) {
+      console.error('Error sending confirmation email:', userEmailResult.error);
+      // Don't fail the request if confirmation email fails, but log it
+    }
+
+    return NextResponse.json(
+      {
+        success: true,
+        message: 'Your message has been sent successfully!',
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error('Contact form error:', error);
+    return NextResponse.json(
+      { error: 'An unexpected error occurred' },
+      { status: 500 }
+    );
+  }
+}
+
+// Email template generator
+function generateEmailHtml(
+  type: 'owner' | 'user',
+  data: ContactFormData
+): string {
+  if (type === 'owner') {
+    return `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8" />
+          <style>
+            body {
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+              line-height: 1.6;
+              color: #333;
+            }
+            .container {
+              max-width: 600px;
+              margin: 0 auto;
+              padding: 20px;
+            }
+            .header {
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              color: white;
+              padding: 30px;
+              border-radius: 8px 8px 0 0;
+              text-align: center;
+            }
+            .content {
+              background: #f9fafb;
+              padding: 30px;
+              border-radius: 0 0 8px 8px;
+            }
+            .field {
+              margin-bottom: 20px;
+            }
+            .label {
+              font-weight: 600;
+              color: #667eea;
+              margin-bottom: 5px;
+            }
+            .value {
+              background: white;
+              padding: 10px 15px;
+              border-radius: 4px;
+              border-left: 4px solid #667eea;
+            }
+            .message-box {
+              background: white;
+              padding: 15px;
+              border-radius: 4px;
+              border-left: 4px solid #667eea;
+              white-space: pre-wrap;
+              word-wrap: break-word;
+            }
+            .footer {
+              text-align: center;
+              margin-top: 20px;
+              font-size: 12px;
+              color: #999;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h2>New Contact Form Submission</h2>
+            </div>
+            <div class="content">
+              <div class="field">
+                <div class="label">Name</div>
+                <div class="value">${escapeHtml(data.name)}</div>
+              </div>
+              <div class="field">
+                <div class="label">Email</div>
+                <div class="value"><a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a></div>
+              </div>
+              <div class="field">
+                <div class="label">Subject</div>
+                <div class="value">${escapeHtml(data.subject)}</div>
+              </div>
+              <div class="field">
+                <div class="label">Message</div>
+                <div class="message-box">${escapeHtml(data.message)}</div>
+              </div>
+              <div class="footer">
+                <p>This email was sent from your contact form at nyuu.dev</p>
+              </div>
+            </div>
+          </div>
+        </body>
+      </html>
+    `;
+  } else {
+    // User confirmation email
+    return `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <meta charset="utf-8" />
+          <style>
+            body {
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+              line-height: 1.6;
+              color: #333;
+            }
+            .container {
+              max-width: 600px;
+              margin: 0 auto;
+              padding: 20px;
+            }
+            .header {
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+              color: white;
+              padding: 30px;
+              border-radius: 8px 8px 0 0;
+              text-align: center;
+            }
+            .content {
+              background: #f9fafb;
+              padding: 30px;
+              border-radius: 0 0 8px 8px;
+            }
+            .message {
+              background: white;
+              padding: 20px;
+              border-radius: 4px;
+              margin-bottom: 20px;
+            }
+            .footer {
+              text-align: center;
+              margin-top: 20px;
+              font-size: 12px;
+              color: #999;
+            }
+          </style>
+        </head>
+        <body>
+          <div class="container">
+            <div class="header">
+              <h2>Thank You for Your Message</h2>
+            </div>
+            <div class="content">
+              <div class="message">
+                <p>Hi ${escapeHtml(data.name)},</p>
+                <p>Thank you for reaching out! I have received your message and will get back to you as soon as possible.</p>
+                <p style="margin-top: 20px;">Your message:</p>
+                <p><strong>${escapeHtml(data.subject)}</strong></p>
+              </div>
+              <div class="footer">
+                <p>Best regards,<br />nyuu.dev</p>
+              </div>
+            </div>
+          </div>
+        </body>
+      </html>
+    `;
+  }
+}
+
+// Escape HTML to prevent XSS
+function escapeHtml(text: string): string {
+  const map: Record<string, string> = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;',
+  };
+  return text.replace(/[&<>"']/g, (char) => map[char]);
+}

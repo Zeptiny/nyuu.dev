@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useLanguage } from '@/app/context/LanguageContext';
+import { useState } from 'react';
 
 interface ContactMethod {
   id: string;
@@ -14,6 +15,17 @@ interface ContactMethod {
 
 export default function ContactSection() {
   const { t } = useLanguage();
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
 
   // Placeholder contact methods - replace with actual data
   const contactMethods: ContactMethod[] = [
@@ -68,6 +80,58 @@ export default function ContactSection() {
     return null;
   };
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = (await response.json()) as {
+        message?: string;
+        error?: string;
+      };
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: 'success',
+          message: data.message || 'Your message has been sent successfully!',
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        setSubmitStatus({
+          type: 'error',
+          message: data.error || 'Failed to send your message. Please try again.',
+        });
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus({
+        type: 'error',
+        message: 'An error occurred while sending your message. Please try again.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   return (
     <section id="contact" className="py-20 bg-base-200">
       <div className="container mx-auto px-4">
@@ -104,7 +168,15 @@ export default function ContactSection() {
           <div className="card bg-base-100 shadow-xl">
             <div className="card-body">
               <h3 className="card-title text-2xl mb-6">{t.getInTouch}</h3>
-              <form className="space-y-4">
+              
+              {/* Status Message */}
+              {submitStatus.type && (
+                <div role="alert" className={`alert ${submitStatus.type === 'success' ? 'alert-success' : 'alert-error'} mb-4`}>
+                  <span>{submitStatus.message}</span>
+                </div>
+              )}
+
+              <form className="space-y-4" onSubmit={handleSubmit}>
                 {/* Name Field */}
                 <label className="input input-bordered flex items-center gap-2 w-full">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -112,8 +184,11 @@ export default function ContactSection() {
                   </svg>
                   <input 
                     type="text" 
+                    name="name"
                     className="grow" 
                     placeholder={t.namePlaceholder} 
+                    value={formData.name}
+                    onChange={handleInputChange}
                     required 
                   />
                 </label>
@@ -125,8 +200,11 @@ export default function ContactSection() {
                   </svg>
                   <input 
                     type="email" 
+                    name="email"
                     className="grow" 
                     placeholder={t.emailPlaceholder} 
+                    value={formData.email}
+                    onChange={handleInputChange}
                     required 
                   />
                 </label>
@@ -138,8 +216,11 @@ export default function ContactSection() {
                   </svg>
                   <input 
                     type="text" 
+                    name="subject"
                     className="grow w-full" 
                     placeholder={t.subjectPlaceholder} 
+                    value={formData.subject}
+                    onChange={handleInputChange}
                     required 
                   />
                 </label>
@@ -147,18 +228,34 @@ export default function ContactSection() {
                 {/* Message Field */}
                 <label className="form-control">
                   <textarea 
+                    name="message"
                     className="textarea textarea-bordered h-32 w-full" 
                     placeholder={t.messagePlaceholder}
+                    value={formData.message}
+                    onChange={handleInputChange}
                     required
                   ></textarea>
                 </label>
 
                 {/* Submit Button */}
-                <button type="submit" className="btn btn-primary btn-block mt-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                  </svg>
-                  {t.sendMessage}
+                <button 
+                  type="submit" 
+                  className="btn btn-primary btn-block mt-4"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <span className="loading loading-spinner loading-sm"></span>
+                      {t.sendMessage}
+                    </>
+                  ) : (
+                    <>
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                      </svg>
+                      {t.sendMessage}
+                    </>
+                  )}
                 </button>
               </form>
             </div>
