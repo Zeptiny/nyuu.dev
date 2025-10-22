@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useLanguage } from '@/app/context/LanguageContext';
 import { useState } from 'react';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 interface ContactMethod {
   id: string;
@@ -15,6 +16,7 @@ interface ContactMethod {
 
 export default function ContactSection() {
   const { t } = useLanguage();
+  const [turnstileToken, setTurnstileToken] = useState<string>('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -91,7 +93,10 @@ export default function ContactSection() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          ...(turnstileToken && { token: turnstileToken }),
+        }),
       });
 
       const data = (await response.json()) as {
@@ -105,6 +110,7 @@ export default function ContactSection() {
           message: data.message || 'Your message has been sent successfully!',
         });
         setFormData({ name: '', email: '', subject: '', message: '' });
+        setTurnstileToken('');
       } else {
         setSubmitStatus({
           type: 'error',
@@ -236,6 +242,17 @@ export default function ContactSection() {
                     required
                   ></textarea>
                 </label>
+
+                {/* Turnstile CAPTCHA */}
+                {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && (
+                  <div className="flex justify-center my-4">
+                    <Turnstile
+                      siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
+                      onSuccess={(token: string) => setTurnstileToken(token)}
+                      onError={() => setTurnstileToken('')}
+                    />
+                  </div>
+                )}
 
                 {/* Submit Button */}
                 <button 

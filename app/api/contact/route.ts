@@ -8,6 +8,7 @@ interface ContactFormData {
   email: string;
   subject: string;
   message: string;
+  token?: string;
 }
 
 // Validate email format
@@ -35,8 +36,41 @@ function validateContactData(data: unknown): data is ContactFormData {
     obj.subject.length <= 200 &&
     typeof obj.message === 'string' &&
     obj.message.trim().length > 0 &&
-    obj.message.length <= 5000
+    obj.message.length <= 5000 &&
+    (typeof obj.token === 'string' || obj.token === undefined)
   );
+}
+
+// Verify Turnstile token
+async function verifyTurnstileToken(token: string): Promise<boolean> {
+  try {
+    const secretKey = process.env.TURNSTILE_SECRET_KEY;
+    if (!secretKey) {
+      console.warn('TURNSTILE_SECRET_KEY not configured, skipping verification');
+      return true; // Allow if not configured
+    }
+
+    const response = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        secret: secretKey,
+        response: token,
+      }),
+    });
+
+    const data = (await response.json()) as {
+      success?: boolean;
+      error_codes?: string[];
+    };
+
+    return data.success === true;
+  } catch (error) {
+    console.error('Turnstile verification error:', error);
+    return false;
+  }
 }
 
 export async function POST(request: NextRequest) {
@@ -68,7 +102,24 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { name, email, subject, message } = body;
+    const { name, email, subject, message, token } = body;
+
+    // Verify Turnstile token if provided
+    if (token) {
+      const isTokenValid = await verifyTurnstileToken(token);
+      if (!isTokenValid) {
+        return NextResponse.json(
+          { error: 'CAPTCHA verification failed' },
+          { status: 400 }
+        );
+      }
+    } else if (process.env.TURNSTILE_SECRET_KEY) {
+      // Token is required if secret key is configured
+      return NextResponse.json(
+        { error: 'CAPTCHA verification is required' },
+        { status: 400 }
+      );
+    }
 
     // Check if API key is configured
     if (!process.env.RESEND_API_KEY || !resend) {
