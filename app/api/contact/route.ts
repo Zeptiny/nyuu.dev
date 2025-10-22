@@ -19,18 +19,39 @@ const emailTranslations = {
     userGreeting: 'Thank you for reaching out! I have received your message and will get back to you as soon as possible.',
     userYourMessage: 'Your message:',
     userSignoff: 'Best regards,',
+    successMessage: 'Your message has been sent successfully!',
+    errorCaptchaRequired: 'CAPTCHA verification is required',
+    errorCaptchaFailed: 'CAPTCHA verification failed. Please try again.',
+    errorCaptchaNotConfigured: 'CAPTCHA verification is not configured on the server',
+    errorInvalidData: 'Invalid or missing form data',
+    errorEmailService: 'Email service is not configured',
+    errorUnexpected: 'An unexpected error occurred',
   },
   pt: {
     userSubject: 'Recebemos sua mensagem',
     userGreeting: 'Obrigado por entrar em contato! Recebi sua mensagem e voltarei para você assim que possível.',
     userYourMessage: 'Sua mensagem:',
     userSignoff: 'Melhores cumprimentos,',
+    successMessage: 'Sua mensagem foi enviada com sucesso!',
+    errorCaptchaRequired: 'Verificação de CAPTCHA é obrigatória',
+    errorCaptchaFailed: 'Falha na verificação de CAPTCHA. Por favor, tente novamente.',
+    errorCaptchaNotConfigured: 'Verificação de CAPTCHA não está configurada no servidor',
+    errorInvalidData: 'Dados de formulário inválidos ou ausentes',
+    errorEmailService: 'Serviço de email não está configurado',
+    errorUnexpected: 'Ocorreu um erro inesperado',
   },
   ca: {
     userSubject: 'Hem rebut el teu missatge',
     userGreeting: 'Gràcies per posar-te en contacte! He rebut el teu missatge i et respondré tan aviat com sigui possible.',
     userYourMessage: 'El teu missatge:',
     userSignoff: 'Cordials salutacions,',
+    successMessage: 'El teu missatge ha estat enviat amb èxit!',
+    errorCaptchaRequired: 'Verificació de CAPTCHA és obligatòria',
+    errorCaptchaFailed: 'Falha en la verificació de CAPTCHA. Si us plau, torna a intentar-ho.',
+    errorCaptchaNotConfigured: 'Verificació de CAPTCHA no està configurada al servidor',
+    errorInvalidData: 'Dades de formulari invàlides o absents',
+    errorEmailService: 'Servei de correu electrònic no està configurat',
+    errorUnexpected: 'Ha ocorregut un error inesperat',
   },
 };
 
@@ -121,17 +142,21 @@ export async function POST(request: NextRequest) {
     // Validate form data
     if (!validateContactData(body)) {
       return NextResponse.json(
-        { error: 'Invalid or missing form data' },
+        { error: emailTranslations.en.errorInvalidData },
         { status: 400 }
       );
     }
 
     const { name, email, subject, message, token, language = 'en' } = body;
 
+    // Validate language
+    const validLanguage = language && ['en', 'pt', 'ca'].includes(language) ? (language as 'en' | 'pt' | 'ca') : 'en';
+    const trans = emailTranslations[validLanguage];
+
     // CAPTCHA is REQUIRED - verify token
     if (!token) {
       return NextResponse.json(
-        { error: 'CAPTCHA verification is required' },
+        { error: trans.errorCaptchaRequired },
         { status: 400 }
       );
     }
@@ -141,14 +166,14 @@ export async function POST(request: NextRequest) {
       const isTokenValid = await verifyTurnstileToken(token);
       if (!isTokenValid) {
         return NextResponse.json(
-          { error: 'CAPTCHA verification failed. Please try again.' },
+          { error: trans.errorCaptchaFailed },
           { status: 400 }
         );
       }
     } else {
       console.warn('TURNSTILE_SECRET_KEY not configured - cannot verify CAPTCHA');
       return NextResponse.json(
-        { error: 'CAPTCHA verification is not configured on the server' },
+        { error: trans.errorCaptchaNotConfigured },
         { status: 500 }
       );
     }
@@ -162,10 +187,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Validate language
-    const validLanguage = language && ['en', 'pt', 'ca'].includes(language) ? (language as 'en' | 'pt' | 'ca') : 'en';
-    const trans = emailTranslations[validLanguage];
-
     // Send email to site owner
     const ownerEmailResult = await resend.emails.send({
       from: 'contact@nyuu.dev',
@@ -178,7 +199,7 @@ export async function POST(request: NextRequest) {
     if (ownerEmailResult.error) {
       console.error('Error sending owner email:', ownerEmailResult.error);
       return NextResponse.json(
-        { error: 'Failed to send email' },
+        { error: trans.errorEmailService },
         { status: 500 }
       );
     }
@@ -199,14 +220,14 @@ export async function POST(request: NextRequest) {
     return NextResponse.json(
       {
         success: true,
-        message: 'Your message has been sent successfully!',
+        message: trans.successMessage,
       },
       { status: 200 }
     );
   } catch (error) {
     console.error('Contact form error:', error);
     return NextResponse.json(
-      { error: 'An unexpected error occurred' },
+      { error: emailTranslations.en.errorUnexpected },
       { status: 500 }
     );
   }
