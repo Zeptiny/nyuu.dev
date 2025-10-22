@@ -30,13 +30,15 @@
 	 * https://developers.cloudflare.com/workers/runtime-apis/bindings/
 	 */
 	/**
-	 * Environment Variables
+	 * Environment Variables (runtime only)
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
+	 * 
+	 * Note: NEXT_PUBLIC_* variables must be set at build time in .env.production
+	 * Only non-public runtime variables go here
 	 */
 	// "vars": { "MY_VARIABLE": "production_value" }
 	"vars": {
-		"CONTACT_EMAIL_TO": "me@nyuu.dev",
-		"NEXT_PUBLIC_TURNSTILE_SITE_KEY": "0x4AAAAAAAfCBBf4_c0qnwnY"
+		"CONTACT_EMAIL_TO": "me@nyuu.dev"
 	},
 	/**
 	 * Note: Use secrets to store sensitive data.

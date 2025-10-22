@@ -87,6 +87,16 @@ export default function ContactSection() {
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
 
+    // Check if CAPTCHA token is available
+    if (!turnstileToken) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Please complete the CAPTCHA verification before submitting.',
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -95,7 +105,7 @@ export default function ContactSection() {
         },
         body: JSON.stringify({
           ...formData,
-          ...(turnstileToken && { token: turnstileToken }),
+          token: turnstileToken,
         }),
       });
 
@@ -243,8 +253,8 @@ export default function ContactSection() {
                   ></textarea>
                 </label>
 
-                {/* Turnstile CAPTCHA */}
-                {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && (
+                {/* Turnstile CAPTCHA - Required */}
+                {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ? (
                   <div className="flex justify-center my-4">
                     <Turnstile
                       siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
@@ -252,13 +262,20 @@ export default function ContactSection() {
                       onError={() => setTurnstileToken('')}
                     />
                   </div>
+                ) : (
+                  <div role="alert" className="alert alert-warning mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4v2m0-6a4 4 0 100 8 4 4 0 000-8zm0-1a5 5 0 110 10 5 5 0 010-10z" />
+                    </svg>
+                    <span>CAPTCHA is not configured. Please set NEXT_PUBLIC_TURNSTILE_SITE_KEY in environment variables.</span>
+                  </div>
                 )}
 
                 {/* Submit Button */}
                 <button 
                   type="submit" 
                   className="btn btn-primary btn-block mt-4"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !turnstileToken}
                 >
                   {isSubmitting ? (
                     <>

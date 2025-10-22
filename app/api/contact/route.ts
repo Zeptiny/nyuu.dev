@@ -104,20 +104,28 @@ export async function POST(request: NextRequest) {
 
     const { name, email, subject, message, token } = body;
 
-    // Verify Turnstile token if provided
-    if (token) {
-      const isTokenValid = await verifyTurnstileToken(token);
-      if (!isTokenValid) {
-        return NextResponse.json(
-          { error: 'CAPTCHA verification failed' },
-          { status: 400 }
-        );
-      }
-    } else if (process.env.TURNSTILE_SECRET_KEY) {
-      // Token is required if secret key is configured
+    // CAPTCHA is REQUIRED - verify token
+    if (!token) {
       return NextResponse.json(
         { error: 'CAPTCHA verification is required' },
         { status: 400 }
+      );
+    }
+
+    // Verify the token is valid
+    if (process.env.TURNSTILE_SECRET_KEY) {
+      const isTokenValid = await verifyTurnstileToken(token);
+      if (!isTokenValid) {
+        return NextResponse.json(
+          { error: 'CAPTCHA verification failed. Please try again.' },
+          { status: 400 }
+        );
+      }
+    } else {
+      console.warn('TURNSTILE_SECRET_KEY not configured - cannot verify CAPTCHA');
+      return NextResponse.json(
+        { error: 'CAPTCHA verification is not configured on the server' },
+        { status: 500 }
       );
     }
 
