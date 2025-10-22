@@ -294,6 +294,10 @@ function generateEmailHtml(
                 <div class="value"><a href="mailto:${escapeHtml(data.email)}">${escapeHtml(data.email)}</a></div>
               </div>
               <div class="field">
+                <div class="label">Language</div>
+                <div class="value">${escapeHtml(language)}</div>
+              </div>
+              <div class="field">
                 <div class="label">Subject</div>
                 <div class="value">${escapeHtml(data.subject)}</div>
               </div>
