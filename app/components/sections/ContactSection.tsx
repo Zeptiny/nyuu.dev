@@ -195,14 +195,14 @@ export default function ContactSection() {
 
               <form className="space-y-4" onSubmit={handleSubmit}>
                 {/* Name Field */}
-                <label className="input input-bordered flex items-center gap-2 w-full">
+                <label className="input input-bordered flex items-center gap-2 w-full focus-within:border-primary focus-within:ring-1 focus-within:ring-primary focus-within:outline-none">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                   </svg>
                   <input 
                     type="text" 
                     name="name"
-                    className="grow" 
+                    className="grow outline-none" 
                     placeholder={t.namePlaceholder} 
                     value={formData.name}
                     onChange={handleInputChange}
@@ -211,14 +211,14 @@ export default function ContactSection() {
                 </label>
 
                 {/* Email Field */}
-                <label className="input input-bordered flex items-center gap-2 w-full">
+                <label className="input input-bordered flex items-center gap-2 w-full focus-within:border-primary focus-within:ring-1 focus-within:ring-primary focus-within:outline-none">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                   <input 
                     type="email" 
                     name="email"
-                    className="grow" 
+                    className="grow outline-none" 
                     placeholder={t.emailPlaceholder} 
                     value={formData.email}
                     onChange={handleInputChange}
@@ -227,14 +227,14 @@ export default function ContactSection() {
                 </label>
 
                 {/* Subject Field */}
-                <label className="input input-bordered flex items-center gap-2 w-full">
+                <label className="input input-bordered flex items-center gap-2 w-full focus-within:border-primary focus-within:ring-1 focus-within:ring-primary focus-within:outline-none">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 opacity-70" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
                   </svg>
                   <input 
                     type="text" 
                     name="subject"
-                    className="grow w-full" 
+                    className="grow w-full outline-none" 
                     placeholder={t.subjectPlaceholder} 
                     value={formData.subject}
                     onChange={handleInputChange}
@@ -246,7 +246,7 @@ export default function ContactSection() {
                 <label className="form-control">
                   <textarea 
                     name="message"
-                    className="textarea textarea-bordered h-32 w-full" 
+                    className="textarea textarea-bordered h-32 w-full focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" 
                     placeholder={t.messagePlaceholder}
                     value={formData.message}
                     onChange={handleInputChange}
