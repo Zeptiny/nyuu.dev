@@ -60,8 +60,8 @@ export default function ServicesSection() {
       titleKey: 'serviceInstallation',
       descriptionKey: 'serviceInstallationDesc',
       detailedDescriptionKey: 'serviceInstallationDetailed',
-      imageLight: 'https://placehold.co/2200x800',
-      imageDark: 'https://placehold.co/2200x800',
+      imageLight: '/services/grafana-light.png',
+      imageDark: '/services/grafana-dark.png',
     },
     {
       id: '3',
