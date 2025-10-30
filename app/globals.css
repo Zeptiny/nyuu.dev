@@ -30,8 +30,8 @@ section {
   --color-primary-content: oklch(96% 0.018 272.314);
   --color-secondary: oklch(62% 0.265 303.9);
   --color-secondary-content: oklch(94% 0.028 342.258);
-  --color-accent: oklch(71% 0.202 349.761);
-  --color-accent-content: oklch(28% 0.109 3.907);
+  --color-accent: oklch(0.6846 0.2146 40.55);
+  --color-accent-content: oklch(0.97 0.0194 60.18);
   --color-neutral: oklch(14% 0.005 285.823);
   --color-neutral-content: oklch(92% 0.004 286.32);
   --color-info: oklch(74% 0.16 232.661);
@@ -66,8 +66,8 @@ section {
   --color-primary-content: oklch(93% 0.034 272.788);
   --color-secondary: oklch(55% 0.288 302.321);
   --color-secondary-content: oklch(94% 0.028 342.258);
-  --color-accent: oklch(82% 0.12 346.018);
-  --color-accent-content: oklch(38% 0.063 188.416);
+  --color-accent: oklch(0.6846 0.2146 40.55);
+  --color-accent-content: oklch(0.98 0.0118 51.32);
   --color-neutral: oklch(14% 0.005 285.823);
   --color-neutral-content: oklch(92% 0.004 286.32);
   --color-info: oklch(74% 0.16 232.661);
