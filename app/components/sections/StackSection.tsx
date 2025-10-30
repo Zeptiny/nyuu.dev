@@ -61,6 +61,12 @@ export default function StackSection() {
         { name: 'Grafana', icon: 'devicon-grafana-plain' },
       ],
     },
+    {
+      categoryKey: 'categoryInfrastructureAsCode',
+      technologies: [
+        { name: 'Ansible', icon: 'devicon-ansible-plain' },
+      ],
+    },
   ];
 
   return (

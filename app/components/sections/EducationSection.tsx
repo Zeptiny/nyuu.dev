@@ -86,10 +86,10 @@ export default function EducationSection() {
       certificateUrl: '#',
     },
     {
-      // Ansible for beginners
+      // Ansible Advanced
       id: '8',
-      titleKey: 'courseAnsibleFundamentals',
-      descriptionKey: 'courseAnsibleFundamentalsDesc',
+      titleKey: 'courseAnsibleAdvanced',
+      descriptionKey: 'courseAnsibleAdvancedDesc',
       categoryKey: 'categoryAutomation',
       date: '2025',
       status: 'completed',
