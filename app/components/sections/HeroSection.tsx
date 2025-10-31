@@ -19,12 +19,12 @@ export default function HeroSection() {
         {/* Persona Image */}
         <div className="hidden lg:block flex-shrink-0">
           <div className="avatar">
-            <div>
+            <div className='max-h-[64vh]'>
               <Image
-                src="https://placehold.co/400x400/png"
+                src="/persona/waving.png"
                 alt="Persona Image"
                 width={400}
-                height={400}
+                height={256}
                 priority
                 unoptimized
               />
