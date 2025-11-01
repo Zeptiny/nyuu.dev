@@ -11,11 +11,15 @@ interface Course {
   date: string;
   status: 'ongoing' | 'completed';
   certificateUrl?: string;
+  duration?: number; // Duration value
+  durationUnit?: 'hours' | 'weeks' | 'months' | 'years'; // Duration unit
+  type: 'formal' | 'course' | 'certificate'; // Type of education
 }
 
 export default function EducationSection() {
   const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [selectedSection, setSelectedSection] = useState<'formal' | 'course' | 'certificate'>('formal');
 
   // Placeholder courses - replace with actual data
   const courses: Course[] = [
@@ -26,6 +30,9 @@ export default function EducationSection() {
       categoryKey: 'categoryUniversity',
       date: '2024',
       status: 'ongoing',
+      duration: 4,
+      durationUnit: 'years',
+      type: 'formal',
     },
     {
       // Certified Kubernetes Administrator (CKA)
@@ -35,6 +42,9 @@ export default function EducationSection() {
       categoryKey: 'categoryDevOps',
       date: '2025',
       status: 'ongoing',
+      duration: 26.5,
+      durationUnit: 'hours',
+      type: 'course',
     },
     {
       // Linux Training Course (LTC)
@@ -44,6 +54,9 @@ export default function EducationSection() {
       categoryKey: 'categoryDevOps',
       date: '2025',
       status: 'ongoing',
+      duration: 41.5,
+      durationUnit: 'hours',
+      type: 'course',
     },
     {
       // Microservices architecture
@@ -53,7 +66,10 @@ export default function EducationSection() {
       categoryKey: 'categoryDevOps',
       date: '2025',
       status: 'completed',
-      certificateUrl: '#',
+      certificateUrl: '/education/courses/certificates/msa.pdf',
+      duration: 5.5,
+      durationUnit: 'hours',
+      type: 'course',
     },
     {
       // Zabbix - Network and Application Monitoring
@@ -63,7 +79,10 @@ export default function EducationSection() {
       categoryKey: 'categoryMonitoring',
       date: '2025',
       status: 'completed',
-      certificateUrl: '#',
+      certificateUrl: '/education/courses/certificates/zabbix.pdf',
+      duration: 7.5,
+      durationUnit: 'hours',
+      type: 'course',
     },
     {
       // Kubernetes Fundamentals
@@ -73,7 +92,10 @@ export default function EducationSection() {
       categoryKey: 'categoryDevOps',
       date: '2025',
       status: 'completed',
-      certificateUrl: '#',
+      certificateUrl: '/education/courses/certificates/kubernetes.pdf',
+      duration: 6.5,
+      durationUnit: 'hours',
+      type: 'course',
     },
     {
       // Fundamentals of Backend Engineering
@@ -83,7 +105,10 @@ export default function EducationSection() {
       categoryKey: 'categoryDevOps',
       date: '2025',
       status: 'completed',
-      certificateUrl: '#',
+      certificateUrl: '/education/courses/certificates/fbe.pdf',
+      duration: 19,
+      durationUnit: 'hours',
+      type: 'course',
     },
     {
       // Ansible Advanced
@@ -93,15 +118,18 @@ export default function EducationSection() {
       categoryKey: 'categoryAutomation',
       date: '2025',
       status: 'completed',
-      certificateUrl: '#',
+      certificateUrl: '/education/courses/certificates/ansible.pdf',
+      duration: 4,
+      durationUnit: 'hours',
+      type: 'course',
     },
   ];
 
-  const categories = ['all', ...Array.from(new Set(courses.map(course => course.categoryKey)))];
+  const categories = ['all', ...Array.from(new Set(courses.filter(c => c.type === selectedSection).map(course => course.categoryKey)))];
   
-  const filteredCourses = selectedCategory === 'all' 
-    ? courses 
-    : courses.filter(course => course.categoryKey === selectedCategory);
+  const filteredCourses = courses
+    .filter(course => course.type === selectedSection)
+    .filter(course => selectedCategory === 'all' || course.categoryKey === selectedCategory);
 
   // Sort courses by ongoing first, if it's ongoing sort by date ascending, if its completed sort by date descending
   filteredCourses.sort((a, b) => {
@@ -110,6 +138,11 @@ export default function EducationSection() {
     }
     return a.status === 'ongoing' ? -1 : 1; // Ongoing first
   });
+
+  const renderDuration = (course: Course) => {
+    if (!course.duration || !course.durationUnit) return null;
+    return `${course.duration} ${t[course.durationUnit]}`;
+  };
 
   return (
     <section id="education" className="py-20 bg-base-100">
@@ -120,6 +153,39 @@ export default function EducationSection() {
           <p className="text-lg text-base-content/70 max-w-2xl mx-auto">
             {t.educationSubtitle}
           </p>
+        </div>
+
+        {/* Section Tabs */}
+        <div className="flex justify-center mb-8">
+          <div className="tabs tabs-boxed tabs-lg">
+            <button
+              className={`tab ${selectedSection === 'formal' ? 'tab-active text-primary' : ''}`}
+              onClick={() => {
+                setSelectedSection('formal');
+                setSelectedCategory('all');
+              }}
+            >
+              {t.formalEducationTitle}
+            </button>
+            <button
+              className={`tab ${selectedSection === 'course' ? 'tab-active text-primary' : ''}`}
+              onClick={() => {
+                setSelectedSection('course');
+                setSelectedCategory('all');
+              }}
+            >
+              {t.coursesTitle}
+            </button>
+            {/* <button
+              className={`tab ${selectedSection === 'certificate' ? 'tab-active text-primary' : ''}`}
+              onClick={() => {
+                setSelectedSection('certificate');
+                setSelectedCategory('all');
+              }}
+            >
+              {t.certificatesTitle}
+            </button> */}
+          </div>
         </div>
 
         {/* Category Filter */}
@@ -154,6 +220,9 @@ export default function EducationSection() {
                     <div className="flex flex-wrap gap-2 items-center">
                       <span className="badge badge-outline">{t[course.categoryKey as keyof typeof t]}</span>
                       <span className="text-sm text-base-content/60">{course.date}</span>
+                      {/* {course.duration && course.durationUnit && (
+                        <span className="text-sm text-base-content/60">• {renderDuration(course)}</span>
+                      )} */}
                     </div>
                   </div>
                   {course.certificateUrl && (

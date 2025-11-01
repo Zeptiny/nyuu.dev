@@ -44,10 +44,22 @@ interface Translations {
   // Education Section
   educationTitle: string;
   educationSubtitle: string;
+  formalEducationTitle: string;
+  coursesTitle: string;
+  certificatesTitle: string;
   ongoing: string;
   completed: string;
   downloadCertificate: string;
   filterAll: string;
+  
+  // Duration units
+  hours: string;
+  weeks: string;
+  months: string;
+  years: string;
+  
+  // Footer
+  footerCopyright: string;
   
   // Contact Section
   contactTitle: string;
@@ -159,10 +171,22 @@ const translations: Record<Language, Translations> = {
     // Education Section
     educationTitle: 'Education & Courses',
     educationSubtitle: 'My learning journey',
+    formalEducationTitle: 'Formal Education',
+    coursesTitle: 'Courses',
+    certificatesTitle: 'Certificates',
     ongoing: 'Ongoing',
     completed: 'Completed',
     downloadCertificate: 'Download Certificate',
     filterAll: 'All',
+    
+    // Duration units
+    hours: 'hours',
+    weeks: 'weeks',
+    months: 'months',
+    years: 'years',
+    
+    // Footer
+    footerCopyright: '© {year} Nyuu. All rights reserved.',
     
     // Contact Section
     contactTitle: 'Get In Touch',
@@ -274,10 +298,22 @@ const translations: Record<Language, Translations> = {
     // Education Section
     educationTitle: 'Educação & Cursos',
     educationSubtitle: 'Minha jornada de aprendizado',
+    formalEducationTitle: 'Educação Formal',
+    coursesTitle: 'Cursos',
+    certificatesTitle: 'Certificados',
     ongoing: 'Em andamento',
     completed: 'Concluído',
     downloadCertificate: 'Baixar Certificado',
     filterAll: 'Todos',
+    
+    // Duration units
+    hours: 'horas',
+    weeks: 'semanas',
+    months: 'meses',
+    years: 'anos',
+    
+    // Footer
+    footerCopyright: '© {year} Nyuu. Todos os direitos reservados.',
     
     // Contact Section
     contactTitle: 'Entre em Contato',
@@ -321,7 +357,7 @@ const translations: Record<Language, Translations> = {
     courseBackendEngineeringDesc: 'Visão geral dos conceitos e práticas de desenvolvimento backend.',
     courseAnsibleAdvanced: 'Ansible Avançado',
     courseAnsibleAdvancedDesc: 'Tópicos avançados em Ansible para automação e gerenciamento de configuração.',
-
+    
     // Tech Stack Categories
     categoryLanguages: 'Linguagens',
     categoryCloudPlatforms: 'Plataformas em Nuvem',
@@ -389,10 +425,22 @@ const translations: Record<Language, Translations> = {
     // Education Section
     educationTitle: 'Educació i Cursos',
     educationSubtitle: 'El meu camí d\'aprenentatge',
+    formalEducationTitle: 'Educació Formal',
+    coursesTitle: 'Cursos',
+    certificatesTitle: 'Certificats',
     ongoing: 'En curs',
     completed: 'Completat',
     downloadCertificate: 'Descarregar Certificat',
     filterAll: 'Tots',
+    
+    // Duration units
+    hours: 'hores',
+    weeks: 'setmanes',
+    months: 'mesos',
+    years: 'anys',
+    
+    // Footer
+    footerCopyright: '© {year} Nyuu. Tots els drets reservats.',
     
     // Contact Section
     contactTitle: 'Contacta',
