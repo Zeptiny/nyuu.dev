@@ -48,6 +48,12 @@ export default function Navbar() {
   const currentLang = languages.find(l => l.code === language);
 
   const scrollToSection = (sectionId: string) => {
+    // If we're on blog pages, navigate to home first
+    if (window.location.pathname.startsWith('/blog')) {
+      window.location.href = `/#${sectionId}`;
+      return;
+    }
+    
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -83,6 +89,7 @@ export default function Navbar() {
             <li><button onClick={() => scrollToSection('projects')}>{t.projects}</button></li>
             <li><button onClick={() => scrollToSection('stack')}>{t.stack}</button></li>
             <li><button onClick={() => scrollToSection('education')}>{t.education}</button></li>
+            <li><a href="/blog">{t.blog}</a></li>
             <li><button onClick={() => scrollToSection('contact')}>{t.contact}</button></li>
           </ul>
         </div>
@@ -96,6 +103,7 @@ export default function Navbar() {
           <li><button onClick={() => scrollToSection('projects')}>{t.projects}</button></li>
           <li><button onClick={() => scrollToSection('stack')}>{t.stack}</button></li>
           <li><button onClick={() => scrollToSection('education')}>{t.education}</button></li>
+          <li><a href="/blog">{t.blog}</a></li>
           <li><button onClick={() => scrollToSection('contact')}>{t.contact}</button></li>
         </ul>
       </div>

@@ -19,6 +19,7 @@ interface Translations {
   stack: string;
   education: string;
   contact: string;
+  blog: string;
   
   // Hero Section
   // heroTitle: string;
@@ -60,6 +61,25 @@ interface Translations {
   
   // Footer
   footerCopyright: string;
+  
+  // Blog
+  blogTitle: string;
+  blogSubtitle: string;
+  readMore: string;
+  postedOn: string;
+  readingTime: string;
+  minRead: string;
+  allPosts: string;
+  latestPosts: string;
+  olderPosts: string;
+  newerPosts: string;
+  noPosts: string;
+  relatedPosts: string;
+  backToBlog: string;
+  sharePost: string;
+  copyLink: string;
+  linkCopied: string;
+  tableOfContents: string;
   
   // Contact Section
   contactTitle: string;
@@ -146,6 +166,7 @@ const translations: Record<Language, Translations> = {
     stack: 'Tech Stack',
     education: 'Education',
     contact: 'Contact',
+    blog: 'Blog',
     
     // Hero Section
     // heroTitle: 'Computer Science Student',
@@ -187,6 +208,25 @@ const translations: Record<Language, Translations> = {
     
     // Footer
     footerCopyright: '© {year} Nyuu. All rights reserved.',
+    
+    // Blog
+    blogTitle: 'Blog',
+    blogSubtitle: 'Thoughts, tutorials, and insights',
+    readMore: 'Read more',
+    postedOn: 'Posted on',
+    readingTime: 'Reading time',
+    minRead: 'min read',
+    allPosts: 'All Posts',
+    latestPosts: 'Latest Posts',
+    olderPosts: 'Older Posts',
+    newerPosts: 'Newer Posts',
+    noPosts: 'No posts found',
+    relatedPosts: 'Related Posts',
+    backToBlog: 'Back to Blog',
+    sharePost: 'Share this post',
+    copyLink: 'Copy link',
+    linkCopied: 'Link copied!',
+    tableOfContents: 'Table of Contents',
     
     // Contact Section
     contactTitle: 'Get In Touch',
@@ -273,6 +313,7 @@ const translations: Record<Language, Translations> = {
     stack: 'Tecnologias',
     education: 'Educação',
     contact: 'Contato',
+    blog: 'Blog',
     
     // Hero Section
     // heroTitle: 'Estudante de Ciência da Computação',
@@ -314,6 +355,25 @@ const translations: Record<Language, Translations> = {
     
     // Footer
     footerCopyright: '© {year} Nyuu. Todos os direitos reservados.',
+    
+    // Blog
+    blogTitle: 'Blog',
+    blogSubtitle: 'Pensamentos, tutoriais e insights',
+    readMore: 'Ler mais',
+    postedOn: 'Publicado em',
+    readingTime: 'Tempo de leitura',
+    minRead: 'min de leitura',
+    allPosts: 'Todos os Posts',
+    latestPosts: 'Últimos Posts',
+    olderPosts: 'Posts Antigos',
+    newerPosts: 'Posts Recentes',
+    noPosts: 'Nenhum post encontrado',
+    relatedPosts: 'Posts Relacionados',
+    backToBlog: 'Voltar ao Blog',
+    sharePost: 'Compartilhar este post',
+    copyLink: 'Copiar link',
+    linkCopied: 'Link copiado!',
+    tableOfContents: 'Índice',
     
     // Contact Section
     contactTitle: 'Entre em Contato',
@@ -400,6 +460,7 @@ const translations: Record<Language, Translations> = {
     stack: 'Tecnologies',
     education: 'Educació',
     contact: 'Contacte',
+    blog: 'Blog',
     
     // Hero Section
     // heroTitle: 'Estudiant de Ciències de la Computació',
@@ -441,6 +502,25 @@ const translations: Record<Language, Translations> = {
     
     // Footer
     footerCopyright: '© {year} Nyuu. Tots els drets reservats.',
+    
+    // Blog
+    blogTitle: 'Blog',
+    blogSubtitle: 'Pensaments, tutorials i insights',
+    readMore: 'Llegir més',
+    postedOn: 'Publicat el',
+    readingTime: 'Temps de lectura',
+    minRead: 'min de lectura',
+    allPosts: 'Tots els Posts',
+    latestPosts: 'Últims Posts',
+    olderPosts: 'Posts Antics',
+    newerPosts: 'Posts Recents',
+    noPosts: 'No s\'han trobat posts',
+    relatedPosts: 'Posts Relacionats',
+    backToBlog: 'Tornar al Blog',
+    sharePost: 'Compartir aquest post',
+    copyLink: 'Copiar enllaç',
+    linkCopied: 'Enllaç copiat!',
+    tableOfContents: 'Índex',
     
     // Contact Section
     contactTitle: 'Contacta',
