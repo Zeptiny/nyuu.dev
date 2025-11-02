@@ -5,14 +5,12 @@ main = ".open-next/worker.js"
 compatibility_date = "2025-03-01"
 compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
 
-[env.production]
-name = "nyuu-prod"
-
 [build]
-command = "npm run build:all"
+command = "npm run build:cf"
+cwd = "."
 
-[env.production.build]
-command = "npm run build:all"
+[build.upload]
+format = "service-worker"
 
 [[assets]]
 binding = "ASSETS"
