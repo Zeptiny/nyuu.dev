@@ -39,7 +39,7 @@
 	// "vars": { "MY_VARIABLE": "production_value" }
 	"vars": {
 		"CONTACT_EMAIL_TO": "me@nyuu.dev"
-	},
+	}
 	/**
 	 * Note: Use secrets to store sensitive data.
 	 * https://developers.cloudflare.com/workers/configuration/secrets/
