@@ -2,6 +2,7 @@
 
 import { useLanguage, type Language } from '../context/LanguageContext';
 import type { BlogPost } from '../lib/blog';
+import { getAllPosts } from '../lib/blog';
 import { format } from 'date-fns';
 import { enUS, pt, ca } from 'date-fns/locale';
 import Link from 'next/link';
@@ -26,8 +27,10 @@ export default function BlogList({ initialPosts, initialLanguage }: BlogListProp
   // Reload posts when language changes
   useEffect(() => {
     if (language !== initialLanguage) {
-      // Refresh the page with new language parameter
-      window.location.href = `/blog?lang=${language}`;
+      // Fetch posts for the new language
+      const newPosts = getAllPosts(language);
+      setPosts(newPosts);
+      setSelectedTag(null); // Reset tag filter when language changes
     }
   }, [language, initialLanguage]);
   
