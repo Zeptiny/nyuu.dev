@@ -5,7 +5,7 @@
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "workers_dev": false,
   "build": {
-    "command": "npm run build"
+    "command": "opennextjs-cloudflare"
   },
   "env": {
     "production": {
@@ -34,7 +34,6 @@
   },
   "assets": {
     "binding": "ASSETS",
-    "directory": ".open-next/assets",
-    "include": ["*.js", "*.json", "*.png", "*.svg", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.woff", "*.woff2", "*.ttf", "*.css", "*.html"]
+    "directory": ".open-next/assets"
   }
 }

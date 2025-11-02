@@ -6,29 +6,9 @@ compatibility_date = "2025-03-01"
 compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
 workers_dev = false
 
-[build]
-command = "npm run build"
-
-[[env.production.routes]]
-pattern = "nyuu.dev/*"
-zone_name = "nyuu.dev"
-
-[[env.production.routes]]
-pattern = "*.nyuu.dev/*"
-zone_name = "nyuu.dev"
-
-[[env.production.routes]]
-pattern = "nyuu.dev"
-zone_name = "nyuu.dev"
-
-[[env.production.routes]]
-pattern = "*.nyuu.dev"
-zone_name = "nyuu.dev"
-
 [[assets]]
 binding = "ASSETS"
 directory = ".open-next/assets"
-include = ["*.js", "*.json", "*.png", "*.svg", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.woff", "*.woff2", "*.ttf", "*.css", "*.html"]
 
 [observability]
 enabled = true

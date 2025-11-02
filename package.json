@@ -4,8 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev --turbopack",
-		"build": "node scripts/build.js",
-		"build:cf": "cross-env BUILDING_WORKER=true opennextjs-cloudflare build",
+		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
 		"deploy": "npx wrangler deploy",
