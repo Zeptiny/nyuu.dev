@@ -60,6 +60,16 @@ export default function Navbar() {
     }
   };
 
+  const handleBlogClick = () => {
+    // If we're on the home page, scroll to blog section
+    if (window.location.pathname === '/') {
+      scrollToSection('blog');
+    } else {
+      // Otherwise, navigate to blog page
+      window.location.href = '/blog';
+    }
+  };
+
   return (
     <div className="navbar bg-base-200 sticky top-0 z-50 shadow-md">
       <div className="navbar-start">
@@ -89,26 +99,24 @@ export default function Navbar() {
             <li><button onClick={() => scrollToSection('projects')}>{t.projects}</button></li>
             <li><button onClick={() => scrollToSection('stack')}>{t.stack}</button></li>
             <li><button onClick={() => scrollToSection('education')}>{t.education}</button></li>
-            <li><a href="/blog">{t.blog}</a></li>
+            <li><button onClick={handleBlogClick}>{t.blog}</button></li>
             <li><button onClick={() => scrollToSection('contact')}>{t.contact}</button></li>
           </ul>
         </div>
         <button className="btn btn-ghost text-xl" onClick={() => scrollToSection('hero')}>nyuu.dev</button>
       </div>
 
-      <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          <li><button onClick={() => scrollToSection('hero')}>{t.hero}</button></li>
-          <li><button onClick={() => scrollToSection('services')}>{t.services}</button></li>
-          <li><button onClick={() => scrollToSection('projects')}>{t.projects}</button></li>
-          <li><button onClick={() => scrollToSection('stack')}>{t.stack}</button></li>
-          <li><button onClick={() => scrollToSection('education')}>{t.education}</button></li>
-          <li><a href="/blog">{t.blog}</a></li>
-          <li><button onClick={() => scrollToSection('contact')}>{t.contact}</button></li>
-        </ul>
-      </div>
-
-      <div className="navbar-end gap-2">
+        <div className="navbar-center hidden lg:flex">
+          <ul className="menu menu-horizontal px-1">
+            <li><button onClick={() => scrollToSection('hero')}>{t.hero}</button></li>
+            <li><button onClick={() => scrollToSection('services')}>{t.services}</button></li>
+            <li><button onClick={() => scrollToSection('projects')}>{t.projects}</button></li>
+            <li><button onClick={() => scrollToSection('stack')}>{t.stack}</button></li>
+            <li><button onClick={() => scrollToSection('education')}>{t.education}</button></li>
+            <li><button onClick={handleBlogClick}>{t.blog}</button></li>
+            <li><button onClick={() => scrollToSection('contact')}>{t.contact}</button></li>
+          </ul>
+        </div>      <div className="navbar-end gap-2">
         {/* Theme Toggle */}
         <label className="swap swap-rotate btn btn-ghost btn-circle">
           <input
