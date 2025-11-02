@@ -4,25 +4,34 @@ name = "nyuu"
 main = ".open-next/worker.js"
 compatibility_date = "2025-03-01"
 compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
+workers_dev = false
 
 [build]
-command = "npm run build:cf"
-cwd = "."
+command = "npm run build"
 
-[build.upload]
-format = "service-worker"
+[[env.production.routes]]
+pattern = "nyuu.dev/*"
+zone_name = "nyuu.dev"
+
+[[env.production.routes]]
+pattern = "*.nyuu.dev/*"
+zone_name = "nyuu.dev"
+
+[[env.production.routes]]
+pattern = "nyuu.dev"
+zone_name = "nyuu.dev"
+
+[[env.production.routes]]
+pattern = "*.nyuu.dev"
+zone_name = "nyuu.dev"
 
 [[assets]]
 binding = "ASSETS"
 directory = ".open-next/assets"
+include = ["*.js", "*.json", "*.png", "*.svg", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.woff", "*.woff2", "*.ttf", "*.css", "*.html"]
 
 [observability]
 enabled = true
 
 [env.production]
-routes = [
-  { pattern = "nyuu.dev", zone_name = "nyuu.dev" }
-]
-
-[vars]
-CONTACT_EMAIL_TO = "me@nyuu.dev"
+vars = { CONTACT_EMAIL_TO = "me@nyuu.dev" }
