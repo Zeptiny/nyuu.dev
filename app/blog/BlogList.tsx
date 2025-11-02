@@ -14,25 +14,17 @@ const locales = {
   ca: ca,
 };
 
-interface BlogListProps {
-  initialPosts: BlogPost[];
-  initialLanguage: Language;
-}
-
-export default function BlogList({ initialPosts, initialLanguage }: BlogListProps) {
+export default function BlogList() {
   const { language, t } = useLanguage();
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
-  const [posts, setPosts] = useState(initialPosts);
+  const [posts, setPosts] = useState<BlogPost[]>([]);
   
-  // Reload posts when language changes
+  // Load posts when component mounts or language changes
   useEffect(() => {
-    if (language !== initialLanguage) {
-      // Fetch posts for the new language
-      const newPosts = getAllPosts(language);
-      setPosts(newPosts);
-      setSelectedTag(null); // Reset tag filter when language changes
-    }
-  }, [language, initialLanguage]);
+    const newPosts = getAllPosts(language);
+    setPosts(newPosts);
+    setSelectedTag(null); // Reset tag filter when language changes
+  }, [language]);
   
   // Get all unique tags
   const allTags = useMemo(() => {
