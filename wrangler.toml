@@ -19,5 +19,10 @@ directory = ".open-next/assets"
 [observability]
 enabled = true
 
+[env.production]
+routes = [
+  { pattern = "nyuu.dev", zone_name = "nyuu.dev" }
+]
+
 [vars]
 CONTACT_EMAIL_TO = "me@nyuu.dev"
