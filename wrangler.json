@@ -1,5 +1,40 @@
 {
+  "name": "nyuu",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-03-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "workers_dev": false,
   "build": {
-    "command": "npm run build:cf"
+    "command": "npm run build"
+  },
+  "env": {
+    "production": {
+      "vars": {
+        "CONTACT_EMAIL_TO": "me@nyuu.dev"
+      },
+      "routes": [
+        {
+          "pattern": "nyuu.dev/*",
+          "zone_name": "nyuu.dev"
+        },
+        {
+          "pattern": "*.nyuu.dev/*",
+          "zone_name": "nyuu.dev"
+        },
+        {
+          "pattern": "nyuu.dev",
+          "zone_name": "nyuu.dev"
+        },
+        {
+          "pattern": "*.nyuu.dev",
+          "zone_name": "nyuu.dev"
+        }
+      ]
+    }
+  },
+  "assets": {
+    "binding": "ASSETS",
+    "directory": ".open-next/assets",
+    "include": ["*.js", "*.json", "*.png", "*.svg", "*.jpg", "*.jpeg", "*.gif", "*.webp", "*.woff", "*.woff2", "*.ttf", "*.css", "*.html"]
   }
 }
