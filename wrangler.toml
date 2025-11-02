@@ -1,0 +1,25 @@
+#:schema node_modules/wrangler/config-schema.json
+
+name = "nyuu"
+main = ".open-next/worker.js"
+compatibility_date = "2025-03-01"
+compatibility_flags = ["nodejs_compat", "global_fetch_strictly_public"]
+
+[env.production]
+name = "nyuu-prod"
+
+[build]
+command = "npm run build:all"
+
+[env.production.build]
+command = "npm run build:all"
+
+[[assets]]
+binding = "ASSETS"
+directory = ".open-next/assets"
+
+[observability]
+enabled = true
+
+[vars]
+CONTACT_EMAIL_TO = "me@nyuu.dev"
