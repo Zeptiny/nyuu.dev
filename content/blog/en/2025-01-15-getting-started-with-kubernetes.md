@@ -6,7 +6,6 @@ description: "A beginner's guide to understanding and deploying your first Kuber
 tags: ["kubernetes", "devops", "containers", "tutorial"]
 language: "en"
 published: true
-image: "/blog/kubernetes-intro.webp"
 ---
 
 # Getting Started with Kubernetes

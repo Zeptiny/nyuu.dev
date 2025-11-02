@@ -18,7 +18,6 @@ export const blogPostsData: Record<string, BlogPost[]> = {
       ],
       "language": "en",
       "published": true,
-      "image": "/blog/docker-practices.webp",
       "readingTime": 3
     },
     {
@@ -35,7 +34,6 @@ export const blogPostsData: Record<string, BlogPost[]> = {
       ],
       "language": "en",
       "published": true,
-      "image": "/blog/kubernetes-intro.webp",
       "readingTime": 2
     }
   ],
@@ -54,7 +52,6 @@ export const blogPostsData: Record<string, BlogPost[]> = {
       ],
       "language": "pt",
       "published": true,
-      "image": "/blog/kubernetes-intro.webp",
       "readingTime": 2
     }
   ],
@@ -73,7 +70,6 @@ export const blogPostsData: Record<string, BlogPost[]> = {
       ],
       "language": "ca",
       "published": true,
-      "image": "/blog/kubernetes-intro.webp",
       "readingTime": 2
     }
   ]

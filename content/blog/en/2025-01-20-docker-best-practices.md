@@ -6,7 +6,6 @@ description: "Learn essential Docker best practices to build secure, efficient, 
 tags: ["docker", "containers", "devops", "best-practices"]
 language: "en"
 published: true
-image: "/blog/docker-practices.webp"
 ---
 
 # Docker Best Practices for Production

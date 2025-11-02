@@ -6,7 +6,6 @@ description: "Um guia para iniciantes para entender e implantar seu primeiro clu
 tags: ["kubernetes", "devops", "containers", "tutorial"]
 language: "pt"
 published: true
-image: "/blog/kubernetes-intro.webp"
 ---
 
 # Começando com Kubernetes

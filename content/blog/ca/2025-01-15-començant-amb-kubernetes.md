@@ -6,7 +6,6 @@ description: "Una guia per a principiants per entendre i desplegar el teu primer
 tags: ["kubernetes", "devops", "containers", "tutorial"]
 language: "ca"
 published: true
-image: "/blog/kubernetes-intro.webp"
 ---
 
 # Començant amb Kubernetes

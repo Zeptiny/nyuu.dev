@@ -29,7 +29,7 @@ export default function BlogPreviewSection() {
   }
 
   return (
-    <section id="blog" className="py-20 bg-base-100">
+    <section id="blog" className="py-20 bg-base-200">
       <div className="container mx-auto px-4 max-w-7xl">
         {/* Section Header */}
         <div className="text-center mb-12">
@@ -45,15 +45,6 @@ export default function BlogPreviewSection() {
               href={`/blog/${post.slug}`}
               className="card bg-base-200 hover:shadow-xl transition-shadow duration-300"
             >
-              {post.image && (
-                <figure className="aspect-video">
-                  <img
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover"
-                  />
-                </figure>
-              )}
               <div className="card-body">
                 <h3 className="card-title text-2xl">{post.title}</h3>
                 
