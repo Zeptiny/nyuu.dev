@@ -176,6 +176,7 @@ export default function ContactSection() {
                   width={1100}
                   height={1200}
                   unoptimized
+                  className='object-contain'
                 />
               </div>
             </div>
