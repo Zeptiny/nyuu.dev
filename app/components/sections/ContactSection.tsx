@@ -166,15 +166,15 @@ export default function ContactSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
 
-          {/* Persona Image - Professional Profile */}
+          {/* Persona Image - Pointing */}
           <div className="hidden lg:flex justify-center mb-12">
             <div className="avatar">
               <div>
                 <Image
-                  src="https://placehold.co/300x300/png"
-                  alt="Professional Profile"
-                  width={300}
-                  height={300}
+                  src="/persona/pointing.webp"
+                  alt="Pointing"
+                  width={1100}
+                  height={1200}
                   unoptimized
                 />
               </div>
