@@ -96,6 +96,8 @@ interface Translations {
   courseBackendEngineeringDesc: string;
   courseAnsibleAdvanced: string;
   courseAnsibleAdvancedDesc: string;
+  courseSystemArchitecture: string;
+  courseSystemArchitectureDesc: string;
   
   // Tech Stack & Education Categories
   categoryLanguages: string;
@@ -108,6 +110,7 @@ interface Translations {
   categoryDatabase: string;
   categoryAutomation: string;
   categoryInfrastructureAsCode: string;
+  categoryArchitecture: string;
   
   // Services
   serviceManagedHosting: string;
@@ -212,6 +215,7 @@ const translations: Record<Language, Translations> = {
     categoryDatabase: 'Database',
     categoryAutomation: 'Automation',
     categoryInfrastructureAsCode: 'Infrastructure as Code',
+    categoryArchitecture: 'System Architecture',
 
     // Education Courses
     courseCS: 'Computer Science Degree',
@@ -230,6 +234,8 @@ const translations: Record<Language, Translations> = {
     courseBackendEngineeringDesc: 'Overview of backend development concepts and practices.',
     courseAnsibleAdvanced: 'Ansible Advanced',
     courseAnsibleAdvancedDesc: 'Advanced topics in Ansible for automation and configuration management.',
+    courseSystemArchitecture: 'Software Architecture & Design of Modern Large Scale Systems',
+    courseSystemArchitectureDesc: 'Comprehensive course on designing and architecting large-scale software systems.',
 
     // Tech Stack Categories
     categoryLanguages: 'Languages',
@@ -339,6 +345,7 @@ const translations: Record<Language, Translations> = {
     categoryDatabase: 'Banco de Dados',
     categoryAutomation: 'Automação',
     categoryInfrastructureAsCode: 'Infraestrutura como Código',
+    categoryArchitecture: 'Arquitetura de Sistemas',
     
     // Education Courses
     courseCS: 'Graduação em Ciência da Computação',
@@ -357,7 +364,9 @@ const translations: Record<Language, Translations> = {
     courseBackendEngineeringDesc: 'Visão geral dos conceitos e práticas de desenvolvimento backend.',
     courseAnsibleAdvanced: 'Ansible Avançado',
     courseAnsibleAdvancedDesc: 'Tópicos avançados em Ansible para automação e gerenciamento de configuração.',
-    
+    courseSystemArchitecture: 'Arquitetura de Software & Design de Sistemas em Larga Escala',
+    courseSystemArchitectureDesc: 'Curso abrangente sobre design e arquitetura de sistemas de software em larga escala.',
+
     // Tech Stack Categories
     categoryLanguages: 'Linguagens',
     categoryCloudPlatforms: 'Plataformas em Nuvem',
@@ -466,6 +475,7 @@ const translations: Record<Language, Translations> = {
     categoryDatabase: 'Base de Dades',
     categoryAutomation: 'Automatització',
     categoryInfrastructureAsCode: 'Infraestructura com a Codi',
+    categoryArchitecture: 'Arquitectura de Sistemes',
 
     // Education Courses
     courseCS: 'Grau en Ciències de la Computació',
@@ -484,7 +494,9 @@ const translations: Record<Language, Translations> = {
     courseBackendEngineeringDesc: 'Fundaments de l\'enginyeria backend i desenvolupament d\'APIs.',
     courseAnsibleAdvanced: 'Ansible Avançat',
     courseAnsibleAdvancedDesc: 'Tópics avançats en Ansible per a l\'automatització i gestió de configuracions.',
-
+    courseSystemArchitecture: 'Arquitectura de Software i Disseny de Sistemes a Gran Escala',
+    courseSystemArchitectureDesc: 'Disseny i arquitectura de sistemes de software a gran escala.',
+    
     // Tech Stack Categories
     categoryLanguages: 'Llenguatges',
     categoryCloudPlatforms: 'Plataformes al Núvol',
