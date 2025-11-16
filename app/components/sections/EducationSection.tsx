@@ -125,13 +125,14 @@ export default function EducationSection() {
       type: 'course',
     },
     {
-      // System Architecture & Deisng of Modern Large Scale Systems
+      // System Architecture & Design of Modern Large Scale Systems
       id: '9',
       titleKey: 'courseSystemArchitecture',
       descriptionKey: 'courseSystemArchitectureDesc',
       categoryKey: 'categoryArchitecture',
       date: '2025',
-      status: 'ongoing',
+      status: 'completed',
+      certificateUrl: '/education/courses/certificates/sadmlss.pdf',
       duration: 8,
       durationUnit: 'hours',
       type: 'course',
