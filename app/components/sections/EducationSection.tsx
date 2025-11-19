@@ -146,7 +146,7 @@ export default function EducationSection() {
       date: '2025',
       status: 'completed',
       certificateUrl: '/education/courses/certificates/cca.pdf',
-      duration: 8,
+      duration: 5,
       durationUnit: 'hours',
       type: 'course',
     },
