@@ -98,6 +98,8 @@ interface Translations {
   courseAnsibleAdvancedDesc: string;
   courseSystemArchitecture: string;
   courseSystemArchitectureDesc: string;
+  courseCloudComputingArchitecture: string;
+  courseCloudComputingArchitectureDesc: string;
   
   // Tech Stack & Education Categories
   categoryLanguages: string;
@@ -236,7 +238,8 @@ const translations: Record<Language, Translations> = {
     courseAnsibleAdvancedDesc: 'Advanced topics in Ansible for automation and configuration management.',
     courseSystemArchitecture: 'Software Architecture & Design of Modern Large Scale Systems',
     courseSystemArchitectureDesc: 'Comprehensive course on designing and architecting large-scale software systems.',
-
+    courseCloudComputingArchitecture: 'The Complete Cloud Computing Software Architecture Patterns',
+    courseCloudComputingArchitectureDesc: 'Detailed course on cloud computing architecture patterns and best practices.',
     // Tech Stack Categories
     categoryLanguages: 'Languages',
     categoryCloudPlatforms: 'Cloud Platforms',
@@ -366,7 +369,8 @@ const translations: Record<Language, Translations> = {
     courseAnsibleAdvancedDesc: 'Tópicos avançados em Ansible para automação e gerenciamento de configuração.',
     courseSystemArchitecture: 'Arquitetura de Software & Design de Sistemas em Larga Escala',
     courseSystemArchitectureDesc: 'Curso abrangente sobre design e arquitetura de sistemas de software em larga escala.',
-
+    courseCloudComputingArchitecture: 'Os Padrões Completos de Arquitetura de Software em Computação em Nuvem',
+    courseCloudComputingArchitectureDesc: 'Curso detalhado sobre padrões e melhores práticas de arquitetura em computação em nuvem.',
     // Tech Stack Categories
     categoryLanguages: 'Linguagens',
     categoryCloudPlatforms: 'Plataformas em Nuvem',
@@ -496,7 +500,8 @@ const translations: Record<Language, Translations> = {
     courseAnsibleAdvancedDesc: 'Tópics avançats en Ansible per a l\'automatització i gestió de configuracions.',
     courseSystemArchitecture: 'Arquitectura de Software i Disseny de Sistemes a Gran Escala',
     courseSystemArchitectureDesc: 'Disseny i arquitectura de sistemes de software a gran escala.',
-    
+    courseCloudComputingArchitecture: 'Els Padrons Complets d\'Arquitectura de Software en Computació al Núvol',
+    courseCloudComputingArchitectureDesc: 'Curs detallat sobre patrons i millors pràctiques d\'arquitectura en computació al núvol.',
     // Tech Stack Categories
     categoryLanguages: 'Llenguatges',
     categoryCloudPlatforms: 'Plataformes al Núvol',

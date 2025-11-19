@@ -137,6 +137,19 @@ export default function EducationSection() {
       durationUnit: 'hours',
       type: 'course',
     },
+    {
+      // The Complete Cloud Computing Software Architecture Patterns
+      id: '10',
+      titleKey: 'courseCloudComputingArchitecture',
+      descriptionKey: 'courseCloudComputingArchitectureDesc',
+      categoryKey: 'categoryArchitecture',
+      date: '2025',
+      status: 'completed',
+      certificateUrl: '/education/courses/certificates/cca.pdf',
+      duration: 8,
+      durationUnit: 'hours',
+      type: 'course',
+    },
   ];
 
   const categories = ['all', ...Array.from(new Set(courses.filter(c => c.type === selectedSection).map(course => course.categoryKey)))];
