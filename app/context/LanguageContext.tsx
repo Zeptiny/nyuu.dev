@@ -100,6 +100,8 @@ interface Translations {
   courseSystemArchitectureDesc: string;
   courseCloudComputingArchitecture: string;
   courseCloudComputingArchitectureDesc: string;
+  certificateAWSCloudPractitioner: string;
+  certificateAWSCloudPractitionerDesc: string;
   
   // Tech Stack & Education Categories
   categoryLanguages: string;
@@ -240,6 +242,8 @@ const translations: Record<Language, Translations> = {
     courseSystemArchitectureDesc: 'Comprehensive course on designing and architecting large-scale software systems.',
     courseCloudComputingArchitecture: 'The Complete Cloud Computing Software Architecture Patterns',
     courseCloudComputingArchitectureDesc: 'Detailed course on cloud computing architecture patterns and best practices.',
+    certificateAWSCloudPractitioner: 'AWS Certified Cloud Practitioner',
+    certificateAWSCloudPractitionerDesc: 'AWS Certified Cloud Practitioner certification validating foundational knowledge of AWS cloud services and best practices.',
     // Tech Stack Categories
     categoryLanguages: 'Languages',
     categoryCloudPlatforms: 'Cloud Platforms',
@@ -371,6 +375,8 @@ const translations: Record<Language, Translations> = {
     courseSystemArchitectureDesc: 'Curso abrangente sobre design e arquitetura de sistemas de software em larga escala.',
     courseCloudComputingArchitecture: 'Os Padrões Completos de Arquitetura de Software em Computação em Nuvem',
     courseCloudComputingArchitectureDesc: 'Curso detalhado sobre padrões e melhores práticas de arquitetura em computação em nuvem.',
+    certificateAWSCloudPractitioner: 'AWS Certified Cloud Practitioner',
+    certificateAWSCloudPractitionerDesc: 'Certificação AWS Certified Cloud Practitioner validando conhecimento fundamental de serviços AWS e melhores práticas.',
     // Tech Stack Categories
     categoryLanguages: 'Linguagens',
     categoryCloudPlatforms: 'Plataformas em Nuvem',
@@ -502,6 +508,8 @@ const translations: Record<Language, Translations> = {
     courseSystemArchitectureDesc: 'Disseny i arquitectura de sistemes de software a gran escala.',
     courseCloudComputingArchitecture: 'Els Padrons Complets d\'Arquitectura de Software en Computació al Núvol',
     courseCloudComputingArchitectureDesc: 'Curs detallat sobre patrons i millors pràctiques d\'arquitectura en computació al núvol.',
+    certificateAWSCloudPractitioner: 'AWS Certified Cloud Practitioner',
+    certificateAWSCloudPractitionerDesc: 'Certificació AWS Certified Cloud Practitioner que valida coneixements fonamentals de serveis AWS i millors pràctiques.',
     // Tech Stack Categories
     categoryLanguages: 'Llenguatges',
     categoryCloudPlatforms: 'Plataformes al Núvol',

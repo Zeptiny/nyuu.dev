@@ -150,6 +150,19 @@ export default function EducationSection() {
       durationUnit: 'hours',
       type: 'course',
     },
+    {
+      // AWS Cloud Practitioner
+      id: '101',
+      titleKey: 'certificateAWSCloudPractitioner',
+      descriptionKey: 'certificateAWSCloudPractitionerDesc',
+      categoryKey: 'categoryArchitecture',
+      date: '2025',
+      status: 'completed',
+      certificateUrl: '/education/certificates/AWS_Cloud_Practitioner.pdf',
+      duration: undefined,
+      durationUnit: undefined,
+      type: 'certificate',
+    },
   ];
 
   const categories = ['all', ...Array.from(new Set(courses.filter(c => c.type === selectedSection).map(course => course.categoryKey)))];
@@ -203,7 +216,7 @@ export default function EducationSection() {
             >
               {t.coursesTitle}
             </button>
-            {/* <button
+            {<button
               className={`tab ${selectedSection === 'certificate' ? 'tab-active text-primary' : ''}`}
               onClick={() => {
                 setSelectedSection('certificate');
@@ -211,7 +224,7 @@ export default function EducationSection() {
               }}
             >
               {t.certificatesTitle}
-            </button> */}
+            </button>}
           </div>
         </div>
 
@@ -239,9 +252,11 @@ export default function EducationSection() {
                   <div className="flex-1">
                     <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                       <h3 className="card-title text-2xl">{t[course.titleKey as keyof typeof t]}</h3>
-                      <span className={`badge ${course.status === 'ongoing' ? 'badge-primary' : 'badge-success'}`}>
-                        {course.status === 'ongoing' ? t.ongoing : t.completed}
-                      </span>
+                      {course.type !== 'certificate' && (
+                        <span className={`badge ${course.status === 'ongoing' ? 'badge-primary' : 'badge-success'}`}>
+                          {course.status === 'ongoing' ? t.ongoing : t.completed}
+                        </span>
+                      )}
                     </div>
                     <p className="text-base-content/70 mb-2">{t[course.descriptionKey as keyof typeof t]}</p>
                     <div className="flex flex-wrap gap-2 items-center">
