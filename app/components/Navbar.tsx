@@ -64,7 +64,7 @@ export default function Navbar() {
             <li><Link href="/blog">{t.blog}</Link></li>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl" href="#hero">nyuu.dev</a>
+        <a className="btn btn-ghost text-xl" href={sectionHref('hero')}>nyuu.dev</a>
       </div>
 
       <div className="navbar-center hidden lg:flex">
