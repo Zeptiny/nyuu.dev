@@ -246,8 +246,8 @@ export default function EducationSection() {
           {filteredCourses.map((course) => (
             <div key={course.id} className="card bg-base-200 shadow-xl hover:scale-105 transition-transform">
               <div className="card-body">
-                <div className="flex items-center gap-2 mb-2">
-                  <h3 className="card-title text-2xl min-w-0 flex-1 truncate">{t[course.titleKey as keyof typeof t]}</h3>
+                <div className="flex items-start gap-2 mb-2">
+                  <h3 className="card-title text-2xl min-w-0 flex-1">{t[course.titleKey as keyof typeof t]}</h3>
                   <div className="flex items-center gap-2 shrink-0">
                     {course.type !== 'certificate' && (
                       <span className={`badge ${course.status === 'ongoing' ? 'badge-primary' : 'badge-success'}`}>
