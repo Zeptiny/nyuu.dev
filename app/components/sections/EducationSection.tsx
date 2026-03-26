@@ -195,8 +195,8 @@ export default function EducationSection() {
           </p>
         </div>
 
-        {/* Section Tabs */}
-        <div className="flex justify-center mb-8">
+        {/* Section Tabs + Nested Category Filter */}
+        <div className="flex flex-col items-center gap-4 mb-8">
           <div className="tabs tabs-boxed tabs-lg">
             <button
               className={`tab ${selectedSection === 'formal' ? 'tab-active text-primary' : ''}`}
@@ -216,7 +216,7 @@ export default function EducationSection() {
             >
               {t.coursesTitle}
             </button>
-            {<button
+            <button
               className={`tab ${selectedSection === 'certificate' ? 'tab-active text-primary' : ''}`}
               onClick={() => {
                 setSelectedSection('certificate');
@@ -224,62 +224,51 @@ export default function EducationSection() {
               }}
             >
               {t.certificatesTitle}
-            </button>}
+            </button>
           </div>
-        </div>
-
-        {/* Category Filter */}
-        {categories.length > 1 && (
-          <div className="flex justify-center mb-8">
-            <div className="tabs tabs-box">
+          {categories.length > 1 && (
+            <div className="tabs tabs-boxed">
               {categories.map((category) => (
                 <button
                   key={category}
-                  className={`tab ${selectedCategory === category ? 'tab-active' : ''}`}
+                  className={`tab ${selectedCategory === category ? 'tab-active text-primary' : ''}`}
                   onClick={() => setSelectedCategory(category)}
                 >
                   {category === 'all' ? t.filterAll : t[category as keyof typeof t]}
                 </button>
               ))}
             </div>
-          </div>
-        )}
+          )}
+        </div>
 
         {/* Courses List */}
         <div className="space-y-6 max-w-4xl mx-auto">
           {filteredCourses.map((course) => (
             <div key={course.id} className="card bg-base-200 shadow-xl hover:scale-105 transition-transform">
               <div className="card-body">
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-                  <div className="flex-1">
-                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                      <h3 className="card-title text-2xl">{t[course.titleKey as keyof typeof t]}</h3>
-                      {course.type !== 'certificate' && (
-                        <span className={`badge ${course.status === 'ongoing' ? 'badge-primary' : 'badge-success'}`}>
-                          {course.status === 'ongoing' ? t.ongoing : t.completed}
-                        </span>
-                      )}
-                    </div>
-                    <p className="text-base-content/70 mb-2">{t[course.descriptionKey as keyof typeof t]}</p>
-                    <div className="flex flex-wrap gap-2 items-center">
-                      <span className="badge badge-outline">{t[course.categoryKey as keyof typeof t]}</span>
-                      <span className="text-sm text-base-content/60">{course.date}</span>
-                      {/* {course.duration && course.durationUnit && (
-                        <span className="text-sm text-base-content/60">• {renderDuration(course)}</span>
-                      )} */}
-                    </div>
-                  </div>
-                  {course.certificateUrl && (
-                    <div className="card-actions">
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <h3 className="card-title text-2xl">{t[course.titleKey as keyof typeof t]}</h3>
+                  <div className="flex items-center gap-2">
+                    {course.type !== 'certificate' && (
+                      <span className={`badge ${course.status === 'ongoing' ? 'badge-primary' : 'badge-success'}`}>
+                        {course.status === 'ongoing' ? t.ongoing : t.completed}
+                      </span>
+                    )}
+                    {course.certificateUrl && (
                       <a
                         href={course.certificateUrl}
                         download
                         className="btn btn-primary btn-sm"
                       >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-file-text"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> {t.downloadCertificate}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> {t.downloadCertificate}
                       </a>
-                    </div>
-                  )}
+                    )}
+                  </div>
+                </div>
+                <p className="text-base-content/70 mb-2">{t[course.descriptionKey as keyof typeof t]}</p>
+                <div className="flex flex-wrap gap-2 items-center">
+                  <span className="badge badge-outline">{t[course.categoryKey as keyof typeof t]}</span>
+                  <span className="text-sm text-base-content/60">{course.date}</span>
                 </div>
               </div>
             </div>
