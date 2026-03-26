@@ -2,12 +2,88 @@ import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
 import readingTime from 'reading-time';
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkGfm from 'remark-gfm';
+import remarkRehype from 'remark-rehype';
+import rehypeRaw from 'rehype-raw';
+import rehypeSlug from 'rehype-slug';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeStringify from 'rehype-stringify';
 
 const BLOG_DIR = path.join(process.cwd(), 'content', 'blog');
 const OUTPUT_FILE = path.join(process.cwd(), 'lib', 'blog', 'generated.ts');
 const SUPPORTED_LANGS = ['en', 'pt', 'ca'];
 
-function generate() {
+/** Convert <Callout> JSX to plain HTML before markdown processing */
+function preprocessCallouts(content) {
+  return content
+    .replace(
+      /<Callout\s+type="(\w+)"\s*>([\s\S]*?)<\/Callout>/g,
+      '<div role="alert" class="alert alert-$1 my-4"><div>\n\n$2\n\n</div></div>'
+    )
+    .replace(
+      /<Callout\s*>([\s\S]*?)<\/Callout>/g,
+      '<div role="alert" class="alert alert-info my-4"><div>\n\n$1\n\n</div></div>'
+    );
+}
+
+/** Extract headings from raw markdown content */
+function extractHeadings(content) {
+  const headings = [];
+  for (const line of content.split('\n')) {
+    const match = line.match(/^(#{2,4})\s+(.+)$/);
+    if (match) {
+      const depth = match[1].length;
+      const text = match[2].trim();
+      const id = text
+        .toLowerCase()
+        .replace(/[^\w\s-]/g, '')
+        .replace(/\s+/g, '-');
+      headings.push({ depth, text, id });
+    }
+  }
+  return headings;
+}
+
+/** Add target="_blank" and rel to external links */
+function rehypeExternalLinks() {
+  return (tree) => {
+    const visit = (node) => {
+      if (node.type === 'element' && node.tagName === 'a' && node.properties?.href) {
+        const href = String(node.properties.href);
+        if (!href.startsWith('/') && !href.startsWith('#')) {
+          node.properties.target = '_blank';
+          node.properties.rel = 'noopener noreferrer';
+        }
+      }
+      if (node.children) {
+        for (const child of node.children) visit(child);
+      }
+    };
+    visit(tree);
+  };
+}
+
+const processor = unified()
+  .use(remarkParse)
+  .use(remarkGfm)
+  .use(remarkRehype, { allowDangerousHtml: true })
+  .use(rehypeRaw)
+  .use(rehypeSlug)
+  .use(rehypeAutolinkHeadings, { behavior: 'wrap' })
+  .use(rehypeExternalLinks)
+  .use(rehypeHighlight)
+  .use(rehypeStringify);
+
+async function compileMarkdown(content) {
+  const preprocessed = preprocessCallouts(content);
+  const result = await processor.process(preprocessed);
+  return String(result);
+}
+
+async function generate() {
   if (!fs.existsSync(BLOG_DIR)) {
     fs.mkdirSync(BLOG_DIR, { recursive: true });
     writeOutput({});
@@ -19,7 +95,6 @@ function generate() {
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name);
 
-  /** @type {Record<string, Record<string, { title: string; description: string; date: string; updated?: string; tags: string[]; image?: string; draft?: boolean; readingTime: string; content: string }>>} */
   const posts = {};
 
   for (const slug of slugs) {
@@ -31,6 +106,8 @@ function generate() {
       const raw = fs.readFileSync(filePath, 'utf-8');
       const { data, content } = matter(raw);
       const stats = readingTime(content);
+      const html = await compileMarkdown(content);
+      const headings = extractHeadings(content);
 
       posts[slug][lang] = {
         title: data.title ?? slug,
@@ -41,7 +118,8 @@ function generate() {
         image: data.image ?? undefined,
         draft: data.draft ?? false,
         readingTime: stats.text,
-        content,
+        html,
+        headings,
       };
     }
   }
@@ -53,6 +131,12 @@ function writeOutput(posts) {
   const code = `// AUTO-GENERATED — do not edit manually.
 // Run "npm run generate:blog" to regenerate.
 
+export interface GeneratedHeading {
+  depth: number;
+  text: string;
+  id: string;
+}
+
 export interface GeneratedPost {
   title: string;
   description: string;
@@ -62,7 +146,8 @@ export interface GeneratedPost {
   image?: string;
   draft?: boolean;
   readingTime: string;
-  content: string;
+  html: string;
+  headings: GeneratedHeading[];
 }
 
 /** slug → lang → post data */

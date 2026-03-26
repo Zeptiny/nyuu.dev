@@ -18,6 +18,23 @@
   @apply bg-base-300 rounded px-1.5 py-0.5 text-sm;
 }
 
+/* Heading scroll offset for sticky navbar */
+.prose h2,
+.prose h3,
+.prose h4 {
+  scroll-margin-top: 5rem;
+}
+
+/* Link styling in prose */
+.prose a {
+  @apply link link-primary;
+}
+
+/* Table wrapper for overflow */
+.prose table {
+  @apply table table-zebra;
+}
+
 /* highlight.js token colors — theme-aware */
 .hljs-keyword,
 .hljs-selector-tag,

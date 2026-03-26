@@ -13,7 +13,7 @@ const uiStrings = {
 };
 
 interface Variant {
-  content: React.ReactNode;
+  html: string;
   meta: BlogPostMeta;
   headings: HeadingNode[];
   isFallback: boolean;
@@ -28,7 +28,7 @@ export default function BlogPostClient({
   const variant = variants[language] ?? variants.en;
   if (!variant) return null;
 
-  const { content, meta, headings, isFallback } = variant;
+  const { html, meta, headings, isFallback } = variant;
   const strings = uiStrings[language] ?? uiStrings.en;
 
   return (
@@ -87,9 +87,10 @@ export default function BlogPostClient({
 
         {/* Content + ToC layout */}
         <div className="flex gap-8">
-          <div className="prose prose-base max-w-none flex-1 min-w-0">
-            {content}
-          </div>
+          <div
+            className="prose prose-base max-w-none flex-1 min-w-0"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
 
           {headings.length > 0 && (
             <aside className="hidden xl:block w-56 shrink-0">

@@ -11,7 +11,7 @@ function getAvailableLanguages(slug: string): Language[] {
   return SUPPORTED_LANGS.filter((lang) => lang in langMap);
 }
 
-function readPost(slug: string, lang: Language): { content: string; meta: BlogPostMeta; isFallback: boolean } | null {
+function readPost(slug: string, lang: Language): { html: string; headings: HeadingNode[]; meta: BlogPostMeta; isFallback: boolean } | null {
   const langMap = blogData[slug];
   if (!langMap) return null;
 
@@ -30,7 +30,8 @@ function readPost(slug: string, lang: Language): { content: string; meta: BlogPo
   if (!post) return null;
 
   return {
-    content: post.content,
+    html: post.html,
+    headings: post.headings,
     isFallback,
     meta: {
       slug,
@@ -68,7 +69,8 @@ export function getPostBySlug(slug: string, lang: Language): BlogPost | null {
 
   return {
     ...result.meta,
-    content: result.content,
+    html: result.html,
+    headings: result.headings,
     isFallback: result.isFallback,
     availableLanguages: getAvailableLanguages(slug),
   };
@@ -89,22 +91,4 @@ export function getPostsByTag(tag: string, lang: Language): BlogPostMeta[] {
   return getAllPosts(lang).filter((post) =>
     post.tags.some((t) => t.toLowerCase() === tag.toLowerCase())
   );
-}
-
-export function extractHeadings(content: string): HeadingNode[] {
-  const headings: HeadingNode[] = [];
-  const lines = content.split('\n');
-  for (const line of lines) {
-    const match = line.match(/^(#{2,4})\s+(.+)$/);
-    if (match) {
-      const depth = match[1].length;
-      const text = match[2].trim();
-      const id = text
-        .toLowerCase()
-        .replace(/[^\w\s-]/g, '')
-        .replace(/\s+/g, '-');
-      headings.push({ depth, text, id });
-    }
-  }
-  return headings;
 }

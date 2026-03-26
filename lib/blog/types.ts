@@ -12,14 +12,15 @@ export interface BlogPostMeta {
   readingTime: string;
 }
 
-export interface BlogPost extends BlogPostMeta {
-  content: string;
-  isFallback: boolean;
-  availableLanguages: Language[];
-}
-
 export interface HeadingNode {
   depth: number;
   text: string;
   id: string;
+}
+
+export interface BlogPost extends BlogPostMeta {
+  html: string;
+  headings: HeadingNode[];
+  isFallback: boolean;
+  availableLanguages: Language[];
 }

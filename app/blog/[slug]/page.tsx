@@ -1,14 +1,7 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getAllSlugs, getPostBySlug } from '@/lib/blog';
-import { extractHeadings } from '@/lib/blog';
 import BlogPostClient from './BlogPostClient';
-import { compileMDX } from 'next-mdx-remote/rsc';
-import remarkGfm from 'remark-gfm';
-import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeHighlight from 'rehype-highlight';
-import { getMDXComponents } from '@/app/blog/mdx-components';
 import type { Language } from '@/app/context/LanguageContext';
 import type { BlogPostMeta, HeadingNode } from '@/lib/blog/types';
 
@@ -16,24 +9,6 @@ const LANGUAGES: Language[] = ['en', 'pt', 'ca'];
 
 interface PageProps {
   params: Promise<{ slug: string }>;
-}
-
-async function compileMDXContent(source: string) {
-  const { content } = await compileMDX({
-    source,
-    components: getMDXComponents(),
-    options: {
-      mdxOptions: {
-        remarkPlugins: [remarkGfm],
-        rehypePlugins: [
-          rehypeSlug,
-          [rehypeAutolinkHeadings, { behavior: 'wrap' }],
-          rehypeHighlight,
-        ],
-      },
-    },
-  });
-  return content;
 }
 
 export async function generateStaticParams() {
@@ -67,9 +42,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function BlogPostPage({ params }: PageProps) {
   const { slug } = await params;
 
-  // Build all language variants that exist
   const variants: Record<string, {
-    content: React.ReactNode;
+    html: string;
     meta: BlogPostMeta;
     headings: HeadingNode[];
     isFallback: boolean;
@@ -79,11 +53,8 @@ export default async function BlogPostPage({ params }: PageProps) {
     const post = getPostBySlug(slug, lang);
     if (!post) continue;
 
-    const content = await compileMDXContent(post.content);
-    const headings = extractHeadings(post.content);
-
     variants[lang] = {
-      content,
+      html: post.html,
       meta: {
         slug: post.slug,
         title: post.title,
@@ -95,7 +66,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         draft: post.draft,
         readingTime: post.readingTime,
       },
-      headings,
+      headings: post.headings,
       isFallback: post.isFallback,
     };
   }
