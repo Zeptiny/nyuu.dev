@@ -81,8 +81,7 @@ export default function ProjectsSection() {
                 <h3 className="card-title text-2xl">{t[project.titleKey as keyof typeof t]}</h3>
                 <p className="text-base-content/70 mb-4">{t[project.descriptionKey as keyof typeof t]}</p>
                 
-                <div className="mb-4">
-                  <h4 className="font-semibold mb-2">{t.technologies}:</h4>
+                <div className="flex flex-wrap items-center justify-between gap-4">
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, index) => (
                       <span key={index} className="badge badge-primary badge-outline">
@@ -90,29 +89,28 @@ export default function ProjectsSection() {
                       </span>
                     ))}
                   </div>
-                </div>
-
-                <div className="card-actions justify-end">
-                  {project.websiteUrl && (
-                    <a
-                      href={project.websiteUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-primary btn-sm"
-                    >
-                      {t.viewProject}
-                    </a>
-                  )}
-                  {project.githubUrl && (
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-outline btn-sm"
-                    >
-                      {t.viewGithub}
-                    </a>
-                  )}
+                  <div className="card-actions">
+                    {project.websiteUrl && (
+                      <a
+                        href={project.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-primary btn-sm"
+                      >
+                        {t.viewProject}
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn btn-outline btn-sm"
+                      >
+                        {t.viewGithub}
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
