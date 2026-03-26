@@ -24,13 +24,6 @@ export default function Navbar() {
 
   const currentLang = languages.find(l => l.code === language);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
   return (
     <div className="navbar bg-base-200 sticky top-0 z-50 shadow-md">
       <div className="navbar-start">
@@ -55,25 +48,25 @@ export default function Navbar() {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
           >
-            <li><button onClick={() => scrollToSection('hero')}>{t.hero}</button></li>
-            <li><button onClick={() => scrollToSection('services')}>{t.services}</button></li>
-            <li><button onClick={() => scrollToSection('projects')}>{t.projects}</button></li>
-            <li><button onClick={() => scrollToSection('stack')}>{t.stack}</button></li>
-            <li><button onClick={() => scrollToSection('education')}>{t.education}</button></li>
-            <li><button onClick={() => scrollToSection('contact')}>{t.contact}</button></li>
+            <li><a href="#hero">{t.hero}</a></li>
+            <li><a href="#services">{t.services}</a></li>
+            <li><a href="#projects">{t.projects}</a></li>
+            <li><a href="#stack">{t.stack}</a></li>
+            <li><a href="#education">{t.education}</a></li>
+            <li><a href="#contact">{t.contact}</a></li>
           </ul>
         </div>
-        <button className="btn btn-ghost text-xl" onClick={() => scrollToSection('hero')}>nyuu.dev</button>
+        <a className="btn btn-ghost text-xl" href="#hero">nyuu.dev</a>
       </div>
 
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li><button onClick={() => scrollToSection('hero')}>{t.hero}</button></li>
-          <li><button onClick={() => scrollToSection('services')}>{t.services}</button></li>
-          <li><button onClick={() => scrollToSection('projects')}>{t.projects}</button></li>
-          <li><button onClick={() => scrollToSection('stack')}>{t.stack}</button></li>
-          <li><button onClick={() => scrollToSection('education')}>{t.education}</button></li>
-          <li><button onClick={() => scrollToSection('contact')}>{t.contact}</button></li>
+          <li><a href="#hero">{t.hero}</a></li>
+          <li><a href="#services">{t.services}</a></li>
+          <li><a href="#projects">{t.projects}</a></li>
+          <li><a href="#stack">{t.stack}</a></li>
+          <li><a href="#education">{t.education}</a></li>
+          <li><a href="#contact">{t.contact}</a></li>
         </ul>
       </div>
 
