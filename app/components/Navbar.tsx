@@ -18,7 +18,8 @@ export default function Navbar() {
   };
 
   if (!mounted) {
-    return null; // Avoid hydration mismatch
+    // Render skeleton with same height to prevent layout shift
+    return <div className="navbar bg-base-200 sticky top-0 z-50 shadow-md" />;
   }
 
   const currentLang = languages.find(l => l.code === language);
