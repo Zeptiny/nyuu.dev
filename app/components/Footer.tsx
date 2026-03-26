@@ -26,9 +26,6 @@ export default function Footer() {
         </a>
       </nav>
       <aside>
-        <a href="#hero" className="link link-hover text-sm text-base-content/60 mb-2">
-          ↑ Back to top
-        </a>
         <p className="text-sm text-base-content/60">
           © {currentYear} nyuu.dev - Some rights reserved
         </p>
