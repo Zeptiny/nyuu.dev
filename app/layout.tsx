@@ -28,7 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="stylesheet" type="text/css" href="/devicon.min.css" />
+        <link rel="preload" href="/devicon.min.css" as="style" />
+        <link rel="stylesheet" href="/devicon.min.css" media="print" onLoad="this.media='all'" />
+        <noscript><link rel="stylesheet" href="/devicon.min.css" /></noscript>
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
