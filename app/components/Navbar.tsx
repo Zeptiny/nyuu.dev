@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useLanguage, type Language } from '../context/LanguageContext';
+import { useTheme } from '../context/ThemeContext';
 
 const languages = [
   { code: 'en', name: 'English', flag: 'EN' },
@@ -10,32 +10,8 @@ const languages = [
 ] as const;
 
 export default function Navbar() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  const [mounted, setMounted] = useState(false);
+  const { theme, toggleTheme, mounted } = useTheme();
   const { language, setLanguage, t } = useLanguage();
-
-  useEffect(() => {
-    setMounted(true);
-    // Load saved theme
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    } else {
-      // Check system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const initialTheme = prefersDark ? 'dark' : 'light';
-      setTheme(initialTheme);
-      document.documentElement.setAttribute('data-theme', initialTheme);
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-  };
 
   const changeLanguage = (lang: Language) => {
     setLanguage(lang);
