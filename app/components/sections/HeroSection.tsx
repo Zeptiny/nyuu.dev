@@ -26,7 +26,6 @@ export default function HeroSection() {
                 width={1100}
                 height={1200}
                 priority
-                unoptimized
               />
             </div>
           </div>

@@ -105,7 +105,6 @@ export default function ServicesSection() {
                         alt={t[service.titleKey as keyof typeof t] as string}
                         fill
                         className="object-cover"
-                        unoptimized
                       />
                     </div>
                   </figure>

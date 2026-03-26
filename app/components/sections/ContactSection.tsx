@@ -175,7 +175,6 @@ export default function ContactSection() {
                   alt="Pointing"
                   width={1100}
                   height={1200}
-                  unoptimized
                   className='object-contain'
                 />
               </div>
