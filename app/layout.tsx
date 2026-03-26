@@ -43,7 +43,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preload" href="/devicon.min.css" as="style" />
-        <link rel="stylesheet" href="/devicon.min.css" media="print" onLoad="this.media='all'" />
+        <link rel="stylesheet" href="/devicon.min.css" media="print" id="devicon-css" />
+        <script dangerouslySetInnerHTML={{ __html: `document.getElementById('devicon-css').media='all'` }} />
         <noscript><link rel="stylesheet" href="/devicon.min.css" /></noscript>
       </head>
       <body
