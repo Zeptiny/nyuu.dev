@@ -16,7 +16,7 @@ export default function LatestPostsSection({
   if (posts.length === 0) return null;
 
   return (
-    <section id="blog" className="py-16 px-4">
+    <section id="blog" className="py-16 px-4 bg-base-200">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl font-bold text-center mb-10">{t.latestPosts}</h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

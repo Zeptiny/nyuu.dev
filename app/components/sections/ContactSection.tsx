@@ -150,7 +150,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-base-200">
+    <section id="contact" className="py-20 bg-base-100">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.contactTitle}</h2>
@@ -182,7 +182,7 @@ export default function ContactSection() {
           </div>
 
           {/* Contact Form */}
-          <div className="card bg-base-100 shadow-xl">
+          <div className="card bg-base-200 shadow-xl">
             <div className="card-body">
               <h3 className="card-title text-2xl mb-6">{t.getInTouch}</h3>
               
@@ -303,7 +303,7 @@ export default function ContactSection() {
         </div>
         <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4'>
           {contactMethods.map((method) => (
-            <div key={method.id} className="card bg-base-100 shadow-lg hover:shadow-xl transition-all hover:scale-105 will-change-transform">
+            <div key={method.id} className="card bg-base-200 shadow-lg hover:shadow-xl transition-all hover:scale-105 will-change-transform">
               <div className="card-body">
                 <div className="flex items-center gap-4">
                   <div className="flex-shrink-0">{renderIcon(method)}</div>

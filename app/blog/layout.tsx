@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Footer from '@/app/components/Footer';
 
 export const metadata: Metadata = {
   title: 'Blog — nyuu.dev',
@@ -12,10 +13,11 @@ export const metadata: Metadata = {
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="min-h-screen">
-      <div className="container mx-auto max-w-5xl px-4 py-8">
+    <div className="min-h-screen flex flex-col">
+      <div className="container mx-auto max-w-5xl px-4 py-8 flex-1">
         {children}
       </div>
+      <Footer />
     </div>
   );
 }
