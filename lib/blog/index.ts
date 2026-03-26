@@ -1,28 +1,20 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import readingTime from 'reading-time';
+import { blogData } from './generated';
 import type { Language } from '@/app/context/LanguageContext';
 import type { BlogPostMeta, BlogPost, HeadingNode } from './types';
 
-const BLOG_DIR = path.join(process.cwd(), 'content', 'blog');
 const DEFAULT_LANG: Language = 'en';
 const SUPPORTED_LANGS: Language[] = ['en', 'pt', 'ca'];
 
-function getPostDirectory(slug: string): string {
-  return path.join(BLOG_DIR, slug);
-}
-
 function getAvailableLanguages(slug: string): Language[] {
-  const dir = getPostDirectory(slug);
-  if (!fs.existsSync(dir)) return [];
-  return SUPPORTED_LANGS.filter((lang) =>
-    fs.existsSync(path.join(dir, `${lang}.mdx`))
-  );
+  const langMap = blogData[slug];
+  if (!langMap) return [];
+  return SUPPORTED_LANGS.filter((lang) => lang in langMap);
 }
 
 function readPost(slug: string, lang: Language): { content: string; meta: BlogPostMeta; isFallback: boolean } | null {
-  const dir = getPostDirectory(slug);
+  const langMap = blogData[slug];
+  if (!langMap) return null;
+
   const available = getAvailableLanguages(slug);
   if (available.length === 0) return null;
 
@@ -34,36 +26,28 @@ function readPost(slug: string, lang: Language): { content: string; meta: BlogPo
     isFallback = lang !== DEFAULT_LANG;
   }
 
-  const filePath = path.join(dir, `${selectedLang}.mdx`);
-  if (!fs.existsSync(filePath)) return null;
-
-  const raw = fs.readFileSync(filePath, 'utf-8');
-  const { data, content } = matter(raw);
-  const stats = readingTime(content);
+  const post = langMap[selectedLang];
+  if (!post) return null;
 
   return {
-    content,
+    content: post.content,
     isFallback,
     meta: {
       slug,
-      title: data.title ?? slug,
-      description: data.description ?? '',
-      date: data.date ?? new Date().toISOString(),
-      updated: data.updated ?? undefined,
-      tags: data.tags ?? [],
-      image: data.image ?? undefined,
-      draft: data.draft ?? false,
-      readingTime: stats.text,
+      title: post.title,
+      description: post.description,
+      date: post.date,
+      updated: post.updated,
+      tags: post.tags,
+      image: post.image,
+      draft: post.draft,
+      readingTime: post.readingTime,
     },
   };
 }
 
 export function getAllSlugs(): string[] {
-  if (!fs.existsSync(BLOG_DIR)) return [];
-  return fs
-    .readdirSync(BLOG_DIR, { withFileTypes: true })
-    .filter((entry) => entry.isDirectory())
-    .map((entry) => entry.name);
+  return Object.keys(blogData);
 }
 
 export function getAllPosts(lang: Language): BlogPostMeta[] {
