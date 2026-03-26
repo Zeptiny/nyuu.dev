@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useLanguage, type Language } from '../context/LanguageContext';
+import { useTheme } from '../context/ThemeContext';
 
 const languages = [
   { code: 'en', name: 'English', flag: 'EN' },
@@ -10,49 +10,19 @@ const languages = [
 ] as const;
 
 export default function Navbar() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  const [mounted, setMounted] = useState(false);
+  const { theme, toggleTheme, mounted } = useTheme();
   const { language, setLanguage, t } = useLanguage();
-
-  useEffect(() => {
-    setMounted(true);
-    // Load saved theme
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    } else {
-      // Check system preference
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const initialTheme = prefersDark ? 'dark' : 'light';
-      setTheme(initialTheme);
-      document.documentElement.setAttribute('data-theme', initialTheme);
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-  };
 
   const changeLanguage = (lang: Language) => {
     setLanguage(lang);
   };
 
   if (!mounted) {
-    return null; // Avoid hydration mismatch
+    // Render skeleton with same height to prevent layout shift
+    return <div className="navbar bg-base-200 sticky top-0 z-50 shadow-md" />;
   }
 
   const currentLang = languages.find(l => l.code === language);
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
 
   return (
     <div className="navbar bg-base-200 sticky top-0 z-50 shadow-md">
@@ -78,25 +48,25 @@ export default function Navbar() {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
           >
-            <li><button onClick={() => scrollToSection('hero')}>{t.hero}</button></li>
-            <li><button onClick={() => scrollToSection('services')}>{t.services}</button></li>
-            <li><button onClick={() => scrollToSection('projects')}>{t.projects}</button></li>
-            <li><button onClick={() => scrollToSection('stack')}>{t.stack}</button></li>
-            <li><button onClick={() => scrollToSection('education')}>{t.education}</button></li>
-            <li><button onClick={() => scrollToSection('contact')}>{t.contact}</button></li>
+            <li><a href="#hero">{t.hero}</a></li>
+            <li><a href="#services">{t.services}</a></li>
+            <li><a href="#projects">{t.projects}</a></li>
+            <li><a href="#stack">{t.stack}</a></li>
+            <li><a href="#education">{t.education}</a></li>
+            <li><a href="#contact">{t.contact}</a></li>
           </ul>
         </div>
-        <button className="btn btn-ghost text-xl" onClick={() => scrollToSection('hero')}>nyuu.dev</button>
+        <a className="btn btn-ghost text-xl" href="#hero">nyuu.dev</a>
       </div>
 
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li><button onClick={() => scrollToSection('hero')}>{t.hero}</button></li>
-          <li><button onClick={() => scrollToSection('services')}>{t.services}</button></li>
-          <li><button onClick={() => scrollToSection('projects')}>{t.projects}</button></li>
-          <li><button onClick={() => scrollToSection('stack')}>{t.stack}</button></li>
-          <li><button onClick={() => scrollToSection('education')}>{t.education}</button></li>
-          <li><button onClick={() => scrollToSection('contact')}>{t.contact}</button></li>
+          <li><a href="#hero">{t.hero}</a></li>
+          <li><a href="#services">{t.services}</a></li>
+          <li><a href="#projects">{t.projects}</a></li>
+          <li><a href="#stack">{t.stack}</a></li>
+          <li><a href="#education">{t.education}</a></li>
+          <li><a href="#contact">{t.contact}</a></li>
         </ul>
       </div>
 

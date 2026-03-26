@@ -1,7 +1,7 @@
 'use client';
 
 import { useLanguage } from '@/app/context/LanguageContext';
-import { useEffect, useState } from 'react';
+import { useTheme } from '@/app/context/ThemeContext';
 import Image from 'next/image';
 
 interface Service {
@@ -15,35 +15,7 @@ interface Service {
 
 export default function ServicesSection() {
   const { t } = useLanguage();
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    // Get initial theme
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setTheme(prefersDark ? 'dark' : 'light');
-    }
-
-    // Listen for theme changes
-    const observer = new MutationObserver(() => {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      if (currentTheme === 'dark' || currentTheme === 'light') {
-        setTheme(currentTheme);
-      }
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['data-theme'],
-    });
-
-    return () => observer.disconnect();
-  }, []);
+  const { theme, mounted } = useTheme();
 
   // Placeholder services - replace with actual data
   const services: Service[] = [
@@ -80,10 +52,6 @@ export default function ServicesSection() {
       imageDark: '/services/terminal-dark.webp',
     },
   ];
-
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <section id="services" className="py-20 bg-base-200">
@@ -137,7 +105,6 @@ export default function ServicesSection() {
                         alt={t[service.titleKey as keyof typeof t] as string}
                         fill
                         className="object-cover"
-                        unoptimized
                       />
                     </div>
                   </figure>
