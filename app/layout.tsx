@@ -16,8 +16,22 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "nyuu.dev",
-  description: "Personal website",
+  title: "nyuu.dev — SRE & Infrastructure",
+  description: "Site Reliability Engineer specializing in managed hosting, Docker, Kubernetes, and Linux infrastructure.",
+  metadataBase: new URL("https://nyuu.dev"),
+  openGraph: {
+    title: "nyuu.dev — SRE & Infrastructure",
+    description: "Site Reliability Engineer specializing in managed hosting, Docker, Kubernetes, and Linux infrastructure.",
+    url: "https://nyuu.dev",
+    siteName: "nyuu.dev",
+    type: "website",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary",
+    title: "nyuu.dev — SRE & Infrastructure",
+    description: "Site Reliability Engineer specializing in managed hosting, Docker, Kubernetes, and Linux infrastructure.",
+  },
 };
 
 export default function RootLayout({
