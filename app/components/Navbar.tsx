@@ -4,9 +4,9 @@ import { useLanguage, type Language } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 
 const languages = [
-  { code: 'en', name: 'English', flag: '🇬🇧' },
-  { code: 'pt', name: 'Português', flag: '🇧🇷' },
-  { code: 'ca', name: 'Català', flag: '🇪🇸' },
+  { code: 'en', name: 'English', flag: 'EN' },
+  { code: 'pt', name: 'Português', flag: 'PT' },
+  { code: 'ca', name: 'Català', flag: 'CA' },
 ] as const;
 
 export default function Navbar() {
