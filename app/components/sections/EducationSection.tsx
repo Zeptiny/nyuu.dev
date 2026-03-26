@@ -231,11 +231,11 @@ export default function EducationSection() {
         {/* Category Filter */}
         {categories.length > 1 && (
           <div className="flex justify-center mb-8">
-            <div className="flex flex-wrap justify-center gap-2">
+            <div className="tabs tabs-box">
               {categories.map((category) => (
                 <button
                   key={category}
-                  className={`badge badge-lg cursor-pointer transition-colors ${selectedCategory === category ? 'badge-accent' : 'badge-outline hover:badge-ghost'}`}
+                  className={`tab ${selectedCategory === category ? 'tab-active' : ''}`}
                   onClick={() => setSelectedCategory(category)}
                 >
                   {category === 'all' ? t.filterAll : t[category as keyof typeof t]}
