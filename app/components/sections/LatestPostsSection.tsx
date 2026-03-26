@@ -21,7 +21,7 @@ export default function LatestPostsSection({
         <h2 className="text-3xl font-bold text-center mb-10">{t.latestPosts}</h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
-            <BlogPostCard key={post.slug} post={post} />
+            <BlogPostCard key={post.slug} post={post} bgClass="bg-base-100" />
           ))}
         </div>
         <div className="text-center mt-8">

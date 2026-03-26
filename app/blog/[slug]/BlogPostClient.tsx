@@ -38,7 +38,7 @@ export default function BlogPostClient({
         <ul>
           <li><Link href="/">{strings.home}</Link></li>
           <li><Link href="/blog">{strings.blog}</Link></li>
-          <li className="truncate max-w-48">{meta.title}</li>
+          <li>{meta.title}</li>
         </ul>
       </div>
 

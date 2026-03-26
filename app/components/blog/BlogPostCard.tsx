@@ -3,10 +3,10 @@
 import Link from 'next/link';
 import type { BlogPostMeta } from '@/lib/blog/types';
 
-export default function BlogPostCard({ post }: { post: BlogPostMeta }) {
+export default function BlogPostCard({ post, bgClass = 'bg-base-200' }: { post: BlogPostMeta; bgClass?: string }) {
   return (
     <Link href={`/blog/${post.slug}`} className="block">
-      <div className="card card-border bg-base-200 hover:shadow-lg transition-shadow">
+      <div className={`card card-border ${bgClass} hover:shadow-lg transition-shadow`}>
         {post.image && (
           <figure>
             <img

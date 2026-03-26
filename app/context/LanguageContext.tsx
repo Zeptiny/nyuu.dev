@@ -20,6 +20,7 @@ interface Translations {
   education: string;
   contact: string;
   blog: string;
+  blogSubtitle: string;
   latestPosts: string;
   viewAllPosts: string;
   readMore: string;
@@ -158,6 +159,7 @@ const translations: Record<Language, Translations> = {
     education: 'Education',
     contact: 'Contact',
     blog: 'Blog',
+    blogSubtitle: 'Thoughts on SRE, infrastructure, DevOps, and more.',
     latestPosts: 'Latest Posts',
     viewAllPosts: 'View all posts',
     readMore: 'Read more',
@@ -295,6 +297,7 @@ const translations: Record<Language, Translations> = {
     education: 'Educação',
     contact: 'Contato',
     blog: 'Blog',
+    blogSubtitle: 'Reflexões sobre SRE, infraestrutura, DevOps e muito mais.',
     latestPosts: 'Últimos Posts',
     viewAllPosts: 'Ver todos os posts',
     readMore: 'Ler mais',
@@ -432,6 +435,7 @@ const translations: Record<Language, Translations> = {
     education: 'Educació',
     contact: 'Contacte',
     blog: 'Blog',
+    blogSubtitle: 'Reflexions sobre SRE, infraestructura, DevOps i molt més.',
     latestPosts: 'Últimes Publicacions',
     viewAllPosts: 'Veure totes les publicacions',
     readMore: 'Llegir més',

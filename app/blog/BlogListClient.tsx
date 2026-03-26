@@ -10,9 +10,9 @@ import type { BlogPostMeta } from '@/lib/blog/types';
 const POSTS_PER_PAGE = 6;
 
 const uiStrings = {
-  en: { title: 'Blog', allTags: 'All', noResults: 'No posts found.', prev: 'Previous', next: 'Next', home: 'Home' },
-  pt: { title: 'Blog', allTags: 'Todos', noResults: 'Nenhum artigo encontrado.', prev: 'Anterior', next: 'Próximo', home: 'Início' },
-  ca: { title: 'Blog', allTags: 'Tots', noResults: 'No s\'han trobat articles.', prev: 'Anterior', next: 'Següent', home: 'Inici' },
+  en: { title: 'Blog', allTags: 'All', noResults: 'No posts found.', prev: 'Previous', next: 'Next', home: 'Home', post: 'post', posts: 'posts' },
+  pt: { title: 'Blog', allTags: 'Todos', noResults: 'Nenhum artigo encontrado.', prev: 'Anterior', next: 'Próximo', home: 'Início', post: 'publicação', posts: 'publicações' },
+  ca: { title: 'Blog', allTags: 'Tots', noResults: 'No s\'han trobat articles.', prev: 'Anterior', next: 'Següent', home: 'Inici', post: 'publicació', posts: 'publicacions' },
 };
 
 export default function BlogListClient({
@@ -22,10 +22,9 @@ export default function BlogListClient({
   postsByLang: Record<string, BlogPostMeta[]>;
   tagsByLang: Record<string, string[]>;
 }) {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const [page, setPage] = useState(1);
-
   const strings = uiStrings[language] ?? uiStrings.en;
   const posts = postsByLang[language] ?? postsByLang.en ?? [];
   const tags = tagsByLang[language] ?? tagsByLang.en ?? [];
@@ -43,6 +42,8 @@ export default function BlogListClient({
     setPage(1);
   }
 
+  const totalCount = (postsByLang[language] ?? postsByLang.en ?? []).length;
+
   return (
     <>
       {/* Breadcrumbs */}
@@ -53,7 +54,14 @@ export default function BlogListClient({
         </ul>
       </div>
 
-      <h1 className="text-3xl font-bold mb-6">{strings.title}</h1>
+      <div className="mb-8">
+        <div className="flex items-center gap-3 mb-2">
+          <h1 className="text-3xl font-bold">{strings.title}</h1>
+          <span className="badge badge-neutral">{totalCount} {totalCount === 1 ? strings.post : strings.posts}</span>
+        </div>
+        <p className="text-base-content/60">{t.blogSubtitle}</p>
+        <div className="divider"></div>
+      </div>
 
       {/* Tags filter */}
       {tags.length > 0 && (
