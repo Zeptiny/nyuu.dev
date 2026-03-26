@@ -7,7 +7,7 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeHighlight from 'rehype-highlight';
 import { getMDXComponents } from '@/app/blog/mdx-components';
 import type { Language } from '@/app/context/LanguageContext';
 import type { BlogPostMeta, HeadingNode } from '@/lib/blog/types';
@@ -17,14 +17,6 @@ const LANGUAGES: Language[] = ['en', 'pt', 'ca'];
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
-
-const rehypePrettyCodeOptions = {
-  theme: {
-    dark: 'github-dark-dimmed',
-    light: 'github-light',
-  },
-  keepBackground: false,
-};
 
 async function compileMDXContent(source: string) {
   const { content } = await compileMDX({
@@ -36,7 +28,7 @@ async function compileMDXContent(source: string) {
         rehypePlugins: [
           rehypeSlug,
           [rehypeAutolinkHeadings, { behavior: 'wrap' }],
-          [rehypePrettyCode, rehypePrettyCodeOptions],
+          rehypeHighlight,
         ],
       },
     },
