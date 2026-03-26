@@ -229,19 +229,21 @@ export default function EducationSection() {
         </div>
 
         {/* Category Filter */}
-        <div className="flex justify-center mb-8">
-          <div className="tabs tabs-boxed">
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={`tab text-lg ${selectedCategory === category ? 'tab-active text-accent' : ''}`}
-                onClick={() => setSelectedCategory(category)}
-              >
-                {category === 'all' ? t.filterAll : t[category as keyof typeof t]}
-              </button>
-            ))}
+        {categories.length > 1 && (
+          <div className="flex justify-center mb-8">
+            <div className="flex flex-wrap justify-center gap-2">
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  className={`badge badge-lg cursor-pointer transition-colors ${selectedCategory === category ? 'badge-accent' : 'badge-outline hover:badge-ghost'}`}
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {category === 'all' ? t.filterAll : t[category as keyof typeof t]}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Courses List */}
         <div className="space-y-6 max-w-4xl mx-auto">
