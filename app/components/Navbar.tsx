@@ -2,6 +2,8 @@
 
 import { useLanguage, type Language } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 
 const languages = [
   { code: 'en', name: 'English', flag: 'EN' },
@@ -12,6 +14,11 @@ const languages = [
 export default function Navbar() {
   const { theme, toggleTheme, mounted } = useTheme();
   const { language, setLanguage, t } = useLanguage();
+  const pathname = usePathname();
+  const isHome = pathname === '/';
+
+  // Hash links should navigate to homepage sections when not on homepage
+  const sectionHref = (hash: string) => isHome ? `#${hash}` : `/#${hash}`;
 
   const changeLanguage = (lang: Language) => {
     setLanguage(lang);
@@ -48,12 +55,13 @@ export default function Navbar() {
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
           >
-            <li><a href="#hero">{t.hero}</a></li>
-            <li><a href="#services">{t.services}</a></li>
-            <li><a href="#projects">{t.projects}</a></li>
-            <li><a href="#stack">{t.stack}</a></li>
-            <li><a href="#education">{t.education}</a></li>
-            <li><a href="#contact">{t.contact}</a></li>
+            <li><a href={sectionHref('hero')}>{t.hero}</a></li>
+            <li><a href={sectionHref('services')}>{t.services}</a></li>
+            <li><a href={sectionHref('projects')}>{t.projects}</a></li>
+            <li><a href={sectionHref('stack')}>{t.stack}</a></li>
+            <li><a href={sectionHref('education')}>{t.education}</a></li>
+            <li><a href={sectionHref('contact')}>{t.contact}</a></li>
+            <li><Link href="/blog">{t.blog}</Link></li>
           </ul>
         </div>
         <a className="btn btn-ghost text-xl" href="#hero">nyuu.dev</a>
@@ -61,12 +69,13 @@ export default function Navbar() {
 
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li><a href="#hero">{t.hero}</a></li>
-          <li><a href="#services">{t.services}</a></li>
-          <li><a href="#projects">{t.projects}</a></li>
-          <li><a href="#stack">{t.stack}</a></li>
-          <li><a href="#education">{t.education}</a></li>
-          <li><a href="#contact">{t.contact}</a></li>
+          <li><a href={sectionHref('hero')}>{t.hero}</a></li>
+          <li><a href={sectionHref('services')}>{t.services}</a></li>
+          <li><a href={sectionHref('projects')}>{t.projects}</a></li>
+          <li><a href={sectionHref('stack')}>{t.stack}</a></li>
+          <li><a href={sectionHref('education')}>{t.education}</a></li>
+          <li><a href={sectionHref('contact')}>{t.contact}</a></li>
+          <li><Link href="/blog">{t.blog}</Link></li>
         </ul>
       </div>
 

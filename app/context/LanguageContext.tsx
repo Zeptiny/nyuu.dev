@@ -19,6 +19,10 @@ interface Translations {
   stack: string;
   education: string;
   contact: string;
+  blog: string;
+  latestPosts: string;
+  viewAllPosts: string;
+  readMore: string;
   
   // Hero Section
   // heroTitle: string;
@@ -153,6 +157,10 @@ const translations: Record<Language, Translations> = {
     stack: 'Tech Stack',
     education: 'Education',
     contact: 'Contact',
+    blog: 'Blog',
+    latestPosts: 'Latest Posts',
+    viewAllPosts: 'View all posts',
+    readMore: 'Read more',
     
     // Hero Section
     // heroTitle: 'Computer Science Student',
@@ -286,6 +294,10 @@ const translations: Record<Language, Translations> = {
     stack: 'Tecnologias',
     education: 'Educação',
     contact: 'Contato',
+    blog: 'Blog',
+    latestPosts: 'Últimos Posts',
+    viewAllPosts: 'Ver todos os posts',
+    readMore: 'Ler mais',
     
     // Hero Section
     // heroTitle: 'Estudante de Ciência da Computação',
@@ -419,6 +431,10 @@ const translations: Record<Language, Translations> = {
     stack: 'Tecnologies',
     education: 'Educació',
     contact: 'Contacte',
+    blog: 'Blog',
+    latestPosts: 'Últimes Publicacions',
+    viewAllPosts: 'Veure totes les publicacions',
+    readMore: 'Llegir més',
     
     // Hero Section
     // heroTitle: 'Estudiant de Ciències de la Computació',
