@@ -56,6 +56,8 @@ interface Translations {
   completed: string;
   downloadCertificate: string;
   filterAll: string;
+  viewMore: string;
+  viewLess: string;
   
   // Duration units
   hours: string;
@@ -193,8 +195,10 @@ const translations: Record<Language, Translations> = {
     certificatesTitle: 'Certificates',
     ongoing: 'Ongoing',
     completed: 'Completed',
-    downloadCertificate: 'Download Certificate',
+    downloadCertificate: 'Certificate',
     filterAll: 'All',
+    viewMore: 'View more',
+    viewLess: 'View less',
     
     // Duration units
     hours: 'hours',
@@ -331,8 +335,10 @@ const translations: Record<Language, Translations> = {
     certificatesTitle: 'Certificados',
     ongoing: 'Em andamento',
     completed: 'Concluído',
-    downloadCertificate: 'Baixar Certificado',
+    downloadCertificate: 'Certificado',
     filterAll: 'Todos',
+    viewMore: 'Ver mais',
+    viewLess: 'Ver menos',
     
     // Duration units
     hours: 'horas',
@@ -469,8 +475,10 @@ const translations: Record<Language, Translations> = {
     certificatesTitle: 'Certificats',
     ongoing: 'En curs',
     completed: 'Completat',
-    downloadCertificate: 'Descarregar Certificat',
+    downloadCertificate: 'Certificat',
     filterAll: 'Tots',
+    viewMore: 'Veure més',
+    viewLess: 'Veure menys',
     
     // Duration units
     hours: 'hores',

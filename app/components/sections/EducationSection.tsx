@@ -19,7 +19,8 @@ interface Course {
 export default function EducationSection() {
   const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
-  const [selectedSection, setSelectedSection] = useState<'formal' | 'course' | 'certificate'>('formal');
+  const [showAllCourses, setShowAllCourses] = useState(false);
+  const INITIAL_COURSE_COUNT = 3;
 
   // Placeholder courses - replace with actual data
   const courses: Course[] = [
@@ -165,24 +166,61 @@ export default function EducationSection() {
     },
   ];
 
-  const categories = ['all', ...Array.from(new Set(courses.filter(c => c.type === selectedSection).map(course => course.categoryKey)))];
-  
+  const formalCourses = courses.filter(c => c.type === 'formal');
+  const certificates = courses.filter(c => c.type === 'certificate');
+
+  const courseCategories = ['all', ...Array.from(new Set(courses.filter(c => c.type === 'course').map(c => c.categoryKey)))];
   const filteredCourses = courses
-    .filter(course => course.type === selectedSection)
+    .filter(course => course.type === 'course')
     .filter(course => selectedCategory === 'all' || course.categoryKey === selectedCategory);
 
   // Sort courses by ongoing first, if it's ongoing sort by date ascending, if its completed sort by date descending
-  filteredCourses.sort((a, b) => {
-    if (a.status === b.status) {
-      return a.status === 'ongoing' ? a.date.localeCompare(b.date) : b.date.localeCompare(a.date);
-    }
-    return a.status === 'ongoing' ? -1 : 1; // Ongoing first
-  });
+  const sortCourses = (items: Course[]) => {
+    return [...items].sort((a, b) => {
+      if (a.status === b.status) {
+        return a.status === 'ongoing' ? a.date.localeCompare(b.date) : b.date.localeCompare(a.date);
+      }
+      return a.status === 'ongoing' ? -1 : 1;
+    });
+  };
+
+  const sortedFilteredCourses = sortCourses(filteredCourses);
 
   const renderDuration = (course: Course) => {
     if (!course.duration || !course.durationUnit) return null;
     return `${course.duration} ${t[course.durationUnit]}`;
   };
+
+  const renderCourseCard = (course: Course) => (
+    <div key={course.id} className="card bg-base-200 shadow-xl hover:scale-105 transition-transform">
+      <div className="card-body">
+        <div className="flex items-start gap-2 mb-2">
+          <h4 className="card-title text-2xl min-w-0 flex-1">{t[course.titleKey as keyof typeof t]}</h4>
+          <div className="flex items-center gap-2 shrink-0">
+            {course.status === 'ongoing' && (
+              <span className="badge badge-primary">
+                {t.ongoing}
+              </span>
+            )}
+            {course.certificateUrl && (
+              <a
+                href={course.certificateUrl}
+                download
+                className="btn btn-primary btn-sm"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> {t.downloadCertificate}
+              </a>
+            )}
+          </div>
+        </div>
+        <p className="text-base-content/70 mb-2">{t[course.descriptionKey as keyof typeof t]}</p>
+        <div className="flex flex-wrap gap-2 items-center">
+          <span className="badge badge-outline">{t[course.categoryKey as keyof typeof t]}</span>
+          <span className="text-sm text-base-content/60">{course.date}</span>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <section id="education" className="py-20 bg-base-100">
@@ -195,91 +233,66 @@ export default function EducationSection() {
           </p>
         </div>
 
-        {/* Section Tabs + Nested Category Filter */}
-        <div className="flex flex-col items-center gap-4 mb-8">
-          <div className="tabs tabs-boxed tabs-lg">
-            <button
-              className={`tab ${selectedSection === 'formal' ? 'tab-active text-primary' : ''}`}
-              onClick={() => {
-                setSelectedSection('formal');
-                setSelectedCategory('all');
-              }}
-            >
-              {t.formalEducationTitle}
-            </button>
-            <button
-              className={`tab ${selectedSection === 'course' ? 'tab-active text-primary' : ''}`}
-              onClick={() => {
-                setSelectedSection('course');
-                setSelectedCategory('all');
-              }}
-            >
-              {t.coursesTitle}
-            </button>
-            <button
-              className={`tab ${selectedSection === 'certificate' ? 'tab-active text-primary' : ''}`}
-              onClick={() => {
-                setSelectedSection('certificate');
-                setSelectedCategory('all');
-              }}
-            >
-              {t.certificatesTitle}
-            </button>
-          </div>
-          {categories.length > 1 && (
-            <div className="tabs tabs-boxed">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  className={`tab ${selectedCategory === category ? 'tab-active text-primary' : ''}`}
-                  onClick={() => setSelectedCategory(category)}
-                >
-                  {category === 'all' ? t.filterAll : t[category as keyof typeof t]}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-
-        {/* Courses List */}
-        <div className="space-y-6 max-w-4xl mx-auto">
-          {filteredCourses.map((course) => (
-            <div key={course.id} className="card bg-base-200 shadow-xl hover:scale-105 transition-transform">
-              <div className="card-body">
-                <div className="flex items-start gap-2 mb-2">
-                  <h3 className="card-title text-2xl min-w-0 flex-1">{t[course.titleKey as keyof typeof t]}</h3>
-                  <div className="flex items-center gap-2 shrink-0">
-                    {course.type !== 'certificate' && (
-                      <span className={`badge ${course.status === 'ongoing' ? 'badge-primary' : 'badge-success'}`}>
-                        {course.status === 'ongoing' ? t.ongoing : t.completed}
-                      </span>
-                    )}
-                    {course.certificateUrl && (
-                      <a
-                        href={course.certificateUrl}
-                        download
-                        className="btn btn-primary btn-sm"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg> {t.downloadCertificate}
-                      </a>
-                    )}
-                  </div>
-                </div>
-                <p className="text-base-content/70 mb-2">{t[course.descriptionKey as keyof typeof t]}</p>
-                <div className="flex flex-wrap gap-2 items-center">
-                  <span className="badge badge-outline">{t[course.categoryKey as keyof typeof t]}</span>
-                  <span className="text-sm text-base-content/60">{course.date}</span>
-                </div>
+        <div className="flex flex-col lg:flex-row gap-8 max-w-6xl mx-auto">
+          {/* Left Column: Formal Education + Certificates */}
+          <div className="lg:w-2/5 space-y-8">
+            {/* Formal Education */}
+            <div>
+              <h3 className="text-2xl font-bold mb-6">{t.formalEducationTitle}</h3>
+              <div className="space-y-6">
+                {formalCourses.map(renderCourseCard)}
               </div>
             </div>
-          ))}
-        </div>
 
-        {filteredCourses.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-lg text-base-content/70">No courses found in this category.</p>
+            <div className="divider"></div>
+
+            {/* Certificates */}
+            <div>
+              <h3 className="text-2xl font-bold mb-6">{t.certificatesTitle}</h3>
+              <div className="space-y-6">
+                {certificates.map(renderCourseCard)}
+              </div>
+            </div>
           </div>
-        )}
+
+          {/* Right Column: Courses */}
+          <div className="lg:w-3/5">
+            <h3 className="text-2xl font-bold mb-6">{t.coursesTitle}</h3>
+            {courseCategories.length > 1 && (
+              <div className="flex justify-center mb-6">
+                <div className="tabs tabs-boxed">
+                  {courseCategories.map((category) => (
+                    <button
+                      key={category}
+                      className={`tab ${selectedCategory === category ? 'tab-active text-primary' : ''}`}
+                      onClick={() => setSelectedCategory(category)}
+                    >
+                      {category === 'all' ? t.filterAll : t[category as keyof typeof t]}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+            <div className="space-y-6">
+              {(showAllCourses ? sortedFilteredCourses : sortedFilteredCourses.slice(0, INITIAL_COURSE_COUNT)).map(renderCourseCard)}
+              {sortedFilteredCourses.length === 0 && (
+                <div className="text-center py-12">
+                  <p className="text-lg text-base-content/70">No courses found in this category.</p>
+                </div>
+              )}
+              {sortedFilteredCourses.length > INITIAL_COURSE_COUNT && (
+                <div className="text-center pt-2">
+                  <button
+                    className="btn btn-outline btn-primary"
+                    onClick={() => setShowAllCourses(!showAllCourses)}
+                  >
+                    {showAllCourses ? t.viewLess : t.viewMore} ({sortedFilteredCourses.length - INITIAL_COURSE_COUNT})
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
