@@ -166,19 +166,15 @@ export default function ContactSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
 
-          {/* Persona Image - Pointing */}
+          {/* Persona Image - Holding Letter */}
           <div className="hidden lg:flex justify-center mb-12">
-            <div className="avatar">
-              <div>
-                <Image
-                  src="/persona/pointing.webp"
-                  alt="Pointing"
-                  width={1100}
-                  height={1200}
-                  className='object-contain'
-                />
-              </div>
-            </div>
+            <Image
+              src="/persona/letter.png"
+              alt="Holding Letter"
+              width={1684}
+              height={2528}
+              className="max-h-[64vh] w-auto object-contain"
+            />
           </div>
 
           {/* Contact Form */}
