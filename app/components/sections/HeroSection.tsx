@@ -21,7 +21,7 @@ export default function HeroSection() {
           <div className="avatar">
             <div className='max-h-[64vh]'>
               <Image
-                src="/persona/waving.webp"
+                src="/persona/welcoming.png"
                 alt="Persona Image"
                 width={1100}
                 height={1200}
