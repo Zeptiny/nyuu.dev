@@ -29,22 +29,31 @@ function preprocessCallouts(content) {
     );
 }
 
-/** Extract headings from raw markdown content */
-function extractHeadings(content) {
-  const headings = [];
-  for (const line of content.split('\n')) {
-    const match = line.match(/^(#{2,4})\s+(.+)$/);
-    if (match) {
-      const depth = match[1].length;
-      const text = match[2].trim();
-      const id = text
-        .toLowerCase()
-        .replace(/[^\w\s-]/g, '')
-        .replace(/\s+/g, '-');
-      headings.push({ depth, text, id });
-    }
-  }
-  return headings;
+/** Get plain text content from a hast node */
+function getTextContent(node) {
+  if (node.type === 'text') return node.value;
+  if (node.children) return node.children.map(getTextContent).join('');
+  return '';
+}
+
+/** Rehype plugin: collect headings (h2–h4) with IDs from the AST after rehype-slug */
+function rehypeCollectHeadings() {
+  return (tree, file) => {
+    const headings = [];
+    const visit = (node) => {
+      if (node.type === 'element' && /^h[2-4]$/.test(node.tagName)) {
+        const depth = parseInt(node.tagName[1]);
+        const id = node.properties?.id || '';
+        const text = getTextContent(node);
+        if (text) headings.push({ depth, text, id });
+      }
+      if (node.children) {
+        for (const child of node.children) visit(child);
+      }
+    };
+    visit(tree);
+    file.data.headings = headings;
+  };
 }
 
 /** Add target="_blank" and rel to external links */
@@ -72,6 +81,7 @@ const processor = unified()
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)
   .use(rehypeSlug)
+  .use(rehypeCollectHeadings)
   .use(rehypeAutolinkHeadings, { behavior: 'wrap' })
   .use(rehypeExternalLinks)
   .use(rehypeHighlight)
@@ -80,7 +90,7 @@ const processor = unified()
 async function compileMarkdown(content) {
   const preprocessed = preprocessCallouts(content);
   const result = await processor.process(preprocessed);
-  return String(result);
+  return { html: String(result), headings: result.data.headings || [] };
 }
 
 async function generate() {
@@ -106,8 +116,7 @@ async function generate() {
       const raw = fs.readFileSync(filePath, 'utf-8');
       const { data, content } = matter(raw);
       const stats = readingTime(content);
-      const html = await compileMarkdown(content);
-      const headings = extractHeadings(content);
+      const { html, headings } = await compileMarkdown(content);
 
       posts[slug][lang] = {
         title: data.title ?? slug,

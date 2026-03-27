@@ -81,7 +81,7 @@ export function getAllTags(lang: Language): string[] {
   const tagSet = new Set<string>();
   for (const post of posts) {
     for (const tag of post.tags) {
-      tagSet.add(tag);
+      tagSet.add(tag.trim().toLowerCase());
     }
   }
   return Array.from(tagSet).sort();

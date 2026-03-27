@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import type { BlogPostMeta } from '@/lib/blog/types';
 
 export default function BlogPostCard({ post, bgClass = 'bg-base-200' }: { post: BlogPostMeta; bgClass?: string }) {
@@ -8,11 +9,12 @@ export default function BlogPostCard({ post, bgClass = 'bg-base-200' }: { post: 
     <Link href={`/blog/${post.slug}`} className="block">
       <div className={`card card-border ${bgClass} hover:shadow-lg transition-shadow`}>
         {post.image && (
-          <figure>
-            <img
+          <figure className="relative h-48">
+            <Image
               src={post.image}
               alt={post.title}
-              className="w-full h-48 object-cover"
+              fill
+              className="object-cover"
             />
           </figure>
         )}
