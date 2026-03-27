@@ -258,6 +258,7 @@ export default function EducationSection() {
           {/* Right Column: Courses */}
           <div className="lg:w-3/5">
             <h3 className="text-2xl font-bold mb-6">{t.coursesTitle}</h3>
+            {/* Category filter disabled
             {courseCategories.length > 1 && (
               <div className="flex justify-center mb-6">
                 <div className="tabs tabs-boxed">
@@ -273,6 +274,7 @@ export default function EducationSection() {
                 </div>
               </div>
             )}
+            */}
             <div className="space-y-6">
               {(showAllCourses ? sortedFilteredCourses : sortedFilteredCourses.slice(0, INITIAL_COURSE_COUNT)).map(renderCourseCard)}
               {sortedFilteredCourses.length === 0 && (
