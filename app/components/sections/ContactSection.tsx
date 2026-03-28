@@ -201,7 +201,7 @@ export default function ContactSection() {
               alt="Persona"
               width={1684}
               height={2528}
-              className="absolute -top-42 -right-28 z-10 w-64 pointer-events-none select-none"
+              className="absolute -top-50 -right-28 z-10 w-72 pointer-events-none select-none"
             />
 
           {/* Contact Form */}
