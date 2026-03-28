@@ -166,16 +166,43 @@ export default function ContactSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
 
-          {/* Persona Image - Holding Letter */}
-          <div className="hidden lg:flex justify-center mb-12">
+          {/* Left Column: Contact Methods */}
+          <div className="flex flex-col gap-4 justify-center">
+            {contactMethods.map((method) => (
+              <div key={method.id} className="card bg-base-200 shadow-lg hover:shadow-xl transition-all hover:scale-105 will-change-transform">
+                <div className="card-body">
+                  <div className="flex items-center gap-4">
+                    <div className="flex-shrink-0">{renderIcon(method)}</div>
+                    <div className="flex-1">
+                      <h4 className="font-bold text-lg mb-1">{method.name}</h4>
+                      <p className="text-sm text-base-content/70 break-all">{method.value}</p>
+                    </div>
+                    <div className="flex-shrink-0">
+                      <a
+                        href={method.url}
+                        target={method.id !== 'email' ? '_blank' : undefined}
+                        rel={method.id !== 'email' ? 'noopener noreferrer' : undefined}
+                        className={`btn btn-sm ${method.color}`}
+                      >
+                        {method.id === 'email' ? t.sendEmail : t.open}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Right Column: Form + Persona */}
+          <div className="relative pt-16">
+            {/* Persona sitting at top-right edge of form card */}
             <Image
-              src="/persona/letter.png"
-              alt="Holding Letter"
+              src="/persona/sitting-edge.png"
+              alt="Persona"
               width={1684}
               height={2528}
-              className="max-h-[64vh] w-auto object-contain"
+              className="absolute -top-42 -right-28 z-10 w-64 pointer-events-none select-none"
             />
-          </div>
 
           {/* Contact Form */}
           <div className="card bg-base-200 shadow-xl">
@@ -296,31 +323,7 @@ export default function ContactSection() {
               </form>
             </div>
           </div>
-        </div>
-        <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 mt-4'>
-          {contactMethods.map((method) => (
-            <div key={method.id} className="card bg-base-200 shadow-lg hover:shadow-xl transition-all hover:scale-105 will-change-transform">
-              <div className="card-body">
-                <div className="flex items-center gap-4">
-                  <div className="flex-shrink-0">{renderIcon(method)}</div>
-                  <div className="flex-1">
-                    <h4 className="font-bold text-lg mb-1">{method.name}</h4>
-                    <p className="text-sm text-base-content/70 break-all">{method.value}</p>
-                  </div>
-                  <div className="flex-shrink-0">
-                    <a
-                      href={method.url}
-                      target={method.id !== 'email' ? '_blank' : undefined}
-                      rel={method.id !== 'email' ? 'noopener noreferrer' : undefined}
-                      className={`btn btn-sm ${method.color}`}
-                    >
-                      {method.id === 'email' ? t.sendEmail : t.open}
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
