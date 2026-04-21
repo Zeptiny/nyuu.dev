@@ -1,0 +1,46 @@
+---
+title: "Olá Mundo: Construindo um Blog com MDX"
+description: "Um passo a passo de como este blog foi construído usando Next.js, MDX e Cloudflare Workers."
+date: "2026-03-26"
+tags: ["nextjs", "mdx", "cloudflare"]
+---
+
+## Introdução
+
+Bem-vindo ao primeiro post deste blog! Este post explica a stack tecnológica e a arquitetura por trás deste sistema de blog.
+
+## A Stack
+
+Este blog é construído com:
+
+- **Next.js 15** — App Router com React Server Components
+- **MDX** — Markdown com componentes React integrados
+- **Tailwind CSS 4** + **daisyUI 5** — Estilização
+- **Cloudflare Workers** — Implantação na edge via OpenNext
+
+## Destaque de Código
+
+Aqui está um exemplo de código com destaque de sintaxe:
+
+```typescript
+import { compileMDX } from 'next-mdx-remote/rsc';
+
+const { content, frontmatter } = await compileMDX<{ title: string }>({
+  source: mdxString,
+  options: { parseFrontmatter: true },
+});
+```
+
+## Componentes Personalizados
+
+<Callout type="info">
+Este é um componente de destaque personalizado incorporado diretamente no MDX! Ele usa o componente alert do daisyUI.
+</Callout>
+
+## Suporte Multilíngue
+
+Os posts do blog suportam múltiplos idiomas. Cada post pode ter traduções em inglês, português e catalão. Se uma tradução não estiver disponível, a versão em inglês é exibida com um banner de aviso.
+
+## O Que Vem a Seguir
+
+Fique atento para mais posts sobre infraestrutura, DevOps e tópicos de SRE.

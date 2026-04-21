@@ -18,17 +18,14 @@ export default function HeroSection() {
       <div className="hero-content flex-col lg:flex-row-reverse gap-12">
         {/* Persona Image */}
         <div className="hidden lg:block flex-shrink-0">
-          <div className="avatar">
-            <div className='max-h-[64vh]'>
-              <Image
-                src="/persona/waving.webp"
-                alt="Persona Image"
-                width={1100}
-                height={1200}
-                priority
-              />
-            </div>
-          </div>
+          <Image
+            src="/persona/welcoming.webp"
+            alt="Persona Image"
+            width={1684}
+            height={2528}
+            className="max-h-[64vh] w-auto object-contain"
+            priority
+          />
         </div>
 
         {/* Text Content */}

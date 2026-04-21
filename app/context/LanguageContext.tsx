@@ -19,6 +19,11 @@ interface Translations {
   stack: string;
   education: string;
   contact: string;
+  blog: string;
+  blogSubtitle: string;
+  latestPosts: string;
+  viewAllPosts: string;
+  readMore: string;
   
   // Hero Section
   // heroTitle: string;
@@ -51,6 +56,8 @@ interface Translations {
   completed: string;
   downloadCertificate: string;
   filterAll: string;
+  viewMore: string;
+  viewLess: string;
   
   // Duration units
   hours: string;
@@ -153,6 +160,11 @@ const translations: Record<Language, Translations> = {
     stack: 'Tech Stack',
     education: 'Education',
     contact: 'Contact',
+    blog: 'Blog',
+    blogSubtitle: 'Thoughts on SRE, infrastructure, DevOps, and more.',
+    latestPosts: 'Latest Posts',
+    viewAllPosts: 'View all posts',
+    readMore: 'Read more',
     
     // Hero Section
     // heroTitle: 'Computer Science Student',
@@ -183,8 +195,10 @@ const translations: Record<Language, Translations> = {
     certificatesTitle: 'Certificates',
     ongoing: 'Ongoing',
     completed: 'Completed',
-    downloadCertificate: 'Download Certificate',
+    downloadCertificate: 'Certificate',
     filterAll: 'All',
+    viewMore: 'View more',
+    viewLess: 'View less',
     
     // Duration units
     hours: 'hours',
@@ -286,6 +300,11 @@ const translations: Record<Language, Translations> = {
     stack: 'Tecnologias',
     education: 'Educação',
     contact: 'Contato',
+    blog: 'Blog',
+    blogSubtitle: 'Reflexões sobre SRE, infraestrutura, DevOps e muito mais.',
+    latestPosts: 'Últimos Posts',
+    viewAllPosts: 'Ver todos os posts',
+    readMore: 'Ler mais',
     
     // Hero Section
     // heroTitle: 'Estudante de Ciência da Computação',
@@ -316,8 +335,10 @@ const translations: Record<Language, Translations> = {
     certificatesTitle: 'Certificados',
     ongoing: 'Em andamento',
     completed: 'Concluído',
-    downloadCertificate: 'Baixar Certificado',
+    downloadCertificate: 'Certificado',
     filterAll: 'Todos',
+    viewMore: 'Ver mais',
+    viewLess: 'Ver menos',
     
     // Duration units
     hours: 'horas',
@@ -419,6 +440,11 @@ const translations: Record<Language, Translations> = {
     stack: 'Tecnologies',
     education: 'Educació',
     contact: 'Contacte',
+    blog: 'Blog',
+    blogSubtitle: 'Reflexions sobre SRE, infraestructura, DevOps i molt més.',
+    latestPosts: 'Últimes Publicacions',
+    viewAllPosts: 'Veure totes les publicacions',
+    readMore: 'Llegir més',
     
     // Hero Section
     // heroTitle: 'Estudiant de Ciències de la Computació',
@@ -449,8 +475,10 @@ const translations: Record<Language, Translations> = {
     certificatesTitle: 'Certificats',
     ongoing: 'En curs',
     completed: 'Completat',
-    downloadCertificate: 'Descarregar Certificat',
+    downloadCertificate: 'Certificat',
     filterAll: 'Tots',
+    viewMore: 'Veure més',
+    viewLess: 'Veure menys',
     
     // Duration units
     hours: 'hores',
