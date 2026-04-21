@@ -150,7 +150,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-base-100">
+    <section id="contact" className="py-20 bg-base-100 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{t.contactTitle}</h2>
@@ -197,7 +197,7 @@ export default function ContactSection() {
           <div className="relative pt-16">
             {/* Persona sitting at top-right edge of form card */}
             <Image
-              src="/persona/sitting-edge.png"
+              src="/persona/sitting-edge.webp"
               alt="Persona"
               width={1684}
               height={2528}

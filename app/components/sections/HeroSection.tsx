@@ -19,7 +19,7 @@ export default function HeroSection() {
         {/* Persona Image */}
         <div className="hidden lg:block flex-shrink-0">
           <Image
-            src="/persona/welcoming.png"
+            src="/persona/welcoming.webp"
             alt="Persona Image"
             width={1684}
             height={2528}
