@@ -7,8 +7,8 @@
  * paints; see app/boot-script.ts and shared/lib/theme.ts.
  */
 :root {
-  /* Ember: the accent hue, the orange of the persona's eyes. */
-  --hue: 45;
+  /* The accent hue: purple, like the persona's hair and the earlier site. */
+  --hue: 300;
 }
 
 :root {
