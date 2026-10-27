@@ -51,8 +51,8 @@ export function Contact({ language, t }: { language: Language; t: Dictionary }) 
         <div className="min-w-0 flex-[1_1_340px] md:pt-[252px]">
           <Panel label={t.contact.methods} className="relative gap-0 pb-2">
             {/*
-             * Seated on the panel's top rule: her thighs meet the edge 68.5% of the way down the
-             * drawing, and her legs and tail hang over the right of the heading, which is kept tall
+             * Seated on the panel's top rule: the thighs meet the edge 68.5% of the way down the
+             * drawing, and the legs and tail hang over the right of the heading, which is kept tall
              * enough for them.
              */}
             <img
