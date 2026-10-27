@@ -1,0 +1,238 @@
+{
+  "meta": {
+    "title": "nyuu.dev — SRE e infraestrutura",
+    "description": "Engenheiro de confiabilidade de sites (SRE) especializado em hospedagem gerenciada, Docker, Kubernetes e infraestrutura Linux."
+  },
+  "nav": {
+    "label": "Seções",
+    "home": "nyuu.dev, início",
+    "services": "Serviços",
+    "projects": "Projetos",
+    "stack": "Tecnologias",
+    "education": "Educação",
+    "contact": "Entre em contato"
+  },
+  "theme": {
+    "system": "Sistema",
+    "light": "Claro",
+    "dark": "Escuro",
+    "switchTo": "Mudar para o tema {mode}"
+  },
+  "language": {
+    "label": "Idioma"
+  },
+  "hero": {
+    "eyebrow": "Engenheiro de confiabilidade (SRE) · Entusiasta de tecnologia",
+    "title": "Howdy hey!",
+    "body": "Sou Nyuu, um estudante de Ciência da Computação apaixonado por aprender coisas novas todos os dias. Cuido de hospedagem gerenciada e monto infraestrutura com Linux, Docker e Kubernetes.",
+    "seeServices": "Ver serviços",
+    "contact": "Entre em contato",
+    "personaAlt": "Nyuu, personagem de orelhas de gato e chapéu preto, erguendo o chapéu com uma piscadela",
+    "now": {
+      "label": "Agora",
+      "studying": "Estudando",
+      "learning": "Aprendendo",
+      "building": "Construindo",
+      "certified": "Certificação",
+      "since": "desde {year}"
+    }
+  },
+  "services": {
+    "title": "Serviços",
+    "note": "O que posso fazer por você",
+    "items": {
+      "hosting": {
+        "title": "Hospedagem gerenciada",
+        "lead": "Hospedagem confiável e descomplicada, onde tudo é cuidado para você.",
+        "detail": "Aproveite uma hospedagem tranquila, com gerenciamento completo incluído. Eu cuido da configuração do servidor, das atualizações, da segurança e do monitoramento para que seus aplicativos e sites funcionem da melhor forma, seja em bare metal, ambientes virtualizados ou plataformas em nuvem. Você terá o desempenho e a estabilidade de que precisa sem o estresse da manutenção."
+      },
+      "setup": {
+        "title": "Instalação e configuração",
+        "lead": "Coloque sua infraestrutura em funcionamento da forma correta, desde o início.",
+        "detail": "De servidores Linux a stacks Docker e clusters Kubernetes, me certifico de que tudo esteja devidamente instalado, configurado e pronto para uso. Seja configurando um novo ambiente ou migrando um existente, garanto que cada componente funcione em harmonia: seguro, estável e otimizado para suas necessidades."
+      },
+      "backups": {
+        "title": "Backups e recuperação",
+        "lead": "Mantenha seus dados seguros com soluções confiáveis de backup e recuperação.",
+        "detail": "Projeto e implanto estratégias de backup que protegem seus dados contra perda, indisponibilidade ou desastres. Usando ferramentas automatizadas e boas práticas, garanto que seus arquivos, bancos de dados e configurações sejam armazenados com segurança e possam ser restaurados rapidamente quando necessário, oferecendo tranquilidade e continuidade para o seu negócio."
+      },
+      "custom": {
+        "title": "Soluções personalizadas",
+        "lead": "Soluções sob medida, construídas em torno dos seus objetivos e da sua infraestrutura.",
+        "detail": "Cada projeto é único, e às vezes ferramentas prontas não são suficientes. Crio configurações e automações personalizadas que se adequam ao seu fluxo de trabalho, de aplicativos em Docker e integrações em nuvem a dashboards de monitoramento ou backends de armazenamento. Seja qual for o seu desafio, ajudo você a projetar uma solução eficiente, escalável e fácil de gerenciar."
+      }
+    }
+  },
+  "projects": {
+    "title": "Projetos",
+    "note": "Alguns dos meus trabalhos recentes",
+    "status": {
+      "live": "No ar",
+      "development": "Em desenvolvimento",
+      "discontinued": "Descontinuado"
+    },
+    "github": "Ver no GitHub",
+    "facts": {
+      "users": "Usuários",
+      "servers": "Servidores de jogo"
+    },
+    "items": {
+      "whiskers": {
+        "description": "Uma plataforma que vende um mês de modelos abertos por uma única API compatível com a OpenAI: um pagamento, sem renovação automática, e a franquia à vista o tempo todo."
+      },
+      "syncr": {
+        "description": "Aplicação web de código aberto para sincronizar, mover e copiar arquivos entre serviços de armazenamento remoto, compatível com Amazon S3 e SFTP. Tem tarefas agendadas, notificações, suporte multiusuário e roda totalmente auto-hospedada com Docker."
+      },
+      "tryxia": {
+        "description": "Um serviço gratuito de hospedagem de Minecraft, criado como projeto de aprendizado. Feito para ganhar experiência prática com hospedagem, administração e solução de problemas de servidores em cenários reais."
+      }
+    }
+  },
+  "stack": {
+    "title": "Stack tecnológico",
+    "note": "Tecnologias e ferramentas com as quais trabalho",
+    "categories": {
+      "languages": "Linguagens",
+      "cloud": "Plataformas em nuvem",
+      "containers": "Containerização",
+      "databases": "Bancos de dados",
+      "monitoring": "Monitoramento e logs",
+      "iac": "Infraestrutura como código"
+    }
+  },
+  "education": {
+    "title": "Educação e cursos",
+    "note": "Minha jornada de aprendizado",
+    "stats": {
+      "completed": "Cursos concluídos",
+      "ongoing": "+{n} em andamento",
+      "hours": "Horas de curso",
+      "hoursNote": "nos cursos concluídos",
+      "certifications": "Certificações"
+    },
+    "kinds": {
+      "label": "Tipo",
+      "formal": "Educação formal",
+      "course": "Cursos",
+      "certificate": "Certificados"
+    },
+    "categories": {
+      "label": "Categoria",
+      "all": "Todos",
+      "university": "Universidade",
+      "devops": "DevOps",
+      "architecture": "Arquitetura de sistemas",
+      "monitoring": "Monitoramento e logs",
+      "automation": "Automação"
+    },
+    "columns": {
+      "title": "Título",
+      "category": "Categoria",
+      "duration": "Duração",
+      "year": "Ano",
+      "status": "Situação",
+      "certificate": "Certificado"
+    },
+    "status": {
+      "ongoing": "Em andamento",
+      "completed": "Concluído"
+    },
+    "download": "PDF",
+    "downloadLabel": "Baixar o certificado de {title}",
+    "duration": {
+      "hours": "{n} h",
+      "years": {
+        "one": "{n} ano",
+        "other": "{n} anos"
+      }
+    },
+    "empty": "Nada aqui ainda.",
+    "items": {
+      "cs": {
+        "title": "Graduação em Ciência da Computação",
+        "description": "Bacharelado em Ciência da Computação com foco em engenharia de software e algoritmos."
+      },
+      "cka": {
+        "title": "Administrador Certificado Kubernetes (CKA)",
+        "description": "Programa de certificação para administradores do Kubernetes."
+      },
+      "ltc": {
+        "title": "Curso de Treinamento em Linux",
+        "description": "Treinamento abrangente em administração e scripts no Linux."
+      },
+      "msa": {
+        "title": "Arquitetura de Microsserviços",
+        "description": "Curso aprofundado sobre design e construção de microsserviços."
+      },
+      "zabbix": {
+        "title": "Zabbix - Monitoramento de Rede e Aplicações",
+        "description": "Treinamento sobre Zabbix para monitoramento e gerenciamento de infraestrutura de TI."
+      },
+      "kubernetes": {
+        "title": "Fundamentos de Kubernetes",
+        "description": "Introdução ao Kubernetes para orquestração de contêineres."
+      },
+      "backend": {
+        "title": "Fundamentos de Engenharia Backend",
+        "description": "Visão geral dos conceitos e práticas de desenvolvimento backend."
+      },
+      "ansible": {
+        "title": "Ansible Avançado",
+        "description": "Tópicos avançados em Ansible para automação e gerenciamento de configuração."
+      },
+      "architecture": {
+        "title": "Arquitetura de Software & Design de Sistemas em Larga Escala",
+        "description": "Curso abrangente sobre design e arquitetura de sistemas de software em larga escala."
+      },
+      "cloud": {
+        "title": "Os Padrões Completos de Arquitetura de Software em Computação em Nuvem",
+        "description": "Curso detalhado sobre padrões e boas práticas de arquitetura em computação em nuvem."
+      },
+      "aws": {
+        "title": "AWS Certified Cloud Practitioner",
+        "description": "Certificação AWS Certified Cloud Practitioner, que valida o conhecimento fundamental dos serviços da AWS e de suas boas práticas."
+      }
+    }
+  },
+  "contact": {
+    "title": "Entre em contato",
+    "note": "Sinta-se à vontade para falar comigo por qualquer uma dessas plataformas.",
+    "methods": "Métodos de contato",
+    "email": "E-mail",
+    "github": "GitHub",
+    "discord": "Discord",
+    "send": "Enviar",
+    "open": "Abrir",
+    "personaAlt": "Nyuu na borda do painel de contato, piscando e fazendo o sinal de paz",
+    "form": {
+      "name": "Nome",
+      "email": "E-mail",
+      "emailPlaceholder": "voce@exemplo.com",
+      "subject": "Assunto",
+      "message": "Mensagem",
+      "messagePlaceholder": "Sua mensagem aqui…",
+      "submit": "Enviar mensagem",
+      "sent": "Sua mensagem foi enviada. Responderei assim que possível.",
+      "errors": {
+        "invalid": "Confira os campos e tente novamente.",
+        "captcha": "Conclua a verificação abaixo e envie de novo.",
+        "captchaFailed": "A verificação falhou. Tente novamente.",
+        "captchaPending": "A verificação ainda está em andamento. Aguarde um instante e envie de novo.",
+        "captchaLoad": "A verificação não carregou. Recarregue a página ou escreva para {email}.",
+        "unavailable": "O formulário não está funcionando agora. Escreva para {email}.",
+        "unexpected": "Algo deu errado no envio. Tente novamente."
+      }
+    }
+  },
+  "footer": {
+    "label": "Em outros lugares",
+    "rights": "Alguns direitos reservados"
+  },
+  "email": {
+    "subject": "Recebemos sua mensagem",
+    "greeting": "Olá, {name},",
+    "body": "Obrigado por entrar em contato! Recebi sua mensagem e responderei assim que possível.",
+    "yourMessage": "Sua mensagem:",
+    "signoff": "Atenciosamente,"
+  }
+}
