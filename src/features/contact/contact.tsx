@@ -47,19 +47,26 @@ export function Contact({ language, t }: { language: Language; t: Dictionary }) 
   return (
     <PageSection id="contact" title={t.contact.title} note={t.contact.note}>
       <div className="flex flex-wrap items-end gap-x-12 gap-y-10">
-        <div className="flex min-w-0 flex-[1_1_340px] flex-col items-center">
-          {/* The drawing stops at the legs; the panel in front hides where it ends. */}
-          <img
-            src="/persona/pointing.webp"
-            alt={t.contact.personaAlt}
-            width={1100}
-            height={1200}
-            loading="lazy"
-            decoding="async"
-            className="-mb-16 h-auto w-[min(70%,280px)] select-none max-md:hidden"
-          />
-          <Panel label={t.contact.methods} className="relative w-full gap-0 pb-2">
-            <span className="pb-3 text-15 font-medium">{t.contact.methods}</span>
+        {/* From md up, the room above the panel is where the persona sits. */}
+        <div className="min-w-0 flex-[1_1_340px] md:pt-[252px]">
+          <Panel label={t.contact.methods} className="relative gap-0 pb-2">
+            {/*
+             * Seated on the panel's top rule: her thighs meet the edge 68.5% of the way down the
+             * drawing, and her legs and tail hang over the right of the heading, which is kept tall
+             * enough for them.
+             */}
+            <img
+              src="/persona/sitting-edge-720w.webp"
+              srcSet="/persona/sitting-edge-720w.webp 720w, /persona/sitting-edge.webp 1684w"
+              sizes="240px"
+              alt={t.contact.personaAlt}
+              width={720}
+              height={1081}
+              loading="lazy"
+              decoding="async"
+              className="pointer-events-none absolute -top-0.5 right-3 w-[240px] -translate-y-[68.5%] select-none max-md:hidden"
+            />
+            <span className="pb-3 text-15 font-medium md:min-h-[96px]">{t.contact.methods}</span>
             <ul className="m-0 list-none p-0">
               {methods.map((method) => {
                 const external = !method.href.startsWith("mailto:");

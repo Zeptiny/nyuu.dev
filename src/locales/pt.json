@@ -27,7 +27,7 @@
     "body": "Sou Nyuu, um estudante de Ciência da Computação apaixonado por aprender coisas novas todos os dias. Cuido de hospedagem gerenciada e monto infraestrutura com Linux, Docker e Kubernetes.",
     "seeServices": "Ver serviços",
     "contact": "Entre em contato",
-    "personaAlt": "Nyuu, personagem de orelhas de gato e chapéu preto, acenando",
+    "personaAlt": "Nyuu, personagem de orelhas de gato e chapéu preto, erguendo o chapéu com uma piscadela",
     "now": {
       "label": "Agora",
       "studying": "Estudando",
@@ -203,7 +203,7 @@
     "discord": "Discord",
     "send": "Enviar",
     "open": "Abrir",
-    "personaAlt": "Nyuu apontando para o formulário de contato",
+    "personaAlt": "Nyuu na borda do painel de contato, piscando e fazendo o sinal de paz",
     "form": {
       "name": "Nome",
       "email": "E-mail",

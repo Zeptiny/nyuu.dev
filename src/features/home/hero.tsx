@@ -43,12 +43,14 @@ export function Hero({ t }: { t: Dictionary }) {
       <div className="flex min-w-0 flex-[1_1_380px] flex-col items-center">
         {/* The drawing stops at the legs; the panel in front hides where it ends. */}
         <img
-          src="/persona/waving.webp"
+          src="/persona/welcoming-840w.webp"
+          srcSet="/persona/welcoming-840w.webp 840w, /persona/welcoming.webp 3368w"
+          sizes="(min-width: 640px) 280px, 60vw"
           alt={t.hero.personaAlt}
-          width={1100}
-          height={1200}
+          width={840}
+          height={1261}
           fetchPriority="high"
-          className="-mb-20 h-auto w-[min(78%,330px)] select-none"
+          className="-mb-12 h-auto w-[min(60%,280px)] select-none"
         />
         <Now t={t} />
       </div>

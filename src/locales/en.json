@@ -27,7 +27,7 @@
     "body": "I’m Nyuu, a computer science student passionate about learning new things every day. I run managed hosting and set up Linux, Docker and Kubernetes infrastructure.",
     "seeServices": "See services",
     "contact": "Get in touch",
-    "personaAlt": "Nyuu, a cat-eared character in a black hat, waving hello",
+    "personaAlt": "Nyuu, a cat-eared character in a black hat, tipping it with a wink",
     "now": {
       "label": "Now",
       "studying": "Studying",
@@ -203,7 +203,7 @@
     "discord": "Discord",
     "send": "Send",
     "open": "Open",
-    "personaAlt": "Nyuu pointing at the contact form",
+    "personaAlt": "Nyuu sitting on the edge of the contact panel, winking with a peace sign",
     "form": {
       "name": "Name",
       "email": "Email",
