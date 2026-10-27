@@ -176,3 +176,25 @@
 :root:not([data-theme="dark"]) .only-dark {
   display: none;
 }
+
+/*
+ * A brand's color for what takes it on under the pointer (the stack's tools, the ways to get in
+ * touch): --brand is set inline, and --tint squeezes its lightness into the theme's range (0.45 to
+ * 0.65 on light paper, 0.68 to 0.88 on dark), so a near-black brand still shows on dark paper and a
+ * pale one on light, and a darker brand stays the darker. calc() rather than clamp(): Chromium 129
+ * crashes the tab on clamp(), min() or max() over a channel. A browser without relative colors gets
+ * the brand as it is.
+ */
+.tint {
+  --tint: var(--brand);
+}
+
+@supports (color: oklch(from red calc(0.45 + l * 0.2) c h)) {
+  .tint {
+    --tint: oklch(from var(--brand) calc(0.45 + l * 0.2) c h);
+  }
+
+  :root[data-theme="dark"] .tint {
+    --tint: oklch(from var(--brand) calc(0.68 + l * 0.2) c h);
+  }
+}

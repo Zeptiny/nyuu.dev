@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { cn } from "@/shared/lib/cn";
 
 /** The mono, spaced-out label above a title: "SITE RELIABILITY ENGINEER · TECHNOLOGY ENTHUSIAST". */
@@ -88,9 +88,18 @@ export function KeyValues({ items, className }: { items: DetailItem[]; className
 }
 
 /** A name in a hairline box, for tags and tools: the static form of a mono chip. */
-export function Tag({ className, children }: { className?: string; children: ReactNode }) {
+export function Tag({
+  className,
+  style,
+  children,
+}: {
+  className?: string;
+  style?: CSSProperties;
+  children: ReactNode;
+}) {
   return (
     <span
+      style={style}
       className={cn(
         "inline-flex items-center gap-[7px] border border-rule2 px-2.5 py-[5px] font-mono text-12 whitespace-nowrap",
         className,

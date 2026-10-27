@@ -28,7 +28,7 @@ export function Hero({ t }: { t: Dictionary }) {
             <a href="#contact">{t.hero.contact}</a>
           </Button>
         </div>
-        <div className="flex flex-wrap gap-x-[18px] gap-y-1.5 font-mono text-12 text-muted">
+        <div className="flex flex-wrap gap-x-[18px] gap-y-1.5 font-mono text-12 text-muted [&_a]:transition-colors [&_a]:hover:text-acc-ink [&_a]:hover:opacity-100">
           <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
           <span className="text-faint">·</span>
           <a href={GITHUB.url} target="_blank" rel="noopener noreferrer">

@@ -11,7 +11,10 @@ export function SiteFooter({ t }: { t: Dictionary }) {
           © {new Date().getFullYear()} · {t.footer.rights}
         </span>
       </div>
-      <nav aria-label={t.footer.label} className="flex flex-wrap gap-x-5">
+      <nav
+        aria-label={t.footer.label}
+        className="flex flex-wrap gap-x-5 [&_a]:transition-colors [&_a]:hover:text-acc-ink [&_a]:hover:opacity-100"
+      >
         <a href={GITHUB.url} target="_blank" rel="noopener noreferrer" className="py-3">
           {t.contact.github}
         </a>

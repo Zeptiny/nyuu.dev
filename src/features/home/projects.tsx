@@ -1,9 +1,10 @@
 import { ArrowUpRight } from "lucide-react";
 import { PROJECTS, type ProjectStatus } from "@/content/projects";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { KeyValues, PageSection, Tag } from "@/shared/components/page";
+import { KeyValues, PageSection } from "@/shared/components/page";
 import { cn } from "@/shared/lib/cn";
 import { Badge, type BadgeTone } from "@/shared/ui/badge";
+import { ToolTag } from "@/features/home/tool-tag";
 
 const STATUS_TONE: Record<ProjectStatus, BadgeTone> = {
   live: "success",
@@ -21,12 +22,14 @@ export function Projects({ t }: { t: Dictionary }) {
             <article
               key={project.id}
               className={cn(
-                "flex flex-col gap-3 border p-4",
+                "group flex flex-col gap-3 border p-4 transition-[border-color,box-shadow] hover:border-acc hover:shadow-[4px_4px_0_var(--acc-soft)]",
                 live ? "border-ink bg-panel" : "border-rule2 bg-transparent",
               )}
             >
               <div className="flex items-baseline justify-between gap-3">
-                <h3 className="m-0 text-16 font-medium">{project.name}</h3>
+                <h3 className="m-0 text-16 font-medium transition-colors group-hover:text-acc-ink">
+                  {project.name}
+                </h3>
                 <Badge tone={STATUS_TONE[project.status]} className="text-12 text-muted">
                   {t.projects.status[project.status]}
                 </Badge>
@@ -45,7 +48,7 @@ export function Projects({ t }: { t: Dictionary }) {
               <ul className="m-0 flex list-none flex-wrap gap-1.5 p-0">
                 {project.tags.map((tag) => (
                   <li key={tag}>
-                    <Tag className="px-2 py-[3px] text-11">{tag}</Tag>
+                    <ToolTag name={tag} className="px-2 py-[3px] text-11" />
                   </li>
                 ))}
               </ul>
@@ -75,10 +78,13 @@ function ExternalLink({ href, children }: { href: string; children: string }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-1 text-acc-ink"
+      className="group/link inline-flex items-center gap-1 text-acc-ink"
     >
       {children}
-      <ArrowUpRight aria-hidden className="size-3.5" />
+      <ArrowUpRight
+        aria-hidden
+        className="size-3.5 transition-transform motion-safe:group-hover/link:translate-x-px motion-safe:group-hover/link:-translate-y-px"
+      />
     </a>
   );
 }

@@ -9,9 +9,9 @@ export function Services({ t }: { t: Dictionary }) {
         {SERVICES.map((service, index) => {
           const text = t.services.items[service.id];
           return (
-            <article key={service.id} className="flex min-w-0 flex-col gap-3">
+            <article key={service.id} className="group flex min-w-0 flex-col gap-3">
               <figure className="m-0 flex flex-col gap-2">
-                <div className="aspect-[2/1] overflow-hidden border border-rule bg-panel">
+                <div className="aspect-[2/1] overflow-hidden border border-rule bg-panel transition-colors group-hover:border-acc">
                   {(["light", "dark"] as const).map((theme) => (
                     <img
                       key={theme}
@@ -21,7 +21,7 @@ export function Services({ t }: { t: Dictionary }) {
                       height={960}
                       loading="lazy"
                       decoding="async"
-                      className={`only-${theme} size-full object-cover object-top-left`}
+                      className={`only-${theme} size-full origin-top-left object-cover object-top-left transition-transform duration-300 motion-safe:group-hover:scale-[1.03]`}
                     />
                   ))}
                 </div>
@@ -31,7 +31,9 @@ export function Services({ t }: { t: Dictionary }) {
                 <span className="font-mono text-12 text-acc-ink">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <h3 className="m-0 text-20 font-medium">{text.title}</h3>
+                <h3 className="m-0 text-20 font-medium transition-colors group-hover:text-acc-ink">
+                  {text.title}
+                </h3>
               </div>
               <p className="m-0 text-14 leading-[1.5]">{text.lead}</p>
               <p className="m-0 text-13 leading-[1.6] text-pretty text-muted">{text.detail}</p>

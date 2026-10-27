@@ -1,3 +1,4 @@
+import type { ToolName } from "@/content/tools";
 import type { Dictionary } from "@/i18n/dictionaries";
 
 export type ProjectId = keyof Dictionary["projects"]["items"];
@@ -8,7 +9,7 @@ export type Project = {
   id: ProjectId;
   name: string;
   status: ProjectStatus;
-  tags: readonly string[];
+  tags: readonly ToolName[];
   /** Where it runs, if it does. */
   site?: string;
   github?: string;

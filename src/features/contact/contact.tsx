@@ -1,5 +1,5 @@
 import { Mail } from "lucide-react";
-import type { ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { MARKS } from "@/content/marks";
 import { DISCORD, EMAIL, GITHUB } from "@/content/site";
 import { ContactForm } from "@/features/contact/contact-form";
@@ -11,32 +11,44 @@ import { Logo } from "@/shared/ui/logo";
 /** Public, so it's set at build time (.env.production). */
 const SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || null;
 
+const ICON = "size-4 shrink-0 transition-colors group-hover:text-(--tint)";
+
 /** The direct ways in beside the form, with the persona pointing at it. */
 export function Contact({ language, t }: { language: Language; t: Dictionary }) {
-  const methods: { name: string; value: string; href: string; icon: ReactNode; action: string }[] =
-    [
-      {
-        name: t.contact.email,
-        value: EMAIL,
-        href: `mailto:${EMAIL}`,
-        icon: <Mail aria-hidden className="size-4 shrink-0" />,
-        action: t.contact.send,
-      },
-      {
-        name: t.contact.github,
-        value: GITHUB.handle,
-        href: GITHUB.url,
-        icon: <Logo paths={MARKS.github} />,
-        action: t.contact.open,
-      },
-      {
-        name: t.contact.discord,
-        value: DISCORD.handle,
-        href: DISCORD.url,
-        icon: <Logo paths={MARKS.discord} />,
-        action: t.contact.open,
-      },
-    ];
+  /** `brand` is the color the icon takes on under the pointer; the email's is the accent. */
+  const methods: {
+    name: string;
+    value: string;
+    href: string;
+    icon: ReactNode;
+    brand: string;
+    action: string;
+  }[] = [
+    {
+      name: t.contact.email,
+      value: EMAIL,
+      href: `mailto:${EMAIL}`,
+      icon: <Mail aria-hidden className={ICON} />,
+      brand: "var(--acc)",
+      action: t.contact.send,
+    },
+    {
+      name: t.contact.github,
+      value: GITHUB.handle,
+      href: GITHUB.url,
+      icon: <Logo paths={MARKS.github} className={ICON} />,
+      brand: "#181717",
+      action: t.contact.open,
+    },
+    {
+      name: t.contact.discord,
+      value: DISCORD.handle,
+      href: DISCORD.url,
+      icon: <Logo paths={MARKS.discord} className={ICON} />,
+      brand: "#5865F2",
+      action: t.contact.open,
+    },
+  ];
   const errors = Object.fromEntries(
     Object.entries(t.contact.form.errors).map(([code, message]) => [
       code,
@@ -73,7 +85,8 @@ export function Contact({ language, t }: { language: Language; t: Dictionary }) 
                 return (
                   <li
                     key={method.name}
-                    className="flex items-center gap-3 border-t border-rule py-3 text-13"
+                    style={{ "--brand": method.brand } as CSSProperties}
+                    className="group tint flex items-center gap-3 border-t border-rule py-3 text-13"
                   >
                     {method.icon}
                     <span className="flex min-w-0 flex-1 flex-col gap-0.5">
@@ -87,7 +100,13 @@ export function Contact({ language, t }: { language: Language; t: Dictionary }) 
                       aria-label={`${method.action}: ${method.name}`}
                       className="text-acc-ink"
                     >
-                      {method.action} →
+                      {method.action}{" "}
+                      <span
+                        aria-hidden
+                        className="inline-block transition-transform motion-safe:group-hover:translate-x-0.5"
+                      >
+                        →
+                      </span>
                     </a>
                   </li>
                 );

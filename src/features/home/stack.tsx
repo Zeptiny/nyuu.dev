@@ -1,8 +1,7 @@
-import { MARKS } from "@/content/marks";
 import { STACK } from "@/content/stack";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { PageSection, Tag } from "@/shared/components/page";
-import { Logo } from "@/shared/ui/logo";
+import { PageSection } from "@/shared/components/page";
+import { ToolTag } from "@/features/home/tool-tag";
 
 /** Each category on a hairline, its tools beside it; on a phone the tools go under the name. */
 export function Stack({ t }: { t: Dictionary }) {
@@ -16,11 +15,8 @@ export function Stack({ t }: { t: Dictionary }) {
               <span className="font-mono text-11 text-faint">{items.length}</span>
             </dt>
             <dd className="m-0 flex flex-wrap gap-1.5 pt-2.5 pb-3.5 md:border-t md:border-rule md:pt-3 md:pb-3">
-              {items.map((item) => (
-                <Tag key={item.name}>
-                  {item.mark && <Logo paths={MARKS[item.mark]} className="size-3.5" />}
-                  {item.name}
-                </Tag>
+              {items.map((name) => (
+                <ToolTag key={name} name={name} withMark />
               ))}
             </dd>
           </div>

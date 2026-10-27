@@ -3,7 +3,12 @@ import { languageInfo, type Language } from "@/i18n/languages";
 import { Brand } from "@/shared/components/brand";
 import { LanguageSelect } from "@/shared/components/language-select";
 import { ThemeToggle } from "@/shared/components/theme-toggle";
+import { cn } from "@/shared/lib/cn";
 import { Button } from "@/shared/ui/button";
+
+/** A section link: muted until the pointer is on it, then in ink over an accent underline. */
+const LINK =
+  "py-3 transition-colors decoration-acc decoration-2 underline-offset-[6px] hover:text-ink hover:underline hover:opacity-100";
 
 /**
  * The wordmark home, the page's sections, and the language, theme and the way to get in touch. Below
@@ -26,12 +31,12 @@ export function SiteHeader({ language, t }: { language: Language; t: Dictionary 
         className="flex flex-wrap gap-x-4 text-14 text-muted max-lg:order-last max-lg:w-full sm:gap-x-[22px]"
       >
         {sections.map((section) => (
-          <a key={section.id} href={`#${section.id}`} className="py-3">
+          <a key={section.id} href={`#${section.id}`} className={LINK}>
             {section.label}
           </a>
         ))}
         {/* On a phone the button doesn't fit beside the menus, so the way in joins the sections. */}
-        <a href="#contact" className="py-3 sm:hidden">
+        <a href="#contact" className={cn(LINK, "sm:hidden")}>
           {t.nav.contact}
         </a>
       </nav>
