@@ -15,7 +15,7 @@ export type Education = {
   year: number;
   status: "ongoing" | "completed";
   duration?: { value: number; unit: "hours" | "years" };
-  /** A PDF under public/education. */
+  /** A PDF under public/education/certificates, offered for download. Only certifications have one. */
   certificate?: string;
 };
 
@@ -44,7 +44,6 @@ export const EDUCATION: readonly Education[] = [
     year: 2025,
     status: "completed",
     duration: { value: 41.5, unit: "hours" },
-    certificate: "/education/courses/certificates/ltc.pdf",
   },
   {
     id: "msa",
@@ -53,7 +52,6 @@ export const EDUCATION: readonly Education[] = [
     year: 2025,
     status: "completed",
     duration: { value: 5.5, unit: "hours" },
-    certificate: "/education/courses/certificates/msa.pdf",
   },
   {
     id: "zabbix",
@@ -62,7 +60,6 @@ export const EDUCATION: readonly Education[] = [
     year: 2025,
     status: "completed",
     duration: { value: 7.5, unit: "hours" },
-    certificate: "/education/courses/certificates/zabbix.pdf",
   },
   {
     id: "kubernetes",
@@ -71,7 +68,6 @@ export const EDUCATION: readonly Education[] = [
     year: 2025,
     status: "completed",
     duration: { value: 6.5, unit: "hours" },
-    certificate: "/education/courses/certificates/kubernetes.pdf",
   },
   {
     id: "backend",
@@ -80,7 +76,6 @@ export const EDUCATION: readonly Education[] = [
     year: 2025,
     status: "completed",
     duration: { value: 19, unit: "hours" },
-    certificate: "/education/courses/certificates/fbe.pdf",
   },
   {
     id: "ansible",
@@ -89,7 +84,6 @@ export const EDUCATION: readonly Education[] = [
     year: 2025,
     status: "completed",
     duration: { value: 4, unit: "hours" },
-    certificate: "/education/courses/certificates/ansible.pdf",
   },
   {
     id: "architecture",
@@ -98,7 +92,6 @@ export const EDUCATION: readonly Education[] = [
     year: 2025,
     status: "completed",
     duration: { value: 8, unit: "hours" },
-    certificate: "/education/courses/certificates/sadmlss.pdf",
   },
   {
     id: "cloud",
@@ -107,7 +100,6 @@ export const EDUCATION: readonly Education[] = [
     year: 2025,
     status: "completed",
     duration: { value: 5, unit: "hours" },
-    certificate: "/education/courses/certificates/cca.pdf",
   },
   {
     id: "aws",

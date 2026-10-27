@@ -1,7 +1,7 @@
 "use client";
 
 import { Download } from "lucide-react";
-import { useState } from "react";
+import { type CSSProperties, useState } from "react";
 import { EDUCATION_KINDS, type EducationCategory, type EducationKind } from "@/content/education";
 import { Chip } from "@/shared/components/chip";
 import { Segmented } from "@/shared/components/segmented";
@@ -29,8 +29,12 @@ type Labels = {
   empty: string;
 };
 
-/** The table's columns from md up; below that each row folds into two lines. */
-const COLUMNS = "md:grid-cols-[minmax(0,1fr)_170px_72px_44px_120px_96px]";
+/**
+ * The table's columns from md up, set as --columns on the table. Duration, status and certificate
+ * show only for a kind with any, so the certifications don't carry two empty columns and nothing else
+ * an empty download column. Below md each row folds into two lines.
+ */
+const COLUMNS = "md:grid-cols-(--columns)";
 
 /** Every entry of one kind, narrowed to a category when the kind spans more than one. */
 export function EducationExplorer({ rows, labels }: { rows: EducationRow[]; labels: Labels }) {
@@ -41,6 +45,21 @@ export function EducationExplorer({ rows, labels }: { rows: EducationRow[]; labe
   const categories = [...new Set(ofKind.map((row) => row.category))];
   const shown = ofKind.filter((row) => category === null || row.category === category);
   const count = (of: EducationKind) => rows.filter((row) => row.kind === of).length;
+  const has = {
+    duration: ofKind.some((row) => row.duration),
+    status: ofKind.some((row) => row.status),
+    certificate: ofKind.some((row) => row.certificate),
+  };
+  const columns = [
+    "minmax(0,1fr)",
+    "170px",
+    has.duration && "72px",
+    "44px",
+    has.status && "120px",
+    has.certificate && "96px",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <div className="flex min-w-0 flex-col gap-4">
@@ -85,17 +104,17 @@ export function EducationExplorer({ rows, labels }: { rows: EducationRow[]; labe
         )}
       </div>
 
-      <div>
+      <div style={{ "--columns": columns } as CSSProperties}>
         <div
           aria-hidden
           className={`grid gap-x-4 border-b border-rule py-1.5 font-mono text-11 tracking-head text-faint uppercase max-md:hidden ${COLUMNS}`}
         >
           <span>{labels.columns.title}</span>
           <span>{labels.columns.category}</span>
-          <span className="text-right">{labels.columns.duration}</span>
+          {has.duration && <span className="text-right">{labels.columns.duration}</span>}
           <span>{labels.columns.year}</span>
-          <span>{labels.columns.status}</span>
-          <span className="text-right">{labels.columns.certificate}</span>
+          {has.status && <span>{labels.columns.status}</span>}
+          {has.certificate && <span className="text-right">{labels.columns.certificate}</span>}
         </div>
         {shown.length === 0 ? (
           <p className="m-0 border-b border-rule py-7 text-13 text-muted">{labels.empty}</p>
@@ -113,22 +132,28 @@ export function EducationExplorer({ rows, labels }: { rows: EducationRow[]; labe
                   </p>
                 </div>
                 <span className="text-13 text-muted max-md:hidden">{row.categoryLabel}</span>
-                <span className="text-right font-mono text-13 max-md:hidden">
-                  {row.duration ?? <span className="text-faint">—</span>}
-                </span>
+                {has.duration && (
+                  <span className="text-right font-mono text-13 max-md:hidden">
+                    {row.duration ?? <span className="text-faint">—</span>}
+                  </span>
+                )}
                 <span className="font-mono text-13 max-md:hidden">{row.year}</span>
-                <span className="text-13 whitespace-nowrap">
-                  {row.status && (
-                    <Badge tone={row.status === "ongoing" ? "accent" : "success"}>
-                      {labels.status[row.status]}
-                    </Badge>
-                  )}
-                </span>
-                <span className="text-right max-md:hidden">
-                  {row.certificate && (
-                    <CertificateLink {...row.certificate} text={labels.download} />
-                  )}
-                </span>
+                {has.status && (
+                  <span className="text-13 whitespace-nowrap">
+                    {row.status && (
+                      <Badge tone={row.status === "ongoing" ? "accent" : "success"}>
+                        {labels.status[row.status]}
+                      </Badge>
+                    )}
+                  </span>
+                )}
+                {has.certificate && (
+                  <span className="text-right max-md:hidden">
+                    {row.certificate && (
+                      <CertificateLink {...row.certificate} text={labels.download} />
+                    )}
+                  </span>
+                )}
                 {/* Below md: category, duration and year on one mono line, the download beside it. */}
                 <div className="col-span-2 flex flex-wrap items-baseline justify-between gap-x-4 font-mono text-12 text-muted md:hidden">
                   <span>
