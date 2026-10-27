@@ -1,0 +1,238 @@
+{
+  "meta": {
+    "title": "nyuu.dev — SRE i infraestructura",
+    "description": "Enginyer de fiabilitat de llocs (SRE) especialitzat en allotjament gestionat, Docker, Kubernetes i infraestructura Linux."
+  },
+  "nav": {
+    "label": "Seccions",
+    "home": "nyuu.dev, inici",
+    "services": "Serveis",
+    "projects": "Projectes",
+    "stack": "Tecnologies",
+    "education": "Educació",
+    "contact": "Contacta"
+  },
+  "theme": {
+    "system": "Sistema",
+    "light": "Clar",
+    "dark": "Fosc",
+    "switchTo": "Canvia al tema {mode}"
+  },
+  "language": {
+    "label": "Idioma"
+  },
+  "hero": {
+    "eyebrow": "Enginyer de fiabilitat (SRE) · Entusiasta de la tecnologia",
+    "title": "Howdy hey!",
+    "body": "Sóc Nyuu, un estudiant de Ciències de la Computació apassionat per aprendre coses noves cada dia. M’encarrego d’allotjament gestionat i munto infraestructura amb Linux, Docker i Kubernetes.",
+    "seeServices": "Veure serveis",
+    "contact": "Contacta",
+    "personaAlt": "Nyuu, personatge amb orelles de gat i barret negre, saludant",
+    "now": {
+      "label": "Ara",
+      "studying": "Estudiant",
+      "learning": "Aprenent",
+      "building": "Construint",
+      "certified": "Certificació",
+      "since": "des de {year}"
+    }
+  },
+  "services": {
+    "title": "Serveis",
+    "note": "Què puc fer per tu",
+    "items": {
+      "hosting": {
+        "title": "Allotjament gestionat",
+        "lead": "Allotjament fiable i sense complicacions, on me n’ocupo de tot per tu.",
+        "detail": "Gaudeix d’un allotjament tranquil amb la gestió completa inclosa. M’encarrego de la configuració del servidor, les actualitzacions, la seguretat i el monitoratge perquè les teves aplicacions i llocs web funcionin al millor nivell, ja sigui en bare metal, entorns virtualitzats o plataformes al núvol. Tindràs el rendiment i l’estabilitat que necessites sense l’estrès del manteniment."
+      },
+      "setup": {
+        "title": "Instal·lació i configuració",
+        "lead": "Posa la teva infraestructura en marxa de la manera correcta, des del principi.",
+        "detail": "Des de servidors Linux fins a stacks Docker i clústers Kubernetes, m’asseguro que tot estigui ben instal·lat, configurat i a punt per fer servir. Tant si configures un entorn nou com si en migres un d’existent, garanteixo que cada component funcioni en harmonia: segur, estable i optimitzat per a les teves necessitats."
+      },
+      "backups": {
+        "title": "Còpies de seguretat i recuperació",
+        "lead": "Mantén les teves dades segures amb solucions fiables de còpia de seguretat i recuperació.",
+        "detail": "Dissenyo i desplego estratègies de còpia de seguretat que protegeixen les teves dades contra pèrdues, temps d’inactivitat o desastres. Amb eines automatitzades i bones pràctiques, garanteixo que els teus fitxers, bases de dades i configuracions estiguin emmagatzemats de forma segura i es puguin restaurar ràpidament quan calgui, oferint tranquil·litat i continuïtat al teu negoci."
+      },
+      "custom": {
+        "title": "Solucions personalitzades",
+        "lead": "Solucions a mida, construïdes al voltant dels teus objectius i la teva infraestructura.",
+        "detail": "Cada projecte és únic, i de vegades les eines estàndard no són suficients. Creo configuracions i automatitzacions personalitzades que s’adapten al teu flux de treball, des d’aplicacions amb Docker i integracions al núvol fins a dashboards de monitoratge o backends d’emmagatzematge. Sigui quin sigui el teu repte, t’ajudaré a dissenyar una solució eficient, escalable i fàcil de gestionar."
+      }
+    }
+  },
+  "projects": {
+    "title": "Projectes",
+    "note": "Alguns dels meus treballs recents",
+    "status": {
+      "live": "En línia",
+      "development": "En desenvolupament",
+      "discontinued": "Discontinuat"
+    },
+    "github": "Veure a GitHub",
+    "facts": {
+      "users": "Usuaris",
+      "servers": "Servidors de joc"
+    },
+    "items": {
+      "whiskers": {
+        "description": "Una plataforma que ven un mes de models oberts a través d’una sola API compatible amb OpenAI: un sol pagament, sense renovació automàtica i amb el límit sempre a la vista."
+      },
+      "syncr": {
+        "description": "Aplicació web de codi obert per sincronitzar, moure i copiar fitxers entre serveis d’emmagatzematge remots, compatible amb Amazon S3 i SFTP. Té tasques programades, notificacions, suport multiusuari i funciona totalment autoallotjada amb Docker."
+      },
+      "tryxia": {
+        "description": "Un servei gratuït d’allotjament de Minecraft, creat com a projecte d’aprenentatge. Fet per adquirir experiència pràctica amb l’allotjament, l’administració i la resolució de problemes de servidors en escenaris reals."
+      }
+    }
+  },
+  "stack": {
+    "title": "Stack tecnològic",
+    "note": "Tecnologies i eines amb les quals treballo",
+    "categories": {
+      "languages": "Llenguatges",
+      "cloud": "Plataformes al núvol",
+      "containers": "Contenidors",
+      "databases": "Bases de dades",
+      "monitoring": "Monitoratge i registre",
+      "iac": "Infraestructura com a codi"
+    }
+  },
+  "education": {
+    "title": "Educació i cursos",
+    "note": "El meu camí d’aprenentatge",
+    "stats": {
+      "completed": "Cursos completats",
+      "ongoing": "+{n} en curs",
+      "hours": "Hores de formació",
+      "hoursNote": "als cursos completats",
+      "certifications": "Certificacions"
+    },
+    "kinds": {
+      "label": "Tipus",
+      "formal": "Educació formal",
+      "course": "Cursos",
+      "certificate": "Certificats"
+    },
+    "categories": {
+      "label": "Categoria",
+      "all": "Tots",
+      "university": "Universitat",
+      "devops": "DevOps",
+      "architecture": "Arquitectura de sistemes",
+      "monitoring": "Monitoratge i registre",
+      "automation": "Automatització"
+    },
+    "columns": {
+      "title": "Títol",
+      "category": "Categoria",
+      "duration": "Durada",
+      "year": "Any",
+      "status": "Estat",
+      "certificate": "Certificat"
+    },
+    "status": {
+      "ongoing": "En curs",
+      "completed": "Completat"
+    },
+    "download": "PDF",
+    "downloadLabel": "Descarrega el certificat de {title}",
+    "duration": {
+      "hours": "{n} h",
+      "years": {
+        "one": "{n} any",
+        "other": "{n} anys"
+      }
+    },
+    "empty": "Encara no hi ha res aquí.",
+    "items": {
+      "cs": {
+        "title": "Grau en Ciències de la Computació",
+        "description": "Grau en Ciències de la Computació centrat en enginyeria de programari i algorismes."
+      },
+      "cka": {
+        "title": "Administrador Certificat de Kubernetes (CKA)",
+        "description": "Preparació per a l’examen de certificació CKA."
+      },
+      "ltc": {
+        "title": "Curs de Formació en Linux",
+        "description": "Formació completa en administració de sistemes Linux."
+      },
+      "msa": {
+        "title": "Arquitectura de Microserveis",
+        "description": "Disseny i implementació de microserveis."
+      },
+      "zabbix": {
+        "title": "Zabbix - Monitoratge de Xarxa i Aplicacions",
+        "description": "Monitoratge de xarxes i aplicacions amb Zabbix."
+      },
+      "kubernetes": {
+        "title": "Fonaments de Kubernetes",
+        "description": "Introducció a Kubernetes per a l’orquestració de contenidors."
+      },
+      "backend": {
+        "title": "Fonaments d’Enginyeria Backend",
+        "description": "Fonaments de l’enginyeria backend i el desenvolupament d’APIs."
+      },
+      "ansible": {
+        "title": "Ansible Avançat",
+        "description": "Temes avançats d’Ansible per a l’automatització i la gestió de configuracions."
+      },
+      "architecture": {
+        "title": "Arquitectura de Programari i Disseny de Sistemes a Gran Escala",
+        "description": "Disseny i arquitectura de sistemes de programari a gran escala."
+      },
+      "cloud": {
+        "title": "Els Patrons Complets d’Arquitectura de Programari al Núvol",
+        "description": "Curs detallat sobre patrons i bones pràctiques d’arquitectura en computació al núvol."
+      },
+      "aws": {
+        "title": "AWS Certified Cloud Practitioner",
+        "description": "Certificació AWS Certified Cloud Practitioner, que valida coneixements fonamentals dels serveis d’AWS i les seves bones pràctiques."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contacta",
+    "note": "No dubtis a contactar-me a través de qualsevol d’aquestes plataformes.",
+    "methods": "Mètodes de contacte",
+    "email": "Correu electrònic",
+    "github": "GitHub",
+    "discord": "Discord",
+    "send": "Envia",
+    "open": "Obre",
+    "personaAlt": "Nyuu assenyalant el formulari de contacte",
+    "form": {
+      "name": "Nom",
+      "email": "Correu electrònic",
+      "emailPlaceholder": "tu@exemple.com",
+      "subject": "Assumpte",
+      "message": "Missatge",
+      "messagePlaceholder": "El teu missatge aquí…",
+      "submit": "Envia el missatge",
+      "sent": "El teu missatge s’ha enviat. Et respondré tan aviat com pugui.",
+      "errors": {
+        "invalid": "Revisa els camps i torna-ho a provar.",
+        "captcha": "Completa la verificació de sota i torna a enviar.",
+        "captchaFailed": "La verificació ha fallat. Torna-ho a provar.",
+        "captchaPending": "La verificació encara està en curs. Espera un moment i torna a enviar.",
+        "captchaLoad": "La verificació no s’ha carregat. Recarrega la pàgina o escriu-me a {email}.",
+        "unavailable": "El formulari no funciona ara mateix. Escriu-me a {email}.",
+        "unexpected": "Alguna cosa ha fallat en l’enviament. Torna-ho a provar."
+      }
+    }
+  },
+  "footer": {
+    "label": "En altres llocs",
+    "rights": "Alguns drets reservats"
+  },
+  "email": {
+    "subject": "Hem rebut el teu missatge",
+    "greeting": "Hola, {name},",
+    "body": "Gràcies per posar-te en contacte! He rebut el teu missatge i et respondré tan aviat com sigui possible.",
+    "yourMessage": "El teu missatge:",
+    "signoff": "Salutacions cordials,"
+  }
+}

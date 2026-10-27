@@ -1,0 +1,9 @@
+.next
+.open-next
+.wrangler
+package-lock.json
+cloudflare-env.d.ts
+public
+*.md
+wrangler.jsonc
+.vscode
