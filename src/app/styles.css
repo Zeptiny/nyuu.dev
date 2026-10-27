@@ -123,9 +123,16 @@
     color: var(--ink);
     font-size: 14px;
     line-height: normal;
+    /* The arrow over text that can't be edited; only the form's fields show the text cursor. */
+    cursor: default;
     transition:
       background 0.2s,
       color 0.2s;
+  }
+
+  input,
+  textarea {
+    cursor: text;
   }
 
   a {
