@@ -7,13 +7,13 @@ import type { Metadata, Viewport } from "next";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { BOOT_SCRIPT, BOOT_STYLE } from "@/app/boot-script";
-import { SITE_NAME, SITE_URL } from "@/content/site";
 import { getDictionary } from "@/i18n/dictionaries";
 import { isLanguage, LANGUAGES, languageInfo } from "@/i18n/languages";
+import { pageMetadata } from "@/i18n/metadata";
 
 type Params = { params: Promise<{ lang: string }> };
 
-// Each language is one page, rendered at build time; any other code is a 404.
+// Each language's pages are rendered at build time; any other code is a 404.
 export const dynamicParams = false;
 
 export function generateStaticParams() {
@@ -26,32 +26,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { lang } = await params;
   if (!isLanguage(lang)) return {};
   const t = getDictionary(lang);
-  const info = languageInfo(lang);
-  return {
-    metadataBase: new URL(SITE_URL),
-    title: t.meta.title,
-    description: t.meta.description,
-    alternates: {
-      canonical: info.path,
-      languages: {
-        ...Object.fromEntries(LANGUAGES.map((language) => [language.tag, language.path])),
-        "x-default": "/",
-      },
-    },
-    openGraph: {
-      title: t.meta.title,
-      description: t.meta.description,
-      url: info.path,
-      siteName: SITE_NAME,
-      type: "website",
-      locale: info.openGraph,
-      alternateLocale: LANGUAGES.filter((language) => language.code !== lang).map(
-        (language) => language.openGraph,
-      ),
-    },
-    twitter: { card: "summary", title: t.meta.title, description: t.meta.description },
-    icons: { icon: { url: "/favicon.svg", type: "image/svg+xml" } },
-  };
+  return pageMetadata(lang, { title: t.meta.title, description: t.meta.description });
 }
 
 export default async function RootLayout({ children, params }: Params & { children: ReactNode }) {

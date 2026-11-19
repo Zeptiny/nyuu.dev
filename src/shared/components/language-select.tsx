@@ -1,7 +1,7 @@
 "use client";
 
 import { Languages } from "lucide-react";
-import { isLanguage, LANGUAGES, languageInfo, type Language } from "@/i18n/languages";
+import { isLanguage, LANGUAGES, localePath, type Language } from "@/i18n/languages";
 import { LANGUAGE_KEY } from "@/shared/lib/storage-keys";
 import {
   DropdownMenu,
@@ -11,18 +11,32 @@ import {
   DropdownMenuTrigger,
 } from "@/shared/ui/dropdown-menu";
 
-/** Remembers the choice, so the root address opens in it next time (app/boot-script.ts). */
-function choose(language: Language) {
+/**
+ * Opens the same page in the language, and remembers the choice, so the root address opens in it
+ * next time (app/boot-script.ts).
+ */
+function choose(language: Language, path: string) {
   try {
     localStorage.setItem(LANGUAGE_KEY, language);
   } catch {
     // Private mode: the choice lasts for this visit only.
   }
-  window.location.assign(languageInfo(language).path + window.location.hash);
+  window.location.assign(localePath(language, path) + window.location.hash);
 }
 
-/** The language menu: the current language's code, and every language by its own name. */
-export function LanguageSelect({ current, label }: { current: Language; label: string }) {
+/**
+ * The language menu: the current language's code, and every language by its own name. `path` is the
+ * page within a language, so a choice stays on it.
+ */
+export function LanguageSelect({
+  current,
+  path,
+  label,
+}: {
+  current: Language;
+  path: string;
+  label: string;
+}) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
@@ -36,7 +50,7 @@ export function LanguageSelect({ current, label }: { current: Language; label: s
         <DropdownMenuRadioGroup
           value={current}
           onValueChange={(next) => {
-            if (isLanguage(next) && next !== current) choose(next);
+            if (isLanguage(next) && next !== current) choose(next, path);
           }}
         >
           {LANGUAGES.map(({ code, name, tag }) => (

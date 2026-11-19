@@ -1,8 +1,8 @@
 # nyuu.dev
 
-The personal site: services, projects, the tech stack, education, and a contact form. One page per
-language (English at `/`, Portuguese at `/pt`, Catalan at `/ca`), rendered at build time and served
-from a Cloudflare Worker. It uses the **Ledger** design of the Whiskers dashboard
+The personal site: services, projects, the tech stack, education, and a contact form, plus a page
+per project. Every page comes in each language (English at `/`, Portuguese at `/pt`, Catalan at
+`/ca`), rendered at build time and served from a Cloudflare Worker. It uses the **Ledger** design of the Whiskers dashboard
 (`inference_frontend`): the same tokens, type scale, and primitives.
 
 ## Running locally
@@ -20,20 +20,25 @@ OpenNext and runs it in workerd, as production does.
 
 ```text
 src/
-  app/          the [lang] layout and page, the contact route, sitemap, robots, the 404,
-                styles.css (the Ledger tokens) and the boot script
+  app/          the [lang] layout, the home page and projects/[project], the contact route,
+                sitemap, robots, the 404, styles.css (the Ledger tokens) and the boot script
   content/      what the page lists: services, projects, stack, education, contact details,
                 and the brand marks (Simple Icons)
   locales/      every text, one file per language; en.json is the shape the others must match
-  i18n/         the languages, their addresses, and filling templates
-  features/     the page's sections; contact/ and education/ hold the interactive parts
+  i18n/         the languages, their addresses, each page's metadata, and filling templates
+  features/     the home page's sections, the project page and card (projects/); contact/ and
+                education/ hold the interactive parts
   shared/       ui/ primitives and components/ ported from inference_frontend, lib/ (cn, theme)
-public/         persona drawings, service screenshots (one per theme), certificates
+public/         persona drawings, service and project screenshots (one per theme), certificates
 ```
 
 - **Adding a course, project, or tool:** add it to `src/content/`, and its text under the same id in
   each file in `src/locales/`. A key missing from Portuguese or Catalan fails the type check. The
   education totals and the hero's "Now" panel are counted from the lists.
+- **A project's page** (`/projects/{id}`) is built from its entry in `src/content/projects.ts` and its
+  text under `projects.items.{id}` in the locales: the lead, features, how it's built, and a caption
+  per screenshot. The screenshots are 1440×900 WebP files in both themes,
+  `public/projects/{id}/{shot}-light.webp` and `-dark.webp`; the first one leads the page.
 - **Text people read** is never written in a component; it comes from the locales. Only the client
   components (theme, language, education filters, contact form) run in the browser, and they get
   their strings as props.
@@ -42,7 +47,8 @@ public/         persona drawings, service screenshots (one per theme), certifica
 
 ## How the page works
 
-- `next.config.ts` rewrites `/` to `/en` and redirects `/en` to `/`, so English has no prefix.
+- `next.config.ts` rewrites `/` and `/projects/*` to `/en/…` and redirects `/en/…` back, so English
+  has no prefix.
 - `src/app/boot-script.ts` runs before the first paint: it applies the saved theme (or the
   system's), and at `/` it sends a visitor who chose, or whose browser prefers, Portuguese or
   Catalan to that page. The choices are kept in `localStorage` under the same keys as before

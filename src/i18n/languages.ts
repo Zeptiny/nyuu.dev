@@ -28,3 +28,13 @@ export function isLanguage(value: unknown): value is Language {
 export function languageInfo(code: Language): LanguageInfo {
   return LANGUAGES.find((language) => language.code === code) ?? LANGUAGES[0];
 }
+
+/**
+ * A page's address in a language: `path` is the page within the language ("" for the home page,
+ * "/projects/syncr"), put after the language's prefix, which English doesn't have.
+ */
+export function localePath(code: Language, path = ""): string {
+  const base = languageInfo(code).path;
+  if (base === "/") return path || "/";
+  return base + path;
+}

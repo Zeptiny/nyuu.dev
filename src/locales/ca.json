@@ -68,23 +68,112 @@
     "note": "Alguns dels meus treballs recents",
     "status": {
       "live": "En línia",
-      "development": "En desenvolupament",
-      "discontinued": "Discontinuat"
+      "development": "En desenvolupament"
     },
     "github": "Veure a GitHub",
-    "facts": {
-      "users": "Usuaris",
-      "servers": "Servidors de joc"
+    "page": {
+      "back": "Tots els projectes",
+      "summary": "D’un cop d’ull",
+      "status": "Estat",
+      "kind": "Tipus",
+      "since": "Des de",
+      "site": "Lloc web",
+      "source": "Codi",
+      "visit": "Visita {site}",
+      "features": "Què fa",
+      "screenshots": "Captures de pantalla",
+      "screenshotsNote": "En el tema d’aquesta pàgina, clar o fosc.",
+      "built": "Com està fet",
+      "other": "Un altre projecte"
     },
     "items": {
       "whiskers": {
-        "description": "Una plataforma que ven un mes de models oberts a través d’una sola API compatible amb OpenAI: un sol pagament, sense renovació automàtica i amb el límit sempre a la vista."
+        "description": "Models oberts per a agents de programació: Claude Code, Codex, OpenCode i qualsevol SDK d’OpenAI s’hi connecten a través d’una sola API compatible amb OpenAI i Anthropic. Un sol pagament dona diverses vegades el seu preu en ús d’API oficial, i res no es renova sol.",
+        "kind": "Plataforma allotjada",
+        "eyebrow": "Agents de programació · Models oberts",
+        "lead": "Whiskers ven models oberts per a agents de programació. Claude Code, Codex, OpenCode i qualsevol cosa amb un SDK d’OpenAI es connecten a una sola API que parla els formats d’OpenAI i d’Anthropic. Un pla és un sol pagament per a un nombre fix de dies que dona diverses vegades el seu preu en ús d’API oficial, i res no es renova sol.",
+        "featuresNote": "Per a qui hi programa, i per a qui el gestiona.",
+        "features": {
+          "agents": {
+            "title": "Qualsevol agent de programació",
+            "text": "Claude Code parla l’API Messages d’Anthropic, Codex l’API Responses d’OpenAI, i OpenCode, Crush, Aider, pi, Cline, Zed i la resta fan servir chat completions. Una sola ordre en configura sis, i conserva la configuració que ja hi havia."
+          },
+          "payment": {
+            "title": "Un sol pagament, sense renovació automàtica",
+            "text": "Un pla dura els seus dies des del pagament i després s’acaba: no s’acumula res i no es cobra res. Els crèdits de prepagament cobreixen les peticions directament i no caduquen mai. El pagament es fa amb Stripe o Mercado Pago."
+          },
+          "windows": {
+            "title": "Tres finestres, un sol límit",
+            "text": "Una finestra de 5 hores, una de setmanal i una de mensual són tres vistes del mateix límit, perquè una tarda atrafegada no gasti tot el mes. Una petició s’executa quan totes les finestres la poden cobrir."
+          },
+          "value": {
+            "title": "Comparat amb les API oficials",
+            "text": "Cada oferta mostra què costarien els seus crèdits als preus d’API dels mateixos creadors dels models, i la consola mostra què ha costat realment cada petició."
+          },
+          "docs": {
+            "title": "Documentació per a persones i agents",
+            "text": "La pàgina d’inici i la documentació es prerenderitzen en anglès i portuguès, en HTML per als cercadors i les previsualitzacions d’enllaços i en Markdown per als agents. La guia de cada agent es construeix a partir del catàleg en directe."
+          },
+          "operations": {
+            "title": "Gestionat des d’una sola consola",
+            "text": "Els administradors hi donen d’alta proveïdors i models amb comprovacions d’estat i un interruptor automàtic (circuit breaker), i gestionen cupons, referits, tiquets de suport i avisos per a tot el lloc."
+          }
+        },
+        "built": [
+          "El backend és un monòlit modular amb Python 3.13, FastAPI, SQLAlchemy 2 i PostgreSQL, l’única infraestructura imprescindible. Una sola imatge s’executa com a dos processos: l’API, que serveix totes les rutes HTTP i transmet les respostes a mesura que arriben, i un worker per a l’escombrat, els agregats d’ús, els webhooks de pagament i la conciliació. Cada mòdul exposa una sola interfície pública, i els contractes d’importació en mantenen els límits.",
+          "El tauler és React 19 i TypeScript sobre Vite, amb TanStack Router i Query i Tailwind, amb el disseny Ledger que comparteix aquest lloc. Els tipus de l’API del tauler es generen a partir de l’esquema OpenAPI del backend i s’hi comproven."
+        ],
+        "shots": {
+          "landing": "La pàgina d’inici: què dona un pla als preus de les API oficials, i l’ordre de configuració de cada agent",
+          "agents": "Els agents de programació compatibles, i l’API que parla cadascun",
+          "api": "Passar codi de l’SDK d’OpenAI: només canvien l’URL base i la clau",
+          "windows": "Les tres finestres d’ús, al costat de la consola a mig pla",
+          "models": "Què dona un pla de cada model, amb el context, les funcions i els preus"
+        }
       },
       "syncr": {
-        "description": "Aplicació web de codi obert per sincronitzar, moure i copiar fitxers entre serveis d’emmagatzematge remots, compatible amb Amazon S3 i SFTP. Té tasques programades, notificacions, suport multiusuari i funciona totalment autoallotjada amb Docker."
-      },
-      "tryxia": {
-        "description": "Un servei gratuït d’allotjament de Minecraft, creat com a projecte d’aprenentatge. Fet per adquirir experiència pràctica amb l’allotjament, l’administració i la resolució de problemes de servidors en escenaris reals."
+        "description": "Un gestor autoallotjat de transferències amb rclone i còpies de seguretat amb restic. Un controlador amb interfície web dirigeix workers a Linux i Windows: executa tasques a mà o programades, segueix-les en directe, navega i restaura instantànies, i rep un avís quan alguna cosa falla.",
+        "kind": "Eina autoallotjada",
+        "eyebrow": "Autoallotjat · Còpies i transferències",
+        "lead": "Syncr gestiona transferències amb rclone i còpies de seguretat amb restic des d’un sol lloc. Un controlador amb interfície web dirigeix tants workers com vulguis als teus servidors i ordinadors, Linux o Windows: executa tasques a mà o programades, segueix-les en directe, navega per fitxers i instantànies, i rep un avís quan alguna cosa falla.",
+        "featuresNote": "Transferències, còpies de seguretat i les màquines que les executen, des d’una sola interfície web.",
+        "features": {
+          "transfers": {
+            "title": "Transferències amb rclone",
+            "text": "Copia, sincronitza o mou entre S3 i compatibles, SFTP, Backblaze B2, WebDAV i les carpetes del mateix worker, amb el progrés, la velocitat i el temps restant en directe. La sincronització bidireccional manté una carpeta igual a diverses màquines, i atura una execució que buidaria un dels costats."
+          },
+          "backups": {
+            "title": "Còpies de seguretat amb restic",
+            "text": "Crea o connecta repositoris a qualsevol remot, fes còpia de les carpetes d’un worker o d’una carpeta d’un remot, i aplica la retenció. Navega per les instantànies, restaura’n una de sencera o només els fitxers triats, cerca un fitxer a totes les instantànies i compara’n dues."
+          },
+          "schedules": {
+            "title": "Programacions",
+            "text": "Expressions cron amb zones horàries i regles d’horari d’estiu, en un worker concret o en el menys ocupat amb una etiqueta, amb polítiques per a execucions perdudes i encavalcades."
+          },
+          "workers": {
+            "title": "Workers a qualsevol lloc",
+            "text": "Els workers s’executen com a servei a Linux i Windows, es connecten al controlador o deixen que ell s’hi connecti amb TLS fixat (pinned), i s’actualitzen in situ amb reversió automàtica."
+          },
+          "notify": {
+            "title": "Hooks i notificacions",
+            "text": "Executa ordres preparades al worker abans i després d’una tasca, com bolcar una base de dades o aturar contenidors. Les notificacions per Discord, correu i webhooks signats es desen abans d’enviar-les i es reintenten."
+          },
+          "security": {
+            "title": "Segur i multiusuari",
+            "text": "Les credencials es xifren en repòs i només s’envien al worker que executa la tasca, que només pot tocar les carpetes que permet. Cada compte manté privats els seus remots i programacions, amb testimonis d’API personals per a tot el que fa la interfície."
+          }
+        },
+        "built": [
+          "Syncr 2 és una reescriptura en Go de la primera versió, feta amb Django. Un controlador desa l’estat a PostgreSQL, serveix una API Connect i incorpora la interfície en React i TypeScript; els workers executen versions fixades de rclone i restic com a processos fills i informen del progrés mentre treballen.",
+          "El codi segueix ports i adaptadors, amb les capes imposades pel linter, de manera que els casos d’ús mai no toquen PostgreSQL ni la xarxa directament. La CI s’executa a Linux i Windows, amb proves d’integració contra PostgreSQL, MinIO i SFTP reals, i el controlador es distribueix com a imatge Docker o com un sol binari."
+        ],
+        "shots": {
+          "dashboard": "El tauler: taxa d’èxit, activitat per dia, properes execucions i estat dels workers",
+          "job-live": "Una còpia de seguretat en curs amb el gràfic de rendiment en directe",
+          "snapshot-browser": "Navegant per una instantània de restic amb carpetes seleccionades per restaurar",
+          "schedule": "Una programació amb les properes execucions, la configuració i l’historial",
+          "workers": "Workers a Linux i Windows amb l’estat, el mode de connexió, les etiquetes i les versions"
+        }
       }
     }
   },

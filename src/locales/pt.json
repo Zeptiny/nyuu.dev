@@ -68,23 +68,112 @@
     "note": "Alguns dos meus trabalhos recentes",
     "status": {
       "live": "No ar",
-      "development": "Em desenvolvimento",
-      "discontinued": "Descontinuado"
+      "development": "Em desenvolvimento"
     },
     "github": "Ver no GitHub",
-    "facts": {
-      "users": "Usuários",
-      "servers": "Servidores de jogo"
+    "page": {
+      "back": "Todos os projetos",
+      "summary": "Visão geral",
+      "status": "Status",
+      "kind": "Tipo",
+      "since": "Desde",
+      "site": "Site",
+      "source": "Código",
+      "visit": "Visitar {site}",
+      "features": "O que faz",
+      "screenshots": "Capturas de tela",
+      "screenshotsNote": "No tema desta página, claro ou escuro.",
+      "built": "Como é feito",
+      "other": "Outro projeto"
     },
     "items": {
       "whiskers": {
-        "description": "Uma plataforma que vende um mês de modelos abertos por uma única API compatível com a OpenAI: um pagamento, sem renovação automática, e a franquia à vista o tempo todo."
+        "description": "Modelos abertos para agentes de programação: Claude Code, Codex, OpenCode e qualquer SDK da OpenAI se conectam por uma única API compatível com OpenAI e Anthropic. Um pagamento rende várias vezes o seu preço em uso de API oficial, e nada se renova sozinho.",
+        "kind": "Plataforma hospedada",
+        "eyebrow": "Agentes de programação · Modelos abertos",
+        "lead": "O Whiskers vende modelos abertos para agentes de programação. Claude Code, Codex, OpenCode e tudo que usa um SDK da OpenAI se conectam a uma única API que fala os formatos da OpenAI e da Anthropic. Um plano é um pagamento por um número fixo de dias que rende várias vezes o seu preço em uso de API oficial, e nada se renova sozinho.",
+        "featuresNote": "Para quem programa com ele, e para quem o opera.",
+        "features": {
+          "agents": {
+            "title": "Qualquer agente de programação",
+            "text": "O Claude Code fala a API Messages da Anthropic, o Codex a API Responses da OpenAI, e OpenCode, Crush, Aider, pi, Cline, Zed e os demais usam chat completions. Um único comando configura seis deles, mantendo a configuração que já existe."
+          },
+          "payment": {
+            "title": "Um pagamento, sem renovação automática",
+            "text": "Um plano dura os seus dias a partir do pagamento e então termina: nada é acumulado e nada é cobrado. Créditos pré-pagos cobrem requisições diretamente e nunca expiram. O pagamento é feito pelo Stripe ou pelo Mercado Pago."
+          },
+          "windows": {
+            "title": "Três janelas, uma franquia",
+            "text": "Uma janela de 5 horas, uma semanal e uma mensal são três visões da mesma franquia, para que uma tarde movimentada não gaste o mês inteiro. Uma requisição roda quando todas as janelas conseguem cobri-la."
+          },
+          "value": {
+            "title": "Comparado às APIs oficiais",
+            "text": "Cada oferta mostra quanto os seus créditos custariam nos preços de API dos próprios criadores dos modelos, e o console mostra quanto cada requisição realmente custou."
+          },
+          "docs": {
+            "title": "Documentação para pessoas e agentes",
+            "text": "A página inicial e a documentação são pré-renderizadas em inglês e português, em HTML para buscadores e prévias de links e em Markdown para agentes. O guia de cada agente é montado a partir do catálogo ao vivo."
+          },
+          "operations": {
+            "title": "Operado de um só console",
+            "text": "Administradores cadastram provedores e modelos com verificações de saúde e um disjuntor (circuit breaker), e cuidam de cupons, indicações, tickets de suporte e avisos para o site todo."
+          }
+        },
+        "built": [
+          "O backend é um monólito modular em Python 3.13, FastAPI, SQLAlchemy 2 e PostgreSQL, a única infraestrutura obrigatória. Uma imagem roda como dois processos: a API, que atende todas as rotas HTTP e transmite as respostas conforme chegam, e um worker para a varredura, os consolidados de uso, os webhooks de pagamento e a conciliação. Cada módulo expõe uma única interface pública, e contratos de importação mantêm os limites.",
+          "O painel é React 19 e TypeScript sobre Vite, com TanStack Router e Query e Tailwind, no design Ledger que este site compartilha. Os tipos da API no painel são gerados a partir do esquema OpenAPI do backend e verificados contra ele."
+        ],
+        "shots": {
+          "landing": "A página inicial: o que um plano rende nos preços das APIs oficiais, e o comando de configuração de cada agente",
+          "agents": "Os agentes de programação compatíveis, e a API que cada um fala",
+          "api": "Migrando código do SDK da OpenAI: só mudam a URL base e a chave",
+          "windows": "As três janelas de uso, ao lado do console no meio de um plano",
+          "models": "O que um plano rende de cada modelo, com contexto, recursos e preços"
+        }
       },
       "syncr": {
-        "description": "Aplicação web de código aberto para sincronizar, mover e copiar arquivos entre serviços de armazenamento remoto, compatível com Amazon S3 e SFTP. Tem tarefas agendadas, notificações, suporte multiusuário e roda totalmente auto-hospedada com Docker."
-      },
-      "tryxia": {
-        "description": "Um serviço gratuito de hospedagem de Minecraft, criado como projeto de aprendizado. Feito para ganhar experiência prática com hospedagem, administração e solução de problemas de servidores em cenários reais."
+        "description": "Um gerenciador auto-hospedado de transferências com rclone e backups com restic. Um controlador com interface web comanda workers em Linux e Windows: rode tarefas manualmente ou por agendamento, acompanhe ao vivo, navegue e restaure snapshots, e seja avisado quando algo falhar.",
+        "kind": "Ferramenta auto-hospedada",
+        "eyebrow": "Auto-hospedado · Backups e transferências",
+        "lead": "O Syncr gerencia transferências com rclone e backups com restic de um só lugar. Um controlador com interface web comanda quantos workers você quiser nos seus servidores e computadores, Linux ou Windows: rode tarefas manualmente ou por agendamento, acompanhe ao vivo, navegue por arquivos e snapshots, e seja avisado quando algo falhar.",
+        "featuresNote": "Transferências, backups e as máquinas que os executam, numa só interface web.",
+        "features": {
+          "transfers": {
+            "title": "Transferências com rclone",
+            "text": "Copie, sincronize ou mova entre S3 e compatíveis, SFTP, Backblaze B2, WebDAV e as pastas do próprio worker, com progresso, velocidade e tempo restante ao vivo. A sincronização bidirecional mantém uma pasta igual em várias máquinas, e interrompe uma execução que esvaziaria um dos lados."
+          },
+          "backups": {
+            "title": "Backups com restic",
+            "text": "Crie ou conecte repositórios em qualquer remoto, faça backup das pastas de um worker ou de uma pasta de um remoto, e aplique retenção. Navegue por snapshots, restaure um inteiro ou só arquivos escolhidos, procure um arquivo em todos os snapshots e compare dois."
+          },
+          "schedules": {
+            "title": "Agendamentos",
+            "text": "Expressões cron com fusos horários e regras de horário de verão, num worker específico ou no menos ocupado com uma etiqueta, com políticas para execuções perdidas e sobrepostas."
+          },
+          "workers": {
+            "title": "Workers em qualquer lugar",
+            "text": "Os workers rodam como serviço no Linux e no Windows, conectam-se ao controlador ou deixam que ele se conecte a eles por TLS fixado (pinned), e se atualizam no lugar com reversão automática."
+          },
+          "notify": {
+            "title": "Hooks e notificações",
+            "text": "Execute comandos preparados no worker antes e depois de uma tarefa, como gerar o dump de um banco ou parar contêineres. Notificações por Discord, e-mail e webhooks assinados são guardadas antes do envio e reenviadas em caso de falha."
+          },
+          "security": {
+            "title": "Seguro e multiusuário",
+            "text": "As credenciais são criptografadas em repouso e enviadas só ao worker que executa a tarefa, que só pode mexer nas pastas que permite. Cada conta mantém os seus remotos e agendamentos privados, com tokens de API pessoais para tudo o que a interface faz."
+          }
+        },
+        "built": [
+          "O Syncr 2 é uma reescrita em Go da primeira versão, feita em Django. Um controlador guarda o estado no PostgreSQL, serve uma API Connect e embute a interface em React e TypeScript; os workers rodam versões fixadas do rclone e do restic como processos filhos e reportam o progresso enquanto trabalham.",
+          "O código segue portas e adaptadores, com as camadas garantidas pelo linter, então os casos de uso nunca tocam o PostgreSQL ou a rede diretamente. A CI roda no Linux e no Windows, com testes de integração contra PostgreSQL, MinIO e SFTP reais, e o controlador é distribuído como imagem Docker ou como um único binário."
+        ],
+        "shots": {
+          "dashboard": "O painel: taxa de sucesso, atividade por dia, próximas execuções e saúde dos workers",
+          "job-live": "Um backup em andamento com o gráfico de vazão ao vivo",
+          "snapshot-browser": "Navegando por um snapshot do restic com pastas selecionadas para restaurar",
+          "schedule": "Um agendamento com as próximas execuções, as configurações e o histórico",
+          "workers": "Workers no Linux e no Windows com status, modo de conexão, etiquetas e versões"
+        }
       }
     }
   },
