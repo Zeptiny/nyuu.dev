@@ -5,10 +5,12 @@ type Tool = { mark?: MarkName; color: string };
 /**
  * Every tool the page names, with its mark when Simple Icons has one and its brand's color, which a
  * tool's tag takes on under the pointer. The colors are Simple Icons' too, except Java's orange
- * (OpenJDK's is black) and the ones Simple Icons doesn't carry: Oracle, AWS, AWS S3 and Zabbix.
+ * (OpenJDK's is black) and the ones Simple Icons doesn't carry: Oracle, AWS, AWS S3, Zabbix, and
+ * restic, which takes the raincoat yellow of its gopher.
  */
 const tools = {
   Python: { mark: "python", color: "#3776AB" },
+  Go: { color: "#00ADD8" },
   "C++": { mark: "cplusplus", color: "#00599C" },
   C: { mark: "c", color: "#A8B9CC" },
   Bash: { mark: "gnubash", color: "#4EAA25" },
@@ -31,8 +33,9 @@ const tools = {
   Grafana: { mark: "grafana", color: "#F46800" },
   Ansible: { mark: "ansible", color: "#EE0000" },
   FastAPI: { color: "#009688" },
-  Django: { color: "#092E20" },
   React: { color: "#61DAFB" },
+  rclone: { color: "#3F79AD" },
+  restic: { color: "#F8E868" },
 } satisfies Record<string, Tool>;
 
 export type ToolName = keyof typeof tools;

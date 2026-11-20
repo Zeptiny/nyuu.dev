@@ -61,16 +61,15 @@ export function Hero({ t }: { t: Dictionary }) {
 /** The degree under way, the course in progress, what's being built, and the certifications. */
 function Now({ t }: { t: Dictionary }) {
   const { degree, learning, certifications } = educationSummary();
-  const building = PROJECTS.filter((project) => project.status !== "discontinued");
   const items = [
     degree && {
       label: t.hero.now.studying,
       value: `${t.education.items[degree.id].title} · ${fill(t.hero.now.since, { year: degree.year })}`,
     },
     learning && { label: t.hero.now.learning, value: t.education.items[learning.id].title },
-    building.length > 0 && {
+    PROJECTS.length > 0 && {
       label: t.hero.now.building,
-      value: building.map((project) => project.name).join(" · "),
+      value: PROJECTS.map((project) => project.name).join(" · "),
     },
     certifications.length > 0 && {
       label: t.hero.now.certified,

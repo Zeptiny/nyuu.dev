@@ -68,23 +68,112 @@
     "note": "Some of my recent work",
     "status": {
       "live": "Live",
-      "development": "In development",
-      "discontinued": "Discontinued"
+      "development": "In development"
     },
     "github": "View on GitHub",
-    "facts": {
-      "users": "Users",
-      "servers": "Game servers"
+    "page": {
+      "back": "All projects",
+      "summary": "At a glance",
+      "status": "Status",
+      "kind": "Kind",
+      "since": "Since",
+      "site": "Site",
+      "source": "Source",
+      "visit": "Visit {site}",
+      "features": "What it does",
+      "screenshots": "Screenshots",
+      "screenshotsNote": "In this page’s theme, light or dark.",
+      "built": "How it’s built",
+      "other": "Another project"
     },
     "items": {
       "whiskers": {
-        "description": "A platform that sells a month of open models through one OpenAI-compatible API: one payment, no auto-renew, and the allowance on screen the whole time."
+        "description": "Open models for coding agents: Claude Code, Codex, OpenCode and any OpenAI SDK connect through one OpenAI- and Anthropic-compatible API. One payment buys several times its price in official API usage, and nothing renews on its own.",
+        "kind": "Hosted platform",
+        "eyebrow": "Coding agents · Open models",
+        "lead": "Whiskers sells open models to coding agents. Claude Code, Codex, OpenCode and anything with an OpenAI SDK connect to one API that speaks OpenAI’s and Anthropic’s formats. A plan is one payment for a set number of days that buys several times its price in official API usage, and nothing renews on its own.",
+        "featuresNote": "For the people who code with it, and for running it.",
+        "features": {
+          "agents": {
+            "title": "Every coding agent",
+            "text": "Claude Code speaks Anthropic’s Messages API, Codex OpenAI’s Responses API, and OpenCode, Crush, Aider, pi, Cline, Zed and the rest chat completions. One setup command configures six of them, keeping the config already there."
+          },
+          "payment": {
+            "title": "One payment, no auto-renew",
+            "text": "A plan runs for its days from payment and then ends: nothing carries over and nothing is charged. Prepaid credits cover requests directly and never expire. Checkout runs on Stripe or Mercado Pago."
+          },
+          "windows": {
+            "title": "Three windows, one allowance",
+            "text": "A 5-hour, a weekly and a monthly window are three views of the same allowance, so one busy afternoon can’t use up the month. A request runs when every window can cover it."
+          },
+          "value": {
+            "title": "Priced against the official APIs",
+            "text": "Every offer shows what its credits would cost at the model publishers’ own API prices, and the console shows what each request actually cost."
+          },
+          "docs": {
+            "title": "Docs for people and agents",
+            "text": "The landing page and the docs are prerendered in English and Portuguese, as HTML for search engines and link previews and as Markdown for agents. Each agent’s guide is built from the live catalog."
+          },
+          "operations": {
+            "title": "Run from one console",
+            "text": "Admins onboard providers and models with health checks and a circuit breaker, and handle coupons, referrals, support tickets and site-wide announcements."
+          }
+        },
+        "built": [
+          "The backend is a modular monolith on Python 3.13, FastAPI, SQLAlchemy 2 and PostgreSQL, its only required infrastructure. One image runs as two processes: the API, which serves every HTTP surface and streams responses as they arrive, and a worker for the sweeper, usage rollups, payment webhooks and reconciliation. Each module exposes a single public interface, and import contracts keep the boundaries.",
+          "The dashboard is React 19 and TypeScript on Vite, with TanStack Router and Query and Tailwind, in the Ledger design this site shares. Its API types are generated from the backend’s OpenAPI schema and checked against it."
+        ],
+        "shots": {
+          "landing": "The landing page: what a plan buys at the official API prices, and the setup command for each agent",
+          "agents": "The coding agents it works with, and the API each one speaks",
+          "api": "Moving OpenAI SDK code over: only the base URL and the key change",
+          "windows": "The three usage windows, beside the console part-way through a plan",
+          "models": "What a plan buys of each model, with its context, features and prices"
+        }
       },
       "syncr": {
-        "description": "An open-source web application for synchronizing, moving, and copying files across remote storage services, compatible with Amazon S3 and SFTP. It has scheduled jobs, notifications, multi-user support, and runs fully self-hosted with Docker."
-      },
-      "tryxia": {
-        "description": "A free Minecraft hosting service, created as a learning project. Built to gain hands-on experience with hosting, administration, and troubleshooting servers in real-world scenarios."
+        "description": "A self-hosted manager for rclone transfers and restic backups. One controller with a web UI drives workers on Linux and Windows: run jobs by hand or on a schedule, follow them live, browse and restore snapshots, and get notified when something fails.",
+        "kind": "Self-hosted tool",
+        "eyebrow": "Self-hosted · Backups and transfers",
+        "lead": "Syncr manages rclone transfers and restic backups from one place. A controller with a web UI drives any number of workers on your servers and desktops, Linux or Windows: run jobs by hand or on a schedule, watch them live, browse files and snapshots, and get notified when something fails.",
+        "featuresNote": "Transfers, backups and the machines that run them, from one web UI.",
+        "features": {
+          "transfers": {
+            "title": "rclone transfers",
+            "text": "Copy, sync or move between S3 and compatibles, SFTP, Backblaze B2, WebDAV and a worker’s own folders, with live progress, speed and time left. Two-way sync keeps a folder in step on several machines, and stops a run that would empty a side."
+          },
+          "backups": {
+            "title": "restic backups",
+            "text": "Create or connect repositories on any remote, back up a worker’s folders or a folder of a remote, and apply retention. Browse snapshots, restore all of one or selected files, search every snapshot for a file, and compare two."
+          },
+          "schedules": {
+            "title": "Schedules",
+            "text": "Cron expressions with time zones and daylight-saving rules, run on one worker or on the least busy one with a label, with policies for missed runs and overlaps."
+          },
+          "workers": {
+            "title": "Workers anywhere",
+            "text": "Workers run as services on Linux and Windows, connect to the controller or let it connect to them over pinned TLS, and upgrade in place with automatic rollback."
+          },
+          "notify": {
+            "title": "Hooks and notifications",
+            "text": "Run a worker’s prepared commands before and after a job, such as dumping a database or stopping containers. Discord, email and signed webhooks are stored before sending and retried."
+          },
+          "security": {
+            "title": "Secure and multi-user",
+            "text": "Credentials are encrypted at rest and sent only to the worker that runs the job, which can only touch the folders it allows. Accounts keep their remotes and schedules private, with personal API tokens for everything the UI does."
+          }
+        },
+        "built": [
+          "Syncr 2 is a Go rewrite of the first version, which was built on Django. One controller keeps its state in PostgreSQL, serves a Connect API, and embeds the React and TypeScript UI; workers run pinned versions of rclone and restic as child processes and report progress as they go.",
+          "The code follows ports and adapters, with the layers enforced by the linter, so the use cases never touch PostgreSQL or the network directly. CI runs on Linux and Windows, with integration tests against real PostgreSQL, MinIO and SFTP, and the controller ships as a Docker image or a single binary."
+        ],
+        "shots": {
+          "dashboard": "The dashboard: success rate, activity per day, upcoming runs and worker health",
+          "job-live": "A running backup with its live throughput chart",
+          "snapshot-browser": "Browsing a restic snapshot with folders selected for restore",
+          "schedule": "A schedule with its next runs, settings and run history",
+          "workers": "Workers on Linux and Windows with their status, link mode, labels and versions"
+        }
       }
     }
   },

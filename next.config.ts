@@ -8,10 +8,16 @@ const nextConfig: NextConfig = {
   // English is served at the root and the other languages under their code (src/i18n/languages.ts),
   // while every language renders from app/[lang].
   async rewrites() {
-    return [{ source: "/", destination: "/en" }];
+    return [
+      { source: "/", destination: "/en" },
+      { source: "/projects/:project", destination: "/en/projects/:project" },
+    ];
   },
   async redirects() {
-    return [{ source: "/en", destination: "/", permanent: true }];
+    return [
+      { source: "/en", destination: "/", permanent: true },
+      { source: "/en/:path+", destination: "/:path+", permanent: true },
+    ];
   },
 };
 
